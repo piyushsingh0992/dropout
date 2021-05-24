@@ -1,0 +1,45 @@
+.likedVideoPage {
+    display: flex;
+}
+
+
+.likedVideos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.likedVideosHeading{
+    padding: 2%;
+    border-bottom: 2px solid white;
+    width: 96%;
+}
+
+.likedVideosHeading >h1{
+    font-size: 1.5rem;
+}
+.likedVideoPageGrid {
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: 14rem 14rem 14rem 14rem;
+    grid-row: auto;
+    grid-gap: 1rem;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .likedVideoPage {
+        flex-direction: column;
+    }
+
+    .likedVideoPageGrid {
+        grid-template-columns: 12rem 12rem;
+        grid-gap: 1rem;
+    }
+
+
+}

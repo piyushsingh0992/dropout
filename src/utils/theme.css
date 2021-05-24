@@ -1,0 +1,30 @@
+:root {
+    --primary: #1f7ae0;
+    --primary-text: #808080;
+    --bold-text: #424242;
+    --highlight-text: #1f7ae0;
+    --primary-background: #e0e8fb    ;
+    --card-background:white;
+    --highlight-background: #ffffff;
+  
+    --dark-primary: #1f7ae0;
+    --dark-primary-text: #808080;
+    --dark-bold-text: #ffffff;
+    --dark-highlight-text: #1f7ae0;
+    --dark-primary-background: #303134;
+
+    --dark-card-background: #4f4e4f;
+    --dark-highlight-background: black;
+    
+    --white: #ffffff;
+    --black:black;
+
+    --layer-1:1;
+    --layer-2:2;
+  }
+  
+  @font-face {
+    src: url(fonts/Futura-Bold.otf);
+    font-family: logo;
+  }
+  

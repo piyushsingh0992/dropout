@@ -1,0 +1,95 @@
+.videoPlayer {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    width: 100%;
+
+}
+
+.videoPlayerIframe {
+    height: 30rem;
+    width: 95%;
+}
+
+.currentVideoDetails {
+    width: 95%;
+    word-break: break-all;
+}
+
+.videoTitle {
+    font-size: 1.5rem;
+}
+
+.videoPlayerCTAContainer {
+    display: flex;
+    border-bottom: 1px solid grey;
+    margin-top: 1rem;
+}
+
+
+
+.videoPlayerCTAContainer>div {
+    display: flex;
+    align-items: center;
+    color: var(--primary-text);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+
+
+.videoPlayerCTAContainer img {
+    height: 1.4rem;
+    margin: 0.2rem 0.5rem 0.2rem 1rem;
+    cursor: pointer;
+}
+
+.videoPlayerCTAContainer img:hover {
+    transform: scale(1.2);
+}
+
+.video-mentor-details-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:1rem 0;
+    width:95%;
+
+}
+.video-mentor-img{
+    height: 3.5rem;
+}
+
+.video-mentor-details {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+@media only screen and (max-width: 600px) {
+    .videoPlayerIframe {
+        height: 15rem;
+        width: 100%;
+    }
+
+    .currentVideoDetails {
+        width: 100%;
+    }
+
+    .videoPlayerCTAContainer>div {
+
+        font-size: 0.8rem;
+    }
+
+
+
+    .videoPlayerCTAContainer img {
+        height: 1.1rem;
+
+    }
+
+    .video-mentor-details-container{
+        
+        width:100%;
+    
+    }
+}

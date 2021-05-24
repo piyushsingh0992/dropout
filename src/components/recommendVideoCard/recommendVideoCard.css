@@ -1,0 +1,72 @@
+.recommendVideoCard {
+    display: flex;
+    margin: 1rem;
+}
+
+.recommendImageContainer {
+    position: relative;
+    margin-right: 0.6rem;
+    height: 6rem;
+}
+
+.recommendBtnScreen {
+    display: none;
+}
+
+.recommendImageContainer:hover .recommendBtnScreen {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+}
+
+
+.recommendthumbNail {
+    height: 6rem;
+    object-fit: contain;
+
+}
+
+.playlistRecommendVideoCardBtn {
+    position: absolute;
+    right: 0.6rem;
+    height: 1.25rem;
+    top: 0.5rem;
+    cursor: pointer;
+}
+
+.laterRecommendVideoCardBtn {
+    position: absolute;
+    right: 0.6rem;
+    height: 1.25rem;
+    top: 2.5rem;
+    cursor: pointer;
+}
+
+.playlistRecommendVideoCardBtn:hover {
+    transform: scale(0.9);
+}
+
+.laterRecommendVideoCardBtn:hover {
+    transform: scale(0.9);
+
+}
+
+.recommendVideoDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.recommendVideoDetailsContainer>p {
+    font-size: 1.2rem;
+}
+
+.recommendvideoDetails {
+    font-size: 0.9rem;
+    color: var(--primary-text)
+}

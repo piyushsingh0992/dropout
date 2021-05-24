@@ -1,0 +1,46 @@
+@import "../../utils/theme.css";
+
+.contextManagerContainter {
+    position: absolute;
+    top: 1rem;
+    right: 5rem;
+    z-index: var(--layer-2);
+}
+
+
+.contextManager {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-width: 130px;
+
+}
+
+.languageContextManager {
+    margin-right: 1rem;
+}
+
+.themeContextManager {
+    padding: 0.3rem;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.themeContextManager>img {
+    height: 1.2rem;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .contextManagerContainter {
+        position: absolute;
+        top: 0.5rem;
+        right: 4rem;
+        z-index: var(--layer-2);
+
+    }
+
+
+}

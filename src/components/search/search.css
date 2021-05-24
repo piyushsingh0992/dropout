@@ -1,0 +1,36 @@
+.search {
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+
+    padding: 0.5rem 1rem;
+    width: 17rem;
+}
+
+.search>img {
+    height: 1.8rem;
+    margin-right: 1rem;
+}
+
+.search>input {
+    font-size: 1.3rem;
+    outline: none;
+    border: none;
+    width: 13rem;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .search {
+
+        width: 26rem;
+    }
+
+
+    .search>input {
+
+        width: 22rem;
+
+    }
+
+}

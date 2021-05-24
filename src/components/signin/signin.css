@@ -1,0 +1,22 @@
+.signin{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:1rem;
+    border-radius: 5px;
+
+    height:20rem;
+
+}
+
+.signin>img{
+    height: 5rem;
+}
+
+.signin-btn-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:4rem;
+    text-align: center;
+}

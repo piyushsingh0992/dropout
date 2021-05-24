@@ -1,0 +1,112 @@
+.searchVideoCard {
+    display: flex;
+    margin: 1rem;
+    align-items: stretch;
+    width: 100%;
+
+}
+
+.searchImageContainer {
+    position: relative;
+    margin-right: 0.6rem;
+    height: 8rem;
+}
+
+.searchBtnScreen {
+    display: none;
+}
+
+.searchImageContainer:hover .searchBtnScreen {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+}
+
+
+.searchThumbnail {
+    height: 8rem;
+    object-fit: contain;
+
+}
+
+.playlistSearchVideoCardBtn {
+    position: absolute;
+    right: 0.6rem;
+    height: 1.5rem;
+    top: 0.5rem;
+    cursor: pointer;
+}
+
+.laterSearchVideoCardBtn {
+    position: absolute;
+    right: 0.6rem;
+    height: 1.5rem;
+    top: 2.5rem;
+    cursor: pointer;
+}
+
+.playlistSearchVideoCardBtn:hover {
+    transform: scale(0.9);
+}
+
+.laterSearchVideoCardBtn:hover {
+    transform: scale(0.9);
+
+}
+
+.searchVideoDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+    max-width: 55vw;
+
+    word-break: break-all;
+
+
+}
+
+.searchVideoCardMentorDetails {
+    display: flex;
+    align-items: center;
+}
+
+.searchVideoCardMentorImg {
+    height: 2rem;
+    margin-right: 0.5rem;
+}
+
+.searchVideoDetailsContainer>p {
+    font-size: 1.2rem;
+}
+
+.searchVideoDetails {
+    font-size: 0.8rem;
+    color: var(--primary-text);
+    height: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .searchVideoDetailsContainer {
+
+        max-width: 45vw;
+
+
+    }
+
+    .searchVideoDetailsContainer>p {
+        font-size: 1rem;
+    }
+
+    .searchVideoDetails {
+        font-size: 0.8rem;
+    }
+}
