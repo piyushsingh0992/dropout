@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import "./hero.css";
 import logo from "../../utils/images/brand/dropout.svg";
 import menu from "../../utils/images/icons/menu.svg";
@@ -11,9 +12,11 @@ import leftArrow from "../../utils/images/icons/leftArrow.svg";
 import rightArrow from "../../utils/images/icons/rightArrow.svg";
 
 import { useMentorDetails } from "../../utils/common.js";
+import {Link } from "react-router-dom";
 
 const Hero = () => {
   const { theme } = useTheme();
+  const {language}=useLanguage();
   const { mentorDetails } = useMentorDetails();
   const [position, positionSetter] = useState(0);
   const setTimeOutId = useRef();
@@ -97,9 +100,9 @@ const Hero = () => {
                   <p className="mentorType">{item.category}</p>
                   <p className="mentorDescription">tanay work's at microsoft</p>
 
-                  <div>
-                    <Button text="Start Learning" size="startLearning" />
-                  </div>
+                  <Link to={item.route}>
+                    <Button text={language.startLearning} size="startLearning" />
+                  </Link>
                 </div>
               </div>
             );

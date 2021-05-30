@@ -9,12 +9,11 @@ export const English = {
     login: "Login",
     logout: "Logout",
     choose: "Choose your mentor",
-  
     developed: "Developed by",
     explore: "Explore",
     recommend: "Recommended",
     more: "Show More",
-  
+    startLearning:"Start Learning",
     auth: {
       name: "Name",
       email: "Email",
@@ -25,13 +24,14 @@ export const English = {
       msg2: "Already a member ?",
     },
     mentor: [
-      { name: "Tanay Pratap", mentor: "Tech Mentor" },
-      { name: "Varun Mavya", mentor: "Business Mentor" },
-      { name: "Shashank Udapa", mentor: "Finance Mentor" },
-      { name: "Abhinav Arora", mentor: "Marketing Mentor" },
-      { name: "Abhinav Chikara", mentor: "Design Mentor" },
-      { name: "Prakhar Gupta", mentor: "Conversation Mentor" },
+      { name: "Tanay Pratap", mentor: "Tech Mentor" ,route:""},
+      { name: "Varun Mavya", mentor: "Business Mentor" ,route:""},
+      { name: "Shashank Udapa", mentor: "Finance Mentor" ,route:""},
+      { name: "Abhinav Arora", mentor: "Marketing Mentor" ,route:""},
+      { name: "Abhinav Chikara", mentor: "Design Mentor" ,route:""},
+      { name: "Prakhar Gupta", mentor: "Conversation Mentor" ,route:""},
     ],
+
   };
   
   export const Hindi = {
@@ -45,6 +45,7 @@ export const English = {
     login: "लॉग इन करें",
     logout: "लॉग आउट",
     choose: "अपना गुरु चुनें",
+    startLearning:"सीखना शुरू करें",
     auth: {
       name: "नाम",
       email: "ईमेल",
@@ -76,7 +77,7 @@ export const English = {
     login: "પ્રવેશ કરો",
     logout: "લૉગ આઉટ",
     choose: "તમારા માર્ગદર્શકને પસંદ કરો",
-  
+    startLearning:"લર્નિંગ શરૂ કરો",
     auth: {
       name: "નામ",
       email: "ઇમેઇલ",
@@ -108,6 +109,7 @@ export const English = {
     login: "রবেশ করুন",
     logout: "রস্থান",
     choose: "আপনার পরামর্শদাতা চয়ন করুন",
+    startLearning:"শেখা শুরু করো",
     auth: {
       name: "নাম",
       email: "ইমেল",
@@ -138,6 +140,7 @@ export const English = {
     login: "लॉगिन",
     logout: "बाहेर पडणे",
     choose: "आपला गुरू निवडा",
+    startLearning:"शिकणे प्रारंभ करा",
     auth: {
       name: "नाव",
       email: "ईमेल",
@@ -168,6 +171,7 @@ export const English = {
     login: "acceso",
     logout: "cerrar sesión",
     choose: "Elige tu mentora",
+    startLearning:"Comienza a aprender",
     auth: {
       name: "nombre",
       email: "Correo electrónico",
@@ -198,6 +202,7 @@ export const English = {
     login: "connexion",
     logout: "Se déconnecter",
     choose: "Choisissez votre mentor",
+    startLearning:"Commencer à apprendre",
     auth: {
       name: "nom",
       email: "Email",
@@ -228,6 +233,7 @@ export const English = {
     login: "Accedere",
     logout: "disconnettersi",
     choose: "Scegli il tuo mentore",
+    startLearning:"Inizia ad imparare",
     auth: {
       name: "Nome",
       email: "Email",

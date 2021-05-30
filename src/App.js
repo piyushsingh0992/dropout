@@ -21,8 +21,6 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/videoplayer" element={<VideoPlayerPage />} />
-
-
         <Route path="/likedvideos" element={<LikedVideoPage />} />
         <Route path="/videoplayer" element={<VideoPlayerPage />} />
         <Route path="/videoplayer" element={<VideoPlayerPage />} />

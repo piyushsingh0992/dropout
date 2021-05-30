@@ -45,14 +45,14 @@ export const useMentorDetails = () => {
       category: language.mentor[0].mentor,
       heroImage: theme.tanayHeroImage,
       profile: tanay,
-      banner: tanaybanner,
+      banner: tanaybanner,route:"/mentor/tanay_pratap",
     },
     {
       name: language.mentor[1].name,
       category: language.mentor[1].mentor,
       heroImage: theme.varunHeroImage,
       profile: varun,
-      banner: varunbanner,
+      banner: varunbanner,route:"/mentor/varun_mavya",
     },
 
     {
@@ -60,28 +60,29 @@ export const useMentorDetails = () => {
       category: language.mentor[2].mentor,
       heroImage: theme.shashankHeroImage,
       profile: shashank,
-      banner: shashankbanner,
+      banner: shashankbanner,route:"/mentor/shashank_udupa",
     },
     {
       name: language.mentor[3].name,
       category: language.mentor[3].mentor,
       heroImage: theme.abhinavHeroImage,
       profile: abhinav,
-      banner: abhinavbanner,
+      banner: abhinavbanner,route:"/mentor/abhinav_gupta",
     },
     {
       name: language.mentor[4].name,
       category: language.mentor[4].mentor,
       heroImage: theme.abhinavChikaraHeroImage,
       profile: abhinavChikara,
-      banner: abhinavChikarabanner,
+      banner: abhinavChikarabanner,route:"/mentor/abhinav_chikara",
     },
+    
     {
       name: language.mentor[5].name,
       category: language.mentor[5].mentor,
       heroImage: theme.prakharHeroImage,
       profile: prakhar,
-      banner: prakharbanner,
+      banner: prakharbanner,route:"/mentor/prakhar_gupta",
     },
   ];
   return { mentorDetails };
