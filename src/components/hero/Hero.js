@@ -13,6 +13,7 @@ import rightArrow from "../../utils/images/icons/rightArrow.svg";
 
 import { useMentorDetails } from "../../utils/common.js";
 import {Link } from "react-router-dom";
+import axios from "axios";
 
 const Hero = () => {
   const { theme } = useTheme();
@@ -21,6 +22,19 @@ const Hero = () => {
   const [position, positionSetter] = useState(0);
   const setTimeOutId = useRef();
   const [side, sideSetter] = useState(false);
+
+  useEffect(()=>{
+
+    (async function (params) {
+      try{
+        let x=await axios.get("/mentor");
+        console.log({x})
+      }catch(error){
+        console.error("error ->",error);
+      };
+
+    })()
+  })
 
   useEffect(() => {
     let id = setTimeout(() => {
@@ -90,9 +104,9 @@ const Hero = () => {
           }}
         />
         <div className="slideShow" style={{ left: `${position}vw` }}>
-          {mentorDetails.map((item) => {
+          {mentorDetails.map((item,index) => {
             return (
-              <div className="slide">
+              <div key={index} className="slide">
                 <img src={item.heroImage} className="slideMentorImg" />
 
                 <div className="slideMentorDetails">

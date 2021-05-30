@@ -6,6 +6,9 @@ import App from "./App";
 import { LanguageProvider } from "./contexts/languageContext/languageContext.js";
 import { ThemeProvider } from "./contexts/themeContext/themeContext.js";
 import { BrowserRouter as Router } from "react-router-dom";
+import {dropoutServer} from "./server/server.js";
+
+dropoutServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
