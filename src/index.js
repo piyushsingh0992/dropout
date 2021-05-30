@@ -10,7 +10,7 @@ import {dropoutServer} from "./server/server.js";
 
 dropoutServer();
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Router>
       <ThemeProvider>
         <LanguageProvider>
@@ -18,6 +18,6 @@ ReactDOM.render(
         </LanguageProvider>
       </ThemeProvider>
     </Router>
-  </React.StrictMode>,
-  document.getElementById("root")
+  // </React.StrictMode>,
+  ,document.getElementById("root")
 );

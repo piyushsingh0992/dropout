@@ -7,7 +7,9 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import playlist from "../../utils/images/icons/playlistWhite.svg";
 import later from "../../utils/images/icons/laterWhite.svg";
 import like from "../../utils/images/icons/like.svg";
-const VideoCard = () => {
+const VideoCard = ({ videosDetails,mentorImg }) => {
+  const { title, mentor, embededLink, thumbnail, views } = videosDetails;
+  debugger;
   const { theme } = useTheme();
   return (
     <div className="videoCard">
@@ -28,18 +30,20 @@ const VideoCard = () => {
             }}
           />
         </div>
-        <img src={book} className="thumbNail" />
+        <img src={thumbnail} className="thumbNail" />
       </div>
       <div className="videoDetailsContainer">
         <div className="videoTitle">
-          <img src={pic} className="videoMentor" />
-          <p style={{ color: theme.boldText }}>Lesson Name</p>
+          <img src={mentorImg} className="videoMentor" />
+          <p style={{ color: theme.boldText }}>
+            {title.length > 40 ? `${title.slice(0, 40)}...` : title}
+          </p>
         </div>
 
         <div className="videoDetails">
           <div>
-            <p>mentor name </p>
-            <p>66k views . 1 days ago</p>
+            <p>{mentor} </p>
+            <p>{views} views . 1 days ago</p>
           </div>
           <img src={like} className="videoDetailsLikeButton" />
         </div>

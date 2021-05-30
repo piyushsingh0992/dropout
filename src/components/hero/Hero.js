@@ -13,7 +13,9 @@ import rightArrow from "../../utils/images/icons/rightArrow.svg";
 
 import { useMentorDetails } from "../../utils/common.js";
 import {Link } from "react-router-dom";
-import axios from "axios";
+
+
+
 
 const Hero = () => {
   const { theme } = useTheme();
@@ -23,18 +25,9 @@ const Hero = () => {
   const setTimeOutId = useRef();
   const [side, sideSetter] = useState(false);
 
-  useEffect(()=>{
 
-    (async function (params) {
-      try{
-        let x=await axios.get("/mentor");
-        console.log({x})
-      }catch(error){
-        console.error("error ->",error);
-      };
 
-    })()
-  })
+
 
   useEffect(() => {
     let id = setTimeout(() => {
