@@ -1,0 +1,43 @@
+
+.questionBox{
+    display: flex;
+    align-items: center;
+    width: 95%;
+    justify-content: space-between;
+    padding: 2rem 0;
+}
+
+.questionBox>input{
+    width:85%;
+
+    font-size:1.5rem;
+    border:none;
+    outline: none;
+}
+.enterComment{
+    height: 3rem;
+    cursor: pointer;
+}
+
+.enterComment:hover{
+    transform: scale(0.9);
+}
+
+.question{
+    display: flex;
+    width:95%;
+    align-items: flex-start;
+ 
+    padding:1.5rem 0
+}
+
+.question p{    margin-left:1.2rem;
+}
+@media only screen and (max-width: 600px) {
+    .questionBox{
+        width: 100%;
+    }
+    .question{
+        width:100%
+    }
+}

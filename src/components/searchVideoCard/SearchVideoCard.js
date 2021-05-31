@@ -7,34 +7,39 @@ import "./searchVideoCard.css";
 import pic from "../../utils/images/mentors/tanay/profile.png";
 const SearchVideoCard = () => {
   const { theme } = useTheme();
-  let x="ssssssssssssssssssssssssdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  let x =
+    "ssssssssssssssssssssssssdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd";
   return (
     <div className="searchVideoCard">
       <div className="searchImageContainer">
         <div className="searchBtnScreen">
-          <img
-            src={playlist}
-            className="playlistSearchVideoCardBtn"
-            onClick={() => {
-              console.log("playlist");
-            }}
-          />
-          <img
-            src={later}
-            className="laterSearchVideoCardBtn"
-            onClick={() => {
-              console.log("watch later");
-            }}
-          />
+          <div className="searchPlaylistBtnContainer">
+            <p>Add to Playlist</p>
+            <img
+              src={playlist}
+              className="playlistSearchVideoCardBtn"
+              onClick={() => {}}
+            />
+          </div>
+          <div className="searchWatchLaterBtnContainer">
+          <p>Watch Later</p>
+            <img
+              src={later}
+              className="laterSearchVideoCardBtn"
+              onClick={() => {}}
+            />
+          </div>
         </div>
         <img src={book} className="searchThumbnail" />
       </div>
 
       <div className="searchVideoDetailsContainer">
-        <p style={{ color: theme.boldText }}>{x.length > 70 ? `${x.slice(0, 70)}...` : x}</p>
+        <p style={{ color: theme.boldText }}>
+          {x.length > 70 ? `${x.slice(0, 70)}...` : x}
+        </p>
 
         <div className="searchVideoDetails">
-          <div  className="searchVideoCardMentorDetails">
+          <div className="searchVideoCardMentorDetails">
             <img src={pic} className="searchVideoCardMentorImg" />
             <p>mentor name </p>
           </div>

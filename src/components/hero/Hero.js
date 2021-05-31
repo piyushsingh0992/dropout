@@ -65,7 +65,6 @@ const Hero = () => {
             src={menu}
             className="menuBrand"
             onClick={() => {
-              console.log("clicked");
               sideSetter((value) => !value);
             }}
           />
@@ -84,7 +83,6 @@ const Hero = () => {
           src={leftArrow}
           className="left-arrow"
           onClick={() => {
-            console.log("clicked left");
             slideLeft();
           }}
         />
@@ -92,7 +90,6 @@ const Hero = () => {
           src={rightArrow}
           className="right-arrow"
           onClick={() => {
-            console.log("clicked right");
             slideRight();
           }}
         />

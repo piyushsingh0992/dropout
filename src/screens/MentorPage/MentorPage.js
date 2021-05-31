@@ -20,7 +20,6 @@ const MentorPage = () => {
     })();
   }, []);
 
-  console.log({ mentorDetails });
   
   return mentorDetails ? (
     <div className="mentorPage">

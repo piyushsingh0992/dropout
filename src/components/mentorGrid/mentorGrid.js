@@ -22,7 +22,7 @@ const MentorGrid = () => {
 
       <div className="grid">
         {mentorDetails.map(mentor=>{
-            return <MentorCard banner={mentor.banner}profile={mentor.profile} category={mentor.category} name={mentor.name}/>
+            return <MentorCard banner={mentor.banner}profile={mentor.profile} category={mentor.category} name={mentor.name} route={mentor.route}/>
         })}
 
       </div>

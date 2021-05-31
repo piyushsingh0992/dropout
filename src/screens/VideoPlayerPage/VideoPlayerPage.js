@@ -27,7 +27,6 @@ const VideoPlayerPage = () => {
       }
     })();
   }, [videoId]);
-  console.log({videoDetails});
   
   return videoDetails ? (
     <div className="videoPlayerPage">
@@ -41,7 +40,6 @@ const VideoPlayerPage = () => {
           src={theme.menu}
           className="videoPlayerMenu"
           onClick={() => {
-            console.log("clicked");
             sideSetter((value) => !value);
           }}
         />

@@ -16,20 +16,19 @@ const RecommendVideoCard = ({ videoDetails, mentor }) => {
       <NavLink to={`/videoplayer/${videoId}`}>
       <div className="recommendImageContainer">
         <div className="recommendBtnScreen">
+          <div className="recommendPlaylistBtnContainer"><p>Add to playlist</p>
           <img
             src={playlist}
             className="playlistRecommendVideoCardBtn"
             onClick={() => {
-              console.log("playlist");
             }}
-          />
-          <img
+          /></div>
+         <div className="recommendwatchLaterBtnContainer"><p>Watch Later</p> <img
             src={later}
             className="laterRecommendVideoCardBtn"
             onClick={() => {
-              console.log("watch later");
             }}
-          />
+          /></div>
         </div>
         <img src={thumbnail} className="recommendthumbNail" />
       </div>

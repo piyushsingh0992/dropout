@@ -24,6 +24,7 @@
     right: 0;
     bottom: 0;
     display: block;
+    overflow: hidden;
 }
 
 
@@ -33,6 +34,22 @@
 
 }
 
+.searchPlaylistBtnContainer p{
+    color:var(--white);
+    font-size: 0.9rem;
+    position: absolute;
+    right:2.4rem;
+    top:0.6rem;
+    
+    opacity: 0;
+    transform: translateX(10rem);
+    transition: all ease-in-out 0.5s;
+}
+
+.searchPlaylistBtnContainer:hover p{
+    opacity: 1;
+    transform: translateX(0rem);
+}
 .playlistSearchVideoCardBtn {
     position: absolute;
     right: 0.6rem;
@@ -41,6 +58,23 @@
     cursor: pointer;
 }
 
+.searchWatchLaterBtnContainer p{
+    color:var(--white);
+    font-size: 0.9rem;
+    position: absolute;
+    right:2.4rem;
+    top:2.5rem;
+    
+    opacity: 0;
+    transform: translateX(10rem);
+    transition: all ease-in-out 0.5s;
+
+}
+
+.searchWatchLaterBtnContainer:hover p{
+    opacity: 1;
+    transform: translateX(0rem);
+}
 .laterSearchVideoCardBtn {
     position: absolute;
     right: 0.6rem;

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./mentorCard.css";
 
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { NavLink } from "react-router-dom";
 
-const MentorCard = ({ profile, banner, name, category }) => {
+const MentorCard = ({ profile, banner, name, category,route }) => {
   const { theme } = useTheme();
   const [trigger, triggerSetter] = useState(false);
   const triggerHandler = () => {
@@ -50,13 +51,14 @@ const MentorCard = ({ profile, banner, name, category }) => {
           >
             Tanay work's at microsoft
           </div>
-
+            <NavLink to={route}>
           <div
             className="mentor-card-modal-btn-container"
             style={{ backgroundColor: theme.primaryBackground }}
           >
             <button>Start Learning</button>
           </div>
+          </NavLink>
         </div>
       </div>
     </div>
