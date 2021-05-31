@@ -27,36 +27,40 @@
   
   }
 
+  
   .mentorHeader-mentor-details{
     display: flex;
     align-items: center;
   }
+
   .mentorHeader-mentor-img {
-    height: 7rem;
-    width: 7rem;
+    height: 6.5rem;
+    width: 6.5rem;
     border-radius: 50%;
     margin: 1rem 0rem;
   }
   
+  
   .mentorHeader-mentor-text {
-    height: 5rem;
+    height: 4rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
     
-    margin:0 3rem
+    margin:0 1rem;
+
   }
   
   .mentorHeader-mentor-text > h1 {
     color: var(--highlight-text);
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-family: logo;
   }
   
   .mentorHeader-mentor-text > p {
     color: var(--primary-text);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .subscribe-btn{

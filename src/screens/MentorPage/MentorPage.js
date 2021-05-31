@@ -13,7 +13,7 @@ const MentorPage = () => {
         let { data } = await axios.get(`/mentor/${mentorId}`);
         mentorDetailsSetter(data);
     
-        debugger;
+        
       } catch (error) {
         console.error("error ->", error);
       }
@@ -21,7 +21,7 @@ const MentorPage = () => {
   }, []);
 
   console.log({ mentorDetails });
-  debugger;
+  
   return mentorDetails ? (
     <div className="mentorPage">
       <Navigation />

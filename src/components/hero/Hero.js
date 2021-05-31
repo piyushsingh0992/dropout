@@ -12,7 +12,7 @@ import leftArrow from "../../utils/images/icons/leftArrow.svg";
 import rightArrow from "../../utils/images/icons/rightArrow.svg";
 
 import { useMentorDetails } from "../../utils/common.js";
-import {Link } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 
 
 
@@ -107,9 +107,9 @@ const Hero = () => {
                   <p className="mentorType">{item.category}</p>
                   <p className="mentorDescription">tanay work's at microsoft</p>
 
-                  <Link to={item.route}>
+                  <NavLink to={item.route}>
                     <Button text={language.startLearning} size="startLearning" />
-                  </Link>
+                  </NavLink>
                 </div>
               </div>
             );

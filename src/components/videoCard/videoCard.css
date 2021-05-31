@@ -22,7 +22,7 @@
     display: block;
     position: absolute;
     width: 14rem;
-    bottom: 0;
+    bottom: 0.3rem;
     top: 0;
     background-color: rgba(0, 0, 0, 0.6);
 }
@@ -37,7 +37,7 @@
 
 .laterVideoCardBtn {
     position: absolute;
-    top: 3rem;
+    top: 2.5rem;
     right: 0.6rem;
     height: 1.5rem;
     object-fit: contain;
@@ -115,6 +115,6 @@
 
     .videoTitle>p {
 
-        font-size: 1rem;
+        font-size: 0.7rem;
     }
 }

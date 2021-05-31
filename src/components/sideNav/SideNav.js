@@ -18,7 +18,11 @@ const SideNav = () => {
       style={{ backgroundColor: theme.highLightBackground }}
     >
       <div className="sidenav-top">
+
+      <NavLink to="/">
         <img src={dropout} className="sidenav-brand-logo" />
+        </NavLink>
+
         {sideNavRouteArray.map((item) => {
           return (
             <NavLink end to={item.link} className="sidenav-route" activeClassName="current-route">

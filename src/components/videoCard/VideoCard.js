@@ -1,17 +1,17 @@
 import React from "react";
 
-import book from "./images/try.jpg";
-import pic from "../../utils/images/mentors/tanay/profile.png";
+import {NavLink } from "react-router-dom";
 import "./videoCard.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import playlist from "../../utils/images/icons/playlistWhite.svg";
 import later from "../../utils/images/icons/laterWhite.svg";
 import like from "../../utils/images/icons/like.svg";
 const VideoCard = ({ videosDetails,mentorImg }) => {
-  const { title, mentor, embededLink, thumbnail, views } = videosDetails;
-  debugger;
+  const { title, mentor, embededLink, thumbnail, views,videoId } = videosDetails;
+  
   const { theme } = useTheme();
   return (
+    <NavLink to={`/videoplayer/${videoId}`}>
     <div className="videoCard">
       <div className="videoCardImageContainer">
         <div className="videoPlayerBtnScreen">
@@ -36,7 +36,7 @@ const VideoCard = ({ videosDetails,mentorImg }) => {
         <div className="videoTitle">
           <img src={mentorImg} className="videoMentor" />
           <p style={{ color: theme.boldText }}>
-            {title.length > 40 ? `${title.slice(0, 40)}...` : title}
+            {title.length > 30 ? `${title.slice(0, 30)}...` : title}
           </p>
         </div>
 
@@ -49,6 +49,7 @@ const VideoCard = ({ videosDetails,mentorImg }) => {
         </div>
       </div>
     </div>
+    </NavLink>
   );
 };
 

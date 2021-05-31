@@ -6,13 +6,13 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import Button from "../button/Button.js";
 const MentorHeader = ({mentor}) => {
-  debugger;
+  
   let {name,banner,profile,cateogry}=mentor;
-  debugger;
+  
   const { theme } = useTheme();
   const { language } = useLanguage();
  
-  debugger;
+  
   return (
     <div className="mentorHeader">
       <div className="mentorHeader-banner-container">

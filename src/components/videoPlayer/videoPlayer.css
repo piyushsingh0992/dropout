@@ -17,6 +17,7 @@
 }
 
 .videoTitle {
+    margin-top: 1rem;
     font-size: 1.5rem;
 }
 
@@ -56,15 +57,24 @@
     width:95%;
 
 }
-.video-mentor-img{
-    height: 3.5rem;
-}
 
 .video-mentor-details {
-    font-size: 1rem;
+  
     display: flex;
     align-items: center;
 }
+
+.video-mentor-details h6 {
+    font-size: 1.2rem;
+    /* 
+    font-weight: bold; */
+}
+.video-mentor-img{
+    height: 4rem;
+    margin-right: 0.8rem;
+}
+
+
 @media only screen and (max-width: 600px) {
     .videoPlayerIframe {
         height: 15rem;
@@ -78,6 +88,11 @@
     .videoPlayerCTAContainer>div {
 
         font-size: 0.8rem;
+    }
+
+    .videoTitle {
+        margin-top: 1rem;
+        font-size: 1.3rem;
     }
 
 

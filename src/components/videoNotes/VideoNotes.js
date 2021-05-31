@@ -59,6 +59,7 @@ const VideoNotes = () => {
           }}
           style={{ background: theme.cardBackground ,color: theme.boldText}}
           className="notesTextArea"
+          placeholder="Take notes"
        
         />
 

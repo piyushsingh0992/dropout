@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import logo from "../../utils/images/brand/dropout.svg";
 import menu from "../../utils/images/icons/menu.svg";
 import SideNav from "../../components/sideNav/SideNav.js";
@@ -7,16 +7,36 @@ import "./videoPlayerPage.css";
 import VideoPlayer from "../../components/videoPlayer/VideoPlayer.js";
 import VideoNotes from "../../components/videoNotes/VideoNotes.js";
 import RecommendVideoCard from "../../components/recommendVideoCard/RecommendVideoCard.js";
+
+import axios from "axios";
+import { useParams,NavLink } from "react-router-dom";
+
 const VideoPlayerPage = () => {
   const { theme } = useTheme();
   const [side, sideSetter] = useState(false);
-  return (
+  let { videoId } = useParams();
+  const [videoDetails, videoDetailsSetter] = useState(null);
+  useEffect(() => {
+    (async function () {
+      try {
+        let { data } = await axios.get(`/video/${videoId}`);
+        videoDetailsSetter(data);
+        
+      } catch (error) {
+        console.error("error ->", error);
+      }
+    })();
+  }, [videoId]);
+  console.log({videoDetails});
+  
+  return videoDetails ? (
     <div className="videoPlayerPage">
       <div
         className="videoPlayerNavbar"
         style={{ background: theme.highLightBackground }}
       >
-        <img src={logo} className="videoPlayerBrand" />
+        <NavLink to="/">
+        <img src={logo} className="videoPlayerBrand" /></NavLink>
         <img
           src={theme.menu}
           className="videoPlayerMenu"
@@ -39,19 +59,22 @@ const VideoPlayerPage = () => {
       </div>
 
       <div className="videoPlayerPageContainer">
-        <VideoPlayer />
+        <VideoPlayer videoDetails={videoDetails}/>
         <div className="videoPlayerNotesContainer">
           <VideoNotes />
+          {videoDetails.recommendations.map(item=>{
+            return <RecommendVideoCard videoDetails={item} mentor={videoDetails.mentor}/>
+          })}
+          {/* <RecommendVideoCard />
           <RecommendVideoCard />
           <RecommendVideoCard />
           <RecommendVideoCard />
-          <RecommendVideoCard />
-          <RecommendVideoCard />
-          
-          
+          <RecommendVideoCard /> */}
         </div>
       </div>
     </div>
+  ) : (
+    <h1>loading</h1>
   );
 };
 

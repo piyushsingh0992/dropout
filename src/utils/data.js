@@ -1,6 +1,6 @@
 export const mentorData = [
   {
-    mentor: "tanay",
+    
     mentorId: "tanay_pratap",
     name: "Tanay Praap",
     cateogry: "Tech Mentor",
@@ -9,7 +9,7 @@ export const mentorData = [
   },
 
   {
-    mentor: "varun",
+
     mentorId: "varun_mavya",
     name: "Varun Mavya",
     cateogry: "Business Mentor",
@@ -18,15 +18,15 @@ export const mentorData = [
   },
 
   {
-    mentor: "shashank",
+
     mentorId: "shashank_udupa",
-    name: "Shashank Udpa",
+    name: "Shashank Udupa",
     cateogry: "Finance Mentor",
     profile: "https://i.ibb.co/fYGG436/shashank.png",
     banner: "https://i.ibb.co/WBVvb2x/shashank.png",
   },
   {
-    mentor: "abhinav",
+
     mentorId: "abhinav_gupta",
     name: "Abhinav Gupta",
     cateogry: "Marketing Mentor",
@@ -35,7 +35,7 @@ export const mentorData = [
   },
 
   {
-    mentor: "abhinavChikara",
+
     mentorId: "abhinav_chikara",
     name: "Abhinav Chikara",
     cateogry: "Design Mentor",
@@ -43,7 +43,7 @@ export const mentorData = [
     banner: "https://i.ibb.co/sy1bMvD/abhinav-Chikara.png",
   },
   {
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     name: "Prakhar Gupta",
     cateogry: "Conversation Mentor",
@@ -52,10 +52,13 @@ export const mentorData = [
   },
 ];
 
-export const videoData = [
+
+
+
+export const videos = [
   {
     title: "Design terms you should know",
-    mentor: "abhinavChikara",
+    mentorName: "Abhinav Chikara",
     mentorId: "abhinav_chikara",
     embededLink: "https://www.youtube.com/embed/omKQsOPAjjk",
     thumbnail: "https://i.ibb.co/vjNmg8S/maxresdefault.jpg",
@@ -81,7 +84,7 @@ export const videoData = [
 
   {
     title: "Steps in the design process",
-    mentor: "abhinavChikara",
+    mentorName: "Abhinav Chikara",
     mentorId: "abhinav_chikara",
     embededLink: "https://www.youtube.com/embed/oSz5KTdKW88",
     thumbnail: "https://i.ibb.co/gFrJhW7/maxresdefault-1.jpg",
@@ -106,7 +109,7 @@ export const videoData = [
 
   {
     title: "How to develop an eye for good design",
-    mentor: "abhinavChikara",
+    mentorName: "Abhinav Chikara",
     mentorId: "abhinav_chikara",
     embededLink: "https://www.youtube.com/embed/T4BvVOC_J_k",
     thumbnail: "https://i.ibb.co/k0m2XjM/maxresdefault-2.jpg",
@@ -130,7 +133,7 @@ export const videoData = [
 
   {
     title: "Learn UI design in 25 minutes - Figma tutorial",
-    mentor: "abhinavChikara",
+    mentorName: "Abhinav Chikara",
     mentorId: "abhinav_chikara",
     embededLink: "https://www.youtube.com/embed/RKILkYOHRXk",
     thumbnail: "https://i.ibb.co/4skVvwh/maxresdefault-3.jpg",
@@ -155,7 +158,7 @@ export const videoData = [
 
   {
     title: "The best way to practice design - Part 1",
-    mentor: "abhinavChikara",
+    mentorName: "Abhinav Chikara",
     mentorId: "abhinav_chikara",
     embededLink: "https://www.youtube.com/embed/pBgufXz2lbU",
     thumbnail: "https://i.ibb.co/CVFJ29R/maxresdefault-4.jpg",
@@ -176,7 +179,7 @@ export const videoData = [
 
   {
     title: "Practice design by copying - Part 2",
-    mentor: "abhinavChikara",
+    mentorName: "Abhinav Chikara",
     mentorId: "abhinav_chikara",
     embededLink: "https://www.youtube.com/embed/lEfyEbwfi0k",
     thumbnail: "https://i.ibb.co/FK1hMW4/maxresdefault-5.jpg",
@@ -200,7 +203,7 @@ export const videoData = [
 
   {
     title: "Sketch, Adobe XD or Figma?",
-    mentor: "abhinavChikara",
+    mentorName: "Abhinav Chikara",
     mentorId: "abhinav_chikara",
     embededLink: "https://www.youtube.com/embed/bUFjEPOO488",
     thumbnail: "https://i.ibb.co/brVKWkK/maxresdefault-6.jpg",
@@ -223,7 +226,7 @@ export const videoData = [
   {
     title:
       "Live Design Case Studies with King Sidharth, Product & Design @ Headout | Design & Process stream",
-    mentor: "abhinavChikara",
+    mentorName: "Abhinav Chikara",
     mentorId: "abhinav_chikara",
     embededLink: "https://www.youtube.com/embed/jdne_SwILSQ",
     thumbnail: "https://i.ibb.co/m5G3Lj2/maxresdefault-5.jpg",
@@ -262,7 +265,7 @@ export const videoData = [
   {
     title:
       "Design Q&A with Darshan Gajara, design consultant and founder of Product Disrupt",
-    mentor: "abhinavChikara",
+    mentorName: "Abhinav Chikara",
     mentorId: "abhinav_chikara",
     embededLink: "https://www.youtube.com/embed/m2T1aPfshnk",
     thumbnail: "https://i.ibb.co/hMgQcyN/maxresdefault-3.jpg",
@@ -295,7 +298,7 @@ export const videoData = [
 
   {
     title: "Design Q&A with Shashank Sahay, Designer at Microsoft",
-    mentor: "abhinavChikara",
+    mentorName: "Abhinav Chikara",
     mentorId: "abhinav_chikara",
     embededLink: "https://www.youtube.com/embed/rYkFQLSSaIM",
     thumbnail: "https://i.ibb.co/VVdN3WD/maxresdefault-2.jpg",
@@ -328,7 +331,7 @@ export const videoData = [
 
   {
     title: "Design Q&A with Saptarshi Prakash, Lead Designer at Swiggy",
-    mentor: "abhinavChikara",
+    mentorName: "Abhinav Chikara",
     mentorId: "abhinav_chikara",
     embededLink: "https://www.youtube.com/embed/soBEttAoTGw",
     thumbnail: "https://i.ibb.co/RHnTQDJ/maxresdefault-1.jpg",
@@ -356,7 +359,7 @@ Timestamps:
 
   {
     title: "Design Q&A with Abheyraj Singh, designer at GoEuro Berlin",
-    mentor: "abhinavChikara",
+    mentorName: "Abhinav Chikara",
     mentorId: "abhinav_chikara",
     embededLink: "https://www.youtube.com/embed/agXAcxQvAxI",
     thumbnail: "https://i.ibb.co/JKtc5rn/maxresdefault.jpg",
@@ -381,7 +384,7 @@ Timestamps:
 
   {
     title: "The Future of Media Entrepreneurship @SIMC, PUNE",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/bOMrGECs7kI",
     thumbnail: "https://i.ibb.co/4Kj8B50/maxresdefault-6.jpg",
@@ -410,7 +413,7 @@ Timestamps:
 
   {
     title: "LIVE FROM IIT ROORKEE- THE SECRET TO HAVING GREAT CONVERSATIONS",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/Lr0i3_pFDPo",
     thumbnail: "https://i.ibb.co/xLY0rP8/maxresdefault-5.jpg",
@@ -465,7 +468,7 @@ Timestamps:
 
   {
     title: "LIVE FROM DELHI TECHNOLOGICAL UNIVERSITY",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/gQKIIq91EAA",
     thumbnail: "https://i.ibb.co/nj7cPsx/maxresdefault-4.jpg",
@@ -519,7 +522,7 @@ Timestamps:
 
   {
     title: "LIVE FROM SVC, DELHI UNIVERSITY",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/mhsKuUNLACY",
     thumbnail: "https://i.ibb.co/4jWsjXh/maxresdefault-3.jpg",
@@ -542,7 +545,7 @@ Timestamps:
 
   {
     title: "STEREOTYPES, SOCIETY and the YOUTUBE DADDY",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/-0agIi5sIxU",
     thumbnail: "https://i.ibb.co/WFw1W6H/maxresdefault-2.jpg",
@@ -604,7 +607,7 @@ Timestamps:
 
   {
     title: "Prakhar's Advice to Genz | Dealing with Procrastination & Failure",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/LkoP00u4G4A",
     thumbnail: "https://i.ibb.co/Nyyrjzh/maxresdefault-1.jpg",
@@ -660,7 +663,7 @@ Timestamps:
 
   {
     title: "How to Develop a STRONG MINDSET to Combat Hard Times",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/iydrZ6yxjZI",
     thumbnail: "https://i.ibb.co/9NZpT8V/maxresdefault.jpg",
@@ -723,7 +726,7 @@ Timestamps:
 
   {
     title: "THE SPIRITUALITY OF SELF",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/efcWCrmICNI",
     thumbnail: "https://i.ibb.co/C6GGgJs/maxresdefault-3.jpg",
@@ -738,7 +741,7 @@ Timestamps:
   },
   {
     title: "THE PROBLEM WITH MODERN SPIRITUALITY",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/ZkB3N6K80GI",
     thumbnail: "https://i.ibb.co/zPGY6ns/maxresdefault-2.jpg",
@@ -753,7 +756,7 @@ Timestamps:
   },
   {
     title: "Prakhar takes a shit on 'spirituality'",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/G_A2LVW1Vrk",
     thumbnail: "https://i.ibb.co/YZcM2P2/maxresdefault-1.jpg",
@@ -786,7 +789,7 @@ Timestamps:
   },
   {
     title: "#1 Secret to STAY CALM",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/k0QYSKLY4tE",
     thumbnail: "https://i.ibb.co/NYypQV8/maxresdefault.jpg",
@@ -822,7 +825,7 @@ Timestamps:
 
   {
     title: "THIS WILL CHANGE YOUR SOCIAL LIFE | PAPA KE PRAVACHAN EP4",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/VSduGJo0CuU",
     thumbnail: "https://i.ibb.co/74xSGJF/maxresdefault-3.jpg",
@@ -845,7 +848,7 @@ Timestamps:
 
   {
     title: "MANAGE YOUR TIME TO WIN LONG TERM | PAPA KE PRAVACHAN EP3",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/tIeCQOcSP98",
     thumbnail: "https://i.ibb.co/CwqBG28/maxresdefault-2.jpg",
@@ -863,7 +866,7 @@ Timestamps:
 
   {
     title: "SUCCESS KA 2 STEP FORMULA| PAPA KE PRAVACHAN",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/vpr9fIaSHmw",
     thumbnail: "https://i.ibb.co/PYMY3S4/maxresdefault-1.jpg",
@@ -885,7 +888,7 @@ Timestamps:
 
   {
     title: "LIFE IS TOUGH, MAKE THE MOST OF IT | PAPA KE PRAVACHAN EP2",
-    mentor: "prakhar",
+    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     embededLink: "https://www.youtube.com/embed/vVViUhyXLZA",
     thumbnail: "https://i.ibb.co/KKvYXbq/maxresdefault.jpg",
@@ -904,7 +907,7 @@ Timestamps:
 
   {
     title: "You're Playing This Game (Without Even Realizing)",
-    mentor: "abhinav",
+    mentorName: "Abhinav Gupta",
     mentorId: "abhinav_gupta",
     embededLink: "https://www.youtube.com/embed/XWFGOAjDx9w",
     thumbnail: "https://i.ibb.co/SmmbJPk/maxresdefault-11.jpg",
@@ -919,7 +922,7 @@ Timestamps:
 
   {
     title: "The Mindset Shift You Need In Your 20s (MUST WATCH!)",
-    mentor: "abhinav",
+    mentorName: "Abhinav Gupta",
     mentorId: "abhinav_gupta",
     embededLink: "https://www.youtube.com/embed/npWiCWFsJ8A",
     thumbnail: "https://i.ibb.co/dm01ykY/maxresdefault-10.jpg",
@@ -936,7 +939,7 @@ Timestamps:
   {
     title:
       "Social Media Scam: Are We Slave To The Algorithm? ft. @Sirhud Kalra",
-    mentor: "abhinav",
+    mentorName: "Abhinav Gupta",
     mentorId: "abhinav_gupta",
     embededLink: "https://www.youtube.com/embed/2kjiOVflcYU",
     thumbnail: "https://i.ibb.co/Cm6CX2F/maxresdefault-9.jpg",
@@ -961,7 +964,7 @@ Timestamps:
 
   {
     title: "A Billionaire's Take on Money, Space & Healthcare ft. @Naveen Jain",
-    mentor: "abhinav",
+    mentorName: "Abhinav Gupta",
     mentorId: "abhinav_gupta",
     embededLink: "https://www.youtube.com/embed/YceBBkLvXsw",
     thumbnail: "https://i.ibb.co/5njMBpK/maxresdefault-7.jpg",
@@ -977,7 +980,7 @@ Timestamps:
 
   {
     title: "How Can Creators Get Paid More ft. @Prakhar ke Pravachan",
-    mentor: "abhinav",
+    mentorName: "Abhinav Gupta",
     mentorId: "abhinav_gupta",
     embededLink: "https://www.youtube.com/embed/tEb26KfFvpU",
     thumbnail: "https://i.ibb.co/fQKwQWX/maxresdefault-6.jpg",
@@ -999,7 +1002,7 @@ Timestamps:
 
   {
     title: "The @Nas Daily Story & Tips For Content Creators",
-    mentor: "abhinav",
+    mentorName: "Abhinav Gupta",
     mentorId: "abhinav_gupta",
     embededLink: "https://www.youtube.com/embed/YDmnuQ1T9k4",
     thumbnail: "https://i.ibb.co/QPpt1vJ/maxresdefault-5.jpg",
@@ -1019,7 +1022,7 @@ Timestamps:
   {
     title:
       "Sales Vs Marketing - Who Will Win? ft. Mohit Ahuja & @Vaibhav Sisinty",
-    mentor: "abhinav",
+    mentorName: "Abhinav Gupta",
     mentorId: "abhinav_gupta",
     embededLink: "https://www.youtube.com/embed/Aa4cjtR7snY",
     thumbnail: "https://i.ibb.co/FWBXGyq/maxresdefault-4.jpg",
@@ -1041,7 +1044,7 @@ Timestamps:
   {
     title:
       "Nostalgic Ads That Will Take You Back to Childhood ft. @Mad Over Marketing (M.O.M)",
-    mentor: "abhinav",
+    mentorName: "Abhinav Gupta",
     mentorId: "abhinav_gupta",
     embededLink: "https://www.youtube.com/embed/ZPXsnVpaQ2Y",
     thumbnail: "https://i.ibb.co/TY6VDNN/maxresdefault-2.jpg",
@@ -1062,7 +1065,7 @@ Timestamps:
   {
     title:
       "BECOME AN INFLUENCER IN YOUR 20s ft. @Raj Shamani Vs @Divyanshu Damani",
-    mentor: "abhinav",
+    mentorName: "Abhinav Gupta",
     mentorId: "abhinav_gupta",
     embededLink: "https://www.youtube.com/embed/BdTAFtwm5Fo",
     thumbnail: "https://i.ibb.co/SfnQP7H/maxresdefault-1.jpg",
@@ -1099,7 +1102,7 @@ Timestamps:
   {
     title:
       "Life is a gamble? Lessons for Life from the Poker Table ft. Arnold Mascarenhas",
-    mentor: "abhinav",
+    mentorName: "Abhinav Gupta",
     mentorId: "abhinav_gupta",
     embededLink: "https://www.youtube.com/embed/n5J2daZ9xWE",
     thumbnail: "https://i.ibb.co/9NshJM2/maxresdefault.jpg",
@@ -1127,7 +1130,7 @@ Timestamps:
 
   {
     title: "Zomato IPO Review 2021",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/jp_yX0EG7PE",
     thumbnail: "https://i.ibb.co/P1kMjJw/maxresdefault.jpg",
@@ -1164,7 +1167,7 @@ Timestamps:
 
   {
     title: "Burger King IPO with @Shashank Udupa ft. Dr. Elson",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/fYhS8MFPiUw",
     thumbnail: "https://i.ibb.co/J3M6s82/maxresdefault-1.jpg",
@@ -1192,7 +1195,7 @@ Timestamps:
 
   {
     title: "How To Read Company Financials",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/mIoHSQxSGpI",
     thumbnail: "https://i.ibb.co/pzHRZ92/m-Io-HSQx-SGp-I-HD.jpg",
@@ -1221,7 +1224,7 @@ Timestamps:
   },
   {
     title: "Understanding Health Insurance | smallcase Review | 2021",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/hum8D2hSoKg",
     thumbnail: "https://i.ibb.co/5B7rJHL/hum8-D2h-So-Kg-HD-1.jpg",
@@ -1254,7 +1257,7 @@ Timestamps:
 
   {
     title: "What's Happening With Gold? | smallcase Review | 2021",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/_yRgmRM1LDM",
     thumbnail: "https://i.ibb.co/D9Td49J/y-Rgm-RM1-LDM-HD.jpg",
@@ -1294,7 +1297,7 @@ Timestamps:
 
   {
     title: "Buy Real Estate Or REIT It In 2021?",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/n4hB-nSrrtE",
     thumbnail: "https://i.ibb.co/QrqJ2kB/n4h-B-n-Srrt-E-HD.jpg",
@@ -1334,7 +1337,7 @@ Timestamps:
   {
     title:
       "Investing In 20s Simplified | Top 3 Tools For Fundamental Analysis Of Growth Stocks - Ep. 3 | 2021",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/rT-kPOy4irM",
     thumbnail: "https://i.ibb.co/gVpqKv0/r-T-k-POy4ir-M-HD.jpg",
@@ -1384,7 +1387,7 @@ Timestamps:
   {
     title:
       "Investing In Your 20s Simplified - 2021 by @Shashank Udupa | Episode 1",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/qsCUE7kzFHA",
     thumbnail: "https://i.ibb.co/1vPJ8GL/qs-CUE7kz-FHA-HD.jpg",
@@ -1430,7 +1433,7 @@ Timestamps:
 
   {
     title: "Elon Buys Bitcoin, Dogecoin Up - What's Happening?",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/R7b_VzfVmb0",
     thumbnail: "https://i.ibb.co/w07z5kK/R7b-Vzf-Vmb0-HD.jpg",
@@ -1455,7 +1458,7 @@ Timestamps:
 
   {
     title: "Budget 2021 India - Is it good for you?",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/wwWf2sNxEKQ",
     thumbnail: "https://i.ibb.co/Ld9WqqP/ww-Wf2s-Nx-EKQ-HD.jpg",
@@ -1506,7 +1509,7 @@ Timestamps:
 
   {
     title: "Stock market crash in 2021?? Time to be careful!",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/EQ32FlhSCZw",
     thumbnail: "https://i.ibb.co/3k1gBH5/EQ32-Flh-SCZw-HD.jpg",
@@ -1544,7 +1547,7 @@ Timestamps:
 
   {
     title: "Should you buy Tesla Stock in 2021?",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/zeBZACg9-v4",
     thumbnail: "https://i.ibb.co/gPNcDYk/ze-BZACg9-v4-HD.jpg",
@@ -1578,7 +1581,7 @@ Timestamps:
 
   {
     title: "What To Expect From Budget 2021? (And Why You Should Care)",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/LwuHJ6BCiSs",
     thumbnail: "https://i.ibb.co/X714WXC/Lwu-HJ6-BCi-Ss-HD.jpg",
@@ -1595,7 +1598,7 @@ Timestamps:
 
   {
     title: "Bitcoin. Boom or Bubble?",
-    mentor: "shashank",
+    mentorName: "Shashank Udupa",
     mentorId: "shashank_udupa",
     embededLink: "https://www.youtube.com/embed/rU8mVb_bc-M",
     thumbnail: "https://i.ibb.co/8YJJM6n/r-U8m-Vb-bc-M-HD.jpg",
@@ -1628,7 +1631,7 @@ Timestamps:
 
   {
     title: "How to make a Human Apex Predator",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/urhMZSeG33U",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
@@ -1649,7 +1652,7 @@ Timestamps:
   },
   {
     title: "Are we in a Simulation? Probably not.",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/FpwUqfhwwFQ",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
@@ -1670,7 +1673,7 @@ Timestamps:
   },
   {
     title: "The Big Bang is still happening",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/MEPBV_DBFII",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
@@ -1692,7 +1695,7 @@ Timestamps:
 
   {
     title: "Quantum Suicide",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/4KnVmju4EeQ",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
@@ -1713,7 +1716,7 @@ Timestamps:
   },
   {
     title: "Why children NEED fairytales",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/HzMqVulxBCM",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
@@ -1734,7 +1737,7 @@ Timestamps:
   },
   {
     title: "Indian Superman",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/7pYhPm5IKkY",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
@@ -1755,7 +1758,7 @@ Timestamps:
   },
   {
     title: "Physics IS Spirituality",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/XIaIptj-Xd4",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
@@ -1776,7 +1779,7 @@ Timestamps:
   },
   {
     title: "Instagram is the best example of the Peak Shift effect",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/eDIuH_Q2cxw",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
@@ -1797,7 +1800,7 @@ Timestamps:
   },
   {
     title: "What if Mickey Mouse was conscious?",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/LLCeoDxBuig",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
@@ -1818,7 +1821,7 @@ Timestamps:
   },
   {
     title: "Why young entrepreneurs are arrogant",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/RFkCt4iJIIo",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
@@ -1840,7 +1843,7 @@ Timestamps:
 
   {
     title: "METASTARTUP Episode 1: My Story",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/mB5kuXNi0xs",
     thumbnail: "https://i.ibb.co/NrVCnmC/sddefault.jpg",
@@ -1850,7 +1853,7 @@ Timestamps:
   },
   {
     title: "METASTARTUP Episode 2: Why you SHOULDN'T startup",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/p5nemzWv2pg",
     thumbnail: "https://i.ibb.co/NrVCnmC/sddefault.jpg",
@@ -1866,7 +1869,7 @@ Timestamps:
   },
   {
     title: "STARTUPS VS STABLE JOBS - YOUR JOB IS NOT SECURE | METASTARTUP #3",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/VYw3XqvLU6w",
     thumbnail: "https://i.ibb.co/NrVCnmC/sddefault.jpg",
@@ -1876,7 +1879,7 @@ Timestamps:
   },
   {
     title: "HOW MUCH CAPITAL DO YOU NEED TO STARTUP | METASTARTUP #4",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/iaoTQTWF940",
     thumbnail: "https://i.ibb.co/NrVCnmC/sddefault.jpg",
@@ -1888,7 +1891,7 @@ Timestamps:
   },
   {
     title: "HOW TO NAME YOUR STARTUP | METASTARTUP #5",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/EdRcKb2541o",
     thumbnail: "https://i.ibb.co/NrVCnmC/sddefault.jpg",
@@ -1901,7 +1904,7 @@ Timestamps:
   },
   {
     title: "HOW TO REGISTER A COMPANY IN INDIA? | METASTARTUP #6",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/-GVlwruv7Tg",
     thumbnail: "https://i.ibb.co/cJ7pCDx/maxresdefault.jpg",
@@ -1920,7 +1923,7 @@ Timestamps:
   {
     title:
       "OPENING A CORPORATE BANK ACCOUNT, CREDIT CARDS, FIRST BOARD MEETING & MORE | METASTARTUP #7",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/WxMgSg_BpPI",
     thumbnail: "https://i.ibb.co/xhdRj7K/maxresdefault.jpg",
@@ -1942,7 +1945,7 @@ Timestamps:
   {
     title:
       "REGISTERING A COMPANY IN SINGAPORE, USA OR ESTONIA | METASTARTUP #8",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/azSErrdqgbU",
     thumbnail: "https://i.ibb.co/wyt7FRJ/maxresdefault-1.jpg",
@@ -1964,7 +1967,7 @@ Timestamps:
 
   {
     title: "HOW TO RAISE A SEED ROUND FOR A STARTUP IN INDIA? | METASTARTUP #9",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/tR1mLfs2Xqo",
     thumbnail: "https://i.ibb.co/0GP3sVw/maxresdefault-2.jpg",
@@ -1981,7 +1984,7 @@ Timestamps:
 
   {
     title: "HOW TO RAISE A SERIES A IN INDIA | METASTARTUP #10",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/eT3tW-vXnUU",
     thumbnail: "https://i.ibb.co/Lk0VvHF/maxresdefault-3.jpg",
@@ -1995,7 +1998,7 @@ Timestamps:
   },
   {
     title: "HOW TO DO AN INITIAL PUBLIC OFFERING | METASTARTUP #11",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/-pYCFSEQTFo",
     thumbnail: "https://i.ibb.co/Cncxj1T/maxresdefault-4.jpg",
@@ -2005,7 +2008,7 @@ Timestamps:
   },
   {
     title: "BANKRUPTCY AND LIQUIDATION | METASTARTUP #12",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/kByAtHlrjQ4",
     thumbnail: "https://i.ibb.co/Qd8TbdG/maxresdefault-5.jpg",
@@ -2017,7 +2020,7 @@ Timestamps:
 
   {
     title: "HOW TO SELL YOUR COMPANY + TIPS ON VALUATION | METASTARTUP #13",
-    mentor: "varun",
+    mentorName:"Varun Mavya",
     mentorId: "varun_mavya",
     embededLink: "https://www.youtube.com/embed/w-r8VYhxYYg",
     thumbnail: "https://i.ibb.co/zRynrNT/maxresdefault-6.jpg",
@@ -2030,7 +2033,7 @@ Timestamps:
 
   {
     title: "S01E00 TeaWithTanay. Why, what and how of this new podcast series!",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/GDYhoRbYH3o",
@@ -2048,7 +2051,7 @@ Timestamps:
   {
     title:
       "14 Books for Growth and Startups ft. Priyadeep Sinha | Episode 01 of teawithtanay",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/5ZZG4SOzPkw",
@@ -2064,7 +2067,7 @@ Timestamps:
   {
     title:
       "Programming Projects ft. Rachit Gulati | TeaWithTanay Podcast Season 1 Episode 2",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/PU4zArf71Yg",
@@ -2078,7 +2081,7 @@ Timestamps:
   {
     title:
       "Building Communities ft. Anubha from GirlScript | TeaWithTanay Podcast Season 1 Episode 3",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/cXFMlxKx9A8",
@@ -2096,7 +2099,7 @@ Timestamps:
   {
     title:
       "Getting Started with Open Source ft. Rahul Kadyan | S01 EP4 of teawithtanay",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/QhnU7kO8u_I",
@@ -2108,7 +2111,7 @@ Timestamps:
 
   {
     title: "Web Dev Projects to get you a job?",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/Vrwltd0y7p0",
@@ -2131,7 +2134,7 @@ Timestamps:
 
   {
     title: "Internships or not?",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/InVDXJCHLww",
@@ -2152,7 +2155,7 @@ Timestamps:
 
   {
     title: "Startup or Service Companies?",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/Zp8a0IskmkE",
@@ -2164,7 +2167,7 @@ Timestamps:
 
   {
     title: "Masters or not?",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/JbGjZk_EQpg",
@@ -2176,7 +2179,7 @@ Timestamps:
 
   {
     title: "launching neog.camp: roadmap to full stack dev",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/Ezk2AwqgS9Q",
@@ -2190,7 +2193,7 @@ Timestamps:
 
   {
     title: "First CLI App: Intro to programming",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/_L-UszPmy2A",
@@ -2228,7 +2231,7 @@ Timestamps:
 
   {
     title: "Getting started with Git, VSCode and Hosting",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "//www.youtube.com/embed/MMEIVh49pS8",
@@ -2254,7 +2257,7 @@ Timestamps:
 
   {
     title: "Getting started with HTML5",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/No8qdcVYiQw",
@@ -2280,7 +2283,7 @@ Timestamps:
   },
   {
     title: "Getting started with CSS3",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/u6_a0d94A1Q",
@@ -2301,7 +2304,7 @@ Timestamps:
   },
   {
     title: "JavaScript in the browser!",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/yLZazznWoAs",
@@ -2322,7 +2325,7 @@ Timestamps:
   },
   {
     title: "First React App: Introduction to ReactJS library",
-    mentor: "tanay",
+    mentorName:"Tanay Pratap",
     mentorId: "tanay_pratap",
 
     embededLink: "https://www.youtube.com/embed/KUJsaM-hAjs",
@@ -2343,3 +2346,7 @@ Timestamps:
     views: 17652,
   },
 ];
+
+export const videoData=videos.map((item,index)=>{
+  return {...item,videoId:`${item.mentorId}_${index}`}
+})

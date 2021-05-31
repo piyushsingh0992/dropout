@@ -9,20 +9,41 @@ export const dropoutServer = (params) => {
         let currentMentor = mentorData.find(
           (item) => item.mentorId === mentorId
         );
-
         let mentorVideos = videoData.filter((item) => {
           if (item.mentorId === mentorId) {
             return true;
           }
           return false;
         });
-
-        console.log("currentMentor ->", currentMentor);
-        console.log("mentorVideos ->", mentorVideos);
-        debugger;
         return {
           mentor: currentMentor,
           videos: mentorVideos,
+          status: 200,
+        };
+      });
+
+      this.get("/video/:videoId", (schema, request) => {
+        let { videoId } = request.params;
+
+        let currenntVideo = videoData.find((item) => item.videoId === videoId);
+        let currentMentor = mentorData.find(
+          (item) => item.mentorId === currenntVideo.mentorId
+        );
+        let recommendedVideos = videoData.filter((item) => {
+          if (
+            item.category.name === currenntVideo.category.name &&
+            item.videoId != currenntVideo.videoId
+          ) {
+            return true;
+          }
+          return false;
+        });
+
+        
+        return {
+          mentor: currentMentor,
+          video: currenntVideo,
+          recommendations:recommendedVideos,
           status: 200,
         };
       });

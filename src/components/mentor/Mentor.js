@@ -4,7 +4,7 @@ import VideoCard from "../videoCard/VideoCard.js";
 import "./mentor.css";
 const Mentor = ({mentorDetails}) => {
   const {videos,mentor}=mentorDetails
-  debugger;
+  
   
   return (
     <div className="mentor">

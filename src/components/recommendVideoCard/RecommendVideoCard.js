@@ -4,10 +4,16 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import playlist from "../../utils/images/icons/playlistWhite.svg";
 import later from "../../utils/images/icons/laterWhite.svg";
 import "./recommendVideoCard.css";
-const RecommendVideoCard = () => {
+
+import { NavLink } from "react-router-dom";
+const RecommendVideoCard = ({ videoDetails, mentor }) => {
+  let { mentorName, title, thumbnail, embededLink, videoId, views } =
+    videoDetails;
   const { theme } = useTheme();
   return (
+    
     <div className="recommendVideoCard">
+      <NavLink to={`/videoplayer/${videoId}`}>
       <div className="recommendImageContainer">
         <div className="recommendBtnScreen">
           <img
@@ -25,14 +31,18 @@ const RecommendVideoCard = () => {
             }}
           />
         </div>
-        <img src={book} className="recommendthumbNail" />
+        <img src={thumbnail} className="recommendthumbNail" />
       </div>
+      </NavLink>
       <div className="recommendVideoDetailsContainer">
-        <p style={{ color: theme.boldText }}>Lesson Name</p>
+        <p style={{ color: theme.boldText }}>{title.slice(0, 45)}...</p>
 
         <div className="recommendvideoDetails">
-          <p>mentor name </p>
-          <p>66k views . 1 days ago</p>
+          <img src={mentor.profile} />
+          <div>
+            <p>{mentorName} </p>
+            <p>{views} views</p>
+          </div>
         </div>
       </div>
     </div>

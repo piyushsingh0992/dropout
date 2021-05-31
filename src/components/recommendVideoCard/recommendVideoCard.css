@@ -1,6 +1,8 @@
 .recommendVideoCard {
     display: flex;
     margin: 1rem;
+
+    max-width:21rem;
 }
 
 .recommendImageContainer {
@@ -63,10 +65,33 @@
 }
 
 .recommendVideoDetailsContainer>p {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
 }
 
 .recommendvideoDetails {
-    font-size: 0.9rem;
-    color: var(--primary-text)
+    font-size: 0.8rem;
+    color: var(--primary-text);
+    display: flex;
+    align-items: center;
+}
+
+.recommendvideoDetails img {
+    height: 1.8rem ;
+    margin-right: 1rem;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .recommendVideoCard {
+        display: flex;
+        margin: 1rem;
+    
+        /* max-width:21rem; */
+        max-width:100%;
+    }   
+
+    .recommendVideoDetailsContainer>p {
+        font-size: 1rem;
+    }
 }
