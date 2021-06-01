@@ -4,7 +4,7 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import playlist from "../../utils/images/icons/playlistWhite.svg";
 import later from "../../utils/images/icons/laterWhite.svg";
 import "./recommendVideoCard.css";
-
+import ThumbNail from "../thumbNail/ThumbNail.js"
 import { NavLink } from "react-router-dom";
 const RecommendVideoCard = ({ videoDetails, mentor }) => {
   let { mentorName, title, thumbnail, embededLink, videoId, views } =

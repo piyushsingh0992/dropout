@@ -25,7 +25,7 @@ const MentorHeader = ({mentor}) => {
         <div className="mentorHeader-mentor-details">
           <img src={profile} className="mentorHeader-mentor-img" />
           <div className="mentorHeader-mentor-text">
-            <h1 style={{ color: theme.highLightText }}> {name} </h1>
+            <h1 style={{ color: theme.hightLightText }}> {name} </h1>
             <p style={{ color: theme.boldText }}> {cateogry} </p>
           </div>
         </div>
