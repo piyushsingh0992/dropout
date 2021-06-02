@@ -17,7 +17,6 @@ const SearchPage = () => {
         <SearchVideoCard /> <SearchVideoCard /> <SearchVideoCard />{" "}
         <SearchVideoCard />
       </div>
-      <div></div>
     </div>
   );
 };

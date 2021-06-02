@@ -1,6 +1,10 @@
 import { Server } from "miragejs";
 import { mentorData, videoData } from "../utils/data.js";
 export const dropoutServer = (params) => {
+  let history = [];
+  let likedVideo = [];
+  let watchedlater = [];
+  let playlist = [];
   return new Server({
     routes() {
       this.namespace = "/";
@@ -38,15 +42,20 @@ export const dropoutServer = (params) => {
           }
           return false;
         });
+        history=[currenntVideo,...history];
 
-        
         return {
           mentor: currentMentor,
           video: currenntVideo,
-          recommendations:recommendedVideos,
+          recommendations: recommendedVideos,
           status: 200,
         };
       });
+
+
+      this.get("/history",(schema,request)=>{
+        return {history:history}
+      })
     },
   });
 };

@@ -17,9 +17,10 @@
     overflow: hidden;
 }
 
-.playlistBtnContainer{
+.playlistBtnContainer {
     cursor: pointer;
 }
+
 .playlistBtnContainer p {
     color: var(--white);
     font-size: 1rem;
@@ -29,7 +30,7 @@
     opacity: 0;
     transform: translateX(10rem);
     transition: all ease-in-out 0.5s;
-    
+
 }
 
 .playlistBtnContainer:hover {
@@ -50,9 +51,10 @@
 }
 
 
-.watchLaterButtonContainer{
+.watchLaterButtonContainer {
     cursor: pointer;
 }
+
 .watchLaterButtonContainer p {
     color: var(--white);
     font-size: 1rem;
@@ -100,10 +102,13 @@
     max-height: 8rem;
 }
 
-.thumbNail {
-
-    /* object-fit: contain; */
+.historyThumnail {
+    width: 100%;
+    max-height: 8rem;
+    min-width: 11rem;
 }
+
+
 
 @media only screen and (max-width: 600px) {
 

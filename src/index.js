@@ -6,18 +6,21 @@ import App from "./App";
 import { LanguageProvider } from "./contexts/languageContext/languageContext.js";
 import { ThemeProvider } from "./contexts/themeContext/themeContext.js";
 import { BrowserRouter as Router } from "react-router-dom";
-import {dropoutServer} from "./server/server.js";
+import { dropoutServer } from "./server/server.js";
+import { LikedVideoProvider } from "./contexts/likedVideoContext/likedVideoContext.js";
 
 dropoutServer();
 ReactDOM.render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <Router>
       <ThemeProvider>
         <LanguageProvider>
-          <App />
+          <LikedVideoProvider>
+            <App />
+          </LikedVideoProvider>
         </LanguageProvider>
       </ThemeProvider>
     </Router>
-  // </React.StrictMode>,
-  ,document.getElementById("root")
+  </React.StrictMode>,
+  document.getElementById("root")
 );
