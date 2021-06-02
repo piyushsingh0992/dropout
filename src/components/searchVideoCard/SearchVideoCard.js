@@ -5,37 +5,17 @@ import playlist from "../../utils/images/icons/playlistWhite.svg";
 import later from "../../utils/images/icons/laterWhite.svg";
 import "./searchVideoCard.css";
 import pic from "../../utils/images/mentors/tanay/profile.png";
+import ThumbNail from "../thumbNail/ThumbNail.js";
 const SearchVideoCard = () => {
   const { theme } = useTheme();
   let x =
     "ssssssssssssssssssssssssdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd";
   return (
     <div className="searchVideoCard">
-      <div className="searchImageContainer">
-        <div className="searchBtnScreen">
-          <div className="searchPlaylistBtnContainer">
-            <p>Add to Playlist</p>
-            <img
-              src={playlist}
-              className="playlistSearchVideoCardBtn"
-              onClick={() => {}}
-            />
-          </div>
-          <div className="searchWatchLaterBtnContainer">
-          <p>Watch Later</p>
-            <img
-              src={later}
-              className="laterSearchVideoCardBtn"
-              onClick={() => {}}
-            />
-          </div>
-        </div>
-        <img src={book} className="searchThumbnail" />
-      </div>
-
+      <ThumbNail thumbnail={book} type={"searchThumnail"} />
       <div className="searchVideoDetailsContainer">
         <p style={{ color: theme.boldText }}>
-          {x.length > 70 ? `${x.slice(0, 70)}...` : x}
+          {x.length > 70 ? `${x.slice(0, 40)}...` : x}
         </p>
 
         <div className="searchVideoDetails">
@@ -43,7 +23,7 @@ const SearchVideoCard = () => {
             <img src={pic} className="searchVideoCardMentorImg" />
             <p>mentor name </p>
           </div>
-          <p>66k views . 1 days ago</p>
+          <p>66k views </p>
         </div>
       </div>
     </div>

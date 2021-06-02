@@ -3,7 +3,7 @@ import "./thumbNail.css";
 
 import playlist from "../../utils/images/icons/playlistWhite.svg";
 import later from "../../utils/images/icons/laterWhite.svg";
-const ThumbNail = ({ type ,thumbnail}) => {
+const ThumbNail = ({ type, thumbnail }) => {
   return (
     <div>
       <div className="thumbNailContainer">
@@ -21,7 +21,10 @@ const ThumbNail = ({ type ,thumbnail}) => {
             <img src={later} className="watchLaterCardBtn" onClick={() => {}} />
           </div>
         </div>
-        <img src={thumbnail} className="thumbNail" />
+        <img
+          src={thumbnail}
+          className={type}
+        />
       </div>
     </div>
   );

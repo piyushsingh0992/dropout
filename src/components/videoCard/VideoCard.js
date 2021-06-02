@@ -3,10 +3,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./videoCard.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import playlist from "../../utils/images/icons/playlistWhite.svg";
-import later from "../../utils/images/icons/laterWhite.svg";
-import like from "../../utils/images/icons/like.svg";
-import ThumbNail from "..//thumbNail/ThumbNail.js"
+
+import LikeButton from "../likeButton/LikeButton.js";
+import ThumbNail from "..//thumbNail/ThumbNail.js";
 const VideoCard = ({ videosDetails, mentorImg }) => {
   const { title, mentor, embededLink, thumbnail, views, videoId } =
     videosDetails;
@@ -15,7 +14,7 @@ const VideoCard = ({ videosDetails, mentorImg }) => {
   return (
     <NavLink to={`/videoplayer/${videoId}`}>
       <div className="videoCard">
-      <ThumbNail thumbnail={thumbnail}/>
+        <ThumbNail thumbnail={thumbnail} type={"mentorplaylistThumbnail"} />
         <div className="videoDetailsContainer">
           <div className="videoTitle">
             <img src={mentorImg} className="videoMentor" />
@@ -27,12 +26,10 @@ const VideoCard = ({ videosDetails, mentorImg }) => {
           <div className="videoDetails">
             <div>
               <p>{mentor} </p>
-              <p>{views} views . 1 days ago</p>
+              <p>{views} views</p>
             </div>
-            <img src={like} className="videoDetailsLikeButton" />
+            <LikeButton size={1.5} />
           </div>
-
-          
         </div>
       </div>
     </NavLink>

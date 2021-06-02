@@ -1,5 +1,6 @@
 .thumbNailContainer {
     position: relative;
+    overflow: hidden;
 }
 
 .thumbNailContainer>.thumbNailBtnScreen {
@@ -9,13 +10,16 @@
 .thumbNailContainer:hover>.thumbNailBtnScreen {
     display: block;
     position: absolute;
-    width: 14rem;
+    width: 100%;
     bottom: 0.3rem;
     top: 0;
     background-color: rgba(0, 0, 0, 0.6);
     overflow: hidden;
 }
 
+.playlistBtnContainer{
+    cursor: pointer;
+}
 .playlistBtnContainer p {
     color: var(--white);
     font-size: 1rem;
@@ -25,6 +29,11 @@
     opacity: 0;
     transform: translateX(10rem);
     transition: all ease-in-out 0.5s;
+    
+}
+
+.playlistBtnContainer:hover {
+    transform: scale(0.98);
 }
 
 .playlistBtnContainer:hover p {
@@ -41,7 +50,9 @@
 }
 
 
-
+.watchLaterButtonContainer{
+    cursor: pointer;
+}
 .watchLaterButtonContainer p {
     color: var(--white);
     font-size: 1rem;
@@ -53,6 +64,10 @@
     transform: translateX(10rem);
     transition: all ease-in-out 0.5s;
 
+}
+
+.watchLaterButtonContainer:hover {
+    transform: scale(0.98);
 }
 
 .watchLaterButtonContainer:hover p {
@@ -67,4 +82,35 @@
     right: 0.6rem;
     height: 1.5rem;
     object-fit: contain;
+}
+
+.searchThumnail {
+
+    width: 100%;
+    max-height: 8rem;
+}
+
+.mentorplaylistThumbnail {
+    width: 100%;
+    max-height: 8rem;
+}
+
+.recommendThumbnail {
+    width: 100%;
+    max-height: 8rem;
+}
+
+.thumbNail {
+
+    /* object-fit: contain; */
+}
+
+@media only screen and (max-width: 600px) {
+
+    .searchThumnail {
+
+        /* width: 100%;
+        max-height: 200rem; */
+    }
+
 }
