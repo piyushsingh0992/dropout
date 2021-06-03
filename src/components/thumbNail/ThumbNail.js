@@ -8,7 +8,6 @@ const ThumbNail = ({ type, thumbnail ,to}) => {
   let navigate=useNavigate();
   function thumbnailClickHandler(){
     navigate(to);
-    console.log("thumbnail clicked")
   }
   return (
     <div className="thumbNailContainer" onClick={thumbnailClickHandler}>

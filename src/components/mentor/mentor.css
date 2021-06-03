@@ -13,6 +13,14 @@
     grid-gap: 1rem;
 }
 
+@media only screen and (max-width: 1200px) {
+    .mentor-grid {
+        grid-template-columns: 14rem 14rem 14rem;
+        grid-gap: 1rem;
+    }
+}
+
+
 @media only screen and (max-width: 600px) {
     .mentor-grid {
         grid-template-columns: 12rem 12rem;

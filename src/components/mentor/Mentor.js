@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import MentorHeader from "../mentorHeader/MentorHeader.js";
 import VideoCard from "../videoCard/VideoCard.js";
 import "./mentor.css";
+import {useLikedVideos} from "../../contexts/likedVideoContext/likedVideoContext.js";
 const Mentor = ({ mentorDetails }) => {
   const { videos, mentor } = mentorDetails;
-  debugger;
+  const {likedVideoState}=useLikedVideos();
   const [categoryId, categoryIdSetter] = useState(mentor.playlist[0].id);
 
   let currentPlaylist = videos.filter((item) => {
@@ -15,6 +16,16 @@ const Mentor = ({ mentorDetails }) => {
     }
   });
 
+  currentPlaylist=currentPlaylist.map(item=>{
+    let present=likedVideoState.find(likedVedio=>likedVedio.videoId===item.videoId);
+  if(present){
+    return present;
+  }else{
+    return item;
+  }
+  })
+
+
   return (
     <div className="mentor">
       <MentorHeader
@@ -24,6 +35,8 @@ const Mentor = ({ mentorDetails }) => {
       />
       <div className="mentor-grid">
         {currentPlaylist.map((item) => {
+
+          console.log({item});
           return <VideoCard mentorImg={mentor.profile} videosDetails={item} />;
         })}
       </div>

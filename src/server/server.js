@@ -2,7 +2,7 @@ import { Server } from "miragejs";
 import { mentorData, videoData } from "../utils/data.js";
 export const dropoutServer = (params) => {
   let history = [];
-  let likedVideo = [];
+  let likedVideos = [];
   let watchedlater = [];
   let playlist = [];
   return new Server({
@@ -42,7 +42,7 @@ export const dropoutServer = (params) => {
           }
           return false;
         });
-        history=[currenntVideo,...history];
+        history = [currenntVideo, ...history];
 
         return {
           mentor: currentMentor,
@@ -52,10 +52,32 @@ export const dropoutServer = (params) => {
         };
       });
 
+      this.get("/history", (schema, request) => {
+        return { history: history };
+      });
 
-      this.get("/history",(schema,request)=>{
-        return {history:history}
-      })
+      this.post("/likedVideos", (schema, request) => {
+        let { videoId } = JSON.parse(request.requestBody);
+        let currentVideo = videoData.find((item) => item.videoId === videoId);
+        currentVideo = { ...currentVideo, liked: true };
+        likedVideos = [...likedVideos];
+        return { status: 200, video: currentVideo };
+      });
+
+      this.delete("/likedVideos", (schema, request) => {
+        debugger;
+        console.log({ request });
+        let { videoId } = request.queryParams;
+        let currentVideo = videoData.find((item) => item.videoId === videoId);
+        console.log({ currentVideo });
+        likedVideos = likedVideos.filter((item) => {
+          if (item.videoId === currentVideo.videoId) {
+            return false;
+          }
+          return true;
+        });
+        return { status: 200, video: currentVideo };
+      });
     },
   });
 };

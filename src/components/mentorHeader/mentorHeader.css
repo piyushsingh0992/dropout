@@ -103,6 +103,10 @@
  }
 
  @media only screen and (max-width: 600px) {
+
+  .playlistHeader>p {
+    font-size: 0.9rem;
+  }
    .mentorHeader-banner-container {
      height: 11rem;
      width: 100vw;

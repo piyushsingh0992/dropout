@@ -12,8 +12,6 @@ const MentorPage = () => {
       try {
         let { data } = await axios.get(`/mentor/${mentorId}`);
         mentorDetailsSetter(data);
-    
-        
       } catch (error) {
         console.error("error ->", error);
       }

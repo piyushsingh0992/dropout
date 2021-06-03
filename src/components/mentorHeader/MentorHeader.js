@@ -6,7 +6,7 @@ import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import Button from "../button/Button.js";
 const MentorHeader = ({ mentor, categoryId, categoryIdSetter }) => {
   let { name, banner, profile, cateogry, playlist } = mentor;
-  debugger;
+  
   const { theme } = useTheme();
   const { language } = useLanguage();
 

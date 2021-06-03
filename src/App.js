@@ -25,7 +25,6 @@ function App() {
         <Route path="/videoplayer/:videoId" element={<VideoPlayerPage />} />
         <Route path="/likedvideos" element={<LikedVideoPage />} />
         <Route path="/videoplayer" element={<VideoPlayerPage />} />
-        <Route path="/videoplayer" element={<VideoPlayerPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
 
