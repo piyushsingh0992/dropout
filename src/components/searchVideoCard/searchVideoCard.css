@@ -2,12 +2,13 @@
     display: flex;
     margin: 1rem;
     align-items: stretch;
-    width: 100%;
+    max-width: 95vw;
 }
 
 
 .searchVideoDetailsContainer {
     display: flex;
+    flex:3;
     flex-direction: column;
     justify-content: space-between;
     min-width: 60vw;

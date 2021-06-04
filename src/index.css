@@ -1,4 +1,47 @@
-*{
+* {
   padding: 0px;
-  margin:0px;
+  margin: 0px;
+}
+
+.pageContainer {
+  display: flex;
+  min-height: 100vh;
+}
+
+.screenContainer {
+  margin: 1rem ;
+  overflow: hidden;
+  width:98%;
+  max-width: 100%;
+}
+
+.videoCardGrid {
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 14rem 14rem 14rem 14rem;
+  grid-row: auto;
+  grid-gap: 1rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .videoCardGrid {
+    grid-template-columns: 13rem 13rem 13rem;
+    grid-gap: 1rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .pageContainer {
+    flex-direction: column;
+  }
+
+  .screenContainer {
+    margin: 1vw;
+    /* max-width: 98vw; */
+  }
+
+  .videoCardGrid {
+    grid-template-columns: 12rem 12rem;
+    grid-gap: 1rem;
+  }
 }

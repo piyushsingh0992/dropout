@@ -1,8 +1,9 @@
 import React from "react";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import "./recommendVideoCard.css";
-import ThumbNail from "../thumbNail/ThumbNail.js";
 import { NavLink } from "react-router-dom";
+import ThumbNail from "../thumbNail/ThumbNail.js";
+import { useTheme } from "../../contexts/themeContext/themeContext.js";
+
 const RecommendVideoCard = ({ videoDetails, mentor }) => {
   let { mentorName, title, thumbnail, embededLink, videoId, views } =
     videoDetails;

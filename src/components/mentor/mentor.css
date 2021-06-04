@@ -5,25 +5,3 @@
     align-items: center;
 }
 
-.mentor-grid {
-    margin: 2rem 0;
-    display: grid;
-    grid-template-columns: 14rem 14rem 14rem 14rem;
-    grid-row: auto;
-    grid-gap: 1rem;
-}
-
-@media only screen and (max-width: 1200px) {
-    .mentor-grid {
-        grid-template-columns: 14rem 14rem 14rem;
-        grid-gap: 1rem;
-    }
-}
-
-
-@media only screen and (max-width: 600px) {
-    .mentor-grid {
-        grid-template-columns: 12rem 12rem;
-        grid-gap: 1rem;
-    }
-}

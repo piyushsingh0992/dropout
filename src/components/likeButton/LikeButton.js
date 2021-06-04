@@ -11,21 +11,19 @@ const LikeButton = ({ size, videoId, liked }) => {
 
   useEffect(() => {
     likedVideoSetter(liked);
-    console.log(`useEffect ran for ${videoId}-> `, liked);
   }, [liked]);
 
   const likeButtonClickHandler = () => {
     likedVideoSetter((value) => !value);
-    console.log({likedVideo});
-    debugger;
+   
+    
     if (likedVideo) {
-      debugger;
+     
       (async function () {
         try {
           let { data } = await axios.delete("/likedVideos", {
             params:{videoId} 
           });
-          debugger;
           likedVideoStateDispatch({
             payload: "REMOVE_LIKED_VIDEO",
             video: data.video,
@@ -51,8 +49,6 @@ const LikeButton = ({ size, videoId, liked }) => {
       })();
     }
   };
-  console.log(`liked value  for ${videoId}- >`, liked);
-  console.log(`likedVideo value for ${videoId}->`, likedVideo);
   return likedVideo ? (
     <img
       src={likeBlue}

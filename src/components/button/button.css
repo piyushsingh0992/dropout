@@ -1,9 +1,5 @@
 
-.BUTTON{
-   
-    display: flex;
-    justify-content: space-between;
-}
+
 
 .btn {
     border-radius: 5px;

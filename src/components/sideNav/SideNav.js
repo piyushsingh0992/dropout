@@ -1,12 +1,11 @@
 import React from "react";
+import "./sideNav.css";
+import { NavLink } from "react-router-dom";
+import dropout from "../../utils/images/brand/dropout.svg";
+import setting from "../../utils/images/icons/settings.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useSideNavRoute } from "../../utils/common.js";
-import "./sideNav.css";
-
-import dropout from "../../utils/images/brand/dropout.svg";
-import setting from "../../utils/images/icons/settings.svg";
-import { NavLink } from "react-router-dom";
 
 const SideNav = () => {
   const { theme } = useTheme();
@@ -18,19 +17,21 @@ const SideNav = () => {
       style={{ backgroundColor: theme.highLightBackground }}
     >
       <div className="sidenav-top">
-
-      <NavLink to="/">
-        <img src={dropout} className="sidenav-brand-logo" />
+        <NavLink to="/">
+          <img src={dropout} className="sidenav-brand-logo" />
         </NavLink>
 
         {sideNavRouteArray.map((item) => {
           return (
-            <NavLink end to={item.link} className="sidenav-route" activeClassName="current-route">
-              
-                <img src={item.icon} className="sidenav-grey-icon" />
-                <img src={item.iconWhite} className="sidenav-white-icon" />
-                <p>{item.routeName}</p>
-              
+            <NavLink
+              end
+              to={item.link}
+              className="sidenav-route"
+              activeClassName="current-route"
+            >
+              <img src={item.icon} className="sidenav-grey-icon" />
+              <img src={item.iconWhite} className="sidenav-white-icon" />
+              <p>{item.routeName}</p>
             </NavLink>
           );
         })}

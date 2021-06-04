@@ -1,16 +1,20 @@
 import "./App.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import HomePage from "./screens/HomePage/HomePage.js";
 import ChooseMentorPage from "./screens/ChooseMentorPage/ChooseMentorPage.js";
-import HistoryPage from "./screens/HistoryPage/HistoryPage.js";
 import MentorPage from "./screens/MentorPage/MentorPage.js";
+import HistoryPage from "./screens/HistoryPage/HistoryPage.js";
 import LoginPage from "./screens/LoginPage/LoginPage.js";
-import { useTheme } from "./contexts/themeContext/themeContext.js";
-import ContextManager from "./components/contextManager/ContextManager.js";
 import SearchPage from "./screens/SearchPage/SearchPage";
 import VideoPlayerPage from "./screens/VideoPlayerPage/VideoPlayerPage.js";
 import LikedVideoPage from "./screens/LikedVideoPage/LikedVideoPage";
+import WatchLaterPage from "./screens/WatchLaterPage/WatchLaterPage.js";
+import PlaylistPage from "./screens/PlaylistPage/PlaylistPage.js";
 import ErrorPage from "./screens/ErrorPage/ErrorPage.js";
-import { Routes, Route } from "react-router-dom";
+import ContextManager from "./components/contextManager/ContextManager.js";
+import { useTheme } from "./contexts/themeContext/themeContext.js";
+
 function App() {
   const { theme } = useTheme();
   return (
@@ -24,7 +28,8 @@ function App() {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/videoplayer/:videoId" element={<VideoPlayerPage />} />
         <Route path="/likedvideos" element={<LikedVideoPage />} />
-        <Route path="/videoplayer" element={<VideoPlayerPage />} />
+        <Route path="/watchlater" element={<WatchLaterPage />} />
+        <Route path="/playlist" element={<PlaylistPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
 

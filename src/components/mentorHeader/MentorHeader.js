@@ -40,6 +40,7 @@ const MentorHeader = ({ mentor, categoryId, categoryIdSetter }) => {
                   borderBottom: `2px solid ${theme.hightLightText}`,
                   color: theme.hightLightText,
                   fontWeight: "bold",
+                  
                 }}
                 
               >
@@ -52,6 +53,7 @@ const MentorHeader = ({ mentor, categoryId, categoryIdSetter }) => {
                 style={{
                   borderBottom: `1px solid ${theme.boldText}`,
                   color: theme.boldText,
+                  
                 }}
                 onClick={()=>{categoryIdSetter(item.id)}}
               >

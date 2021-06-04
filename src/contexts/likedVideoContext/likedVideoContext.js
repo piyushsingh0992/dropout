@@ -28,7 +28,9 @@ export function LikedVideoProvider({ children }) {
   );
 
   return (
-    <LikedVideoContext.Provider value={{ likedVideoState, likedVideoStateDispatch }}>
+    <LikedVideoContext.Provider
+      value={{ likedVideoState, likedVideoStateDispatch }}
+    >
       {children}
     </LikedVideoContext.Provider>
   );

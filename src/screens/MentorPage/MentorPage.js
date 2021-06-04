@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import "./mentorPage.css";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import Navigation from "../../components/navigation/Navigation.js";
 import Mentor from "../../components/mentor/Mentor.js";
-import axios from "axios";
-import { useParams } from "react-router-dom";
-import "./mentorPage.css";
+
 const MentorPage = () => {
   let { mentorId } = useParams();
   const [mentorDetails, mentorDetailsSetter] = useState(null);
@@ -18,13 +19,11 @@ const MentorPage = () => {
     })();
   }, []);
 
-  
   return mentorDetails ? (
-    <div className="mentorPage">
+    <div className="pageContainer">
       <Navigation />
       <Mentor mentorDetails={mentorDetails} />
     </div>
-
   ) : (
     <h1>loading</h1>
   );

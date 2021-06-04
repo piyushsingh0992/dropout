@@ -1,20 +1,15 @@
 import React from "react";
-import "./ChooseMentorPage.css";
 import Navigation from "../../components/navigation/Navigation.js";
-import MentorGrid from "../../components/mentorGrid/mentorGrid.js";
-
 import Heading from "../../components/heading/Heading.js";
-
-const ChooseMentorPage = () => {
+const PlaylistPage = () => {
   return (
     <div className="pageContainer">
       <Navigation />
       <div className="screenContainer">
-        <Heading text={"Choose Mentor"} />
-        <MentorGrid />
+        <Heading text={"Playlist"} />
       </div>
     </div>
   );
 };
 
-export default ChooseMentorPage;
+export default PlaylistPage;

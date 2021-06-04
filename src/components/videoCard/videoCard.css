@@ -14,15 +14,16 @@
 }
 
 
-.videoTitle {
+.videoTitleDetails {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin: 0;
 
 }
 
 
-.videoTitle>p {
+.videoTitleDetails>p {
     font-size: 0.85rem;
 }
 
@@ -41,12 +42,27 @@
     color: var(--primary-text);
     display: flex;
 
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
 }
 
 .videoDetailsLikeButton{
     height:1.5rem;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .videoCard {
+        width: 13rem;
+    }
+
+    .thumbNail {
+        width: 13rem;
+    }
+
+    .videoCardImageContainer:hover>.videoPlayerBtnScreen {
+        width: 13rem;
+    }
 }
 @media only screen and (max-width: 600px) {
     .videoCard {
@@ -77,7 +93,7 @@
         object-fit: contain;
     }
 
-    .videoTitle>p {
+    .videoTitleDetails>p {
 
         font-size: 0.7rem;
     }

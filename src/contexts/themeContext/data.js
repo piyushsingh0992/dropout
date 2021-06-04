@@ -4,7 +4,6 @@ import lightIcon from "../../utils/images/icons/light.svg";
 import menuDark from "../../utils/images/icons/menuBlack.svg";
 import menulight from "../../utils/images/icons/menuWhite.svg";
 
-
 import darkbackground from "../../utils/images/background/background-dark.jpg";
 import lightBackground from "../../utils/images/background/background-light.jpg";
 
@@ -38,7 +37,7 @@ export const light = {
   hightLightText: "var(--highlight-text)",
   primaryBackground: "var(--primary-background)",
   highLightBackground: "var(--highlight-background)",
-  cardBackground:"var(--card-background)",
+  cardBackground: "var(--card-background)",
   themeButton: darkIcon,
   background: lightBackground,
   heroBackground: lightHeroBackground,
@@ -49,7 +48,7 @@ export const light = {
   abhinavHeroImage: abhinavLight,
   abhinavChikaraHeroImage: abhinavChikaraLight,
   prakharHeroImage: prakharLight,
-  menu:menuDark,
+  menu: menuDark,
 };
 export const dark = {
   primary: "var(--dark-primary)",
@@ -58,7 +57,7 @@ export const dark = {
   hightLightText: "var(--dark-highlight-text)",
   primaryBackground: "var(--dark-primary-background)",
   highLightBackground: "var(--dark-highlight-background)",
-  cardBackground:"var(--dark-card-background)",
+  cardBackground: "var(--dark-card-background)",
   themeButton: lightIcon,
   background: darkbackground,
   heroBackground: darkHeroBackground,
@@ -69,5 +68,5 @@ export const dark = {
   abhinavHeroImage: abhinavDark,
   abhinavChikaraHeroImage: abhinavChikaraDark,
   prakharHeroImage: prakharDark,
-  menu:menulight,
+  menu: menulight,
 };

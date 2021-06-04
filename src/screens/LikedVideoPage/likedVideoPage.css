@@ -26,17 +26,18 @@
     grid-gap: 1rem;
 }
 
+.likedVideosGridContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    widows: 100%;
+}
 
-
-@media only screen and (max-width: 1200px) {
-
-
+@media only screen and (max-width: 1000px) {
     .likedVideoPageGrid {
         grid-template-columns: 14rem 14rem;
         grid-gap: 1rem;
     }
-
-
 }
 
 @media only screen and (max-width: 600px) {
@@ -48,6 +49,8 @@
         grid-template-columns: 12rem 12rem;
         grid-gap: 1rem;
     }
+
+
 
 
 }

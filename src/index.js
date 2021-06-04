@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-
+import "./index.css";
 import { LanguageProvider } from "./contexts/languageContext/languageContext.js";
 import { ThemeProvider } from "./contexts/themeContext/themeContext.js";
 import { BrowserRouter as Router } from "react-router-dom";

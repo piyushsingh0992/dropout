@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import enter from "../../utils/images/icons/enter.svg";
 import "./videoNotes.css";
+import enter from "../../utils/images/icons/enter.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 const VideoNotes = () => {
   const [notes, notesSetter] = useState([]);
   const [currentNote, currentNoteSetter] = useState("");
-  const {theme}=useTheme();
+  const { theme } = useTheme();
   function currentNoteHandler(e) {
     currentNoteSetter(e.target.value);
   }
@@ -36,15 +36,12 @@ const VideoNotes = () => {
         style={{
           borderTop: "1px solid grey",
           borderBottom: "1px solid grey",
-
         }}
         className="allNotes"
       >
-        
-          {notes.map((item) => {
-            return <p style={{ color: theme.boldText }}>{item}</p>;
-          })}
-       
+        {notes.map((item) => {
+          return <p style={{ color: theme.boldText }}>{item}</p>;
+        })}
       </div>
       <div className="writingNotes">
         <textarea
@@ -57,10 +54,9 @@ const VideoNotes = () => {
           onChange={(e) => {
             currentNoteHandler(e);
           }}
-          style={{ background: theme.cardBackground ,color: theme.boldText}}
+          style={{ background: theme.cardBackground, color: theme.boldText }}
           className="notesTextArea"
           placeholder="Take notes"
-       
         />
 
         <img
@@ -69,7 +65,6 @@ const VideoNotes = () => {
           onClick={() => {
             addingNotesonClick();
           }}
-
         />
       </div>
     </div>

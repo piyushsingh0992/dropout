@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Navigation from "../../components/navigation/Navigation.js";
-import axios from "axios";
-import HistoryVideoCard from "../../components/historyVideoCard/HistoryVideoCard.js";
 import "./historyPage.css";
+import axios from "axios";
+import Navigation from "../../components/navigation/Navigation.js";
+import HistoryVideoCard from "../../components/historyVideoCard/HistoryVideoCard.js";
+import Heading from "../../components/heading/Heading.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
+
 const HistoryPage = () => {
   const [history, historyArraySetter] = useState([]);
   const [loading, loadingSetter] = useState(true);
@@ -27,13 +29,11 @@ const HistoryPage = () => {
   return loading ? (
     <h1>loading</h1>
   ) : (
-    <div className="historyPage">
+    <div className="pageContainer">
       <Navigation />
 
-      <div className="historyDisplay">
-        <div>
-          <h1 style={{ color: theme.boldText, margin: "1rem" }}>History</h1>
-        </div>
+      <div className="screenContainer">
+        <Heading text={"History"} />
         {history.map(
           ({ title, thumbnail, videoId, mentorName, views, profile }) => {
             return (

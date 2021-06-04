@@ -1,9 +1,8 @@
 import React from "react";
 import "./thumbNail.css";
-
+import { useLocation, useNavigate } from "react-router-dom";
 import playlist from "../../utils/images/icons/playlistWhite.svg";
 import later from "../../utils/images/icons/laterWhite.svg";
-import { useLocation, useNavigate } from "react-router-dom";
 const ThumbNail = ({ type, thumbnail ,to}) => {
   let navigate=useNavigate();
   function thumbnailClickHandler(){

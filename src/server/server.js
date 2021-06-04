@@ -65,11 +65,8 @@ export const dropoutServer = (params) => {
       });
 
       this.delete("/likedVideos", (schema, request) => {
-        debugger;
-        console.log({ request });
         let { videoId } = request.queryParams;
         let currentVideo = videoData.find((item) => item.videoId === videoId);
-        console.log({ currentVideo });
         likedVideos = likedVideos.filter((item) => {
           if (item.videoId === currentVideo.videoId) {
             return false;

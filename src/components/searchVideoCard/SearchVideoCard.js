@@ -1,11 +1,9 @@
 import React from "react";
-import book from "./images/try.jpg";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import playlist from "../../utils/images/icons/playlistWhite.svg";
-import later from "../../utils/images/icons/laterWhite.svg";
 import "./searchVideoCard.css";
+import book from "./images/try.jpg";
 import pic from "../../utils/images/mentors/tanay/profile.png";
 import ThumbNail from "../thumbNail/ThumbNail.js";
+import { useTheme } from "../../contexts/themeContext/themeContext.js";
 const SearchVideoCard = () => {
   const { theme } = useTheme();
   let x =

@@ -1,24 +1,19 @@
 import React, { useState } from "react";
 import "./mentorCard.css";
-
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { NavLink } from "react-router-dom";
 
-const MentorCard = ({ profile, banner, name, category,route }) => {
+const MentorCard = ({ profile, banner, name, category, route }) => {
   const { theme } = useTheme();
   const [trigger, triggerSetter] = useState(false);
   const triggerHandler = () => {
     triggerSetter((value) => !value);
   };
   return (
-    <div className="mentorCard" style={{background:theme.cardBackground}}>
-      <div className="mentorCard-mentor-pic-container"onClick={triggerHandler}>
-        <img
-          src={profile}
-          className="mentorCard-mentor-pic"
-          
-        />
-        <p style={{color:theme.boldText}}>{category}</p>
+    <div className="mentorCard" style={{ background: theme.cardBackground }}>
+      <div className="mentorCard-mentor-pic-container" onClick={triggerHandler}>
+        <img src={profile} className="mentorCard-mentor-pic" />
+        <p style={{ color: theme.boldText }}>{category}</p>
       </div>
       <div
         className={`mentor-card-modal-container ${
@@ -38,7 +33,6 @@ const MentorCard = ({ profile, banner, name, category,route }) => {
             <img src={profile} className="mentor-card-modal-intro-pic" />
             <div className="mentor-card-modal-intro-text">
               <h1>{name}</h1>
-
             </div>
           </div>
 
@@ -51,13 +45,13 @@ const MentorCard = ({ profile, banner, name, category,route }) => {
           >
             Tanay work's at microsoft
           </div>
-            <NavLink to={route}>
-          <div
-            className="mentor-card-modal-btn-container"
-            style={{ backgroundColor: theme.primaryBackground }}
-          >
-            <button>Start Learning</button>
-          </div>
+          <NavLink to={route}>
+            <div
+              className="mentor-card-modal-btn-container"
+              style={{ backgroundColor: theme.primaryBackground }}
+            >
+              <button>Start Learning</button>
+            </div>
           </NavLink>
         </div>
       </div>

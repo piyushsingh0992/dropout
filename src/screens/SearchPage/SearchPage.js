@@ -1,21 +1,29 @@
 import React from "react";
-import Search from "../../components/search/Search";
+import "./searchPage.css";
+import Search from "../../components/search/Search.js";
 import Navigation from "../../components/navigation/Navigation.js";
 import SearchVideoCard from "../../components/searchVideoCard/SearchVideoCard.js";
 
-import "./searchPage.css";
 const SearchPage = () => {
   return (
-    <div className="searchPage">
+    <div className="pageContainer">
       <Navigation />
-      <div className="searchDisplay">
+      <div className="screenContainer">
         <Search />
         <SearchVideoCard />
-        <SearchVideoCard /> <SearchVideoCard /> <SearchVideoCard />{" "}
-        <SearchVideoCard /> <SearchVideoCard /> <SearchVideoCard />{" "}
-        <SearchVideoCard /> <SearchVideoCard /> <SearchVideoCard />{" "}
-        <SearchVideoCard /> <SearchVideoCard /> <SearchVideoCard />{" "}
         <SearchVideoCard />
+         <SearchVideoCard />
+        <SearchVideoCard />
+        <SearchVideoCard />
+        {/*<SearchVideoCard />
+        <SearchVideoCard />
+        <SearchVideoCard />
+        <SearchVideoCard />
+        <SearchVideoCard />
+        <SearchVideoCard />
+        <SearchVideoCard />
+        <SearchVideoCard />
+        <SearchVideoCard /> */}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import enter from "../../utils/images/icons/enter.svg";
 import "./doubtSolver.css";
+import enter from "../../utils/images/icons/enter.svg";
 import Avatar from "../avatar/Avatar.js";
 
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
@@ -16,7 +16,7 @@ const DoubtSolver = () => {
     }
 
     if (e.keyCode === 13) {
-        questionArraySetter((value) => [currentQuestion,...value ]);
+      questionArraySetter((value) => [currentQuestion, ...value]);
       currentQuestionSetter("");
     }
   }
@@ -26,7 +26,7 @@ const DoubtSolver = () => {
       return;
     }
 
-    questionArraySetter((value) => [currentQuestion,...value ]);
+    questionArraySetter((value) => [currentQuestion, ...value]);
     currentQuestionSetter("");
   }
 
@@ -66,7 +66,6 @@ const DoubtSolver = () => {
             </div>
           );
         })}
-        
       </div>
     </div>
   );

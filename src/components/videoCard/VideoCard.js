@@ -1,17 +1,13 @@
-import React ,{useState}from "react";
-
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./videoCard.css";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-
 import LikeButton from "../likeButton/LikeButton.js";
 import ThumbNail from "..//thumbNail/ThumbNail.js";
+import { useTheme } from "../../contexts/themeContext/themeContext.js";
 const VideoCard = ({ videosDetails }) => {
-
-  const { title, mentor,  thumbnail, views, videoId ,liked,profile} =
+  const { title, mentor, thumbnail, views, videoId, liked, profile } =
     videosDetails;
 
-  
   const { theme } = useTheme();
   return (
     <div className="videoCard">
@@ -21,7 +17,7 @@ const VideoCard = ({ videosDetails }) => {
         type={"mentorplaylistThumbnail"}
       />
       <div className="videoDetailsContainer">
-        <div className="videoTitle">
+        <div className="videoTitleDetails">
           <img src={profile} className="videoMentor" />
           <p style={{ color: theme.boldText }}>
             {title.length > 30 ? `${title.slice(0, 30)}...` : title}
@@ -33,7 +29,7 @@ const VideoCard = ({ videosDetails }) => {
             <p>{mentor} </p>
             <p>{views} views</p>
           </div>
-          <LikeButton size={1.5} videoId={videoId} liked={liked}/>
+          <LikeButton size={1.4} videoId={videoId} liked={liked} />
         </div>
       </div>
     </div>

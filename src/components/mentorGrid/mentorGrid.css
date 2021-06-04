@@ -1,33 +1,28 @@
-.mentorGrid{
+.mentorGrid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width:100%;
+    width: 100%;
 }
 
-.mentorGridHeading{
-    width:95%;
-    padding: 2.5%;
 
-}
-
-.grid{
-    margin:2rem;
+.grid {
+    margin: 2rem;
     display: grid;
     grid-template-columns: 18rem 18rem 18rem;
     grid-template-rows: auto;
-    grid-gap:1.5rem;
+    grid-gap: 1.5rem;
 }
 
+
+
+
 @media only screen and (max-width: 600px) {
-    .grid{
-        margin:2rem;
+    .grid {
+        margin: 2rem;
         display: grid;
-        grid-template-columns: 12rem 12rem ;
+        grid-template-columns: 12rem 12rem;
         grid-template-rows: auto;
-        grid-gap:1.5rem;
+        grid-gap: 1.5rem;
     }
-  }
-
-
-
+}

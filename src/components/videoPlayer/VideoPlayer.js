@@ -1,15 +1,11 @@
 import React from "react";
 import "./videoPlayer.css";
-import like from "../../utils/images/icons/like.svg";
-
 import playlist from "../../utils/images/icons/playlist.svg";
 import later from "../../utils/images/icons/later.svg";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import LikeButton from "../likeButton/LikeButton.js";
-
-
 import DoubtSolver from "../doubtSolver/DoubtSolver.js";
 import Button from "../button/Button.js";
+import { useTheme } from "../../contexts/themeContext/themeContext.js";
 
 const VideoPlayer = ({ videoDetails }) => {
   const { video, mentor } = videoDetails;
@@ -25,7 +21,7 @@ const VideoPlayer = ({ videoDetails }) => {
             : video.title}
         </p>
         <div className="videoPlayerCTAContainer">
-        <LikeButton size={1.5}/>
+          <LikeButton size={1.5} />
           <div>
             <img src={playlist} />
             Add to Playlist

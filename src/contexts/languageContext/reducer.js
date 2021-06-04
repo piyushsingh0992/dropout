@@ -1,8 +1,16 @@
-import {English,Hindi,Gujarati,Bangla,Marathi,Spanish,French,Italian} from "./data.js"
+import {
+  English,
+  Hindi,
+  Gujarati,
+  Bangla,
+  Marathi,
+  Spanish,
+  French,
+  Italian,
+} from "./data.js";
 
-
-export function languageHandler(state,action) {
-  const {payload}=action;
+export function languageHandler(state, action) {
+  const { payload } = action;
   switch (payload) {
     case "English":
       return English;

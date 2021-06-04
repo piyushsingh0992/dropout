@@ -1,7 +1,7 @@
 .videoNotes{
-    width:22rem;
     border-radius: 15px;
     height:30rem;
+    flex:1;
 }
 
 .videoNotes>p{

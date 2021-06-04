@@ -88,8 +88,9 @@
 
 .searchThumnail {
 
-    width: 100%;
+    
     max-height: 8rem;
+    width:12rem;
 }
 
 .mentorplaylistThumbnail {
@@ -114,8 +115,8 @@
 
     .searchThumnail {
 
-        /* width: 100%;
-        max-height: 200rem; */
+    
+        width:12rem;
     }
 
 }

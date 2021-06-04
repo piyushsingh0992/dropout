@@ -1,12 +1,11 @@
 .sidenav {
   height: 100vh;
-  min-width:10rem;
-  width: 15vw;
+  min-width:13rem;
+  max-width: 14rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.4s ease-in-out;
-  /* border-right: 1px solid var(--primary); */
   position: sticky;
   top:0;
   bottom:0;
@@ -16,6 +15,7 @@
 .sidenav-brand-logo {
   height: 4.3rem;
   padding: 1vh 5%;
+  text-decoration: none;
 }
 
 .sidenav-route {

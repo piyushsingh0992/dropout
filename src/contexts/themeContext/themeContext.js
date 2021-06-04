@@ -5,17 +5,16 @@ import { light, dark } from "./data.js";
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-
-  useEffect(()=>{
-    let previousTheme=localStorage.getItem('theme');
-    if(previousTheme==='dark'){
-      themeDispatch({payload:true})
-    }else if(previousTheme==='light'){
-      themeDispatch({payload:false})
+  useEffect(() => {
+    let previousTheme = localStorage.getItem("theme");
+    if (previousTheme === "dark") {
+      themeDispatch({ payload: true });
+    } else if (previousTheme === "light") {
+      themeDispatch({ payload: false });
     }
-  })
- 
-  const [theme, themeDispatch] = useReducer(themeHandler,light);
+  });
+
+  const [theme, themeDispatch] = useReducer(themeHandler, light);
 
   return (
     <ThemeContext.Provider value={{ theme, themeDispatch }}>

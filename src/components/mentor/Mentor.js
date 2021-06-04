@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import "./mentor.css";
 import MentorHeader from "../mentorHeader/MentorHeader.js";
 import VideoCard from "../videoCard/VideoCard.js";
-import "./mentor.css";
-import {useLikedVideos} from "../../contexts/likedVideoContext/likedVideoContext.js";
+import { useLikedVideos } from "../../contexts/likedVideoContext/likedVideoContext.js";
 const Mentor = ({ mentorDetails }) => {
   const { videos, mentor } = mentorDetails;
-  const {likedVideoState}=useLikedVideos();
+  const { likedVideoState } = useLikedVideos();
   const [categoryId, categoryIdSetter] = useState(mentor.playlist[0].id);
 
   let currentPlaylist = videos.filter((item) => {
@@ -16,15 +16,16 @@ const Mentor = ({ mentorDetails }) => {
     }
   });
 
-  currentPlaylist=currentPlaylist.map(item=>{
-    let present=likedVideoState.find(likedVedio=>likedVedio.videoId===item.videoId);
-  if(present){
-    return present;
-  }else{
-    return item;
-  }
-  })
-
+  currentPlaylist = currentPlaylist.map((item) => {
+    let present = likedVideoState.find(
+      (likedVedio) => likedVedio.videoId === item.videoId
+    );
+    if (present) {
+      return present;
+    } else {
+      return item;
+    }
+  });
 
   return (
     <div className="mentor">
@@ -33,10 +34,8 @@ const Mentor = ({ mentorDetails }) => {
         categoryId={categoryId}
         categoryIdSetter={categoryIdSetter}
       />
-      <div className="mentor-grid">
+      <div className="videoCardGrid">
         {currentPlaylist.map((item) => {
-
-          console.log({item});
           return <VideoCard mentorImg={mentor.profile} videosDetails={item} />;
         })}
       </div>
