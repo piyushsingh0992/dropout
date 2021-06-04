@@ -6,11 +6,16 @@ import LikeButton from "../likeButton/LikeButton.js";
 import DoubtSolver from "../doubtSolver/DoubtSolver.js";
 import Button from "../button/Button.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import {useLikedVideos} from "../../contexts/likedVideoContext/likedVideoContext.js";
 
 const VideoPlayer = ({ videoDetails }) => {
-  const { video, mentor } = videoDetails;
+  let  { video, mentor } = videoDetails;
+  const {likedVideoState}=useLikedVideos();
   const { theme } = useTheme();
-
+  let likedVideo=likedVideoState.find(item =>item?.videoId===video.videoId);
+  if(likedVideo){
+    video=likedVideo
+  }
   return (
     <div className="videoPlayer">
       <iframe className="videoPlayerIframe" src={video.embededLink}></iframe>
@@ -21,7 +26,7 @@ const VideoPlayer = ({ videoDetails }) => {
             : video.title}
         </p>
         <div className="videoPlayerCTAContainer">
-          <LikeButton size={1.5} />
+          <LikeButton size={1.5} liked={video.liked}  videoId={video.videoId}/>
           <div>
             <img src={playlist} />
             Add to Playlist

@@ -35,7 +35,7 @@ export const dropoutServer = (params) => {
         );
         let recommendedVideos = videoData.filter((item) => {
           if (
-            item.category.name === currenntVideo.category.name &&
+            item.category.id === currenntVideo.category.id &&
             item.videoId != currenntVideo.videoId
           ) {
             return true;
@@ -43,7 +43,7 @@ export const dropoutServer = (params) => {
           return false;
         });
         history = [currenntVideo, ...history];
-
+        debugger;
         return {
           mentor: currentMentor,
           video: currenntVideo,
