@@ -3,7 +3,7 @@ import { mentorData, videoData } from "../utils/data.js";
 export const dropoutServer = (params) => {
   let history = [];
   let likedVideos = [];
-  let watchedlater = [];
+  let watchLater = [];
   let playlist = [];
   return new Server({
     routes() {
@@ -43,7 +43,7 @@ export const dropoutServer = (params) => {
           return false;
         });
         history = [currenntVideo, ...history];
-        debugger;
+      
         return {
           mentor: currentMentor,
           video: currenntVideo,
@@ -60,7 +60,7 @@ export const dropoutServer = (params) => {
         let { videoId } = JSON.parse(request.requestBody);
         let currentVideo = videoData.find((item) => item.videoId === videoId);
         currentVideo = { ...currentVideo, liked: true };
-        likedVideos = [...likedVideos];
+        likedVideos = [currentVideo, ...likedVideos];
         return { status: 200, video: currentVideo };
       });
 
@@ -73,6 +73,31 @@ export const dropoutServer = (params) => {
           }
           return true;
         });
+        return { status: 200, video: currentVideo };
+      });
+
+      this.post("/watchlater/:videoId", (schema, request) => {
+        let { videoId } = request.params;
+        let currentVideo = videoData.find((item) => item.videoId === videoId);
+        currentVideo = { ...currentVideo, watchLater: true };
+        watchLater = [currentVideo, ...watchLater];
+        return { status: 200, video: currentVideo };
+      });
+
+
+      this.delete("/watchlater/:videoId", (schema, request) => {
+        let { videoId } = request.params;
+        let currentVideo = videoData.find((item) => item.videoId === videoId);
+        watchLater=watchLater.filter(item=>{
+          if(item.videoId===videoId){
+            return false;
+          }else{
+            return true;
+          }
+        })
+        
+
+
         return { status: 200, video: currentVideo };
       });
     },

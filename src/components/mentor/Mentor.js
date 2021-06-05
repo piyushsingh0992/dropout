@@ -36,7 +36,7 @@ const Mentor = ({ mentorDetails }) => {
       />
       <div className="videoCardGrid">
         {currentPlaylist.map((item) => {
-          return <VideoCard mentorImg={mentor.profile} videosDetails={item} />;
+          return <VideoCard mentorImg={mentor.profile}  videosDetails={item} />;
         })}
       </div>
     </div>

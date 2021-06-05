@@ -19,8 +19,7 @@ const VideoPlayerPage = () => {
     (async function () {
       try {
         let { data } = await axios.get(`/video/${videoId}`);
-        console.log({data});
-        debugger;
+        
         videoDetailsSetter(data);
       } catch (error) {
         console.error("error ->", error);

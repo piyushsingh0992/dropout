@@ -4,24 +4,31 @@ import book from "./images/try.jpg";
 import pic from "../../utils/images/mentors/tanay/profile.png";
 import ThumbNail from "../thumbNail/ThumbNail.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-const SearchVideoCard = () => {
+const SearchVideoCard = ({ videosDetails }) => {
+  const { title, mentorName, thumbnail, views, videoId, liked, profile } =
+    videosDetails;
+    debugger;
   const { theme } = useTheme();
   let x =
     "ssssssssssssssssssssssssdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd";
   return (
     <div className="searchVideoCard">
-      <ThumbNail thumbnail={book} type={"searchThumnail"} />
+      <ThumbNail
+        thumbnail={thumbnail}
+        type={"searchThumnail"}
+        videoId={videoId}
+      />
       <div className="searchVideoDetailsContainer">
         <p style={{ color: theme.boldText }}>
-          {x.length > 70 ? `${x.slice(0, 40)}...` : x}
+          {title.length > 70 ? `${title.slice(0, 40)}...` : title}
         </p>
 
         <div className="searchVideoDetails">
           <div className="searchVideoCardMentorDetails">
-            <img src={pic} className="searchVideoCardMentorImg" />
-            <p>mentor name </p>
+            <img src={profile} className="searchVideoCardMentorImg" />
+            <p>{mentorName} </p>
           </div>
-          <p>66k views </p>
+          <p>{views} views </p>
         </div>
       </div>
     </div>

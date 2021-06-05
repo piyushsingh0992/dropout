@@ -8,6 +8,7 @@ import { ThemeProvider } from "./contexts/themeContext/themeContext.js";
 import { BrowserRouter as Router } from "react-router-dom";
 import { dropoutServer } from "./server/server.js";
 import { LikedVideoProvider } from "./contexts/likedVideoContext/likedVideoContext.js";
+import {WatchLaterProvider} from "./contexts/watchLaterContext/watchLaterContext.js";
 
 dropoutServer();
 ReactDOM.render(
@@ -15,9 +16,11 @@ ReactDOM.render(
     <Router>
       <ThemeProvider>
         <LanguageProvider>
+          <WatchLaterProvider>
           <LikedVideoProvider>
             <App />
           </LikedVideoProvider>
+          </WatchLaterProvider>
         </LanguageProvider>
       </ThemeProvider>
     </Router>

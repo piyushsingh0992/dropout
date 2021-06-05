@@ -10,9 +10,13 @@ const RecommendVideoCard = ({ videoDetails, mentor }) => {
   const { theme } = useTheme();
   return (
     <div className="recommendVideoCard">
-      <NavLink to={`/videoplayer/${videoId}`}>
-        <ThumbNail thumbnail={thumbnail} type={"recommendThumbnail"} />
-      </NavLink>
+      <ThumbNail
+        thumbnail={thumbnail}
+        type={"recommendThumbnail"}
+        videoId={videoId}
+        to={`/videoplayer/${videoId}`}
+      />
+
       <div className="recommendVideoDetailsContainer">
         <p style={{ color: theme.boldText }}>{title.slice(0, 45)}...</p>
 

@@ -5,14 +5,14 @@ import axios from "axios";
 import { useLikedVideos } from "../../contexts/likedVideoContext/likedVideoContext.js";
 
 const LikeButton = ({ size, videoId, liked }) => {
-  const [likedVideo, likedVideoSetter] = useState(liked);
+  const [likedVideo, likedVideoSetter] = useState(false);
 
   const { likedVideoStateDispatch } = useLikedVideos();
 
   useEffect(() => {
     likedVideoSetter(liked);
     return ()=>{
-      console.log(`it got unmounted from ${videoId}`)
+      likedVideoSetter(false)
     }
   },[liked, videoId] );
 
