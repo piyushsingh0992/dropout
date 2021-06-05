@@ -6,6 +6,7 @@ import HistoryVideoCard from "../../components/historyVideoCard/HistoryVideoCard
 import Heading from "../../components/heading/Heading.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 
+import Loader from "../../components/loader/Loader.js";
 const HistoryPage = () => {
   const [history, historyArraySetter] = useState([]);
   const [loading, loadingSetter] = useState(true);
@@ -27,7 +28,7 @@ const HistoryPage = () => {
   }, []);
 
   return loading ? (
-    <h1>loading</h1>
+    <Loader size={5}/>
   ) : (
     <div className="pageContainer">
       <Navigation />

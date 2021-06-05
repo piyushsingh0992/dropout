@@ -43,7 +43,7 @@ export const dropoutServer = (params) => {
           return false;
         });
         history = [currenntVideo, ...history];
-      
+
         return {
           mentor: currentMentor,
           video: currenntVideo,
@@ -83,22 +83,78 @@ export const dropoutServer = (params) => {
         watchLater = [currentVideo, ...watchLater];
         return { status: 200, video: currentVideo };
       });
-
-
       this.delete("/watchlater/:videoId", (schema, request) => {
         let { videoId } = request.params;
         let currentVideo = videoData.find((item) => item.videoId === videoId);
-        watchLater=watchLater.filter(item=>{
-          if(item.videoId===videoId){
+        watchLater = watchLater.filter((item) => {
+          if (item.videoId === videoId) {
             return false;
-          }else{
+          } else {
             return true;
           }
-        })
-        
-
-
+        });
         return { status: 200, video: currentVideo };
+      });
+
+      this.post("/history/:videoId", (schema, request) => {
+        let { videoId } = request.params;
+        let currentVideo = videoData.find((item) => item.videoId === videoId);
+        currentVideo = { ...currentVideo, watchLater: true };
+        history = [currentVideo, ...watchLater];
+        return { status: 200, video: currentVideo };
+      });
+
+      this.get("/playlist", (schema, request) => {});
+
+      this.post("/playlist", (schema, request) => {
+        let { playlistId, videoId, playlistName } = JSON.parse(
+          request.requestBody
+        );
+        let currentVideo = videoData.find((item) => item.videoId === videoId);
+        if (playlistId) {
+          playlist = playlist.map((item) => {
+            if (item.playlistId === playlistId) {
+              return {
+                ...item,
+                videoArray: [...item.videoArray, currentVideo],
+              };
+            }
+            return item;
+          });
+        } else {
+          playlist = [
+            ...playlist,
+            {
+              playlistId: playlistName,
+              playlistName: playlistName,
+              videoArray: [currentVideo],
+            },
+          ];
+        }
+        return { status: 200, video: currentVideo, playlist: playlist };
+      });
+
+      this.delete("/playlist/:playlistId/:videoId", (schema, request) => {
+        let { playlistId, videoId } = request.params;
+        let currentVideo = videoData.find((item) => item.videoId === videoId);
+
+        if (videoId) {
+          playlist = playlist.map((item) => {
+            if (item.playlistId === playlistId) {
+              return {
+                ...item,
+                videoArray: item.videoArray.filter(
+                  (item) => item.videoId != videoId
+                ),
+              };
+            }
+            return item;
+          });
+        } else {
+          playlist = playlist.filter((item) => item.playlistId !== playlistId);
+        }
+
+        return { status: 200, video: currentVideo, playlist: playlist };
       });
     },
   });

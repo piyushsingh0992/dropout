@@ -4,28 +4,30 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Navigation from "../../components/navigation/Navigation.js";
 import Mentor from "../../components/mentor/Mentor.js";
-
+import Loader from "../../components/loader/Loader.js";
 const MentorPage = () => {
   let { mentorId } = useParams();
   const [mentorDetails, mentorDetailsSetter] = useState(null);
+  const [loading, loadingSetter] = useState(true);
   useEffect(() => {
     (async function () {
       try {
         let { data } = await axios.get(`/mentor/${mentorId}`);
         mentorDetailsSetter(data);
+        loadingSetter(false);
       } catch (error) {
         console.error("error ->", error);
       }
     })();
   }, []);
 
-  return mentorDetails ? (
+  return loading ? (
+    <Loader size={5} />
+  ) : (
     <div className="pageContainer">
       <Navigation />
       <Mentor mentorDetails={mentorDetails} />
     </div>
-  ) : (
-    <h1>loading</h1>
   );
 };
 

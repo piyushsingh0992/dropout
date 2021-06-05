@@ -5,10 +5,13 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 const Search = () => {
   const { theme } = useTheme();
   return (
-    <div className="search" style={{ backgroundColor: theme.cardBackground }}>
+    <div
+      className="search"
+      style={{ backgroundColor: theme.cardBackground }}
+    >
       <img src={searchIcon} />
       <input
-        style={{ backgroundColor: theme.cardBackground }}
+        style={{ backgroundColor: theme.cardBackground , color: theme.boldText}}
         placeholder="search"
       />
     </div>

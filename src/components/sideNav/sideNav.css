@@ -42,11 +42,11 @@
   background-color: var(--primary-text);
 }
 
-.sidenav-grey-icon {
+.sidenav-route .sidenav-grey-icon {
   display: block;
 }
 
-.sidenav-white-icon {
+.sidenav-route .sidenav-white-icon {
   display: none;
 }
 
