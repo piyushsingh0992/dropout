@@ -12,8 +12,8 @@ const HistoryVideoCard = ({ title, thumbnail, videoId, mentorName,views,profile 
       <div className="historyVideoCard">
         <ThumbNail
           thumbnail={thumbnail}
-          to={`/videoplayer/${videoId}`}
           type={"historyThumnail"}
+          videoId={videoId}
         />
         <div className="historyVideoDetailsContainer">
           <p style={{ color: theme.boldText }}>

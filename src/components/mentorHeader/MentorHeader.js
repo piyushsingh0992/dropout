@@ -4,9 +4,10 @@ import { Navlink } from "react-router-dom";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import Button from "../button/Button.js";
+import SubscribeButton from "../subscribeButton/SubscribeButton.js";
 const MentorHeader = ({ mentor, categoryId, categoryIdSetter }) => {
-  let { name, banner, profile, cateogry, playlist } = mentor;
-  
+  let { name, banner, mentorId, profile, subject, playlist } = mentor;
+
   const { theme } = useTheme();
   const { language } = useLanguage();
 
@@ -23,10 +24,10 @@ const MentorHeader = ({ mentor, categoryId, categoryIdSetter }) => {
           <img src={profile} className="mentorHeader-mentor-img" />
           <div className="mentorHeader-mentor-text">
             <h1 style={{ color: theme.hightLightText }}> {name} </h1>
-            <p style={{ color: theme.boldText }}> {cateogry} </p>
+            <p style={{ color: theme.boldText }}> {subject} </p>
           </div>
         </div>
-        <Button text="Subscribe" size="subscribe-btn" />
+        <SubscribeButton mentorId={mentorId} />
       </div>
       <div
         className="playlistHeader"
@@ -40,9 +41,7 @@ const MentorHeader = ({ mentor, categoryId, categoryIdSetter }) => {
                   borderBottom: `2px solid ${theme.hightLightText}`,
                   color: theme.hightLightText,
                   fontWeight: "bold",
-                  
                 }}
-                
               >
                 {item.name}
               </p>
@@ -53,9 +52,10 @@ const MentorHeader = ({ mentor, categoryId, categoryIdSetter }) => {
                 style={{
                   borderBottom: `1px solid ${theme.boldText}`,
                   color: theme.boldText,
-                  
                 }}
-                onClick={()=>{categoryIdSetter(item.id)}}
+                onClick={() => {
+                  categoryIdSetter(item.id);
+                }}
               >
                 {item.name}
               </p>

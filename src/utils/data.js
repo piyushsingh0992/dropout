@@ -2,7 +2,7 @@ export const mentorData = [
   {
     mentorId: "tanay_pratap",
     name: "Tanay Praap",
-    cateogry: "Tech Mentor",
+    subject: "Tech Mentor",
     profile: "https://i.ibb.co/sm9Vrm6/tanay.png",
     banner: "https://i.ibb.co/hX5SQyj/tanay.png",
     playlist: [
@@ -15,7 +15,7 @@ export const mentorData = [
   {
     mentorId: "varun_mavya",
     name: "Varun Mavya",
-    cateogry: "Business Mentor",
+    subject: "Business Mentor",
     profile: "https://i.ibb.co/h9jXyHZ/varun.png",
     banner: "https://i.ibb.co/q5RsVZg/varun.png",
 
@@ -28,7 +28,7 @@ export const mentorData = [
   {
     mentorId: "shashank_udupa",
     name: "Shashank Udupa",
-    cateogry: "Finance Mentor",
+    subject: "Finance Mentor",
     profile: "https://i.ibb.co/fYGG436/shashank.png",
     banner: "https://i.ibb.co/WBVvb2x/shashank.png",
     playlist: [
@@ -39,7 +39,7 @@ export const mentorData = [
   {
     mentorId: "abhinav_gupta",
     name: "Abhinav Gupta",
-    cateogry: "Marketing Mentor",
+    subject: "Marketing Mentor",
     profile: "https://i.ibb.co/x7jd1x9/abhinav.png",
     banner: "https://i.ibb.co/VSpbTVQ/abhinav.png",
     playlist: [{ id: "abhinav_podcasts", name: "Podcasts" }],
@@ -48,7 +48,7 @@ export const mentorData = [
   {
     mentorId: "abhinav_chikara",
     name: "Abhinav Chikara",
-    cateogry: "Design Mentor",
+    subject: "Design Mentor",
     profile: "  https://i.ibb.co/j3p6ZxS/abhinav-Chikara.png",
     banner: "https://i.ibb.co/sy1bMvD/abhinav-Chikara.png",
     playlist: [
@@ -57,10 +57,9 @@ export const mentorData = [
     ],
   },
   {
-    mentorName: "Prakhar Gupta",
     mentorId: "prakhar_gupta",
     name: "Prakhar Gupta",
-    cateogry: "Conversation Mentor",
+    subject: "Conversation Mentor",
     profile: "https://i.ibb.co/ckvX6V1/prakhar.png",
     banner: "https://i.ibb.co/rZLyzWL/prakhar.png",
     playlist: [
@@ -80,7 +79,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/omKQsOPAjjk",
     thumbnail: "https://i.ibb.co/vjNmg8S/maxresdefault.jpg",
     category: { id: "design_crash_course", index: 1 },
-    liked: false,
+
     views: 92943,
   },
 
@@ -92,7 +91,6 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/oSz5KTdKW88",
     thumbnail: "https://i.ibb.co/gFrJhW7/maxresdefault-1.jpg",
     category: { id: "design_crash_course", index: 2 },
-    liked: false,
     views: 92943,
   },
 
@@ -104,7 +102,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/T4BvVOC_J_k",
     thumbnail: "https://i.ibb.co/k0m2XjM/maxresdefault-2.jpg",
     category: { id: "design_crash_course", index: 3 },
-    liked: false,
+
     views: 92943,
   },
 
@@ -116,7 +114,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/RKILkYOHRXk",
     thumbnail: "https://i.ibb.co/4skVvwh/maxresdefault-3.jpg",
     category: { id: "design_crash_course", index: 4 },
-    liked: false,
+
     views: 92943,
   },
 
@@ -128,7 +126,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/pBgufXz2lbU",
     thumbnail: "https://i.ibb.co/CVFJ29R/maxresdefault-4.jpg",
     category: { id: "design_crash_course", index: 5 },
-    liked: false,
+
     views: 92943,
   },
 
@@ -140,7 +138,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/lEfyEbwfi0k",
     thumbnail: "https://i.ibb.co/FK1hMW4/maxresdefault-5.jpg",
     category: { id: "design_crash_course", index: 6 },
-    liked: false,
+
     views: 92943,
   },
 
@@ -152,7 +150,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/bUFjEPOO488",
     thumbnail: "https://i.ibb.co/brVKWkK/maxresdefault-6.jpg",
     category: { id: "design_crash_course", index: 7 },
-    liked: false,
+
     views: 92943,
   },
 
@@ -165,7 +163,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/jdne_SwILSQ",
     thumbnail: "https://i.ibb.co/m5G3Lj2/maxresdefault-5.jpg",
     category: { id: "interview_with_designers", index: 1 },
-    liked: false,
+
     views: 92943,
   },
 
@@ -178,7 +176,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/m2T1aPfshnk",
     thumbnail: "https://i.ibb.co/hMgQcyN/maxresdefault-3.jpg",
     category: { id: "interview_with_designers", index: 2 },
-    liked: false,
+
     views: 92943,
   },
 
@@ -190,7 +188,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/rYkFQLSSaIM",
     thumbnail: "https://i.ibb.co/VVdN3WD/maxresdefault-2.jpg",
     category: { id: "interview_with_designers", index: 3 },
-    liked: false,
+
     views: 92943,
   },
 
@@ -202,7 +200,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/soBEttAoTGw",
     thumbnail: "https://i.ibb.co/RHnTQDJ/maxresdefault-1.jpg",
     category: { id: "interview_with_designers", index: 4 },
-    liked: false,
+
     views: 92943,
   },
 
@@ -214,7 +212,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/agXAcxQvAxI",
     thumbnail: "https://i.ibb.co/JKtc5rn/maxresdefault.jpg",
     category: { id: "interview_with_designers", index: 5 },
-    liked: false,
+
     views: 92943,
   },
 
@@ -226,7 +224,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/bOMrGECs7kI",
     thumbnail: "https://i.ibb.co/4Kj8B50/maxresdefault-6.jpg",
     category: { id: "live_talks", index: 1 },
-    liked: false,
+
     views: 92943,
   },
 
@@ -238,7 +236,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/Lr0i3_pFDPo",
     thumbnail: "https://i.ibb.co/xLY0rP8/maxresdefault-5.jpg",
     category: { id: "live_talks", index: 2 },
-    liked: false,
+
     views: 72043,
   },
 
@@ -250,7 +248,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/gQKIIq91EAA",
     thumbnail: "https://i.ibb.co/nj7cPsx/maxresdefault-4.jpg",
     category: { id: "live_talks", index: 3 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -262,7 +260,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/mhsKuUNLACY",
     thumbnail: "https://i.ibb.co/4jWsjXh/maxresdefault-3.jpg",
     category: { id: "live_talks", index: 4 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -274,7 +272,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/-0agIi5sIxU",
     thumbnail: "https://i.ibb.co/WFw1W6H/maxresdefault-2.jpg",
     category: { id: "live_talks", index: 5 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -286,7 +284,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/LkoP00u4G4A",
     thumbnail: "https://i.ibb.co/Nyyrjzh/maxresdefault-1.jpg",
     category: { id: "live_talks", index: 6 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -298,7 +296,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/iydrZ6yxjZI",
     thumbnail: "https://i.ibb.co/9NZpT8V/maxresdefault.jpg",
     category: { id: "live_talks", index: 7 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -310,7 +308,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/efcWCrmICNI",
     thumbnail: "https://i.ibb.co/C6GGgJs/maxresdefault-3.jpg",
     category: { id: "spirituality", index: 1 },
-    liked: false,
+
     views: 92043,
   },
   {
@@ -321,7 +319,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/ZkB3N6K80GI",
     thumbnail: "https://i.ibb.co/zPGY6ns/maxresdefault-2.jpg",
     category: { id: "spirituality", index: 2 },
-    liked: false,
+
     views: 92043,
   },
   {
@@ -332,7 +330,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/G_A2LVW1Vrk",
     thumbnail: "https://i.ibb.co/YZcM2P2/maxresdefault-1.jpg",
     category: { id: "spirituality", index: 3 },
-    liked: false,
+
     views: 92043,
   },
   {
@@ -343,7 +341,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/k0QYSKLY4tE",
     thumbnail: "https://i.ibb.co/NYypQV8/maxresdefault.jpg",
     category: { id: "spirituality", index: 4 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -355,7 +353,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/VSduGJo0CuU",
     thumbnail: "https://i.ibb.co/74xSGJF/maxresdefault-3.jpg",
     category: { id: "papa_ke_pravachan", index: 1 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -367,7 +365,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/tIeCQOcSP98",
     thumbnail: "https://i.ibb.co/CwqBG28/maxresdefault-2.jpg",
     category: { id: "papa_ke_pravachan", index: 2 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -379,7 +377,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/vpr9fIaSHmw",
     thumbnail: "https://i.ibb.co/PYMY3S4/maxresdefault-1.jpg",
     category: { id: "papa_ke_pravachan", index: 3 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -391,7 +389,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/vVViUhyXLZA",
     thumbnail: "https://i.ibb.co/KKvYXbq/maxresdefault.jpg",
     category: { id: "papa_ke_pravachan", index: 4 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -403,7 +401,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/XWFGOAjDx9w",
     thumbnail: "https://i.ibb.co/SmmbJPk/maxresdefault-11.jpg",
     category: { id: "abhinav_podcasts", index: 1 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -415,7 +413,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/npWiCWFsJ8A",
     thumbnail: "https://i.ibb.co/dm01ykY/maxresdefault-10.jpg",
     category: { id: "abhinav_podcasts", index: 2 },
-    liked: false,
+
     views: 12043,
   },
 
@@ -428,7 +426,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/2kjiOVflcYU",
     thumbnail: "https://i.ibb.co/Cm6CX2F/maxresdefault-9.jpg",
     category: { id: "abhinav_podcasts", index: 3 },
-    liked: false,
+
     views: 72043,
   },
 
@@ -440,7 +438,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/YceBBkLvXsw",
     thumbnail: "https://i.ibb.co/5njMBpK/maxresdefault-7.jpg",
     category: { id: "abhinav_podcasts", index: 4 },
-    liked: false,
+
     views: 24043,
   },
 
@@ -452,7 +450,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/tEb26KfFvpU",
     thumbnail: "https://i.ibb.co/fQKwQWX/maxresdefault-6.jpg",
     category: { id: "abhinav_podcasts", index: 5 },
-    liked: false,
+
     views: 12043,
   },
 
@@ -464,7 +462,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/YDmnuQ1T9k4",
     thumbnail: "https://i.ibb.co/QPpt1vJ/maxresdefault-5.jpg",
     category: { id: "abhinav_podcasts", index: 6 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -477,7 +475,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/Aa4cjtR7snY",
     thumbnail: "https://i.ibb.co/FWBXGyq/maxresdefault-4.jpg",
     category: { id: "abhinav_podcasts", index: 7 },
-    liked: false,
+
     views: 12043,
   },
 
@@ -490,7 +488,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/ZPXsnVpaQ2Y",
     thumbnail: "https://i.ibb.co/TY6VDNN/maxresdefault-2.jpg",
     category: { id: "abhinav_podcasts", index: 8 },
-    liked: false,
+
     views: 32043,
   },
 
@@ -503,7 +501,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/BdTAFtwm5Fo",
     thumbnail: "https://i.ibb.co/SfnQP7H/maxresdefault-1.jpg",
     category: { id: "abhinav_podcasts", index: 9 },
-    liked: false,
+
     views: 92043,
   },
 
@@ -516,7 +514,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/n5J2daZ9xWE",
     thumbnail: "https://i.ibb.co/9NshJM2/maxresdefault.jpg",
     category: { id: "abhinav_podcasts", index: 10 },
-    liked: false,
+
     views: 19043,
   },
 
@@ -528,7 +526,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/jp_yX0EG7PE",
     thumbnail: "https://i.ibb.co/P1kMjJw/maxresdefault.jpg",
     category: { id: "ipo_review", index: 1 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -540,7 +538,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/fYhS8MFPiUw",
     thumbnail: "https://i.ibb.co/J3M6s82/maxresdefault-1.jpg",
     category: { id: "ipo_review", index: 2 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -552,7 +550,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/mIoHSQxSGpI",
     thumbnail: "https://i.ibb.co/pzHRZ92/m-Io-HSQx-SGp-I-HD.jpg",
     category: { id: "world_of_finance", index: 1 },
-    liked: false,
+
     views: 22543,
   },
   {
@@ -563,7 +561,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/hum8D2hSoKg",
     thumbnail: "https://i.ibb.co/5B7rJHL/hum8-D2h-So-Kg-HD-1.jpg",
     category: { id: "world_of_finance", index: 2 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -575,7 +573,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/_yRgmRM1LDM",
     thumbnail: "https://i.ibb.co/D9Td49J/y-Rgm-RM1-LDM-HD.jpg",
     category: { id: "world_of_finance", index: 3 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -587,7 +585,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/n4hB-nSrrtE",
     thumbnail: "https://i.ibb.co/QrqJ2kB/n4h-B-n-Srrt-E-HD.jpg",
     category: { id: "world_of_finance", index: 4 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -600,7 +598,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/rT-kPOy4irM",
     thumbnail: "https://i.ibb.co/gVpqKv0/r-T-k-POy4ir-M-HD.jpg",
     category: { id: "world_of_finance", index: 5 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -613,7 +611,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/qsCUE7kzFHA",
     thumbnail: "https://i.ibb.co/1vPJ8GL/qs-CUE7kz-FHA-HD.jpg",
     category: { id: "world_of_finance", index: 6 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -625,7 +623,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/R7b_VzfVmb0",
     thumbnail: "https://i.ibb.co/w07z5kK/R7b-Vzf-Vmb0-HD.jpg",
     category: { id: "world_of_finance", index: 7 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -637,7 +635,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/wwWf2sNxEKQ",
     thumbnail: "https://i.ibb.co/Ld9WqqP/ww-Wf2s-Nx-EKQ-HD.jpg",
     category: { id: "world_of_finance", index: 8 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -649,7 +647,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/EQ32FlhSCZw",
     thumbnail: "https://i.ibb.co/3k1gBH5/EQ32-Flh-SCZw-HD.jpg",
     category: { id: "world_of_finance", index: 9 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -661,7 +659,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/zeBZACg9-v4",
     thumbnail: "https://i.ibb.co/gPNcDYk/ze-BZACg9-v4-HD.jpg",
     category: { id: "world_of_finance", index: 10 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -673,7 +671,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/LwuHJ6BCiSs",
     thumbnail: "https://i.ibb.co/X714WXC/Lwu-HJ6-BCi-Ss-HD.jpg",
     category: { id: "world_of_finance", index: 11 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -685,7 +683,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/rU8mVb_bc-M",
     thumbnail: "https://i.ibb.co/8YJJM6n/r-U8m-Vb-bc-M-HD.jpg",
     category: { id: "world_of_finance", index: 12 },
-    liked: false,
+
     views: 22543,
   },
 
@@ -697,7 +695,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/urhMZSeG33U",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
     category: { id: "cero", index: 1 },
-    liked: false,
+
     views: 22543,
   },
   {
@@ -708,7 +706,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/FpwUqfhwwFQ",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
     category: { id: "cero", index: 2 },
-    liked: false,
+
     views: 22213,
   },
   {
@@ -719,7 +717,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/MEPBV_DBFII",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
     category: { id: "cero", index: 3 },
-    liked: false,
+
     views: 22043,
   },
 
@@ -731,7 +729,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/4KnVmju4EeQ",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
     category: { id: "cero", index: 4 },
-    liked: false,
+
     views: 22593,
   },
   {
@@ -742,7 +740,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/HzMqVulxBCM",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
     category: { id: "cero", index: 5 },
-    liked: false,
+
     views: 92543,
   },
   {
@@ -753,7 +751,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/7pYhPm5IKkY",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
     category: { id: "cero", index: 6 },
-    liked: false,
+
     views: 72543,
   },
   {
@@ -764,7 +762,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/XIaIptj-Xd4",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
     category: { id: "cero", index: 7 },
-    liked: false,
+
     views: 22533,
   },
   {
@@ -775,7 +773,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/eDIuH_Q2cxw",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
     category: { id: "cero", index: 8 },
-    liked: false,
+
     views: 22043,
   },
   {
@@ -786,7 +784,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/LLCeoDxBuig",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
     category: { id: "cero", index: 9 },
-    liked: false,
+
     views: 22511,
   },
   {
@@ -797,7 +795,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/RFkCt4iJIIo",
     thumbnail: "https://i.ibb.co/5cpfMX0/maxresdefault.jpg",
     category: { id: "cero", index: 10 },
-    liked: false,
+
     views: 15421,
   },
 
@@ -809,7 +807,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/mB5kuXNi0xs",
     thumbnail: "https://i.ibb.co/NrVCnmC/sddefault.jpg",
     category: { id: "meta_startup", index: 1 },
-    liked: false,
+
     views: 22543,
   },
   {
@@ -820,7 +818,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/p5nemzWv2pg",
     thumbnail: "https://i.ibb.co/NrVCnmC/sddefault.jpg",
     category: { id: "meta_startup", index: 2 },
-    liked: false,
+
     views: 127213,
   },
   {
@@ -831,7 +829,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/VYw3XqvLU6w",
     thumbnail: "https://i.ibb.co/NrVCnmC/sddefault.jpg",
     category: { id: "meta_startup", index: 3 },
-    liked: false,
+
     views: 12432,
   },
   {
@@ -842,7 +840,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/iaoTQTWF940",
     thumbnail: "https://i.ibb.co/NrVCnmC/sddefault.jpg",
     category: { id: "meta_startup", index: 4 },
-    liked: false,
+
     views: 123303,
   },
   {
@@ -853,7 +851,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/EdRcKb2541o",
     thumbnail: "https://i.ibb.co/NrVCnmC/sddefault.jpg",
     category: { id: "meta_startup", index: 5 },
-    liked: false,
+
     views: 32343,
   },
   {
@@ -864,7 +862,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/-GVlwruv7Tg",
     thumbnail: "https://i.ibb.co/cJ7pCDx/maxresdefault.jpg",
     category: { id: "meta_startup", index: 6 },
-    liked: false,
+
     views: 32343,
   },
   {
@@ -876,7 +874,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/WxMgSg_BpPI",
     thumbnail: "https://i.ibb.co/xhdRj7K/maxresdefault.jpg",
     category: { id: "meta_startup", index: 7 },
-    liked: false,
+
     views: 12643,
   },
 
@@ -889,7 +887,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/azSErrdqgbU",
     thumbnail: "https://i.ibb.co/wyt7FRJ/maxresdefault-1.jpg",
     category: { id: "meta_startup", index: 8 },
-    liked: false,
+
     views: 12043,
   },
 
@@ -901,7 +899,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/tR1mLfs2Xqo",
     thumbnail: "https://i.ibb.co/0GP3sVw/maxresdefault-2.jpg",
     category: { id: "meta_startup", index: 9 },
-    liked: false,
+
     views: 42343,
   },
 
@@ -913,7 +911,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/eT3tW-vXnUU",
     thumbnail: "https://i.ibb.co/Lk0VvHF/maxresdefault-3.jpg",
     category: { id: "meta_startup", index: 10 },
-    liked: false,
+
     views: 22743,
   },
   {
@@ -924,7 +922,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/-pYCFSEQTFo",
     thumbnail: "https://i.ibb.co/Cncxj1T/maxresdefault-4.jpg",
     category: { id: "meta_startup", index: 11 },
-    liked: false,
+
     views: 12043,
   },
   {
@@ -935,7 +933,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/kByAtHlrjQ4",
     thumbnail: "https://i.ibb.co/Qd8TbdG/maxresdefault-5.jpg",
     category: { id: "meta_startup", index: 12 },
-    liked: false,
+
     views: 22343,
   },
 
@@ -947,7 +945,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/w-r8VYhxYYg",
     thumbnail: "https://i.ibb.co/zRynrNT/maxresdefault-6.jpg",
     category: { id: "meta_startup", index: 13 },
-    liked: false,
+
     views: 22343,
   },
 
@@ -960,7 +958,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/GDYhoRbYH3o",
     thumbnail: "https://i.ibb.co/N11Cz5D/maxresdefault-4.jpg",
     category: { id: "tea_with_tanay", index: 1 },
-    liked: false,
+
     views: 12343,
   },
 
@@ -974,7 +972,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/5ZZG4SOzPkw",
     thumbnail: "https://i.ibb.co/QCgG0Jz/maxresdefault-3.jpg",
     category: { id: "tea_with_tanay", index: 2 },
-    liked: false,
+
     views: 22343,
   },
 
@@ -988,7 +986,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/PU4zArf71Yg",
     thumbnail: "https://i.ibb.co/ZcNGkgH/maxresdefault-2.jpg",
     category: { id: "tea_with_tanay", index: 3 },
-    liked: false,
+
     views: 12322,
   },
 
@@ -1002,7 +1000,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/cXFMlxKx9A8",
     thumbnail: "https://i.ibb.co/CPvTpHQ/maxresdefault-1.jpg",
     category: { id: "tea_with_tanay", index: 4 },
-    liked: false,
+
     views: 12322,
   },
 
@@ -1016,7 +1014,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/QhnU7kO8u_I",
     thumbnail: "https://i.ibb.co/n0pkWjY/maxresdefault.jpg",
     category: { id: "tea_with_tanay", index: 5 },
-    liked: false,
+
     views: 12322,
   },
 
@@ -1029,7 +1027,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/Vrwltd0y7p0",
     thumbnail: "https://i.ibb.co/0hLMKr6/maxresdefault.jpg",
     category: { id: "carrer_moves", index: 1 },
-    liked: false,
+
     views: 12343,
   },
 
@@ -1042,7 +1040,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/InVDXJCHLww",
     thumbnail: "https://i.ibb.co/Vp6NGyb/maxresdefault-2.jpg",
     category: { id: "carrer_moves", index: 2 },
-    liked: false,
+
     views: 19383,
   },
 
@@ -1055,7 +1053,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/Zp8a0IskmkE",
     thumbnail: "https://i.ibb.co/9HM3xgS/maxresdefault-1.jpg",
     category: { id: "carrer_moves", index: 3 },
-    liked: false,
+
     views: 23232,
   },
 
@@ -1068,7 +1066,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/JbGjZk_EQpg",
     thumbnail: "https://i.ibb.co/pbKWLRx/sddefault.jpg",
     category: { id: "carrer_moves", index: 4 },
-    liked: false,
+
     views: 21132,
   },
 
@@ -1081,7 +1079,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/Ezk2AwqgS9Q",
     thumbnail: "https://i.ibb.co/SN9w8dk/maxresdefault-6.jpg",
     category: { id: "neog_camp", index: 1 },
-    liked: false,
+
     views: 26469,
   },
 
@@ -1095,7 +1093,6 @@ export const videos = [
     thumbnail: "https://i.ibb.co/1bNTD69/maxresdefault-5.jpg",
     category: { id: "neog_camp", index: 2 },
 
-    liked: false,
     views: 46600,
   },
 
@@ -1109,7 +1106,6 @@ export const videos = [
     thumbnail: "https://i.ibb.co/4gT7wx2/maxresdefault-4.jpg",
     category: { id: "neog_camp", index: 3 },
 
-    liked: false,
     views: 22143,
   },
 
@@ -1122,7 +1118,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/No8qdcVYiQw",
     thumbnail: "https://i.ibb.co/Sx3MtL3/maxresdefault-3.jpg",
     category: { id: "neog_camp", index: 4 },
-    liked: false,
+
     views: 18266,
   },
   {
@@ -1134,7 +1130,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/u6_a0d94A1Q",
     thumbnail: "https://i.ibb.co/zfGHRVz/maxresdefault-2.jpg",
     category: { id: "neog_camp", index: 5 },
-    liked: false,
+
     views: 19546,
   },
   {
@@ -1146,7 +1142,7 @@ export const videos = [
     embededLink: "https://www.youtube.com/embed/yLZazznWoAs",
     thumbnail: "https://i.ibb.co/MBxTbbZ/maxresdefault-1.jpg",
     category: { id: "neog_camp", index: 6 },
-    liked: false,
+
     views: 21332,
   },
   {
@@ -1159,7 +1155,6 @@ export const videos = [
     thumbnail: "https://i.ibb.co/8xP6nrh/maxresdefault.jpg",
     category: { id: "neog_camp", index: 7 },
 
-    liked: false,
     views: 17652,
   },
 ];

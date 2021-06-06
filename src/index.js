@@ -8,19 +8,21 @@ import { ThemeProvider } from "./contexts/themeContext/themeContext.js";
 import { BrowserRouter as Router } from "react-router-dom";
 import { dropoutServer } from "./server/server.js";
 import { LikedVideoProvider } from "./contexts/likedVideoContext/likedVideoContext.js";
-import {WatchLaterProvider} from "./contexts/watchLaterContext/watchLaterContext.js";
-
+import { WatchLaterProvider } from "./contexts/watchLaterContext/watchLaterContext.js";
+import { SubscribeProvider } from "./contexts/subscribeContext/subscribeContext.js";
 dropoutServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ThemeProvider>
         <LanguageProvider>
-          <WatchLaterProvider>
-          <LikedVideoProvider>
-            <App />
-          </LikedVideoProvider>
-          </WatchLaterProvider>
+          <SubscribeProvider>
+            <WatchLaterProvider>
+              <LikedVideoProvider>
+                <App />
+              </LikedVideoProvider>
+            </WatchLaterProvider>
+          </SubscribeProvider>
         </LanguageProvider>
       </ThemeProvider>
     </Router>

@@ -5,6 +5,13 @@ export const dropoutServer = (params) => {
   let likedVideos = [];
   let watchLater = [];
   let playlist = [];
+  let subscribedMentors = [];
+
+  console.log("history ->", history);
+  console.log("likedVideos ->", likedVideos);
+  console.log("watchLater ->", watchLater);
+  console.log("playlist ->", playlist);
+  console.log("subscribedMentors ->", subscribedMentors);
   return new Server({
     routes() {
       this.namespace = "/";
@@ -153,8 +160,21 @@ export const dropoutServer = (params) => {
         } else {
           playlist = playlist.filter((item) => item.playlistId !== playlistId);
         }
-
         return { status: 200, video: currentVideo, playlist: playlist };
+      });
+
+      this.post("/subscribe/:mentorId", (schema, request) => {
+        let { mentorId } = request.params;
+        subscribedMentors = [...subscribedMentors, mentorId];
+        return { status: 200, mentorId };
+      });
+      this.delete("/subscribe/:mentorId", (schema, request) => {
+      
+        let { mentorId } = request.params;
+        subscribedMentors = subscribedMentors.filter(
+          (item) => item !== mentorId
+        );
+        return { status: 200, mentorId };
       });
     },
   });

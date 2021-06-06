@@ -8,7 +8,7 @@ const ThumbNail = ({ type, thumbnail, videoId,  to }) => {
   let navigate = useNavigate();
   function thumbnailClickHandler(e) {
     if (e.target.className === "thumbNailBtnScreen") {
-      navigate(to);
+      navigate(`/videoplayer/${videoId}`);
     }
   }
   return (

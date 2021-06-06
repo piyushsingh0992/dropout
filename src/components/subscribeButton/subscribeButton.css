@@ -1,0 +1,13 @@
+.subscribe-btn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .subscribe-btn {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+}

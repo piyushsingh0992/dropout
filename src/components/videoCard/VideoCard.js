@@ -13,7 +13,6 @@ const VideoCard = ({ videosDetails }) => {
     <div className="videoCard">
       <ThumbNail
         thumbnail={thumbnail}
-        to={`/videoplayer/${videoId}`}
         type={"mentorplaylistThumbnail"}
         videoId={videoId}
       />

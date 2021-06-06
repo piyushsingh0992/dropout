@@ -14,7 +14,6 @@ const RecommendVideoCard = ({ videoDetails, mentor }) => {
         thumbnail={thumbnail}
         type={"recommendThumbnail"}
         videoId={videoId}
-        to={`/videoplayer/${videoId}`}
       />
 
       <div className="recommendVideoDetailsContainer">

@@ -22,9 +22,7 @@ const LikeButton = ({ size, videoId, liked }) => {
   },[liked, videoId] );
 
   const likeButtonClickHandler = () => {
-    likedVideoSetter((value) => !value);
-   
-    
+    likedVideoSetter((value) => !value);    
     if (likedVideo) {
      
       (async function () {
