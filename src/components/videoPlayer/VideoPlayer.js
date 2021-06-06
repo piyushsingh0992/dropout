@@ -10,15 +10,8 @@ import { useLikedVideos } from "../../contexts/likedVideoContext/likedVideoConte
 
 const VideoPlayer = ({ videoDetails }) => {
   let { video, mentor } = videoDetails;
-  const { likedVideoState } = useLikedVideos();
   const { theme } = useTheme();
 
-  let likedVideo = likedVideoState.find(
-    (item) => item?.videoId === video.videoId
-  );
-  if (likedVideo) {
-    video = likedVideo;
-  }
 
   return (
     <div className="videoPlayer">

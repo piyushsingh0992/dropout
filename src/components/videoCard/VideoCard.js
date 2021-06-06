@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./videoCard.css";
 import LikeButton from "../likeButton/LikeButton.js";
-import ThumbNail from "..//thumbNail/ThumbNail.js";
+import ThumbNail from "../thumbNail/ThumbNail.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 const VideoCard = ({ videosDetails }) => {
   const { title, mentor, thumbnail, views, videoId, liked, profile } =

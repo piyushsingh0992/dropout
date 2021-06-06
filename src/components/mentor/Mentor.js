@@ -16,16 +16,6 @@ const Mentor = ({ mentorDetails }) => {
     }
   });
 
-  currentPlaylist = currentPlaylist.map((item) => {
-    let present = likedVideoState.find(
-      (likedVedio) => likedVedio.videoId === item.videoId
-    );
-    if (present) {
-      return present;
-    } else {
-      return item;
-    }
-  });
 
   return (
     <div className="mentor">

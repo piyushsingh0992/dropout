@@ -7,10 +7,15 @@ import { useLikedVideos } from "../../contexts/likedVideoContext/likedVideoConte
 const LikeButton = ({ size, videoId, liked }) => {
   const [likedVideo, likedVideoSetter] = useState(false);
 
-  const { likedVideoStateDispatch } = useLikedVideos();
+  const { likedVideoState,likedVideoStateDispatch } = useLikedVideos();
 
   useEffect(() => {
-    likedVideoSetter(liked);
+    let present=likedVideoState.find(item=>item.videoId===videoId);
+    if(present){
+      likedVideoSetter(true);
+    }else{
+      likedVideoSetter(false);
+    }
     return ()=>{
       likedVideoSetter(false)
     }
