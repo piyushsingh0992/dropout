@@ -1,5 +1,6 @@
 import React from "react";
 import "./videoPlayer.css";
+import {NavLink} from 'react-router-dom';
 import LikeButton from "../likeButton/LikeButton.js";
 import DoubtSolver from "../doubtSolver/DoubtSolver.js";
 import Button from "../button/Button.js";
@@ -30,6 +31,7 @@ const VideoPlayer = ({ videoDetails }) => {
       </div>
 
       <div className="video-mentor-details-container">
+      <NavLink to={`/mentor/${video.mentorId}`}>
         <div className="video-mentor-details">
           <img src={mentor.profile} className="video-mentor-img" />
           <div>
@@ -37,6 +39,7 @@ const VideoPlayer = ({ videoDetails }) => {
             <p style={{ color: theme.boldText }}> {mentor.cateogry} </p>
           </div>
         </div>
+        </NavLink >
         <div>
           <Button text="Subscribe" size="subscribe-btn" />
         </div>

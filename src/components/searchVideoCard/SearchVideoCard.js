@@ -1,11 +1,13 @@
 import React from "react";
 import "./searchVideoCard.css";
+
+import { NavLink } from "react-router-dom";
 import book from "./images/try.jpg";
 import pic from "../../utils/images/mentors/tanay/profile.png";
 import ThumbNail from "../thumbNail/ThumbNail.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 const SearchVideoCard = ({ videosDetails }) => {
-  const { title, mentorName, thumbnail, views, videoId, liked, profile } =
+  const { title, mentorName, thumbnail, views, videoId, mentorId,liked, profile } =
     videosDetails;
     
   const { theme } = useTheme();
@@ -24,10 +26,12 @@ const SearchVideoCard = ({ videosDetails }) => {
         </p>
 
         <div className="searchVideoDetails">
+          <NavLink to={`/mentor/${mentorId}`}>
           <div className="searchVideoCardMentorDetails">
             <img src={profile} className="searchVideoCardMentorImg" />
-            <p>{mentorName} </p>
+            <p style={{color:theme.primaryText}}>{mentorName} </p>
           </div>
+          </NavLink>
           <p>{views} views </p>
         </div>
       </div>

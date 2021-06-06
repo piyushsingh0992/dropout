@@ -36,9 +36,10 @@ const HistoryPage = () => {
       <div className="screenContainer">
         <Heading text={"History"} />
         {history.map(
-          ({ title, thumbnail, videoId, mentorName, views, profile }) => {
+          ({ title, thumbnail, videoId, mentorName, views, profile,mentorId }) => {
             return (
               <HistoryVideoCard
+              mentorId={mentorId}
                 title={title}
                 profile={profile}
                 views={views}

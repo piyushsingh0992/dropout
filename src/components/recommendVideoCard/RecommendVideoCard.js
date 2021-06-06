@@ -5,8 +5,7 @@ import ThumbNail from "../thumbNail/ThumbNail.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 
 const RecommendVideoCard = ({ videoDetails, mentor }) => {
-  let { mentorName, title, thumbnail, embededLink, videoId, views } =
-    videoDetails;
+  let { mentorName, title, thumbnail, mentorId, videoId, views } = videoDetails;
   const { theme } = useTheme();
   return (
     <div className="recommendVideoCard">
@@ -18,14 +17,15 @@ const RecommendVideoCard = ({ videoDetails, mentor }) => {
 
       <div className="recommendVideoDetailsContainer">
         <p style={{ color: theme.boldText }}>{title.slice(0, 45)}...</p>
-
-        <div className="recommendvideoDetails">
-          <img src={mentor.profile} />
-          <div>
-            <p>{mentorName} </p>
-            <p>{views} views</p>
+        <NavLink to={`/mentor/${mentorId}`}>
+          <div className="recommendvideoDetails">
+            <img src={mentor.profile} />
+            <div>
+              <p>{mentorName} </p>
+              <p>{views} views</p>
+            </div>
           </div>
-        </div>
+        </NavLink>
       </div>
     </div>
   );

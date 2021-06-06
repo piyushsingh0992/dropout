@@ -5,9 +5,10 @@ import LikeButton from "../likeButton/LikeButton.js";
 import ThumbNail from "../thumbNail/ThumbNail.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 const VideoCard = ({ videosDetails }) => {
-  const { title, mentor, thumbnail, views, videoId, liked, profile } =
+  const { title, mentor,mentorId, thumbnail, views, videoId, liked, profile } =
     videosDetails;
 
+  console.log({mentorId});
   const { theme } = useTheme();
   return (
     <div className="videoCard">
@@ -16,13 +17,16 @@ const VideoCard = ({ videosDetails }) => {
         type={"mentorplaylistThumbnail"}
         videoId={videoId}
       />
+
       <div className="videoDetailsContainer">
-        <div className="videoTitleDetails">
-          <img src={profile} className="videoMentor" />
-          <p style={{ color: theme.boldText }}>
-            {title.length > 30 ? `${title.slice(0, 30)}...` : title}
-          </p>
-        </div>
+        <NavLink to={`/mentor/${mentorId}`}>
+          <div className="videoTitleDetails">
+            <img src={profile} className="videoMentor" />
+            <p style={{ color: theme.boldText }}>
+              {title.length > 30 ? `${title.slice(0, 30)}...` : title}
+            </p>
+          </div>
+        </NavLink>
 
         <div className="videoDetails">
           <div>
