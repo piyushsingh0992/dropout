@@ -7,7 +7,7 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 const SearchVideoCard = ({ videosDetails }) => {
   const { title, mentorName, thumbnail, views, videoId, liked, profile } =
     videosDetails;
-    debugger;
+    
   const { theme } = useTheme();
   let x =
     "ssssssssssssssssssssssssdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd";
