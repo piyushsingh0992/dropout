@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./playlistButton.css";
 import playlistWhite from "../../utils/images/icons/playlistWhite.svg";
 import playlistGrey from "../../utils/images/icons/playlist.svg";
-const PlaylistButton = ({ videoId, playlist }) => {
+const PlaylistButton = ({ videoId, playlist, modalTriggerSetter }) => {
+  function playListHandler() {
+    modalTriggerSetter(true);
+  }
+
   return playlist ? (
     <div
       className="videoPlayerPlaylistButton"
@@ -19,9 +23,7 @@ const PlaylistButton = ({ videoId, playlist }) => {
       <img
         src={playlistWhite}
         className="playlistVideoCardBtn"
-        onClick={(e) => {
-          alert("clicked playlist");
-        }}
+        onClick={playListHandler}
       />
     </div>
   );

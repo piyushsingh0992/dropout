@@ -1,17 +1,13 @@
 import { Server } from "miragejs";
+import { themeHandler } from "../contexts/themeContext/reducer.js";
 import { mentorData, videoData } from "../utils/data.js";
 export const dropoutServer = (params) => {
   let history = [];
   let likedVideos = [];
   let watchLater = [];
-  let playlist = [];
+  let playlists = [];
   let subscribedMentors = [];
 
-  console.log("history ->", history);
-  console.log("likedVideos ->", likedVideos);
-  console.log("watchLater ->", watchLater);
-  console.log("playlist ->", playlist);
-  console.log("subscribedMentors ->", subscribedMentors);
   return new Server({
     routes() {
       this.namespace = "/";
@@ -103,78 +99,93 @@ export const dropoutServer = (params) => {
         return { status: 200, video: currentVideo };
       });
 
-      this.post("/history/:videoId", (schema, request) => {
-        let { videoId } = request.params;
-        let currentVideo = videoData.find((item) => item.videoId === videoId);
-        currentVideo = { ...currentVideo, watchLater: true };
-        history = [currentVideo, ...watchLater];
-        return { status: 200, video: currentVideo };
-      });
-
-      this.get("/playlist", (schema, request) => {});
-
-      this.post("/playlist", (schema, request) => {
-        let { playlistId, videoId, playlistName } = JSON.parse(
-          request.requestBody
-        );
-        let currentVideo = videoData.find((item) => item.videoId === videoId);
-        if (playlistId) {
-          playlist = playlist.map((item) => {
-            if (item.playlistId === playlistId) {
-              return {
-                ...item,
-                videoArray: [...item.videoArray, currentVideo],
-              };
-            }
-            return item;
-          });
-        } else {
-          playlist = [
-            ...playlist,
-            {
-              playlistId: playlistName,
-              playlistName: playlistName,
-              videoArray: [currentVideo],
-            },
-          ];
-        }
-        return { status: 200, video: currentVideo, playlist: playlist };
-      });
-
-      this.delete("/playlist/:playlistId/:videoId", (schema, request) => {
-        let { playlistId, videoId } = request.params;
-        let currentVideo = videoData.find((item) => item.videoId === videoId);
-
-        if (videoId) {
-          playlist = playlist.map((item) => {
-            if (item.playlistId === playlistId) {
-              return {
-                ...item,
-                videoArray: item.videoArray.filter(
-                  (item) => item.videoId != videoId
-                ),
-              };
-            }
-            return item;
-          });
-        } else {
-          playlist = playlist.filter((item) => item.playlistId !== playlistId);
-        }
-        return { status: 200, video: currentVideo, playlist: playlist };
-      });
-
       this.post("/subscribe/:mentorId", (schema, request) => {
         let { mentorId } = request.params;
         subscribedMentors = [...subscribedMentors, mentorId];
         return { status: 200, mentorId };
       });
       this.delete("/subscribe/:mentorId", (schema, request) => {
-      
         let { mentorId } = request.params;
         subscribedMentors = subscribedMentors.filter(
           (item) => item !== mentorId
         );
         return { status: 200, mentorId };
+      });
+
+      this.get("/playlist", (schema, request) => {
+        return { status: 200, playlists: playlists };
+      });
+
+      this.post("/playlist", (schema, request) => {
+        let { playlistName } = JSON.parse(request.requestBody);
+
+        playlists = [...playlists, { name: playlistName, videos: [] }];
+        return { status: 200, newPlaylist: { name: playlistName, videos: [] } };
+      });
+
+      this.post("/playlist/:videoId", (schema, request) => {
+        let { playlistarray } = JSON.parse(request.requestBody);
+        let { videoId } = request.params;
+
+        let currentVideo = videoData.find((item) => item.videoId === videoId);
+        playlists = playlists.map((playlist) => {
+          let toBeAddedPlaylist = playlistarray.find(
+            (item) => item === playlist.name
+          );
+          if (toBeAddedPlaylist) {
+            const isVideoPresent = playlist.videos.find(
+              (item) => item.videoId === videoId
+            );
+            if (isVideoPresent) {
+              return playlist;
+            } else {
+              return {
+                ...playlist,
+                videos: [...playlist.videos, currentVideo],
+              };
+            }
+          } else {
+            return playlist;
+          }
+        });
+
+        return { status: 200, playlist: playlists };
+      });
+
+      this.post("/playlist/:name/:newName", (schema, request) => {
+        let { name, newName } = request.params;
+        debugger;
+        playlists = playlists.map((item) => {
+          debugger;
+          if (item.name === name) {
+            return { ...item, name: newName };
+          } else {
+            return item;
+          }
+        });
+
+        return { status: 200, playlist: playlists };
+      });
+
+      this.delete("/playlist/:name", (schema, request) => {
+        const { name } = request.params;
+        playlists = playlists.filter((item) => item.name != name);
+        return { status: 200, playlist: playlists };
+      });
+
+      this.delete("/playlist/:name/:videoId", (schema, request) => {
+        const { name, videoId } = request.params;
+        playlists = playlists.map((item) => {
+          if (item.name === name) {
+            let newVideoArray = item.videos.filter(
+              (item) => item.videoId != videoId
+            );
+            return { ...item, videos: newVideoArray };
+          } else {
+            return item;
+          }
+        });
+        return { status: 200, playlist: playlists };
       });
     },
   });

@@ -4,11 +4,13 @@ import "./videoCard.css";
 import LikeButton from "../likeButton/LikeButton.js";
 import ThumbNail from "../thumbNail/ThumbNail.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import PlaylistModal from "../playlistModal/PlaylistModal.js";
 const VideoCard = ({ videosDetails }) => {
-  const { title, mentor,mentorId, thumbnail, views, videoId, liked, profile } =
+  const [modalTrigger, modalTriggerSetter] = useState(false);
+  const { title, mentor, mentorId, thumbnail, views, videoId, liked, profile } =
     videosDetails;
 
-  console.log({mentorId});
+  console.log({ mentorId });
   const { theme } = useTheme();
   return (
     <div className="videoCard">
@@ -16,6 +18,7 @@ const VideoCard = ({ videosDetails }) => {
         thumbnail={thumbnail}
         type={"mentorplaylistThumbnail"}
         videoId={videoId}
+        modalTriggerSetter={modalTriggerSetter}
       />
 
       <div className="videoDetailsContainer">
@@ -36,6 +39,13 @@ const VideoCard = ({ videosDetails }) => {
           <LikeButton size={1.4} videoId={videoId} liked={liked} />
         </div>
       </div>
+
+      {modalTrigger && (
+        <PlaylistModal
+          modalTriggerSetter={modalTriggerSetter}
+          videoId={videoId}
+        />
+      )}
     </div>
   );
 };

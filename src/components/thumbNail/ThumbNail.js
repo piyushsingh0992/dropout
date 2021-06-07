@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import WatchLaterButton from "../watchLaterButton/WatchLaterButton.js";
 import PlaylistButton from "../playlistButton/PlaylistButton.js";
-const ThumbNail = ({ type, thumbnail, videoId,  to }) => {
+const ThumbNail = ({ type, thumbnail, videoId, modalTriggerSetter }) => {
   let navigate = useNavigate();
   function thumbnailClickHandler(e) {
     if (e.target.className === "thumbNailBtnScreen") {
@@ -21,8 +21,8 @@ const ThumbNail = ({ type, thumbnail, videoId,  to }) => {
           }
         }}
       >
-        <PlaylistButton />
-        <WatchLaterButton videoId={videoId}  />
+        <PlaylistButton modalTriggerSetter={modalTriggerSetter} />
+        <WatchLaterButton videoId={videoId} />
       </div>
       <img src={thumbnail} className={type} />
     </div>

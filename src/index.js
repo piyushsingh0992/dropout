@@ -10,19 +10,22 @@ import { dropoutServer } from "./server/server.js";
 import { LikedVideoProvider } from "./contexts/likedVideoContext/likedVideoContext.js";
 import { WatchLaterProvider } from "./contexts/watchLaterContext/watchLaterContext.js";
 import { SubscribeProvider } from "./contexts/subscribeContext/subscribeContext.js";
+import { PlaylistProvider } from "./contexts/playlistContext/playlistContext.js";
 dropoutServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ThemeProvider>
         <LanguageProvider>
-          <SubscribeProvider>
-            <WatchLaterProvider>
-              <LikedVideoProvider>
-                <App />
-              </LikedVideoProvider>
-            </WatchLaterProvider>
-          </SubscribeProvider>
+          <PlaylistProvider>
+            <SubscribeProvider>
+              <WatchLaterProvider>
+                <LikedVideoProvider>
+                  <App />
+                </LikedVideoProvider>
+              </WatchLaterProvider>
+            </SubscribeProvider>
+          </PlaylistProvider>
         </LanguageProvider>
       </ThemeProvider>
     </Router>

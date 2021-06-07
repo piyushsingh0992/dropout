@@ -3,18 +3,9 @@ import "./textField.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 
-const TextField = ({ label, type }) => {
+const TextField = ({ label, type, value, changeFunction }) => {
   const { theme } = useTheme();
-  const [value, valueSetter] = useState("");
-  const [empty, emptySetter] = useState(true);
-  function inputValueHandler(e) {
-    valueSetter(e.target.value);
-    if (e.target.value.length > 0) {
-      emptySetter(false);
-    } else {
-      emptySetter(true);
-    }
-  }
+
 
   return (
     <span className="textField">
@@ -22,14 +13,11 @@ const TextField = ({ label, type }) => {
         className="empty"
         type={type ? type : "text"}
         value={value}
-        onChange={(e) => {
-          inputValueHandler(e);
-        }}
+        onChange={changeFunction}
         required
-
-        style={{backgroundColor:theme.primaryBackground}}
+        style={{ backgroundColor: theme.primaryBackground }}
       />
-      <label >{label}</label>
+      <label>{label}</label>
     </span>
   );
 };
