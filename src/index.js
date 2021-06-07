@@ -11,23 +11,26 @@ import { LikedVideoProvider } from "./contexts/likedVideoContext/likedVideoConte
 import { WatchLaterProvider } from "./contexts/watchLaterContext/watchLaterContext.js";
 import { SubscribeProvider } from "./contexts/subscribeContext/subscribeContext.js";
 import { PlaylistProvider } from "./contexts/playlistContext/playlistContext.js";
+import { AuthProvider } from "./contexts/authContext/authContext.js";
 dropoutServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <ThemeProvider>
-        <LanguageProvider>
-          <PlaylistProvider>
-            <SubscribeProvider>
-              <WatchLaterProvider>
-                <LikedVideoProvider>
-                  <App />
-                </LikedVideoProvider>
-              </WatchLaterProvider>
-            </SubscribeProvider>
-          </PlaylistProvider>
-        </LanguageProvider>
-      </ThemeProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <LanguageProvider>
+            <PlaylistProvider>
+              <SubscribeProvider>
+                <WatchLaterProvider>
+                  <LikedVideoProvider>
+                    <App />
+                  </LikedVideoProvider>
+                </WatchLaterProvider>
+              </SubscribeProvider>
+            </PlaylistProvider>
+          </LanguageProvider>
+        </ThemeProvider>
+      </AuthProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

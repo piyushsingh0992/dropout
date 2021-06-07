@@ -13,6 +13,7 @@ import WatchLaterPage from "./screens/WatchLaterPage/WatchLaterPage.js";
 import PlaylistPage from "./screens/PlaylistPage/PlaylistPage.js";
 import ErrorPage from "./screens/ErrorPage/ErrorPage.js";
 import ContextManager from "./components/contextManager/ContextManager.js";
+import PrivateRoute from "./components/privateRoute/PrivateRoute.js"
 import { useTheme } from "./contexts/themeContext/themeContext.js";
 
 function App() {
@@ -23,13 +24,13 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route path="/choosementor" element={<ChooseMentorPage />} />
         <Route path="/mentor/:mentorId" element={<MentorPage />} />
-        <Route path="/history" element={<HistoryPage />} />
+        <PrivateRoute path="/history" element={<HistoryPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/search" element={<SearchPage />} />
-        <Route path="/videoplayer/:videoId" element={<VideoPlayerPage />} />
-        <Route path="/likedvideos" element={<LikedVideoPage />} />
-        <Route path="/watchlater" element={<WatchLaterPage />} />
-        <Route path="/playlist" element={<PlaylistPage />} />
+        <PrivateRoute path="/videoplayer/:videoId" element={<VideoPlayerPage />} />
+        <PrivateRoute path="/likedvideos" element={<LikedVideoPage />} />
+        <PrivateRoute path="/watchlater" element={<WatchLaterPage />} />
+        <PrivateRoute path="/playlist" element={<PlaylistPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
 

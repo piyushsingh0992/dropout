@@ -5,7 +5,7 @@ const PlaylistContext = createContext();
 function playlistManager(state, action) {
   const { payload, playlistId, playlistIdArray, video, playlist, newPlaylist } =
     action;
-  debugger;
+  
   switch (payload) {
     case "LOADING_PLAYLIST":
       return playlist;

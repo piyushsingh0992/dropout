@@ -154,9 +154,9 @@ export const dropoutServer = (params) => {
 
       this.post("/playlist/:name/:newName", (schema, request) => {
         let { name, newName } = request.params;
-        debugger;
+        
         playlists = playlists.map((item) => {
-          debugger;
+          
           if (item.name === name) {
             return { ...item, name: newName };
           } else {

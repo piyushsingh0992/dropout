@@ -19,7 +19,7 @@ const PlaylistCard = ({ name, videos }) => {
       try {
         let { data } = await axios.delete(`/playlist/${name}`);
         console.log({ data });
-        debugger;
+        
         playlistDispatch({
           payload: "DELETE_PLAYLIST",
           playlist: data.playlist,
@@ -34,7 +34,7 @@ const PlaylistCard = ({ name, videos }) => {
       try {
         let { data } = await axios.delete(`/playlist/${name}/${videoId}`);
         console.log({ data });
-        debugger;
+        
         playlistDispatch({ payload: "DELETE_VIDEO", playlist: data.playlist });
       } catch (error) {
         console.log({ error });
@@ -47,7 +47,7 @@ const PlaylistCard = ({ name, videos }) => {
       try {
         let { data } = await axios.post(`/playlist/${name}/${newName}`);
         console.log({ data });
-        debugger;
+        
         newNameSetter("");
         playlistDispatch({
           payload: "RENAME_PLAYLIST",
@@ -108,7 +108,7 @@ const PlaylistCard = ({ name, videos }) => {
                 className="playlistVideoDelete"
                 onClick={() => {
                   console.log("item ->", item);
-                  debugger;
+                  
                   deleteVideo(item.videoId);
                 }}
               />
