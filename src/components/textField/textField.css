@@ -55,3 +55,8 @@ input:valid ~ label {
   color: grey;
   fill: grey;
 }
+
+.textFieldError{
+  color:red;
+  font-size: 0.7rem;
+}
