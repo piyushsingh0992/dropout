@@ -44,9 +44,6 @@ input:valid ~ label {
   color: var(--primary);
 }
 
-/* input:active{
-    background-color: blue;
-} */
 
 .textField-icon {
   height: 1rem;
