@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./playlistCard.css";
-import axios from "axios";
 import VideoCard from "../videoCard/VideoCard.js";
 import deleteIcon from "../../utils/images/icons/delete.svg";
 import editIcon from "../../utils/images/icons/edit.svg";
@@ -8,57 +7,34 @@ import Button from "../button/Button";
 import TextField from "../textField/TextField.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { usePlaylist } from "../../contexts/playlistContext/playlistContext.js";
-
+import {
+  deleteVideoFromPlaylist,
+  deletePlaylist,
+  playlistNameChanger,
+} from "../../utils/playlistFunction.js";
+import { useToast } from "../../contexts/toastContext/toastContext";
 const PlaylistCard = ({ name, videos }) => {
   const { theme } = useTheme();
   const { playlistState, playlistDispatch } = usePlaylist();
   const [edit, editSetter] = useState(false);
   const [newName, newNameSetter] = useState("");
-  function deletePlaylist() {
-    (async function () {
-      try {
-        let { data } = await axios.delete(`/playlist/${name}`);
-        console.log({ data });
-        
-        playlistDispatch({
-          payload: "DELETE_PLAYLIST",
-          playlist: data.playlist,
-        });
-      } catch (error) {
-        console.log({ error });
-      }
-    })();
+  const { toastDispatch } = useToast();
+  function deletePlaylistTrigger() {
+    deletePlaylist(name, playlistDispatch, toastDispatch);
   }
   function deleteVideo(videoId) {
-    (async function () {
-      try {
-        let { data } = await axios.delete(`/playlist/${name}/${videoId}`);
-        console.log({ data });
-        
-        playlistDispatch({ payload: "DELETE_VIDEO", playlist: data.playlist });
-      } catch (error) {
-        console.log({ error });
-      }
-    })();
+    deleteVideoFromPlaylist(videoId, name, playlistDispatch, toastDispatch);
   }
 
   function nameChangeHandler() {
-    (async function () {
-      try {
-        let { data } = await axios.post(`/playlist/${name}/${newName}`);
-        console.log({ data });
-        
-        newNameSetter("");
-        playlistDispatch({
-          payload: "RENAME_PLAYLIST",
-          playlist: data.playlist,
-        });
-      } catch (error) {
-        console.log({ error });
-      }
-    })();
+    playlistNameChanger(
+      name,
+      newName,
+      playlistDispatch,
+      newNameSetter,
+      toastDispatch
+    );
   }
-  console.log("edit ->");
   return (
     <div className="playlistCard">
       <div className="playlistName">
@@ -96,7 +72,7 @@ const PlaylistCard = ({ name, videos }) => {
         <img
           src={deleteIcon}
           className="playlistDelete"
-          onClick={deletePlaylist}
+          onClick={deletePlaylistTrigger}
         />
       </div>
       <div className="playlistVideoContainer">
@@ -108,7 +84,7 @@ const PlaylistCard = ({ name, videos }) => {
                 className="playlistVideoDelete"
                 onClick={() => {
                   console.log("item ->", item);
-                  
+
                   deleteVideo(item.videoId);
                 }}
               />
