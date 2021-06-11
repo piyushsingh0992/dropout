@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./watchLaterButton.css";
-import axios from "axios";
 
 import laterWhite from "../../utils/images/icons/laterWhite.svg";
 import laterGrey from "../../utils/images/icons/later.svg";
 import check from "../../utils/images/icons/check.svg";
 import { useWatchLater } from "../../contexts/watchLaterContext/watchLaterContext";
+import { useToast } from "../../contexts/toastContext/toastContext";
+import {
+  addWatchLater,
+  removeWatchLater,
+} from "../../utils/watchLaterFunction.js";
 
 const WatchLaterButton = ({ videoId, videoPlayer }) => {
   const [addedVideo, addedVideoSetter] = useState(false);
   let { watchLaterState, watchLaterDispatch } = useWatchLater();
+  const { toastState, toastDispatch } = useToast();
   useEffect(() => {
     let present = watchLaterState.find((item) => item.videoId === videoId);
     if (present) {
@@ -23,34 +28,25 @@ const WatchLaterButton = ({ videoId, videoPlayer }) => {
   }, [videoId]);
 
   function watchLater() {
-    addedVideoSetter((value) => !value);
-
     if (addedVideo) {
-      (async function () {
-        try {
-          let { data } = await axios.delete(`/watchlater/${videoId}`);
-          watchLaterDispatch({
-            payload: "REMOVE_FROM_WATCH_LATER",
-            video: data.video,
-          });
-        } catch (error) {}
-      })();
+      removeWatchLater(
+        videoId,
+        watchLaterDispatch,
+        toastDispatch,
+        addedVideoSetter
+      );
     } else {
-      (async function () {
-        try {
-          let { data } = await axios.post(`/watchlater/${videoId}`);
-
-          watchLaterDispatch({
-            payload: "ADD_TO_WATCH_LATER",
-            video: data.video,
-          });
-        } catch (error) {}
-      })();
+      addWatchLater(
+        videoId,
+        watchLaterDispatch,
+        toastDispatch,
+        addedVideoSetter
+      );
     }
   }
   return videoPlayer ? (
     addedVideo ? (
-      <div onClick={watchLater}  className="videoPlayerWatchLaterButton">
+      <div onClick={watchLater} className="videoPlayerWatchLaterButton">
         <img src={check} />
         Added to watch Later
       </div>
@@ -70,7 +66,11 @@ const WatchLaterButton = ({ videoId, videoPlayer }) => {
       ) : (
         <>
           <p>Watch Later</p>
-          <img src={laterWhite} className="watchLaterCardBtn" onClick={watchLater} />
+          <img
+            src={laterWhite}
+            className="watchLaterCardBtn"
+            onClick={watchLater}
+          />
         </>
       )}
     </div>
