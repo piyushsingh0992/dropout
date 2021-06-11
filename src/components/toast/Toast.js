@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import "./alert.css";
+import "./toast.css";
 import Error from "./images/error.svg";
 import Success from "./images/success.svg";
 import Warning from "./images/warning.svg";
 import Info from "./images/info.svg";
-function Alert({ type, message, trigger }) {
+import { useToast } from "../../contexts/toastContext/toastContext.js";
+function Toast() {
+  const { toastState, toastDispatch } = useToast();
+  const { trigger, type, message } = toastState;
   const [show, showSetter] = useState(false);
 
   useEffect(() => {
@@ -12,10 +15,10 @@ function Alert({ type, message, trigger }) {
       showSetter(trigger);
       setTimeout(() => {
         showSetter(false);
-      }, 3000);
+        toastDispatch({ trigger: false, type, message });
+      }, 2000);
     }
   }, [trigger]);
-
   function showIcon(type) {
     switch (type?.toLowerCase()) {
       case "error":
@@ -38,9 +41,9 @@ function Alert({ type, message, trigger }) {
       }`}
     >
       <img className="alert-icon" src={showIcon(type)} alt={type} />
-      <p>{message}</p>
+      <p>{message && message}</p>
     </div>
   );
 }
 
-export default Alert;
+export default Toast;

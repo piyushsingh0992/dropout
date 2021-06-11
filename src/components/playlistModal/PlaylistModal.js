@@ -5,7 +5,7 @@ import close from "../../utils/images/icons/close.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import Button from "../button/Button.js";
 import { usePlaylist } from "../../contexts/playlistContext/playlistContext.js";
-import Alert from "../alert/Alert.js";
+
 const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
   const [playlistArray, playlistArraySetter] = useState([]);
   const [newPlaylistName, newPlaylistNameSetter] = useState("");
@@ -77,11 +77,7 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
 
   return (
     <div className="playlistModalContainer">
-      <Alert
-        type={`Error`}
-        message={"Playlist Already Present"}
-        trigger={trigger}
-      />
+      
       <div
         className="playlistModal"
         style={{ backgroundColor: theme.cardBackground }}

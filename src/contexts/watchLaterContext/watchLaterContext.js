@@ -1,11 +1,14 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer ,useEffect} from "react";
+import axios from "axios";
 
 const WatchLaterContext = createContext();
 
 function watchLaterManger(state, action) {
-  const { payload, video } = action;
+  const { payload, video, videos } = action;
 
   switch (payload) {
+    case "FIRST_LOAD":
+      return videos;
     case "ADD_TO_WATCH_LATER":
       return [video, ...state];
 
@@ -27,7 +30,23 @@ export function WatchLaterProvider({ children }) {
     watchLaterManger,
     []
   );
-  return <WatchLaterContext.Provider value={{watchLaterState, watchLaterDispatch}}>{children}</WatchLaterContext.Provider>;
+
+  useEffect(() => {
+    (async function () {
+      try {
+        let { data } = await axios.get("/watchlater");
+        watchLaterDispatch({ payload: "FIRST_LOAD", videos: data.videos });
+        debugger;
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
+  return (
+    <WatchLaterContext.Provider value={{ watchLaterState, watchLaterDispatch }}>
+      {children}
+    </WatchLaterContext.Provider>
+  );
 }
 
 export function useWatchLater(params) {

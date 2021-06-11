@@ -4,7 +4,7 @@ import axios from "axios";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [login, loginSetter] = useState(false);
+  const [login, loginSetter] = useState(true);
 
   function loginCheck(userName ,password){
     if(userName==="piyush" && password==="neog@1997"){

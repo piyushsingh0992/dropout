@@ -1,10 +1,14 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
+import axios from "axios";
 
 const LikedVideoContext = createContext();
 
 function likedVideoManager(state, action) {
-  const { payload, video } = action;
+  const { payload, video, videos } = action;
   switch (payload) {
+    case "FIRST_LOAD":
+      return videos;
+
     case "ADD_LIKED_VIDEO":
       return [video, ...state];
 
@@ -26,6 +30,19 @@ export function LikedVideoProvider({ children }) {
     likedVideoManager,
     []
   );
+
+  useEffect(() => {
+    (async function () {
+      try {
+        let { data } = await axios.get("/likedVideos");
+
+        likedVideoStateDispatch({ payload: "FIRST_LOAD", videos: data.videos });
+        debugger;
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
 
   return (
     <LikedVideoContext.Provider

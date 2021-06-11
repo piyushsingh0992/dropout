@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./textField.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-
 const TextField = ({
   label,
   type,

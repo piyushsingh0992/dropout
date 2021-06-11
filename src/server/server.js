@@ -59,6 +59,10 @@ export const dropoutServer = (params) => {
         return { history: history };
       });
 
+      this.get("/likedVideos",(schema,request)=>{
+        return { status: 200, videos: likedVideos };
+      })
+
       this.post("/likedVideos", (schema, request) => {
         let { videoId } = JSON.parse(request.requestBody);
         let currentVideo = videoData.find((item) => item.videoId === videoId);
@@ -79,6 +83,11 @@ export const dropoutServer = (params) => {
         return { status: 200, video: currentVideo };
       });
 
+
+      this.get("/watchlater",(schema,request)=>{
+        
+        return { status: 200, videos: watchLater };
+      })
       this.post("/watchlater/:videoId", (schema, request) => {
         let { videoId } = request.params;
         let currentVideo = videoData.find((item) => item.videoId === videoId);

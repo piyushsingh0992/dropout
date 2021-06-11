@@ -3,7 +3,7 @@
     padding: 1rem;
     border-radius: 5px;
     transition: ease 0.8s;
-    z-index: 2;
+    z-index: 20000000;
     position: fixed;
     top: 2rem;
     right: 2rem;

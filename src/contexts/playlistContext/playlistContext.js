@@ -3,12 +3,19 @@ import axios from "axios";
 
 const PlaylistContext = createContext();
 function playlistManager(state, action) {
-  const { payload, playlistId, playlistIdArray, video, playlist, newPlaylist } =
-    action;
-  
+  const {
+    payload,
+    playlistId,
+    playlistIdArray,
+    video,
+    playlist,
+    newPlaylist,
+    playlists,
+  } = action;
+
   switch (payload) {
     case "LOADING_PLAYLIST":
-      return playlist;
+      return playlists;
     case "CREATE_PLAYLIST":
       return [...state, newPlaylist];
     case "DELETE_PLAYLIST":
@@ -31,7 +38,7 @@ export function PlaylistProvider({ children }) {
         let { data } = await axios.get("/playlist");
         const { status, playlists } = data;
 
-        playlistDispatch({ payload: `LOADING_PLAYLIST`, playlist: playlists });
+        playlistDispatch({ payload: `LOADING_PLAYLIST`, playlists: playlists });
       } catch (error) {
         console.error(error);
       }
