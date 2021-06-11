@@ -12,6 +12,8 @@ import { WatchLaterProvider } from "./contexts/watchLaterContext/watchLaterConte
 import { SubscribeProvider } from "./contexts/subscribeContext/subscribeContext.js";
 import { PlaylistProvider } from "./contexts/playlistContext/playlistContext.js";
 import { AuthProvider } from "./contexts/authContext/authContext.js";
+import { ToastProvider } from "./contexts/toastContext/toastContext.js";
+
 dropoutServer();
 ReactDOM.render(
   <React.StrictMode>
@@ -19,15 +21,17 @@ ReactDOM.render(
       <AuthProvider>
         <ThemeProvider>
           <LanguageProvider>
-            <PlaylistProvider>
-              <SubscribeProvider>
-                <WatchLaterProvider>
-                  <LikedVideoProvider>
-                    <App />
-                  </LikedVideoProvider>
-                </WatchLaterProvider>
-              </SubscribeProvider>
-            </PlaylistProvider>
+            <ToastProvider>
+              <PlaylistProvider>
+                <SubscribeProvider>
+                  <WatchLaterProvider>
+                    <LikedVideoProvider>
+                      <App />
+                    </LikedVideoProvider>
+                  </WatchLaterProvider>
+                </SubscribeProvider>
+              </PlaylistProvider>
+            </ToastProvider>
           </LanguageProvider>
         </ThemeProvider>
       </AuthProvider>

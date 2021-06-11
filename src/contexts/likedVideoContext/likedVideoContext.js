@@ -37,7 +37,7 @@ export function LikedVideoProvider({ children }) {
         let { data } = await axios.get("/likedVideos");
 
         likedVideoStateDispatch({ payload: "FIRST_LOAD", videos: data.videos });
-        debugger;
+       
       } catch (error) {
         console.error(error);
       }

@@ -1,58 +1,30 @@
 import React, { useState, useEffect } from "react";
 import like from "../../utils/images/icons/like.svg";
 import likeBlue from "../../utils/images/icons/likeBlue.svg";
-import axios from "axios";
 import { useLikedVideos } from "../../contexts/likedVideoContext/likedVideoContext.js";
-
+import { addLikedVideo, deleteLikedVideo } from "../../utils/likeFunction.js";
+import {useToast} from "../../contexts/toastContext/toastContext.js";
 const LikeButton = ({ size, videoId, liked }) => {
   const [likedVideo, likedVideoSetter] = useState(false);
-
-  const { likedVideoState,likedVideoStateDispatch } = useLikedVideos();
-
+  const { likedVideoState, likedVideoStateDispatch } = useLikedVideos();
+  const {toastState, toastDispatch}=useToast();
   useEffect(() => {
-    let present=likedVideoState.find(item=>item.videoId===videoId);
-    if(present){
+    let present = likedVideoState.find((item) => item.videoId === videoId);
+    if (present) {
       likedVideoSetter(true);
-    }else{
+    } else {
       likedVideoSetter(false);
     }
-    return ()=>{
-      likedVideoSetter(false)
-    }
-  },[liked, videoId] );
+    return () => {
+      likedVideoSetter(false);
+    };
+  }, [liked, videoId]);
 
   const likeButtonClickHandler = () => {
-    likedVideoSetter((value) => !value);    
     if (likedVideo) {
-     
-      (async function () {
-        try {
-          let { data } = await axios.delete("/likedVideos", {
-            params:{videoId} 
-          });
-          likedVideoStateDispatch({
-            payload: "REMOVE_LIKED_VIDEO",
-            video: data.video,
-          });
-        } catch (error) {
-          console.error("error");
-        }
-      })();
+      deleteLikedVideo(videoId, likedVideoStateDispatch,toastDispatch,likedVideoSetter);
     } else {
-      (async function () {
-        try {
-          let { data } = await axios.post("/likedVideos", {
-            videoId,
-          });
-
-          likedVideoStateDispatch({
-            payload: "ADD_LIKED_VIDEO",
-            video: data.video,
-          });
-        } catch (error) {
-          console.error("error");
-        }
-      })();
+      addLikedVideo(videoId, likedVideoStateDispatch,toastDispatch,likedVideoSetter);
     }
   };
   return likedVideo ? (

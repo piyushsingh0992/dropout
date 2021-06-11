@@ -36,7 +36,6 @@ export function WatchLaterProvider({ children }) {
       try {
         let { data } = await axios.get("/watchlater");
         watchLaterDispatch({ payload: "FIRST_LOAD", videos: data.videos });
-        debugger;
       } catch (error) {
         console.error(error);
       }
