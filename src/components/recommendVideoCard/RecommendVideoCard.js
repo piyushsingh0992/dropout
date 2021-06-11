@@ -1,10 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import "./recommendVideoCard.css";
 import { NavLink } from "react-router-dom";
 import ThumbNail from "../thumbNail/ThumbNail.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import PlaylistModal from "../playlistModal/PlaylistModal.js";
 
 const RecommendVideoCard = ({ videoDetails, mentor }) => {
+  const [modalTrigger, modalTriggerSetter] = useState(false);
+  
   let { mentorName, title, thumbnail, mentorId, videoId, views } = videoDetails;
   const { theme } = useTheme();
   return (
@@ -13,6 +16,7 @@ const RecommendVideoCard = ({ videoDetails, mentor }) => {
         thumbnail={thumbnail}
         type={"recommendThumbnail"}
         videoId={videoId}
+        modalTriggerSetter={modalTriggerSetter}
       />
 
       <div className="recommendVideoDetailsContainer">
@@ -27,6 +31,12 @@ const RecommendVideoCard = ({ videoDetails, mentor }) => {
           </div>
         </NavLink>
       </div>
+      {modalTrigger && (
+        <PlaylistModal
+          modalTriggerSetter={modalTriggerSetter}
+          videoId={videoId}
+        />
+      )}
     </div>
   );
 };

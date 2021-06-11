@@ -8,12 +8,7 @@ const PlaylistButton = ({ videoId, playlist, modalTriggerSetter }) => {
   }
 
   return playlist ? (
-    <div
-      className="videoPlayerPlaylistButton"
-      onClick={(e) => {
-        alert("clicked playlist");
-      }}
-    >
+    <div className="videoPlayerPlaylistButton" onClick={playListHandler}>
       <img src={playlistGrey} />
       Add to Playlist
     </div>

@@ -5,14 +5,16 @@ import close from "../../utils/images/icons/close.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import Button from "../button/Button.js";
 import { usePlaylist } from "../../contexts/playlistContext/playlistContext.js";
+import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { createPlaylist ,  addVideoToPlaylist  } from "../../utils/playlistFunction.js";
 
 const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
   const [playlistArray, playlistArraySetter] = useState([]);
   const [newPlaylistName, newPlaylistNameSetter] = useState("");
   const [selectedPlaylists, selectedPlaylistsSetter] = useState([]);
-  const [trigger, triggerSetter] = useState(false);
   const { theme } = useTheme();
   const { playlistState, playlistDispatch } = usePlaylist();
+  const { toastDispatch } = useToast();
   function closingModal() {
     modalTriggerSetter(false);
   }
@@ -23,28 +25,22 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
 
   function enterKeyHandler(e) {
     if (e.keyCode === 13 && newPlaylistName?.length > 0) {
-      const present = playlistState.find((item) => item === newPlaylistName);
+      const present = playlistState.find(
+        (item) => item.name === newPlaylistName
+      );
       if (present) {
-        triggerSetter(true);
-        setTimeout(() => {
-          triggerSetter(false);
-        }, 1);
+        toastDispatch({
+          trigger: true,
+          type: "error",
+          message: "playlist already exist",
+        });
       } else {
-        (async function () {
-          try {
-            let { data } = await axios.post("/playlist", {
-              playlistName: newPlaylistName,
-            });
-
-            playlistDispatch({
-              payload: `CREATE_PLAYLIST`,
-              newPlaylist: data.newPlaylist,
-            });
-            newPlaylistNameSetter("");
-          } catch (error) {
-            console.log(error);
-          }
-        })();
+        createPlaylist(
+          newPlaylistName,
+          playlistDispatch,
+          newPlaylistNameSetter,
+          toastDispatch
+        );
       }
     }
   }
@@ -58,26 +54,31 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
       });
     }
   }
-
   function submitHandler() {
-    (async function () {
-      try {
-        let { data } = await axios.post(`/playlist/${videoId}`, {
-          playlistarray: selectedPlaylists,
-        });
-        playlistDispatch({ payload: `ADD_VIDEO`, playlist: data.playlist });
-        modalTriggerSetter(false);
-      } catch (error) {
-        console.log({ error });
-      }
-    })();
+    // (async function () {
+    //   try {
+    //     let { data } = await axios.post(`/playlist/${videoId}`, {
+    //       playlistarray: selectedPlaylists,
+    //     });
+    //     playlistDispatch({ payload: `ADD_VIDEO`, playlist: data.playlist });
+    //     modalTriggerSetter(false);
+    //   } catch (error) {
+    //     console.log({ error });
+    //   }
+    // })();
+
+    addVideoToPlaylist(
+      videoId,
+      selectedPlaylists,
+      playlistDispatch,
+      modalTriggerSetter
+    );
 
     selectedPlaylistsSetter([]);
   }
 
   return (
     <div className="playlistModalContainer">
-      
       <div
         className="playlistModal"
         style={{ backgroundColor: theme.cardBackground }}
