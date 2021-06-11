@@ -6,7 +6,10 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import Button from "../button/Button.js";
 import { usePlaylist } from "../../contexts/playlistContext/playlistContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
-import { createPlaylist ,  addVideoToPlaylist  } from "../../utils/playlistFunction.js";
+import {
+  createPlaylist,
+  addVideoToPlaylist,
+} from "../../utils/playlistFunction.js";
 
 const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
   const [playlistArray, playlistArraySetter] = useState([]);
@@ -55,23 +58,12 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
     }
   }
   function submitHandler() {
-    // (async function () {
-    //   try {
-    //     let { data } = await axios.post(`/playlist/${videoId}`, {
-    //       playlistarray: selectedPlaylists,
-    //     });
-    //     playlistDispatch({ payload: `ADD_VIDEO`, playlist: data.playlist });
-    //     modalTriggerSetter(false);
-    //   } catch (error) {
-    //     console.log({ error });
-    //   }
-    // })();
-
     addVideoToPlaylist(
       videoId,
       selectedPlaylists,
       playlistDispatch,
-      modalTriggerSetter
+      modalTriggerSetter,
+      toastDispatch
     );
 
     selectedPlaylistsSetter([]);

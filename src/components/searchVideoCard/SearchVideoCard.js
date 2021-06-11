@@ -20,7 +20,6 @@ const SearchVideoCard = ({ videosDetails }) => {
     liked,
     profile,
   } = videosDetails;
-
   const { theme } = useTheme();
   let x =
     "ssssssssssssssssssssssssdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd";
