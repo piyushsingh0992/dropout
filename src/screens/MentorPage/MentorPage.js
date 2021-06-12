@@ -12,7 +12,9 @@ const MentorPage = () => {
   useEffect(() => {
     (async function () {
       try {
-        let { data } = await axios.get(`/mentor/${mentorId}`);
+        let { data } = await axios.get(
+          `https://dropout.piyushsingh6.repl.co/mentor/${mentorId}`
+        );
         mentorDetailsSetter(data);
         loadingSetter(false);
       } catch (error) {

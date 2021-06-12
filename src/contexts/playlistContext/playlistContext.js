@@ -35,7 +35,7 @@ export function PlaylistProvider({ children }) {
   useEffect(() => {
     (async function () {
       try {
-        let { data } = await axios.get("/playlist");
+        let { data } = await axios.get("https://dropout.piyushsingh6.repl.co/playlist");
         const { status, playlists } = data;
 
         playlistDispatch({ payload: `LOADING_PLAYLIST`, playlists: playlists });

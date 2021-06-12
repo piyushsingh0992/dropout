@@ -34,7 +34,7 @@ export function WatchLaterProvider({ children }) {
   useEffect(() => {
     (async function () {
       try {
-        let { data } = await axios.get("/watchlater");
+        let { data } = await axios.get("https://dropout.piyushsingh6.repl.co/watchlater");
         watchLaterDispatch({ payload: "FIRST_LOAD", videos: data.videos });
       } catch (error) {
         console.error(error);

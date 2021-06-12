@@ -43,7 +43,6 @@ const PlaylistCard = ({ name, videos }) => {
             <TextField
               value={newName}
               changeFunction={(e) => {
-                console.log(e.target.value);
                 newNameSetter(e.target.value);
               }}
             />
@@ -83,7 +82,7 @@ const PlaylistCard = ({ name, videos }) => {
                 src={deleteIcon}
                 className="playlistVideoDelete"
                 onClick={() => {
-                  console.log("item ->", item);
+
 
                   deleteVideo(item.videoId);
                 }}

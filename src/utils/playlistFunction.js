@@ -7,9 +7,10 @@ export async function createPlaylist(
   toastDispatch
 ) {
   try {
-    let { data } = await axios.post("/playlist", {
-      playlistName: newPlaylistName,
-    });
+    let { data } = await axios.post(
+      `https://dropout.piyushsingh6.repl.co/playlist/${newPlaylistName}`
+    );
+
     if (data.status === 200) {
       playlistDispatch({
         payload: `CREATE_PLAYLIST`,
@@ -29,7 +30,7 @@ export async function createPlaylist(
       });
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
     toastDispatch({
       trigger: true,
       type: "error",
@@ -46,9 +47,13 @@ export async function addVideoToPlaylist(
   toastDispatch
 ) {
   try {
-    let { data } = await axios.post(`/playlist/${videoId}`, {
-      playlistarray: selectedPlaylists,
-    });
+    let { data } = await axios.post(
+      `https://dropout.piyushsingh6.repl.co/playlist`,
+      {
+        playlistarray: selectedPlaylists,
+        videoId: videoId,
+      }
+    );
     if (data.status === 200) {
       playlistDispatch({ payload: `ADD_VIDEO`, playlist: data.playlist });
       modalTriggerSetter(false);
@@ -65,7 +70,7 @@ export async function addVideoToPlaylist(
       });
     }
   } catch (error) {
-    console.log({ error });
+    console.error({ error });
     toastDispatch({
       trigger: true,
       type: "error",
@@ -81,7 +86,9 @@ export async function deleteVideoFromPlaylist(
   toastDispatch
 ) {
   try {
-    let { data } = await axios.delete(`/playlist/${playlistName}/${videoId}`);
+    let { data } = await axios.delete(
+      `https://dropout.piyushsingh6.repl.co/playlist/${playlistName}/${videoId}`
+    );
 
     if (data.status === 200) {
       playlistDispatch({ payload: "DELETE_VIDEO", playlist: data.playlist });
@@ -91,14 +98,14 @@ export async function deleteVideoFromPlaylist(
         message: "Video deleted",
       });
     } else {
-      toastDispatch({
+      delete toastDispatch({
         trigger: true,
         type: "error",
         message: "error! Cannot delete the video",
       });
     }
   } catch (error) {
-    console.log({ error });
+    console.error({ error });
     toastDispatch({
       trigger: true,
       type: "error",
@@ -113,7 +120,9 @@ export async function deletePlaylist(
   toastDispatch
 ) {
   try {
-    let { data } = await axios.delete(`/playlist/${playlistName}`);
+    let { data } = await axios.delete(
+      `https://dropout.piyushsingh6.repl.co/playlist/${playlistName}`
+    );
 
     if (data.status === 200) {
       playlistDispatch({
@@ -151,8 +160,10 @@ export async function playlistNameChanger(
 ) {
   (async function () {
     try {
-      let { data } = await axios.post(`/playlist/${name}/${newName}`);
-      console.log({ data });
+      let { data } = await axios.post(
+        `https://dropout.piyushsingh6.repl.co/playlist/${name}/${newName}`
+      );
+
       if (data.status === 200) {
         newNameSetter("");
         playlistDispatch({
@@ -172,7 +183,7 @@ export async function playlistNameChanger(
         });
       }
     } catch (error) {
-      console.log({ error });
+      console.error({ error });
       toastDispatch({
         trigger: true,
         type: "error",

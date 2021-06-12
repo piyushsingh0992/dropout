@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./subscribeButton.css";
-import axios from "axios";
 import Button from "../button/Button.js";
 import { useSubscribe } from "../../contexts/subscribeContext/subscribeContext.js";
+import {
+  subscribeMentor,
+  unSubscribeMentor,
+} from "../../utils/subscribeFunction.js";
+import { useToast } from "../../contexts/toastContext/toastContext.js";
 const SubscribeButton = ({ mentorId }) => {
   const [subscribe, subscribeSetter] = useState(false);
   const { subscribeState, subscribeDispatch } = useSubscribe();
+  const { toastDispatch } = useToast();
 
   useEffect(() => {
-   
-    const present = subscribeState.find(item => item === mentorId);
+    const present = subscribeState.find((item) => item === mentorId);
     if (present) {
       subscribeSetter(true);
     } else {
@@ -18,37 +22,23 @@ const SubscribeButton = ({ mentorId }) => {
     return () => {
       subscribeSetter(false);
     };
-  }, [mentorId]);
+  }, [subscribeState, mentorId]);
 
   function subscribeHandler() {
     if (subscribe) {
-      (async function () {
-        try {
-          let { data } = await axios.delete(`/subscribe/${mentorId}`);
-          
-          subscribeDispatch({
-            payload: "UNSUBSCRIBE",
-            mentorId: data.mentorId,
-          });
-          subscribeSetter(false);
-        } catch (error) {
-          console.error("error");
-        }
-      })();
+      unSubscribeMentor(
+        mentorId,
+        subscribeDispatch,
+        subscribeSetter,
+        toastDispatch
+      );
     } else {
-      (async function () {
-        try {
-          let { data } = await axios.post(`/subscribe/${mentorId}`);
-          
-          subscribeDispatch({
-            payload: "SUBSCRIBE",
-            mentorId: data.mentorId,
-          });
-          subscribeSetter(true);
-        } catch (error) {
-          console.error("error");
-        }
-      })();
+      subscribeMentor(
+        mentorId,
+        subscribeDispatch,
+        subscribeSetter,
+        toastDispatch
+      );
     }
   }
 
@@ -56,7 +46,7 @@ const SubscribeButton = ({ mentorId }) => {
     <Button
       clickFunction={subscribeHandler}
       type="secondary"
-      text="Unsubscribe"
+      text="unsubscribe"
       size="subscribe-btn"
     />
   ) : (

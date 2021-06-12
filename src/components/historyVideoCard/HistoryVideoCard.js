@@ -1,13 +1,23 @@
-import React from "react";
+import React,{useState} from "react";
 import "./historyVideoCard.css";
-import {NavLink} from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import pic from "../../utils/images/mentors/tanay/profile.png";
 import ThumbNail from "../thumbNail/ThumbNail.js";
 import book from "./images/try.jpg";
+import PlaylistModal from "../playlistModal/PlaylistModal.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-const HistoryVideoCard = ({ title, thumbnail, mentorId,videoId, mentorName,views,profile }) => {
+const HistoryVideoCard = ({
+  title,
+  thumbnail,
+  mentorId,
+  videoId,
+  mentorName,
+  views,
+  profile,
+}) => {
+  const [modalTrigger, modalTriggerSetter] = useState(false);
   const { theme } = useTheme();
-
+  
   return (
     <div className="historyVideoCardContainer">
       <div className="historyVideoCard">
@@ -15,6 +25,7 @@ const HistoryVideoCard = ({ title, thumbnail, mentorId,videoId, mentorName,views
           thumbnail={thumbnail}
           type={"historyThumnail"}
           videoId={videoId}
+          modalTriggerSetter={modalTriggerSetter}
         />
         <div className="historyVideoDetailsContainer">
           <p style={{ color: theme.boldText }}>
@@ -22,11 +33,11 @@ const HistoryVideoCard = ({ title, thumbnail, mentorId,videoId, mentorName,views
           </p>
 
           <div className="historyVideoDetails">
-          <NavLink to={`/mentor/${mentorId}`}>
-            <div className="historyVideoCardMentorDetails">
-              <img src={profile} className="historyVideoCardMentorImg" />
-              <p style={{color:theme.primaryText}}>{mentorName} </p>
-            </div>
+            <NavLink to={`/mentor/${mentorId}`}>
+              <div className="historyVideoCardMentorDetails">
+                <img src={profile} className="historyVideoCardMentorImg" />
+                <p style={{ color: theme.primaryText }}>{mentorName} </p>
+              </div>
             </NavLink>
             <p>{views} views </p>
           </div>
@@ -34,6 +45,12 @@ const HistoryVideoCard = ({ title, thumbnail, mentorId,videoId, mentorName,views
       </div>
 
       <p style={{ color: theme.boldText }}>Time</p>
+      {modalTrigger && (
+        <PlaylistModal
+          modalTriggerSetter={modalTriggerSetter}
+          videoId={videoId}
+        />
+      )}
     </div>
   );
 };

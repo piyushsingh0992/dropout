@@ -1,4 +1,5 @@
 import React from "react";
+import "./homePage.css";
 import Hero from "../../components/hero/Hero.js";
 const HomePage = () => {
   return (

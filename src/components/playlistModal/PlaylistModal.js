@@ -58,6 +58,15 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
     }
   }
   function submitHandler() {
+    if (selectedPlaylists.length < 1) {
+      toastDispatch({
+        trigger: true,
+        type: "error",
+        message: "Please select a playlist",
+      });
+      return;
+    }
+
     addVideoToPlaylist(
       videoId,
       selectedPlaylists,

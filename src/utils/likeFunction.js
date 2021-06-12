@@ -8,9 +8,9 @@ export async function addLikedVideo(
 ) {
   likedVideoSetter(true);
   try {
-    let { data } = await axios.post("/likedVideos", {
-      videoId,
-    });
+    let { data } = await axios.post(
+      `https://dropout.piyushsingh6.repl.co/likedVideos/${videoId}`
+    );
 
     if (data.status === 200) {
       likedVideoStateDispatch({
@@ -49,9 +49,9 @@ export async function deleteLikedVideo(
 ) {
   likedVideoSetter(false);
   try {
-    let { data } = await axios.delete("/likedVideos", {
-      params: { videoId },
-    });
+    let { data } = await axios.delete(
+      `https://dropout.piyushsingh6.repl.co/likedVideos/${videoId}`
+    );
     if (data.status === 200) {
       likedVideoStateDispatch({
         payload: "REMOVE_LIKED_VIDEO",

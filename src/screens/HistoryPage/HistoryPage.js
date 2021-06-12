@@ -15,7 +15,10 @@ const HistoryPage = () => {
   useEffect(() => {
     (async function () {
       try {
-        let response = await axios.get("/history");
+        let response = await axios.get(
+          "https://dropout.piyushsingh6.repl.co/history"
+        );
+
         historyArraySetter(response.data.history);
         loadingSetter(true);
       } catch (error) {
@@ -28,7 +31,7 @@ const HistoryPage = () => {
   }, []);
 
   return loading ? (
-    <Loader size={5}/>
+    <Loader size={5} />
   ) : (
     <div className="pageContainer">
       <Navigation />
@@ -36,10 +39,18 @@ const HistoryPage = () => {
       <div className="screenContainer">
         <Heading text={"History"} />
         {history.map(
-          ({ title, thumbnail, videoId, mentorName, views, profile,mentorId }) => {
+          ({
+            title,
+            thumbnail,
+            videoId,
+            mentorName,
+            views,
+            profile,
+            mentorId,
+          }) => {
             return (
               <HistoryVideoCard
-              mentorId={mentorId}
+                mentorId={mentorId}
                 title={title}
                 profile={profile}
                 views={views}

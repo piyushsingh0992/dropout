@@ -16,11 +16,11 @@ const LikedVideoPage = () => {
       <div className="screenContainer">
         <Heading text={"Liked Video's"} />
         <div className="likedVideosGridContainer">
-        <div className="videoCardGrid">
-          {likedVideoState.map((item) => (
-            <VideoCard videosDetails={item} />
-          ))}
-        </div>
+          <div className="videoCardGrid">
+            {likedVideoState.map((item) => (
+              <VideoCard videosDetails={item} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

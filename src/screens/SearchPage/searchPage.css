@@ -1,13 +1,14 @@
 .searchPage {
     display: flex;
     min-height: 100vh;
-    
-    
+
+
 }
 
-.searchDisplay{
-    margin:1rem;
+.searchDisplay {
+    margin: 1rem;
 }
+
 @media only screen and (max-width: 600px) {
     .searchPage {
         flex-direction: column;

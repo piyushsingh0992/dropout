@@ -10,20 +10,6 @@ const SearchPage = () => {
       <Navigation />
       <div className="screenContainer">
         <Search />
-        {/* <SearchVideoCard />
-        <SearchVideoCard />
-         <SearchVideoCard />
-        <SearchVideoCard />
-        <SearchVideoCard /> */}
-        {/*<SearchVideoCard />
-        <SearchVideoCard />
-        <SearchVideoCard />
-        <SearchVideoCard />
-        <SearchVideoCard />
-        <SearchVideoCard />
-        <SearchVideoCard />
-        <SearchVideoCard />
-        <SearchVideoCard /> */}
       </div>
     </div>
   );

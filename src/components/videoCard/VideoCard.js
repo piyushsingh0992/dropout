@@ -10,7 +10,7 @@ const VideoCard = ({ videosDetails }) => {
   const { title, mentor, mentorId, thumbnail, views, videoId, liked, profile } =
     videosDetails;
 
-  console.log({ mentorId });
+
   const { theme } = useTheme();
   return (
     <div className="videoCard">

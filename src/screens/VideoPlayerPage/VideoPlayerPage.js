@@ -18,16 +18,16 @@ const VideoPlayerPage = () => {
   useEffect(() => {
     (async function () {
       try {
-        let { data } = await axios.get(`/video/${videoId}`);
-        
+        let { data } = await axios.get(
+          `https://dropout.piyushsingh6.repl.co/video/${videoId}`
+        );
+
         videoDetailsSetter(data);
       } catch (error) {
         console.error("error ->", error);
       }
     })();
   }, [videoId]);
-
-
 
   return videoDetails ? (
     <div className="videoPlayerPage">
@@ -70,11 +70,6 @@ const VideoPlayerPage = () => {
               />
             );
           })}
-          {/* <RecommendVideoCard />
-          <RecommendVideoCard />
-          <RecommendVideoCard />
-          <RecommendVideoCard />
-          <RecommendVideoCard /> */}
         </div>
       </div>
     </div>

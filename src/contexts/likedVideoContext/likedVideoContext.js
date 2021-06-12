@@ -34,7 +34,7 @@ export function LikedVideoProvider({ children }) {
   useEffect(() => {
     (async function () {
       try {
-        let { data } = await axios.get("/likedVideos");
+        let { data } = await axios.get("https://dropout.piyushsingh6.repl.co/likedVideos");
 
         likedVideoStateDispatch({ payload: "FIRST_LOAD", videos: data.videos });
        

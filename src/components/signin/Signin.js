@@ -18,8 +18,7 @@ const Signin = () => {
 
 
   function submitHandler(){
-    loginCheck(userName, password);
-    errorHandler(true);
+    loginCheck(userName, password,errorHandler);
   }
 
   return (
