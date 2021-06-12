@@ -12,6 +12,11 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [login, loginSetter] = useState(false);
 
+  useEffect(() => {
+    let login = JSON.parse(localStorage.getItem("loginStatus"));
+    login && login.loginStatus && loginSetter(true);
+  }, []);
+
   async function loginCheck(userName, password, errorHandler) {
     try {
       let { data } = await axios.post(
@@ -23,8 +28,17 @@ export function AuthProvider({ children }) {
       );
 
       if (data.status === 200) {
-        loginSetter(data.login);
-        errorHandler(!data.login);
+        if (data.login) {
+          loginSetter(data.login);
+          errorHandler(false);
+
+          localStorage.setItem(
+            "loginStatus",
+            JSON.stringify({ loginStatus: true })
+          );
+        } else {
+          errorHandler(true);
+        }
       }
     } catch (error) {
       console.log(error);
@@ -33,7 +47,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ login, loginCheck }}>
+    <AuthContext.Provider value={{ login, loginCheck, loginSetter }}>
       {children}
     </AuthContext.Provider>
   );

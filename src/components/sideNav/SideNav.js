@@ -6,11 +6,14 @@ import setting from "../../utils/images/icons/settings.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useSideNavRoute } from "../../utils/common.js";
-
+import { useAuth } from "../../contexts/authContext/authContext.js";
+import { useToast } from "../../contexts/toastContext/toastContext.js";
 const SideNav = () => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { sideNavRouteArray } = useSideNavRoute();
+  const { login, loginSetter } = useAuth();
+  const { toastDispatch } = useToast();
   return (
     <div
       className="sidenav"
@@ -36,11 +39,29 @@ const SideNav = () => {
           );
         })}
       </div>
-
-      <div className="sidenav-bottom">
-        <img src={setting} className="sidenav-grey-icon" />
-        <p>Login</p>
-      </div>
+      {login ? (
+        <div
+          className="sidenav-bottom"
+          onClick={() => {
+            toastDispatch({
+              trigger: true,
+              type: "success",
+              message: "Logged Out",
+            });
+            loginSetter(false);
+          }}
+        >
+          <img src={setting} className="sidenav-grey-icon" />
+          <p>Log out</p>
+        </div>
+      ) : (
+        <NavLink to="/login">
+          <div className="sidenav-bottom">
+            <img src={setting} className="sidenav-grey-icon" />
+            <p>Log in</p>
+          </div>
+        </NavLink>
+      )}
     </div>
   );
 };
