@@ -15,16 +15,19 @@ const HistoryPage = () => {
   useEffect(() => {
     (async function () {
       try {
+        
         let response = await axios.get(
-          "https://dropout.piyushsingh6.repl.co/history"
+          "https://dropout.piyushsingh6.repl.co/video/history/history"
         );
-
+        
         historyArraySetter(response.data.history);
         loadingSetter(true);
       } catch (error) {
+        
         console.error(error);
         loadingSetter(false);
       } finally {
+        
         loadingSetter(false);
       }
     })();

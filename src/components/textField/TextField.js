@@ -5,7 +5,7 @@ const TextField = ({
   label,
   type,
   value,
-  changeFunction,
+  valueSetter,
   errorMessage,
   errorHandler,
 }) => {
@@ -17,7 +17,7 @@ const TextField = ({
         className="empty"
         type={type ? type : "text"}
         value={value}
-        onChange={changeFunction}
+        onChange={(e)=>{valueSetter(e.target.value)}}
         required
         style={{ backgroundColor: theme.primaryBackground }}
       />

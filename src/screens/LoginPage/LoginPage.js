@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./loginPage.css";
 import Signin from "../../components/signin/Signin.js";
 import Signup from "../../components/signup/Signup.js";
@@ -11,6 +11,7 @@ const LoginPage = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
   const { state } = useLocation();
+  const [user,userSetter]=useState(true);
 
   useEffect(() => {
     if (login) {
@@ -22,9 +23,10 @@ const LoginPage = () => {
     <div
       className="loginPage"
       style={{ backgroundColor: theme.primaryBackground }}
-    >
-      {/* <Signup /> */}
-      <Signin />
+    >{
+      user?<Signin userSetter={userSetter} />:<Signup userSetter={userSetter} />
+    }
+      
     </div>
   );
 };

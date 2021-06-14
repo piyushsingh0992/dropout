@@ -7,18 +7,16 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 
-const Signin = () => {
+const Signin = ({ userSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { login, loginCheck } = useAuth();
-  const [userName, userNameSetter] = useState("");
+  const [userId, userIdSetter] = useState("");
   const [password, passwordSetter] = useState("");
-  const [error,errorHandler]=useState(false);
+  const [error, errorHandler] = useState(false);
 
-
-
-  function submitHandler(){
-    loginCheck(userName, password,errorHandler);
+  function submitHandler() {
+    loginCheck(userId, password, errorHandler);
   }
 
   return (
@@ -26,30 +24,33 @@ const Signin = () => {
       <img src={dropout} />
       <TextField
         label={language.auth.email}
-        value={userName}
-        changeFunction={(e) => {
-          userNameSetter(e.target.value);
-        }}
-        errorMessage={"Username/Password is Wrong"}
+        value={userId}
+        valueSetter={userIdSetter}
+        errorMessage={"userId/Password is Wrong"}
         errorHandler={error}
       />
       <TextField
         label={language.auth.password}
         value={password}
-        changeFunction={(e) => {
-          passwordSetter(e.target.value);
-        }}
-        errorMessage={"Username/Password is Wrong"}
+        valueSetter={passwordSetter}
+        errorMessage={"userId/Password is Wrong"}
         errorHandler={error}
       />
       <div className="signin-btn-container">
-        <Button
-          text={language.auth.signin}
-          clickFunction={submitHandler}
-        />
+        <Button text={language.auth.signin} clickFunction={submitHandler} />
         <p style={{ color: theme.boldText }}>
           {language.auth.msg1}
-          <span style={{ color: theme.hightLightText, fontWeight: "bold" }}>
+          <span
+            style={{
+              color: theme.hightLightText,
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+            
+              userSetter((value) => !value);
+            }}
+          >
             {language.auth.signup}
           </span>
         </p>

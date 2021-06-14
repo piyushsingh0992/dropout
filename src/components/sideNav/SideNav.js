@@ -49,6 +49,9 @@ const SideNav = () => {
               message: "Logged Out",
             });
             loginSetter(false);
+            localStorage.removeItem(
+              "loginStatus"
+            );
           }}
         >
           <img src={setting} className="sidenav-grey-icon" />

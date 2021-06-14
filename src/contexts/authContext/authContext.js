@@ -17,12 +17,13 @@ export function AuthProvider({ children }) {
     login && login.loginStatus && loginSetter(true);
   }, []);
 
-  async function loginCheck(userName, password, errorHandler) {
+  async function loginCheck(userId, password, errorHandler) {
     try {
+
       let { data } = await axios.post(
         "https://dropout.piyushsingh6.repl.co/auth",
         {
-          userName,
+          userId,
           password,
         }
       );
@@ -31,7 +32,6 @@ export function AuthProvider({ children }) {
         if (data.login) {
           loginSetter(data.login);
           errorHandler(false);
-
           localStorage.setItem(
             "loginStatus",
             JSON.stringify({ loginStatus: true })
@@ -41,7 +41,7 @@ export function AuthProvider({ children }) {
         }
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       errorHandler(true);
     }
   }
