@@ -3,7 +3,9 @@ import { useParams, Navigate, Route } from "react-router-dom";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 
 const PrivateRoute = ({ path, ...props }) => {
-  const { login } = useAuth();
+  const {
+    login: { loginStatus },
+  } = useAuth();
 
   let paramsArray = useParams();
   let pathArray = path.split(":");
@@ -15,7 +17,7 @@ const PrivateRoute = ({ path, ...props }) => {
   });
   let newPath = newArray.join("");
 
-  return login ? (
+  return loginStatus ? (
     <Route to={path} {...props} />
   ) : (
     <Navigate state={{ from: newPath }} replace to="/login" />

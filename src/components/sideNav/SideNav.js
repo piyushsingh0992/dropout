@@ -8,11 +8,13 @@ import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useSideNavRoute } from "../../utils/common.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
+
+import Login from "../login/Login.js";
 const SideNav = () => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { sideNavRouteArray } = useSideNavRoute();
-  const { login, loginSetter } = useAuth();
+  const { login: loginStatus, loginSetter } = useAuth();
   const { toastDispatch } = useToast();
   return (
     <div
@@ -39,7 +41,7 @@ const SideNav = () => {
           );
         })}
       </div>
-      {login ? (
+      {/* {loginStatus ? (
         <div
           className="sidenav-bottom"
           onClick={() => {
@@ -64,7 +66,8 @@ const SideNav = () => {
             <p>Log in</p>
           </div>
         </NavLink>
-      )}
+      )} */}
+      <Login />
     </div>
   );
 };

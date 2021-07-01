@@ -8,25 +8,29 @@ import { useToast } from "../../contexts/toastContext/toastContext.js";
 import { useLocation, useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const { theme } = useTheme();
-  const { login } = useAuth();
+  const {
+    login: { loginStatus },
+  } = useAuth();
   const navigate = useNavigate();
   const { state } = useLocation();
-  const [user,userSetter]=useState(true);
+  const [user, userSetter] = useState(true);
 
   useEffect(() => {
-    if (login) {
+    if (loginStatus) {
       navigate(state && state.from ? state.from : "/");
     }
-  }, [login]);
+  }, [loginStatus]);
 
   return (
     <div
       className="loginPage"
       style={{ backgroundColor: theme.primaryBackground }}
-    >{
-      user?<Signin userSetter={userSetter} />:<Signup userSetter={userSetter} />
-    }
-      
+    >
+      {user ? (
+        <Signin userSetter={userSetter} />
+      ) : (
+        <Signup userSetter={userSetter} />
+      )}
     </div>
   );
 };
