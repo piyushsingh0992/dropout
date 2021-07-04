@@ -47,8 +47,8 @@ const HistoryPage = () => {
         {history.map(({ video }) => {
           let { title, thumbnail, _id, mentor, views, created_at } = video;
 
-          let time = moment(created_at).startOf('day').fromNow(); ;
-        
+          let time = moment(created_at).startOf("hour").fromNow();
+
           return (
             <HistoryVideoCard
               title={title}

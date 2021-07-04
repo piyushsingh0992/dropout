@@ -5,6 +5,7 @@ const LikedVideoContext = createContext();
 
 function likedVideoManager(state, action) {
   const { payload, video, videos } = action;
+  debugger;
   switch (payload) {
     case "FIRST_LOAD":
       return videos;
@@ -14,7 +15,7 @@ function likedVideoManager(state, action) {
 
     case "REMOVE_LIKED_VIDEO":
       return state.filter((item) => {
-        if (item.videoId === video.videoId) {
+        if (item._id === video._id) {
           return false;
         } else {
           return true;
@@ -32,16 +33,26 @@ export function LikedVideoProvider({ children }) {
   );
 
   useEffect(() => {
-    (async function () {
-      try {
-        let { data } = await axios.get("https://dropout.piyushsingh6.repl.co/likedVideos");
+    let login = JSON.parse(localStorage.getItem("loginStatus"));
 
-        likedVideoStateDispatch({ payload: "FIRST_LOAD", videos: data.videos });
-       
-      } catch (error) {
-        console.error(error);
-      }
-    })();
+    if (login) {
+      (async function () {
+        let { userKey } = login;
+
+        try {
+          let { data } = await axios.get(
+            `https://dropout.piyushsingh6.repl.co/likedVideos/${userKey}`
+          );
+          debugger;
+          likedVideoStateDispatch({
+            payload: "FIRST_LOAD",
+            videos: data.videos,
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      })();
+    }
   }, []);
 
   return (

@@ -11,8 +11,6 @@ const Login = () => {
   } = useAuth();
   const { toastDispatch } = useToast();
 
-  console.log("loginStatus ->", loginStatus);
-
   function logoutHandler() {
     toastDispatch({
       trigger: true,

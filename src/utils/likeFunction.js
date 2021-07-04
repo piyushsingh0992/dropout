@@ -4,15 +4,16 @@ export async function addLikedVideo(
   videoId,
   likedVideoStateDispatch,
   toastDispatch,
-  likedVideoSetter
+  likedVideoSetter,
+  userKey
 ) {
   likedVideoSetter(true);
   try {
-    let { data } = await axios.post(
-      `https://dropout.piyushsingh6.repl.co/likedVideos/${videoId}`
+    let { status, data } = await axios.post(
+      `https://dropout.piyushsingh6.repl.co/likedVideos/${videoId}`,
+      { userKey }
     );
-
-    if (data.status === 200) {
+    if (status === 200) {
       likedVideoStateDispatch({
         payload: "ADD_LIKED_VIDEO",
         video: data.video,
@@ -31,7 +32,7 @@ export async function addLikedVideo(
       likedVideoSetter(false);
     }
   } catch (error) {
-    console.error("error");
+    console.error("error ->", error);
     toastDispatch({
       trigger: true,
       type: "error",
@@ -45,14 +46,21 @@ export async function deleteLikedVideo(
   videoId,
   likedVideoStateDispatch,
   toastDispatch,
-  likedVideoSetter
+  likedVideoSetter,
+  userKey
 ) {
   likedVideoSetter(false);
   try {
-    let { data } = await axios.delete(
-      `https://dropout.piyushsingh6.repl.co/likedVideos/${videoId}`
+    let { status, data } = await axios.delete(
+      `https://dropout.piyushsingh6.repl.co/likedVideos/${videoId}`,
+      {
+        data: {
+          userKey,
+        },
+      }
     );
-    if (data.status === 200) {
+
+    if (status === 200) {
       likedVideoStateDispatch({
         payload: "REMOVE_LIKED_VIDEO",
         video: data.video,

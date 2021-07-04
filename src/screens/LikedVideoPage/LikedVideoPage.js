@@ -17,9 +17,9 @@ const LikedVideoPage = () => {
         <Heading text={"Liked Video's"} />
         <div className="likedVideosGridContainer">
           <div className="videoCardGrid">
-            {likedVideoState.map((item) => (
-              <VideoCard videosDetails={item} />
-            ))}
+            {likedVideoState.map((item) => {
+              return <VideoCard videosDetails={item} />;
+            })}
           </div>
         </div>
       </div>

@@ -20,8 +20,6 @@ const MentorPage = () => {
         mentorData[key] = data[key];
       }
     });
-    console.log(mentorData);
-
     playlists = playlists.map((playlist) => {
       playlist.videos = playlist.videos.map((video) => {
         video.mentor = mentorData;
@@ -41,6 +39,7 @@ const MentorPage = () => {
         let { data } = await axios.get(
           `https://dropout.piyushsingh6.repl.co/mentor/${mentorId}`
         );
+
         data = structuringMentorData(data);
         mentorDataSetter(data);
         loadingSetter(false);

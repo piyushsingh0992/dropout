@@ -1176,7 +1176,7 @@ router.post("/", async (req, res) => {
     );
     res.send("sucess");
   } catch (error) {
-    console.log("error ->", error);
+    console.error("error ->", error);
     res.send(error);
   }
 });

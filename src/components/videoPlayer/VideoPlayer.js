@@ -15,8 +15,6 @@ const VideoPlayer = ({ videoDetails }) => {
   let { embededLink, like, mentor, _id, title } = videoDetails;
   const { theme } = useTheme();
 
-  console.log(" videoDetails ->", videoDetails);
-
   return (
     <div className="videoPlayer">
       <iframe className="videoPlayerIframe" src={embededLink}></iframe>

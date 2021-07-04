@@ -7,7 +7,7 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import PlaylistModal from "../playlistModal/PlaylistModal.js";
 const VideoCard = ({ videosDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);
-  const { title, name, mentor, thumbnail, views, _id, liked } = videosDetails;
+  const { title, name, mentor, thumbnail, views, _id } = videosDetails;
   const { theme } = useTheme();
   return (
     <div className="videoCard">
@@ -33,7 +33,7 @@ const VideoCard = ({ videosDetails }) => {
             <p>{name} </p>
             <p>{views} views</p>
           </div>
-          <LikeButton size={1.4} videoId={_id} liked={liked} />
+          <LikeButton size={1.4} videoId={_id} />
         </div>
       </div>
 
