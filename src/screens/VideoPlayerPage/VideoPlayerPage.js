@@ -9,9 +9,14 @@ import VideoPlayer from "../../components/videoPlayer/VideoPlayer.js";
 import VideoNotes from "../../components/videoNotes/VideoNotes.js";
 import RecommendVideoCard from "../../components/recommendVideoCard/RecommendVideoCard.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useAuth } from "../../contexts/authContext/authContext.js";
 
 const VideoPlayerPage = () => {
   const { theme } = useTheme();
+  const {
+    login: { userKey },
+  } = useAuth();
+
   const [side, sideSetter] = useState(false);
   const [loader, loaderSetter] = useState(true);
   let { videoId } = useParams();
@@ -21,8 +26,11 @@ const VideoPlayerPage = () => {
     (async function () {
       try {
         loaderSetter(true);
-        let response = await axios.get(
-          `https://dropout.piyushsingh6.repl.co/video/${videoId}`
+        let response = await axios.post(
+          `https://dropout.piyushsingh6.repl.co/video/${videoId}`,
+          {
+            userKey
+          }
         );
         if (response.status === 200) {
           videoDetailsSetter(response.data);

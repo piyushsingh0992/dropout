@@ -71,6 +71,7 @@
 
 .historyThumnail {
     width: 100%;
+    object-fit: contain;
     max-height: 8rem;
     min-width: 11rem;
 }

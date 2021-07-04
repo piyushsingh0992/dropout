@@ -1,33 +1,36 @@
 import React, { useEffect, useState } from "react";
 import "./historyPage.css";
 import axios from "axios";
+import moment from "moment";
 import Navigation from "../../components/navigation/Navigation.js";
 import HistoryVideoCard from "../../components/historyVideoCard/HistoryVideoCard.js";
 import Heading from "../../components/heading/Heading.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-
+import { useAuth } from "../../contexts/authContext/authContext.js";
 import Loader from "../../components/loader/Loader.js";
 const HistoryPage = () => {
   const [history, historyArraySetter] = useState([]);
   const [loading, loadingSetter] = useState(true);
   const { theme } = useTheme();
 
+  const {
+    login: { userKey },
+  } = useAuth();
   useEffect(() => {
     (async function () {
       try {
-        
-        let response = await axios.get(
-          "https://dropout.piyushsingh6.repl.co/video/history/history"
+        let { status, data } = await axios.get(
+          `https://dropout.piyushsingh6.repl.co/history/${userKey}`
         );
-        
-        historyArraySetter(response.data.history);
+        if (status === 200) {
+          historyArraySetter(data.videos);
+        }
+
         loadingSetter(true);
       } catch (error) {
-        
         console.error(error);
         loadingSetter(false);
       } finally {
-        
         loadingSetter(false);
       }
     })();
@@ -41,29 +44,22 @@ const HistoryPage = () => {
 
       <div className="screenContainer">
         <Heading text={"History"} />
-        {history.map(
-          ({
-            title,
-            thumbnail,
-            videoId,
-            mentorName,
-            views,
-            profile,
-            mentorId,
-          }) => {
-            return (
-              <HistoryVideoCard
-                mentorId={mentorId}
-                title={title}
-                profile={profile}
-                views={views}
-                mentorName={mentorName}
-                thumbnail={thumbnail}
-                videoId={videoId}
-              />
-            );
-          }
-        )}
+        {history.map(({ video }) => {
+          let { title, thumbnail, _id, mentor, views, created_at } = video;
+
+          let time = moment(created_at).format('MMMM Do YYYY, h:mm:ss a');
+        
+          return (
+            <HistoryVideoCard
+              title={title}
+              views={views}
+              mentor={mentor}
+              thumbnail={thumbnail}
+              videoId={_id}
+              time={time}
+            />
+          );
+        })}
       </div>
     </div>
   );

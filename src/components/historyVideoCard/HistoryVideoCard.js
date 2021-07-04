@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./historyVideoCard.css";
 import { NavLink } from "react-router-dom";
 import pic from "../../utils/images/mentors/tanay/profile.png";
@@ -9,15 +9,14 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 const HistoryVideoCard = ({
   title,
   thumbnail,
-  mentorId,
+  mentor,
   videoId,
-  mentorName,
   views,
-  profile,
+  time,
 }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);
   const { theme } = useTheme();
-  
+
   return (
     <div className="historyVideoCardContainer">
       <div className="historyVideoCard">
@@ -33,10 +32,13 @@ const HistoryVideoCard = ({
           </p>
 
           <div className="historyVideoDetails">
-            <NavLink to={`/mentor/${mentorId}`}>
+            <NavLink to={`/mentor/${mentor._id}`}>
               <div className="historyVideoCardMentorDetails">
-                <img src={profile} className="historyVideoCardMentorImg" />
-                <p style={{ color: theme.primaryText }}>{mentorName} </p>
+                <img
+                  src={mentor.profile}
+                  className="historyVideoCardMentorImg"
+                />
+                <p style={{ color: theme.primaryText }}>{mentor.name} </p>
               </div>
             </NavLink>
             <p>{views} views </p>
@@ -44,7 +46,7 @@ const HistoryVideoCard = ({
         </div>
       </div>
 
-      <p style={{ color: theme.boldText }}>Time</p>
+      <p style={{ color: theme.boldText }}>{time}</p>
       {modalTrigger && (
         <PlaylistModal
           modalTriggerSetter={modalTriggerSetter}

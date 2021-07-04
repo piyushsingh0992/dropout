@@ -9,7 +9,6 @@ const VideoCard = ({ videosDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);
   const { title, name, mentor, thumbnail, views, _id, liked } = videosDetails;
   const { theme } = useTheme();
-  debugger;
   return (
     <div className="videoCard">
       <ThumbNail

@@ -1,21 +1,27 @@
 const express = require("express");
 const router = express.Router();
-
 const Video = require("../models/video.model.js");
+const History = require("../models/history.model.js");
 
-router.get("/:videoId", async (req, res) => {
+router.post("/:videoId", async (req, res) => {
   let { videoId } = req.params;
+  let { userKey } = req.body;
+
   try {
-    let videoResponse = await Video.findById(videoId).populate("mentor");
-    let recommendation = await Video.find({
-      playlist: videoResponse.playlist,
-    }).populate("mentor");
+    let VideoResponse = await Video.findById(videoId).populate("mentor");
+    VideoResponse.views = VideoResponse.views + 1;
+    VideoResponse = await VideoResponse.save();
 
-    recommendation = recommendation.filter((video) => video._id != videoId);
+    let HistoryResponse = await History.findById(userKey);
 
-    res.send(recommendation);
+    HistoryResponse.videos.push({ video: videoId });
+
+    HistoryResponse = await HistoryResponse.save();
+
+    res.send(VideoResponse);
   } catch (error) {
-    res.send({ error });
+    console.error("error ->", error);
+    res.send("error");
   }
 });
 
