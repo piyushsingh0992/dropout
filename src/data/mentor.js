@@ -1,6 +1,6 @@
 let mentor = [
   {
-    mentorId: "",
+    userId: "",
     name: "Tanay Praap",
     subject: "Tech Mentor",
     profile: "https://i.ibb.co/sm9Vrm6/tanay.png",
@@ -8,7 +8,7 @@ let mentor = [
     playlists: [],
   },
   {
-    mentorId: "",
+    userId: "",
     name: "Varun Mavya",
     subject: "Business Mentor",
     profile: "https://i.ibb.co/h9jXyHZ/varun.png",
@@ -16,7 +16,7 @@ let mentor = [
     playlists: [],
   },
   {
-    mentorId: "",
+    userId: "",
     name: "Shashank Udupa",
     subject: "Finance Mentor",
     profile: "https://i.ibb.co/fYGG436/shashank.png",
@@ -24,7 +24,7 @@ let mentor = [
     playlists: [],
   },
   {
-    mentorId: "",
+    userId: "",
     name: "Abhinav Gupta",
     subject: "Marketing Mentor",
     profile: "https://i.ibb.co/x7jd1x9/abhinav.png",
@@ -32,7 +32,7 @@ let mentor = [
     playlists: [],
   },
   {
-    mentorId: "",
+    userId: "",
     name: "Abhinav Chikara",
     subject: "Design Mentor",
     profile: "  https://i.ibb.co/j3p6ZxS/abhinav-Chikara.png",
@@ -40,7 +40,7 @@ let mentor = [
     playlists: [],
   },
   {
-    mentorId: "",
+    userId: "",
     name: "Prakhar Gupta",
     subject: "Conversation Mentor",
     profile: "https://i.ibb.co/ckvX6V1/prakhar.png",

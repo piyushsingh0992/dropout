@@ -8,13 +8,18 @@ import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useSideNavRoute } from "../../utils/common.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
+import dashboard from "../../utils/images/icons/dashboard.png";
+import dashboardWhite from "../../utils/images/icons/dashboardWhite.png";
 
 import Login from "../login/Login.js";
 const SideNav = () => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { sideNavRouteArray } = useSideNavRoute();
-  const { login: loginStatus, loginSetter } = useAuth();
+  const {
+    login: { loginStatus, mentor },
+  } = useAuth();
+  
   const { toastDispatch } = useToast();
   return (
     <div
@@ -40,6 +45,19 @@ const SideNav = () => {
             </NavLink>
           );
         })}
+
+        {mentor && (
+          <NavLink
+            end
+            to="/dashboard"
+            className="sidenav-route"
+            activeClassName="current-route"
+          >
+            <img src={dashboard} className="sidenav-grey-icon" />
+            <img src={dashboardWhite} className="sidenav-white-icon" />
+            <p>DashBoard</p>
+          </NavLink>
+        )}
       </div>
       {/* {loginStatus ? (
         <div

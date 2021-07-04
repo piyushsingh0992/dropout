@@ -5,9 +5,10 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import Button from "../button/Button.js";
 import SubscribeButton from "../subscribeButton/SubscribeButton.js";
-const MentorHeader = ({ mentor, categoryId, categoryIdSetter }) => {
-  let { name, banner, mentorId, profile, subject, playlist } = mentor;
-
+import MentorPlaylistSetter from "../mentorPlaylistSetter/MentorPlaylistSetter";
+const MentorHeader = ({ mentorData, playlistId, playlistIdSetter }) => {
+  let { name, banner, _id: mentorId, profile, subject, playlists } = mentorData;
+  
   const { theme } = useTheme();
   const { language } = useLanguage();
 
@@ -29,40 +30,11 @@ const MentorHeader = ({ mentor, categoryId, categoryIdSetter }) => {
         </div>
         <SubscribeButton mentorId={mentorId} />
       </div>
-      <div
-        className="playlistHeader"
-        style={{ backgroundColor: theme.cardBackground }}
-      >
-        {playlist.map((item) => {
-          if (item.id === categoryId) {
-            return (
-              <p
-                style={{
-                  borderBottom: `2px solid ${theme.hightLightText}`,
-                  color: theme.hightLightText,
-                  fontWeight: "bold",
-                }}
-              >
-                {item.name}
-              </p>
-            );
-          } else {
-            return (
-              <p
-                style={{
-                  borderBottom: `1px solid ${theme.boldText}`,
-                  color: theme.boldText,
-                }}
-                onClick={() => {
-                  categoryIdSetter(item.id);
-                }}
-              >
-                {item.name}
-              </p>
-            );
-          }
-        })}
-      </div>
+      <MentorPlaylistSetter
+        playlists={playlists}
+        playlistId={playlistId}
+        playlistIdSetter={playlistIdSetter}
+      />
     </div>
   );
 };

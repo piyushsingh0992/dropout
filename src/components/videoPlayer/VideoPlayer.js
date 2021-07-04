@@ -12,31 +12,31 @@ import PlaylistModal from "../playlistModal/PlaylistModal.js";
 
 const VideoPlayer = ({ videoDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);
-  let { video, mentor } = videoDetails;
+  let { embededLink, like, mentor, _id, title } = videoDetails;
   const { theme } = useTheme();
+
+  console.log(" videoDetails ->", videoDetails);
 
   return (
     <div className="videoPlayer">
-      <iframe className="videoPlayerIframe" src={video.embededLink}></iframe>
+      <iframe className="videoPlayerIframe" src={embededLink}></iframe>
       <div className="currentVideoDetails">
         <p className="videoTitle" style={{ color: theme.boldText }}>
-          {video.title.length > 100
-            ? `${video.title.slice(0, 96)}...`
-            : video.title}
+          {title.length > 100 ? `${title.slice(0, 96)}...` : title}
         </p>
         <div className="videoPlayerCTAContainer">
-          <LikeButton size={1.5} liked={video.liked} videoId={video.videoId} />
+          <LikeButton size={1.5} liked={like} videoId={_id} />
           <PlaylistButton
-            videoId={video.videoId}
+            videoId={_id}
             playlist
             modalTriggerSetter={modalTriggerSetter}
           />
-          <WatchLaterButton videoId={video.videoId} videoPlayer />
+          <WatchLaterButton videoId={_id} videoPlayer />
         </div>
       </div>
 
       <div className="video-mentor-details-container">
-        <NavLink to={`/mentor/${video.mentorId}`}>
+        <NavLink to={`/mentor/${mentor._id}`}>
           <div className="video-mentor-details">
             <img src={mentor.profile} className="video-mentor-img" />
             <div>
@@ -51,10 +51,7 @@ const VideoPlayer = ({ videoDetails }) => {
       </div>
       <DoubtSolver />
       {modalTrigger && (
-        <PlaylistModal
-          modalTriggerSetter={modalTriggerSetter}
-          videoId={video.videoId}
-        />
+        <PlaylistModal modalTriggerSetter={modalTriggerSetter} videoId={_id} />
       )}
     </div>
   );

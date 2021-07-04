@@ -7,15 +7,42 @@ import Mentor from "../../components/mentor/Mentor.js";
 import Loader from "../../components/loader/Loader.js";
 const MentorPage = () => {
   let { mentorId } = useParams();
-  const [mentorDetails, mentorDetailsSetter] = useState(null);
+  const [mentorData, mentorDataSetter] = useState(null);
   const [loading, loadingSetter] = useState(true);
+
+  function structuringMentorData(data) {
+    let { playlists } = data;
+
+    let mentorData = {};
+
+    Object.keys(data).forEach((key) => {
+      if (key != "playlists") {
+        mentorData[key] = data[key];
+      }
+    });
+    console.log(mentorData);
+
+    playlists = playlists.map((playlist) => {
+      playlist.videos = playlist.videos.map((video) => {
+        video.mentor = mentorData;
+        return video;
+      });
+      return playlist;
+    });
+
+    data.playlists = playlists;
+
+    return data;
+  }
+
   useEffect(() => {
     (async function () {
       try {
         let { data } = await axios.get(
           `https://dropout.piyushsingh6.repl.co/mentor/${mentorId}`
         );
-        mentorDetailsSetter(data);
+        data = structuringMentorData(data);
+        mentorDataSetter(data);
         loadingSetter(false);
       } catch (error) {
         console.error("error ->", error);
@@ -28,7 +55,7 @@ const MentorPage = () => {
   ) : (
     <div className="pageContainer">
       <Navigation />
-      <Mentor mentorDetails={mentorDetails} />
+      <Mentor mentorData={mentorData} />
     </div>
   );
 };

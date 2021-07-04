@@ -5,27 +5,27 @@ import ThumbNail from "../thumbNail/ThumbNail.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import PlaylistModal from "../playlistModal/PlaylistModal.js";
 
-const RecommendVideoCard = ({ videoDetails, mentor }) => {
+const RecommendVideoCard = ({ videoDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);
   
-  let { mentorName, title, thumbnail, mentorId, videoId, views } = videoDetails;
+  let { title, thumbnail, mentor, _id, views } = videoDetails;
   const { theme } = useTheme();
   return (
     <div className="recommendVideoCard">
       <ThumbNail
         thumbnail={thumbnail}
         type={"recommendThumbnail"}
-        videoId={videoId}
+        videoId={_id}
         modalTriggerSetter={modalTriggerSetter}
       />
 
       <div className="recommendVideoDetailsContainer">
         <p style={{ color: theme.boldText }}>{title.slice(0, 45)}...</p>
-        <NavLink to={`/mentor/${mentorId}`}>
+        <NavLink to={`/mentor/${mentor._id}`}>
           <div className="recommendvideoDetails">
             <img src={mentor.profile} />
             <div>
-              <p>{mentorName} </p>
+              <p>{mentor.name} </p>
               <p>{views} views</p>
             </div>
           </div>
@@ -34,7 +34,7 @@ const RecommendVideoCard = ({ videoDetails, mentor }) => {
       {modalTrigger && (
         <PlaylistModal
           modalTriggerSetter={modalTriggerSetter}
-          videoId={videoId}
+          videoId={_id}
         />
       )}
     </div>

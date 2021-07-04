@@ -1,0 +1,17 @@
+.dashboardNavbar {
+    display: flex;
+}
+
+.dashboardNavbar span {
+    font-size: 1.1rem;
+    margin:0.5rem 1rem 0 0;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.dashboardNavbar span:hover {
+    color: var(--primary);
+    border-bottom: 1px solid var(--primary);
+}

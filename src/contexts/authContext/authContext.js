@@ -10,7 +10,6 @@ import axios from "axios";
 const AuthContext = createContext();
 
 function loginHandler(state, action) {
-
   const { payload } = action;
   const {
     type,
@@ -18,18 +17,20 @@ function loginHandler(state, action) {
     loginStatus,
     mentor,
     userKey,
+    userName,
   } = payload;
-  debugger;
+
   switch (type) {
     case "LOGIN":
       return {
         loginStatus,
         mentor,
         userKey,
+        userName,
       };
 
     case "LOGOUT":
-      return { loginStatus: false, mentor: false, userKey: null };
+      return { loginStatus: false };
     default:
       return state;
   }
@@ -38,8 +39,6 @@ function loginHandler(state, action) {
 export function AuthProvider({ children }) {
   const [login, loginDispatch] = useReducer(loginHandler, {
     loginStatus: false,
-    mentor: false,
-    userKey: null,
   });
 
   useEffect(() => {
@@ -58,7 +57,7 @@ export function AuthProvider({ children }) {
           password,
         }
       );
-      debugger;
+
       if (status === 200) {
         loginDispatch({
           payload: {
@@ -66,6 +65,7 @@ export function AuthProvider({ children }) {
             loginStatus: data.loginStatus,
             mentor: data.mentor,
             userKey: data.userKey,
+            userName: data.userName,
           },
         });
         errorHandler(false);
@@ -75,6 +75,7 @@ export function AuthProvider({ children }) {
             loginStatus: data.loginStatus,
             mentor: data.mentor,
             userKey: data.userKey,
+            userName: data.userName,
           })
         );
       } else {

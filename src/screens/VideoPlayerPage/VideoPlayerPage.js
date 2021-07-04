@@ -13,23 +13,38 @@ import { useTheme } from "../../contexts/themeContext/themeContext.js";
 const VideoPlayerPage = () => {
   const { theme } = useTheme();
   const [side, sideSetter] = useState(false);
+  const [loader, loaderSetter] = useState(true);
   let { videoId } = useParams();
   const [videoDetails, videoDetailsSetter] = useState(null);
+  const [recommendation, recommendationSetter] = useState([]);
   useEffect(() => {
     (async function () {
       try {
-        let { data } = await axios.get(
+        loaderSetter(true);
+        let response = await axios.get(
           `https://dropout.piyushsingh6.repl.co/video/${videoId}`
         );
+        if (response.status === 200) {
+          videoDetailsSetter(response.data);
+        }
 
-        videoDetailsSetter(data);
+        response = await axios.get(
+          `https://dropout.piyushsingh6.repl.co/recommendation/${videoId}`
+        );
+        if (response.status === 200) {
+          recommendationSetter(response.data);
+        }
       } catch (error) {
         console.error("error ->", error);
+      } finally {
+        loaderSetter(false);
       }
     })();
   }, [videoId]);
 
-  return videoDetails ? (
+  return loader ? (
+    <h1>loading</h1>
+  ) : (
     <div className="videoPlayerPage">
       <div
         className="videoPlayerNavbar"
@@ -62,19 +77,12 @@ const VideoPlayerPage = () => {
         <VideoPlayer videoDetails={videoDetails} />
         <div className="videoPlayerNotesContainer">
           <VideoNotes />
-          {videoDetails.recommendations.map((item) => {
-            return (
-              <RecommendVideoCard
-                videoDetails={item}
-                mentor={videoDetails.mentor}
-              />
-            );
+          {recommendation.map((item) => {
+            return <RecommendVideoCard videoDetails={item} />;
           })}
         </div>
       </div>
     </div>
-  ) : (
-    <h1>loading</h1>
   );
 };
 

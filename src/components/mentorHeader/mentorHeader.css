@@ -65,28 +65,7 @@
 
 
 
- .playlistHeader {
-   display: flex;
-   width: 90%;
-   align-items: center;
-   background-color: var(--white);
-   justify-content: flex-start;
-   padding: 0 5%;
- }
-
-
- .playlistHeader>p {
-   padding: 0.5rem 1rem;
-   margin: 0 0.5rem;
-   font-size: 1rem;
-   cursor: pointer !important;
- }
-
- .playlistHeader>p:hover {
-
-   transform: scale(0.95);
-
- }
+ 
 
  .active {
    border-bottom: 1px solid var(--primary);

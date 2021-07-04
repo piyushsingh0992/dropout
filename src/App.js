@@ -12,6 +12,7 @@ import VideoPlayerPage from "./screens/VideoPlayerPage/VideoPlayerPage.js";
 import LikedVideoPage from "./screens/LikedVideoPage/LikedVideoPage";
 import WatchLaterPage from "./screens/WatchLaterPage/WatchLaterPage.js";
 import PlaylistPage from "./screens/PlaylistPage/PlaylistPage.js";
+import DashboardPage from "./screens/DashboardPage/DashboardPage.js";
 import ErrorPage from "./screens/ErrorPage/ErrorPage.js";
 import ContextManager from "./components/contextManager/ContextManager.js";
 import PrivateRoute from "./components/privateRoute/PrivateRoute.js";
@@ -36,6 +37,8 @@ function App() {
         <PrivateRoute path="/likedvideos" element={<LikedVideoPage />} />
         <PrivateRoute path="/watchlater" element={<WatchLaterPage />} />
         <PrivateRoute path="/playlist" element={<PlaylistPage />} />
+        <PrivateRoute path="/dashboard" element={<DashboardPage />} />
+
         <Route path="*" element={<ErrorPage />} />
       </Routes>
 
