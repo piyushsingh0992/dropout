@@ -4,16 +4,19 @@ export async function addWatchLater(
   videoId,
   watchLaterDispatch,
   toastDispatch,
-  addedVideoSetter
+  addedVideoSetter,
+  userKey
 ) {
   addedVideoSetter(true);
   try {
-    
-    let { data } = await axios.post(
-      `https://dropout.piyushsingh6.repl.co/watchlater/${videoId}`
+    let { status, data } = await axios.post(
+      `https://dropout.piyushsingh6.repl.co/watchlater/${videoId}`,
+      {
+        userKey,
+      }
     );
-    
-    if (data.status === 200) {
+
+    if (status === 200) {
       watchLaterDispatch({
         payload: "ADD_TO_WATCH_LATER",
         video: data.video,
@@ -24,7 +27,6 @@ export async function addWatchLater(
         message: "Added to Watch Later",
       });
     } else {
-      
       addedVideoSetter(false);
       toastDispatch({
         trigger: true,
@@ -33,7 +35,6 @@ export async function addWatchLater(
       });
     }
   } catch (error) {
-    
     addedVideoSetter(false);
     console.error(error);
     toastDispatch({
@@ -48,14 +49,23 @@ export async function removeWatchLater(
   videoId,
   watchLaterDispatch,
   toastDispatch,
-  addedVideoSetter
+  addedVideoSetter,
+  userKey
 ) {
   addedVideoSetter(false);
+
+  debugger;
   try {
-    let { data } = await axios.delete(
-      `https://dropout.piyushsingh6.repl.co/watchlater/${videoId}`
+    let { status, data } = await axios.delete(
+      `https://dropout.piyushsingh6.repl.co/watchlater/${videoId}`,
+      {
+        data: {
+          userKey
+        }
+      }
     );
-    if (data.status === 200) {
+    debugger;
+    if (status === 200) {
       watchLaterDispatch({
         payload: "REMOVE_FROM_WATCH_LATER",
         video: data.video,
@@ -74,6 +84,7 @@ export async function removeWatchLater(
       });
     }
   } catch (error) {
+    debugger;
     addedVideoSetter(true);
     console.error(error);
     toastDispatch({

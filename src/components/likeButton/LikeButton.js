@@ -13,8 +13,6 @@ const LikeButton = ({ size, videoId }) => {
   const {
     login: { userKey },
   } = useAuth();
-
-  console.log("likedVideoState ->", likedVideoState);
   useEffect(() => {
     let present = likedVideoState.find((item) => item._id === videoId);
 

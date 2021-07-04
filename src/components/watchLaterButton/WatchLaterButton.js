@@ -10,13 +10,19 @@ import {
   addWatchLater,
   removeWatchLater,
 } from "../../utils/watchLaterFunction.js";
+import { useAuth } from "../../contexts/authContext/authContext.js";
+
 
 const WatchLaterButton = ({ videoId, videoPlayer }) => {
+  console.log("videoId -> ", videoId);
   const [addedVideo, addedVideoSetter] = useState(false);
   let { watchLaterState, watchLaterDispatch } = useWatchLater();
   const { toastState, toastDispatch } = useToast();
+  const {
+    login: { userKey },
+  } = useAuth();
   useEffect(() => {
-    let present = watchLaterState.find((item) => item.videoId === videoId);
+    let present = watchLaterState.find((item) => item._id === videoId);
     if (present) {
       addedVideoSetter(true);
     } else {
@@ -25,7 +31,7 @@ const WatchLaterButton = ({ videoId, videoPlayer }) => {
     return () => {
       addedVideoSetter(false);
     };
-  }, [videoId]);
+  }, [watchLaterState, videoId]);
 
   function watchLater() {
     if (addedVideo) {
@@ -33,14 +39,14 @@ const WatchLaterButton = ({ videoId, videoPlayer }) => {
         videoId,
         watchLaterDispatch,
         toastDispatch,
-        addedVideoSetter
+        addedVideoSetter,userKey
       );
     } else {
       addWatchLater(
         videoId,
         watchLaterDispatch,
         toastDispatch,
-        addedVideoSetter
+        addedVideoSetter,userKey
       );
     }
   }

@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer ,useEffect} from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 
 const WatchLaterContext = createContext();
@@ -14,7 +14,7 @@ function watchLaterManger(state, action) {
 
     case "REMOVE_FROM_WATCH_LATER":
       return state.filter((item) => {
-        if (item.videoId === video.videoId) {
+        if (item._id === video._id) {
           return false;
         } else {
           return true;
@@ -32,14 +32,21 @@ export function WatchLaterProvider({ children }) {
   );
 
   useEffect(() => {
-    (async function () {
-      try {
-        let { data } = await axios.get("https://dropout.piyushsingh6.repl.co/watchlater");
-        watchLaterDispatch({ payload: "FIRST_LOAD", videos: data.videos });
-      } catch (error) {
-        console.error(error);
-      }
-    })();
+    let login = JSON.parse(localStorage.getItem("loginStatus"));
+    if (login) {
+      (async function () {
+        let { userKey } = login;
+        try {
+          let { data } = await axios.get(
+            `https://dropout.piyushsingh6.repl.co/watchlater/${userKey}`
+          );
+
+          watchLaterDispatch({ payload: "FIRST_LOAD", videos: data.videos });
+        } catch (error) {
+          console.error(error);
+        }
+      })();
+    }
   }, []);
   return (
     <WatchLaterContext.Provider value={{ watchLaterState, watchLaterDispatch }}>

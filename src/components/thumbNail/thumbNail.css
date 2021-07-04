@@ -1,6 +1,7 @@
 .thumbNailContainer {
     position: relative;
-    
+    overflow: hidden;
+
 }
 
 .thumbNailContainer>.thumbNailBtnScreen {
@@ -14,7 +15,7 @@
     bottom: 0.3rem;
     top: 0;
     background-color: rgba(0, 0, 0, 0.6);
-  
+
 }
 
 .playlistBtnContainer {
@@ -54,9 +55,9 @@
 
 .searchThumnail {
 
-    
+
     max-height: 8rem;
-    width:12rem;
+    width: 12rem;
 }
 
 .mentorplaylistThumbnail {
@@ -79,7 +80,7 @@
 @media only screen and (max-width: 600px) {
 
     .searchThumnail {
-        width:12rem;
+        width: 12rem;
     }
 
 }

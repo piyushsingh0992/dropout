@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./searchVideoCard.css";
 
 import { NavLink } from "react-router-dom";
@@ -10,25 +10,14 @@ import PlaylistModal from "../playlistModal/PlaylistModal.js";
 
 const SearchVideoCard = ({ videosDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);
-  const {
-    title,
-    mentorName,
-    thumbnail,
-    views,
-    videoId,
-    mentorId,
-    liked,
-    profile,
-  } = videosDetails;
+  const { title, mentor, thumbnail, views, _id, profile } = videosDetails;
   const { theme } = useTheme();
-  let x =
-    "ssssssssssssssssssssssssdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd";
   return (
     <div className="searchVideoCard">
       <ThumbNail
         thumbnail={thumbnail}
         type={"searchThumnail"}
-        videoId={videoId}
+        videoId={_id}
         modalTriggerSetter={modalTriggerSetter}
       />
       <div className="searchVideoDetailsContainer">
@@ -37,10 +26,10 @@ const SearchVideoCard = ({ videosDetails }) => {
         </p>
 
         <div className="searchVideoDetails">
-          <NavLink to={`/mentor/${mentorId}`}>
+          <NavLink to={`/mentor/${mentor._id}`}>
             <div className="searchVideoCardMentorDetails">
               <img src={profile} className="searchVideoCardMentorImg" />
-              <p style={{ color: theme.primaryText }}>{mentorName} </p>
+              <p style={{ color: theme.primaryText }}>{mentor.name} </p>
             </div>
           </NavLink>
           <p>{views} views </p>
@@ -49,7 +38,7 @@ const SearchVideoCard = ({ videosDetails }) => {
       {modalTrigger && (
         <PlaylistModal
           modalTriggerSetter={modalTriggerSetter}
-          videoId={videoId}
+          videoId={_id}
         />
       )}
     </div>

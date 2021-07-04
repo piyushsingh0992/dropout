@@ -33,16 +33,28 @@ function playlistManager(state, action) {
 export function PlaylistProvider({ children }) {
   const [playlistState, playlistDispatch] = useReducer(playlistManager, []);
   useEffect(() => {
-    (async function () {
-      try {
-        let { data } = await axios.get("https://dropout.piyushsingh6.repl.co/playlist");
-        const { status, playlists } = data;
+    
+    let login = JSON.parse(localStorage.getItem("loginStatus"));
+    debugger;
+    if (login) {
+      (async function () {
+        let { userKey } = login;
+        debugger;
+        try {
+          let { status, data } = await axios.get(
+            `https://dropout.piyushsingh6.repl.co/playlist/${userKey}`
+          );
 
-        playlistDispatch({ payload: `LOADING_PLAYLIST`, playlists: playlists });
-      } catch (error) {
-        console.error(error);
-      }
-    })();
+          debugger;
+          if (status === 200) {
+            playlistDispatch({ payload: `LOADING_PLAYLIST`, playlists: data });
+          }
+        } catch (error) {
+          debugger;
+          console.error(error);
+        }
+      })();
+    }
   }, []);
   return (
     <PlaylistContext.Provider value={{ playlistState, playlistDispatch }}>
