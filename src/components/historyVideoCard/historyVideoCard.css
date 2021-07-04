@@ -1,24 +1,23 @@
-
-.historyVideoCardContainer{
+.historyVideoCardContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin:1rem;
+    margin: 1rem;
     /* max-width:70%; */
-    min-width:80vw;
+    /* min-width:80vw; */
 }
 
-.historyVideoCard{
+.historyVideoCard {
     display: flex;
+    /* max-width: 70vw; */
 }
 
 .historyVideoDetailsContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 60vw;
     word-break: break-all;
-    margin:0 1rem;
+    margin: 0 1rem;
 }
 
 .historyVideoCardMentorDetails {
@@ -46,16 +45,18 @@
 
 
 @media only screen and (max-width: 600px) {
-    .historyVideoCardContainer{
+    .historyVideoCardContainer {
 
-        margin:1rem 0.2rem;
+        margin: 1rem 0.2rem;
     }
+
     .historyVideoDetailsContainer>p {
         font-size: 1rem;
     }
-    .historyVideoDetailsContainer{
+
+    /* .historyVideoDetailsContainer {
         min-width: 12.5rem;
-    }
+    } */
 
     .historyVideoCardMentorImg {
         height: 1.5rem;
