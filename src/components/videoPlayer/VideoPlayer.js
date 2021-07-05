@@ -12,8 +12,11 @@ import PlaylistModal from "../playlistModal/PlaylistModal.js";
 
 const VideoPlayer = ({ videoDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);
-  let { embededLink, like, mentor, _id, title } = videoDetails;
+  let { embededLink, like, mentor, _id, title, comments } = videoDetails;
+  debugger;
   const { theme } = useTheme();
+
+
 
   return (
     <div className="videoPlayer">
@@ -47,7 +50,7 @@ const VideoPlayer = ({ videoDetails }) => {
           <Button text="Subscribe" size="subscribe-btn" />
         </div>
       </div>
-      <DoubtSolver />
+      <DoubtSolver comments={comments} videoId={_id} />
       {modalTrigger && (
         <PlaylistModal modalTriggerSetter={modalTriggerSetter} videoId={_id} />
       )}

@@ -1,14 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./doubtSolver.css";
 import enter from "../../utils/images/icons/enter.svg";
 import Avatar from "../avatar/Avatar.js";
 
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useAuth } from "../../contexts/authContext/authContext.js";
+import axios from "axios";
 
-const DoubtSolver = () => {
+const DoubtSolver = ({ comments, videoId }) => {
   const { theme } = useTheme();
   const [currentQuestion, currentQuestionSetter] = useState("");
   const [questionArray, questionArraySetter] = useState([]);
+
+  const { login } = useAuth();
+
+  let { userKey } = login;
+
+  useEffect(() => {
+    questionArraySetter(comments);
+  }, []);
+
+  async function addComment(comment) {
+    debugger;
+    try {
+      let { status, data } = await axios.post(
+        `https://dropout.piyushsingh6.repl.co/comment/${videoId}`,
+        {
+          userKey,
+          comment,
+        }
+      );
+      debugger;
+      if (status === 200) {
+        questionArraySetter((value) => [data.comment, ...value]);
+        currentQuestionSetter("");
+      }
+    } catch (error) {
+      debugger;
+      console.error(error);
+    }
+  }
 
   function addingQuestiononEnter(e) {
     if (currentQuestion.length <= 0 || currentQuestion === "\n") {
@@ -16,8 +47,7 @@ const DoubtSolver = () => {
     }
 
     if (e.keyCode === 13) {
-      questionArraySetter((value) => [currentQuestion, ...value]);
-      currentQuestionSetter("");
+      addComment(currentQuestion);
     }
   }
 
@@ -58,11 +88,11 @@ const DoubtSolver = () => {
         />
       </div>
       <div className="questionContainer">
-        {questionArray.map((item) => {
+        {questionArray.map(({ user, comment }) => {
           return (
             <div className="question">
-              <Avatar size="small" name="p" />
-              <p>{item}</p>
+              <Avatar size="small" name={user.userName} />
+              <p>{comment}</p>
             </div>
           );
         })}
