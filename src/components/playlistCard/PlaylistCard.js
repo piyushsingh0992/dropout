@@ -6,6 +6,7 @@ import editIcon from "../../utils/images/icons/edit.svg";
 import Button from "../button/Button";
 import TextField from "../textField/TextField.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useAuth } from "../../contexts/authContext/authContext.js";
 import { usePlaylist } from "../../contexts/playlistContext/playlistContext.js";
 import {
   deleteVideoFromPlaylist,
@@ -13,26 +14,40 @@ import {
   playlistNameChanger,
 } from "../../utils/playlistFunction.js";
 import { useToast } from "../../contexts/toastContext/toastContext";
-const PlaylistCard = ({ name, videos }) => {
+const PlaylistCard = ({ name, videos, playlistId }) => {
   const { theme } = useTheme();
   const { playlistState, playlistDispatch } = usePlaylist();
   const [edit, editSetter] = useState(false);
   const [newName, newNameSetter] = useState("");
   const { toastDispatch } = useToast();
+
+  const {
+    login: { userKey },
+  } = useAuth();
   function deletePlaylistTrigger() {
-    deletePlaylist(name, playlistDispatch, toastDispatch);
+    debugger;
+    deletePlaylist(playlistId, playlistDispatch, toastDispatch, userKey);
   }
   function deleteVideo(videoId) {
-    deleteVideoFromPlaylist(videoId, name, playlistDispatch, toastDispatch);
+    debugger;
+    deleteVideoFromPlaylist(
+      videoId,
+      playlistId,
+      playlistDispatch,
+      toastDispatch,
+      userKey
+    );
   }
 
   function nameChangeHandler() {
+    debugger;
     playlistNameChanger(
-      name,
+      playlistId,
       newName,
       playlistDispatch,
       newNameSetter,
-      toastDispatch
+      toastDispatch,
+      userKey
     );
   }
   return (
@@ -40,12 +55,7 @@ const PlaylistCard = ({ name, videos }) => {
       <div className="playlistName">
         {edit ? (
           <>
-            <TextField
-              value={newName}
-              changeFunction={(e) => {
-                newNameSetter(e.target.value);
-              }}
-            />
+            <TextField value={newName} valueSetter={newNameSetter} />
             <Button
               clickFunction={() => {
                 editSetter((value) => !value);
@@ -82,9 +92,7 @@ const PlaylistCard = ({ name, videos }) => {
                 src={deleteIcon}
                 className="playlistVideoDelete"
                 onClick={() => {
-
-
-                  deleteVideo(item.videoId);
+                  deleteVideo(item._id);
                 }}
               />
               <VideoCard videosDetails={item} />

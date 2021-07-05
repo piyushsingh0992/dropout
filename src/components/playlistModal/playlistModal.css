@@ -25,7 +25,7 @@
     position: relative;
     width: 15rem;
     min-height: 10rem;
-    max-height: 30rem;
+    
     padding: 1rem;
     border-radius: 5px;
     display: flex;
@@ -34,9 +34,7 @@
     justify-content: space-between;
 }
 
-.addScroll {
-    overflow-y: scroll;
-}
+
 
 .createPlaylist {
     font-size: 1.5rem;
@@ -60,4 +58,22 @@
 
 .existingPlaylist>p {
     font-size: 1.2rem;
+}
+
+
+.allPlaylistsContainer {
+    overflow-y: scroll;
+    max-height: 17rem;
+}
+
+.allPlaylistsContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.allPlaylistsContainer {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }

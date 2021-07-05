@@ -54,7 +54,7 @@ export async function removeWatchLater(
 ) {
   addedVideoSetter(false);
 
-  debugger;
+ 
   try {
     let { status, data } = await axios.delete(
       `https://dropout.piyushsingh6.repl.co/watchlater/${videoId}`,
@@ -64,7 +64,7 @@ export async function removeWatchLater(
         }
       }
     );
-    debugger;
+   
     if (status === 200) {
       watchLaterDispatch({
         payload: "REMOVE_FROM_WATCH_LATER",
@@ -84,7 +84,7 @@ export async function removeWatchLater(
       });
     }
   } catch (error) {
-    debugger;
+   
     addedVideoSetter(true);
     console.error(error);
     toastDispatch({

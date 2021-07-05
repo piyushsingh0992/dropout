@@ -12,7 +12,6 @@ function playlistManager(state, action) {
     newPlaylist,
     playlists,
   } = action;
-
   switch (payload) {
     case "LOADING_PLAYLIST":
       return playlists;
@@ -33,24 +32,21 @@ function playlistManager(state, action) {
 export function PlaylistProvider({ children }) {
   const [playlistState, playlistDispatch] = useReducer(playlistManager, []);
   useEffect(() => {
-    
     let login = JSON.parse(localStorage.getItem("loginStatus"));
-    debugger;
+
     if (login) {
       (async function () {
         let { userKey } = login;
-        debugger;
+
         try {
           let { status, data } = await axios.get(
             `https://dropout.piyushsingh6.repl.co/playlist/${userKey}`
           );
 
-          debugger;
           if (status === 200) {
             playlistDispatch({ payload: `LOADING_PLAYLIST`, playlists: data });
           }
         } catch (error) {
-          debugger;
           console.error(error);
         }
       })();

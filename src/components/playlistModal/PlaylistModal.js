@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./playlistModal.css";
-import axios from "axios";
 import close from "../../utils/images/icons/close.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import Button from "../button/Button.js";
@@ -10,14 +9,26 @@ import {
   createPlaylist,
   addVideoToPlaylist,
 } from "../../utils/playlistFunction.js";
+import { useAuth } from "../../contexts/authContext/authContext.js";
 
 const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
   const [playlistArray, playlistArraySetter] = useState([]);
   const [newPlaylistName, newPlaylistNameSetter] = useState("");
-  const [selectedPlaylists, selectedPlaylistsSetter] = useState([]);
   const { theme } = useTheme();
   const { playlistState, playlistDispatch } = usePlaylist();
   const { toastDispatch } = useToast();
+  const [isChecked, setIsChecked] = useState(
+    new Array(playlistState.length).fill(false)
+  );
+  const [playlistIdArray, playlistIdArraySetter] = useState([]);
+
+  useEffect(() => {
+    setIsChecked(new Array(playlistState.length).fill(false));
+  }, [playlistState]);
+
+  const {
+    login: { userKey },
+  } = useAuth();
   function closingModal() {
     modalTriggerSetter(false);
   }
@@ -42,23 +53,26 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
           newPlaylistName,
           playlistDispatch,
           newPlaylistNameSetter,
-          toastDispatch
+          toastDispatch,
+          userKey
         );
       }
     }
   }
 
-  function selectedPlaylistsHandler(checked, value) {
-    if (checked) {
-      selectedPlaylistsSetter((item) => [value, ...item]);
+  function selectedPlaylistsHandler(index, value) {
+    isChecked[index] = !isChecked[index];
+
+    setIsChecked(isChecked);
+    if (isChecked[index]) {
+      playlistIdArraySetter((item) => [...item, value]);
     } else {
-      selectedPlaylistsSetter((item) => {
-        return item.filter((play) => play != value);
-      });
+      playlistIdArraySetter((item) => item.filter((id) => id != value));
     }
   }
   function submitHandler() {
-    if (selectedPlaylists.length < 1) {
+    console.log("playlistIdArray ->", playlistIdArray);
+    if (playlistIdArray.length < 1) {
       toastDispatch({
         trigger: true,
         type: "error",
@@ -66,16 +80,16 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
       });
       return;
     }
-
     addVideoToPlaylist(
       videoId,
-      selectedPlaylists,
+      playlistIdArray,
       playlistDispatch,
       modalTriggerSetter,
-      toastDispatch
+      toastDispatch,
+      userKey
     );
-
-    selectedPlaylistsSetter([]);
+    playlistIdArraySetter([]);
+    setIsChecked(new Array(playlistState.length).fill(false));
   }
 
   return (
@@ -88,9 +102,7 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
         <div>
           <input
             placeholder="Create new"
-            className={`createPlaylist ${
-              playlistArray?.length > 5 && `addScroll`
-            }`}
+            className="createPlaylist"
             style={{
               backgroundColor: theme.cardBackground,
               color: theme.boldText,
@@ -104,29 +116,31 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
               newPlaylistNameSetter(e.target.value);
             }}
           />
-
-          {playlistArray.map((item) => {
-            return (
-              <div className="existingPlaylist">
-                <input
-                  type="checkbox"
-                  value={item.name}
-                  onChange={(e) => {
-                    selectedPlaylistsHandler(e.target.checked, e.target.value);
-                  }}
-                />
-                <p
-                  style={{
-                    color: theme.boldText,
-                  }}
-                >
-                  {item.name?.length > 12
-                    ? `${item.name.slice(0, 12)} ...`
-                    : item.name}
-                </p>
-              </div>
-            );
-          })}
+          <div className="allPlaylistsContainer">
+            {playlistArray.map((item, index) => {
+              return (
+                <div className="existingPlaylist">
+                  <input
+                    type="checkbox"
+                    value={item._id}
+                    onChange={(e) => {
+                      selectedPlaylistsHandler(index, e.target.value);
+                    }}
+                    checked={isChecked[index]}
+                  />
+                  <p
+                    style={{
+                      color: theme.boldText,
+                    }}
+                  >
+                    {item.name?.length > 12
+                      ? `${item.name.slice(0, 12)} ...`
+                      : item.name}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
         <div>
           <Button text="Add to Playlist" clickFunction={submitHandler} />
