@@ -4,15 +4,19 @@ export async function subscribeMentor(
   mentorId,
   subscribeDispatch,
   subscribeSetter,
-  toastDispatch
+  toastDispatch,
+  userKey
 ) {
   subscribeSetter(true);
   try {
-    let { data } = await axios.post(
-      `https://dropout.piyushsingh6.repl.co/subscribe/${mentorId}`
+    let { status, data } = await axios.post(
+      `https://dropout.piyushsingh6.repl.co/subscribe/${mentorId}`,
+      {
+        userKey,
+      }
     );
 
-    if (data.status === 200) {
+    if (status === 200) {
       subscribeDispatch({
         payload: "SUBSCRIBE",
         mentorId: data.mentorId,
@@ -41,15 +45,19 @@ export async function unSubscribeMentor(
   mentorId,
   subscribeDispatch,
   subscribeSetter,
-  toastDispatch
+  toastDispatch,
+  userKey
 ) {
   subscribeSetter(false);
   try {
-    let { data } = await axios.delete(
-      `https://dropout.piyushsingh6.repl.co/subscribe/${mentorId}`
+    let { status, data } = await axios.delete(
+      `https://dropout.piyushsingh6.repl.co/subscribe/${mentorId}`,
+      {
+        data: { userKey },
+      }
     );
 
-    if (data.status === 200) {
+    if (status === 200) {
       subscribeDispatch({
         payload: "UNSUBSCRIBE",
         mentorId: data.mentorId,

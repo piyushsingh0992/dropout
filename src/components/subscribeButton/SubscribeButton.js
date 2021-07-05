@@ -7,11 +7,14 @@ import {
   unSubscribeMentor,
 } from "../../utils/subscribeFunction.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { useAuth } from "../../contexts/authContext/authContext.js";
 const SubscribeButton = ({ mentorId }) => {
   const [subscribe, subscribeSetter] = useState(false);
   const { subscribeState, subscribeDispatch } = useSubscribe();
   const { toastDispatch } = useToast();
+  const { login } = useAuth();
 
+  const { userKey } = login;
   useEffect(() => {
     const present = subscribeState.find((item) => item === mentorId);
     if (present) {
@@ -30,14 +33,16 @@ const SubscribeButton = ({ mentorId }) => {
         mentorId,
         subscribeDispatch,
         subscribeSetter,
-        toastDispatch
+        toastDispatch,
+        userKey
       );
     } else {
       subscribeMentor(
         mentorId,
         subscribeDispatch,
         subscribeSetter,
-        toastDispatch
+        toastDispatch,
+        userKey
       );
     }
   }

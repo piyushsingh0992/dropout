@@ -20,20 +20,26 @@ function subscribeManager(state, action) {
 export function SubscribeProvider({ children }) {
   const [subscribeState, subscribeDispatch] = useReducer(subscribeManager, []);
   useEffect(() => {
-    (async function () {
-      try {
-        let { data } = await axios.get(
-          "https://dropout.piyushsingh6.repl.co/subscribe"
-        );
+    let login = JSON.parse(localStorage.getItem("loginStatus"));
+    if (login) {
+      (async function () {
+        let { userKey } = login;
+        try {
+          let { status, data } = await axios.get(
+            `https://dropout.piyushsingh6.repl.co/subscribe/${userKey}`
+          );
 
-        subscribeDispatch({
-          payload: "FIRST_LOAD",
-          subscribedMentors: data.subscribedMentors,
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    })();
+          if (status === 200) {
+            subscribeDispatch({
+              payload: "FIRST_LOAD",
+              subscribedMentors: data.mentor.subscriptions,
+            });
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      })();
+    }
   }, []);
 
   return (
