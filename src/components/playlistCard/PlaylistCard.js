@@ -25,11 +25,11 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
     login: { userKey },
   } = useAuth();
   function deletePlaylistTrigger() {
-    debugger;
+    
     deletePlaylist(playlistId, playlistDispatch, toastDispatch, userKey);
   }
   function deleteVideo(videoId) {
-    debugger;
+    
     deleteVideoFromPlaylist(
       videoId,
       playlistId,
@@ -40,7 +40,7 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
   }
 
   function nameChangeHandler() {
-    debugger;
+    
     playlistNameChanger(
       playlistId,
       newName,

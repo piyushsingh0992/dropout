@@ -22,6 +22,7 @@ const VideoPlayerPage = () => {
   let { videoId } = useParams();
   const [videoDetails, videoDetailsSetter] = useState(null);
   const [recommendation, recommendationSetter] = useState([]);
+  const [notes, notesSetter] = useState([]);
   useEffect(() => {
     (async function () {
       try {
@@ -29,9 +30,10 @@ const VideoPlayerPage = () => {
         let response = await axios.post(
           `https://dropout.piyushsingh6.repl.co/video/${videoId}`,
           {
-            userKey
+            userKey,
           }
         );
+
         if (response.status === 200) {
           videoDetailsSetter(response.data);
         }
@@ -41,6 +43,14 @@ const VideoPlayerPage = () => {
         );
         if (response.status === 200) {
           recommendationSetter(response.data);
+        }
+
+        response = await axios.get(
+          `https://dropout.piyushsingh6.repl.co/notes/${userKey}/${videoId}`
+        );
+
+        if (response.status === 200) {
+          notesSetter(response.data.notes);
         }
       } catch (error) {
         console.error("error ->", error);
@@ -84,7 +94,7 @@ const VideoPlayerPage = () => {
       <div className="videoPlayerPageContainer">
         <VideoPlayer videoDetails={videoDetails} />
         <div className="videoPlayerNotesContainer">
-          <VideoNotes />
+          <VideoNotes videoNotes={notes} videoId={videoDetails._id} />
           {recommendation.map((item) => {
             return <RecommendVideoCard videoDetails={item} />;
           })}

@@ -21,7 +21,7 @@ const DoubtSolver = ({ comments, videoId }) => {
   }, []);
 
   async function addComment(comment) {
-    debugger;
+    
     try {
       let { status, data } = await axios.post(
         `https://dropout.piyushsingh6.repl.co/comment/${videoId}`,
@@ -30,13 +30,13 @@ const DoubtSolver = ({ comments, videoId }) => {
           comment,
         }
       );
-      debugger;
+      
       if (status === 200) {
         questionArraySetter((value) => [data.comment, ...value]);
         currentQuestionSetter("");
       }
     } catch (error) {
-      debugger;
+      
       console.error(error);
     }
   }

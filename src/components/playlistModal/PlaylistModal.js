@@ -71,7 +71,7 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
     }
   }
   function submitHandler() {
-    console.log("playlistIdArray ->", playlistIdArray);
+
     if (playlistIdArray.length < 1) {
       toastDispatch({
         trigger: true,

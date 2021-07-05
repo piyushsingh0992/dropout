@@ -62,8 +62,7 @@ export async function addVideoToPlaylist(
       }
     );
 
-    console.log("{ status, data } ->", { status, data });
-    debugger;
+    
     if (status === 200) {
       playlistDispatch({ payload: `ADD_VIDEO`, playlist: data.playlist });
       modalTriggerSetter(false);
@@ -96,7 +95,7 @@ export async function deleteVideoFromPlaylist(
   toastDispatch,
   userKey
 ) {
-  debugger;
+  
   try {
     let { status, data } = await axios.delete(
       `https://dropout.piyushsingh6.repl.co/playlist/${videoId}`,
@@ -104,7 +103,7 @@ export async function deleteVideoFromPlaylist(
         data: { playlistId, userKey },
       }
     );
-    debugger;
+    
     if (status === 200) {
       playlistDispatch({ payload: "DELETE_VIDEO", playlist: data.playlist });
       toastDispatch({
@@ -135,7 +134,7 @@ export async function deletePlaylist(
   toastDispatch,
   userKey
 ) {
-  debugger;
+  
   try {
     let { status, data } = await axios.delete(
       `https://dropout.piyushsingh6.repl.co/playlist`,
@@ -146,7 +145,7 @@ export async function deletePlaylist(
         },
       }
     );
-    debugger;
+    
     if (status === 200) {
       playlistDispatch({
         payload: "DELETE_PLAYLIST",
@@ -182,7 +181,7 @@ export async function playlistNameChanger(
   toastDispatch,
   userKey
 ) {
-  debugger;
+  
   (async function () {
     try {
       let { status, data } = await axios.post(
@@ -191,7 +190,7 @@ export async function playlistNameChanger(
           userKey,
         }
       );
-      debugger;
+      
 
       if (status === 200) {
         newNameSetter("");

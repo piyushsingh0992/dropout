@@ -13,7 +13,7 @@ import PlaylistModal from "../playlistModal/PlaylistModal.js";
 const VideoPlayer = ({ videoDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);
   let { embededLink, like, mentor, _id, title, comments } = videoDetails;
-  debugger;
+  
   const { theme } = useTheme();
 
 

@@ -1,11 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./videoNotes.css";
 import enter from "../../utils/images/icons/enter.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-const VideoNotes = () => {
+import { useAuth } from "../../contexts/authContext/authContext.js";
+import axios from "axios";
+const VideoNotes = ({ videoNotes, videoId }) => {
+
   const [notes, notesSetter] = useState([]);
   const [currentNote, currentNoteSetter] = useState("");
   const { theme } = useTheme();
+  const { login } = useAuth();
+
+
+  const { userKey } = login;
+
+  useEffect(() => {
+    notesSetter(videoNotes);
+  }, [videoNotes]);
+
+  async function addingNotes() {
+    try {
+      let { status, data } = await axios.post(
+        `https://dropout.piyushsingh6.repl.co/notes/${videoId}`,
+        {
+          userKey,
+          note: currentNote,
+        }
+      );
+
+      if (status === 200) {
+        notesSetter(data.notes);
+        currentNoteSetter("");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   function currentNoteHandler(e) {
     currentNoteSetter(e.target.value);
   }
@@ -16,8 +47,7 @@ const VideoNotes = () => {
     }
 
     if (e.keyCode === 13) {
-      notesSetter((value) => [...value, currentNote]);
-      currentNoteSetter("");
+      addingNotes();
     }
   }
 

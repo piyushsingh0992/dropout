@@ -46,7 +46,7 @@ export const useMentorDetails = () => {
       heroImage: theme.tanayHeroImage,
       profile: tanay,
       banner: tanaybanner,
-      route: "/mentor/60e3035ffc7cd1026d9ccf3d",
+      route: "/mentor/60e316bae9065805febe2774",
     },
     {
       name: language.mentor[1].name,
@@ -54,7 +54,7 @@ export const useMentorDetails = () => {
       heroImage: theme.varunHeroImage,
       profile: varun,
       banner: varunbanner,
-      route: "/mentor/60e3035ffc7cd1026d9ccf3b",
+      route: "/mentor/60e316bae9065805febe2770",
     },
 
     {
@@ -63,7 +63,7 @@ export const useMentorDetails = () => {
       heroImage: theme.shashankHeroImage,
       profile: shashank,
       banner: shashankbanner,
-      route: "/mentor/60e3035ffc7cd1026d9ccf3f",
+      route: "/mentor/60e316bae9065805febe2776",
     },
     {
       name: language.mentor[3].name,
@@ -71,7 +71,7 @@ export const useMentorDetails = () => {
       heroImage: theme.abhinavHeroImage,
       profile: abhinav,
       banner: abhinavbanner,
-      route: "/mentor/60e3035ffc7cd1026d9ccf39",
+      route: "/mentor/60e316bae9065805febe2772",
     },
     {
       name: language.mentor[4].name,
@@ -79,7 +79,7 @@ export const useMentorDetails = () => {
       heroImage: theme.abhinavChikaraHeroImage,
       profile: abhinavChikara,
       banner: abhinavChikarabanner,
-      route: "/mentor/60e3035ffc7cd1026d9ccf43",
+      route: "/mentor/60e316bae9065805febe277a",
     },
 
     {
@@ -88,7 +88,7 @@ export const useMentorDetails = () => {
       heroImage: theme.prakharHeroImage,
       profile: prakhar,
       banner: prakharbanner,
-      route: "/mentor/60e3035ffc7cd1026d9ccf41",
+      route: "/mentor/60e316bae9065805febe2778",
     },
   ];
   return { mentorDetails };
