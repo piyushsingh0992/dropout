@@ -98,7 +98,7 @@ const VideoPlayerPage = () => {
         <div className="videoPlayerNotesContainer">
           <VideoNotes videoNotes={notes} videoId={videoDetails._id} />
           {recommendation.map((item) => {
-            debugger;
+          
             return <RecommendVideoCard videoDetails={item} />;
           })}
         </div>

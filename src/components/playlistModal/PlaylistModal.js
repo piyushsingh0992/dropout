@@ -38,7 +38,7 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
   }, [playlistState]);
 
   function enterKeyHandler(e) {
-    if (e.keyCode === 13 && newPlaylistName?.length > 0) {
+    if (e.keyCode === 13 && newPlaylistName.length > 0) {
       const present = playlistState.find(
         (item) => item.name === newPlaylistName
       );
