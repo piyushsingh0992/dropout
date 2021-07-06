@@ -36,13 +36,14 @@ const MentorPage = () => {
   useEffect(() => {
     (async function () {
       try {
-        let { data } = await axios.get(
+        let { status, data } = await axios.get(
           `https://dropout.piyushsingh6.repl.co/mentor/${mentorId}`
         );
-
-        data = structuringMentorData(data);
-        mentorDataSetter(data);
-        loadingSetter(false);
+        if (status === 200) {
+          data = structuringMentorData(data);
+          mentorDataSetter(data);
+          loadingSetter(false);
+        }
       } catch (error) {
         console.error("error ->", error);
       }

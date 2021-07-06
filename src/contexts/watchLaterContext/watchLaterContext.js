@@ -37,11 +37,16 @@ export function WatchLaterProvider({ children }) {
       (async function () {
         let { userKey } = login;
         try {
-          let { data } = await axios.get(
+
+
+          let { status,data } = await axios.get(
             `https://dropout.piyushsingh6.repl.co/watchlater/${userKey}`
           );
+            if(status===200){
+              watchLaterDispatch({ payload: "FIRST_LOAD", videos: data.videos });
+            }
 
-          watchLaterDispatch({ payload: "FIRST_LOAD", videos: data.videos });
+
         } catch (error) {
           console.error(error);
         }

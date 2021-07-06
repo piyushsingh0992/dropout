@@ -5,7 +5,7 @@ const LikedVideoContext = createContext();
 
 function likedVideoManager(state, action) {
   const { payload, video, videos } = action;
-  
+
   switch (payload) {
     case "FIRST_LOAD":
       return videos;
@@ -40,14 +40,16 @@ export function LikedVideoProvider({ children }) {
         let { userKey } = login;
 
         try {
-          let { data } = await axios.get(
+          let { status, data } = await axios.get(
             `https://dropout.piyushsingh6.repl.co/likedVideos/${userKey}`
           );
 
-          likedVideoStateDispatch({
-            payload: "FIRST_LOAD",
-            videos: data.videos,
-          });
+          if (status === 200) {
+            likedVideoStateDispatch({
+              payload: "FIRST_LOAD",
+              videos: data.videos,
+            });
+          }
         } catch (error) {
           console.error(error);
         }

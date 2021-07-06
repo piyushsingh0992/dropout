@@ -41,6 +41,8 @@ const VideoPlayerPage = () => {
         response = await axios.get(
           `https://dropout.piyushsingh6.repl.co/recommendation/${videoId}`
         );
+
+
         if (response.status === 200) {
           recommendationSetter(response.data);
         }
@@ -96,6 +98,7 @@ const VideoPlayerPage = () => {
         <div className="videoPlayerNotesContainer">
           <VideoNotes videoNotes={notes} videoId={videoDetails._id} />
           {recommendation.map((item) => {
+            debugger;
             return <RecommendVideoCard videoDetails={item} />;
           })}
         </div>
