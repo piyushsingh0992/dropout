@@ -7,7 +7,6 @@ export async function createPlaylist(
   toastDispatch,
   userKey
 ) {
-
   try {
     let { status, data } = await axios.post(
       `https://dropout.piyushsingh6.repl.co/playlist/create`,
@@ -23,25 +22,13 @@ export async function createPlaylist(
         newPlaylist: data.newPlaylist,
       });
       newPlaylistNameSetter("");
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "playlist Created",
-      });
+      toastDispatch("success", "playlist Created");
     } else {
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "error! Cannot create a new playlist",
-      });
+      toastDispatch("error", "error! Cannot create a new playlist");
     }
   } catch (error) {
     console.error(error);
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "error! Cannot create a new playlist",
-    });
+    toastDispatch("error", "error! Cannot create a new playlist");
   }
 }
 
@@ -63,29 +50,16 @@ export async function addVideoToPlaylist(
       }
     );
 
-    
     if (status === 200) {
       playlistDispatch({ payload: `ADD_VIDEO`, playlist: data.playlist });
       modalTriggerSetter(false);
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "Video Added to playlist",
-      });
+      toastDispatch("success", "Video Added to playlist");
     } else {
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "error! Cannot add video to playlist",
-      });
+      toastDispatch("error", "error! Cannot add video to playlist");
     }
   } catch (error) {
     console.error({ error });
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "error! Cannot add video to playlist",
-    });
+    toastDispatch("error", "error! Cannot add video to playlist");
   }
 }
 
@@ -96,7 +70,6 @@ export async function deleteVideoFromPlaylist(
   toastDispatch,
   userKey
 ) {
-  
   try {
     let { status, data } = await axios.delete(
       `https://dropout.piyushsingh6.repl.co/playlist/${videoId}`,
@@ -104,28 +77,16 @@ export async function deleteVideoFromPlaylist(
         data: { playlistId, userKey },
       }
     );
-    
+
     if (status === 200) {
       playlistDispatch({ payload: "DELETE_VIDEO", playlist: data.playlist });
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "Video deleted",
-      });
+      toastDispatch("success", "Video deleted");
     } else {
-      delete toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "error! Cannot delete the video",
-      });
+      delete toastDispatch("error", "error! Cannot delete the video");
     }
   } catch (error) {
     console.error({ error });
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "error! Cannot delete the video",
-    });
+    toastDispatch("error", "error! Cannot delete the video");
   }
 }
 
@@ -135,7 +96,6 @@ export async function deletePlaylist(
   toastDispatch,
   userKey
 ) {
-  
   try {
     let { status, data } = await axios.delete(
       `https://dropout.piyushsingh6.repl.co/playlist`,
@@ -146,31 +106,19 @@ export async function deletePlaylist(
         },
       }
     );
-    
+
     if (status === 200) {
       playlistDispatch({
         payload: "DELETE_PLAYLIST",
         playlist: data.playlist,
       });
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "Playlist deleted",
-      });
+      toastDispatch("success", "Playlist deleted");
     } else {
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "error! Cannot delete the Playlist",
-      });
+      toastDispatch("error", "error! Cannot delete the Playlist");
     }
   } catch (error) {
     console.error({ error });
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "error! Cannot delete the Playlist",
-    });
+    toastDispatch("error", "error! Cannot delete the Playlist");
   }
 }
 
@@ -182,7 +130,6 @@ export async function playlistNameChanger(
   toastDispatch,
   userKey
 ) {
-  
   (async function () {
     try {
       let { status, data } = await axios.post(
@@ -191,7 +138,6 @@ export async function playlistNameChanger(
           userKey,
         }
       );
-      
 
       if (status === 200) {
         newNameSetter("");
@@ -199,25 +145,13 @@ export async function playlistNameChanger(
           payload: "RENAME_PLAYLIST",
           playlist: data.playlist,
         });
-        toastDispatch({
-          trigger: true,
-          type: "success",
-          message: " Playlist is renamed",
-        });
+        toastDispatch("success", " Playlist is renamed");
       } else {
-        toastDispatch({
-          trigger: true,
-          type: "error",
-          message: "error! Cannot rename the Playlist",
-        });
+        toastDispatch("error", "error! Cannot rename the Playlist");
       }
     } catch (error) {
       console.error({ error });
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "error! Cannot rename the Playlist",
-      });
+      toastDispatch("error", "error! Cannot rename the Playlist");
     }
   })();
 }

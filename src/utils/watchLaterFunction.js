@@ -21,27 +21,15 @@ export async function addWatchLater(
         payload: "ADD_TO_WATCH_LATER",
         video: data.video,
       });
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "Added to Watch Later",
-      });
+      toastDispatch("success", "Added to Watch Later");
     } else {
       addedVideoSetter(false);
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "error Occured Cann't add to Watch Later",
-      });
+      toastDispatch("error", "error Occured Cann't add to Watch Later");
     }
   } catch (error) {
     addedVideoSetter(false);
     console.error(error);
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "error Occured Cann't add to Watch Later",
-    });
+    toastDispatch("error", "error Occured Cann't add to Watch Later");
   }
 }
 
@@ -54,43 +42,29 @@ export async function removeWatchLater(
 ) {
   addedVideoSetter(false);
 
- 
   try {
     let { status, data } = await axios.delete(
       `https://dropout.piyushsingh6.repl.co/watchlater/${videoId}`,
       {
         data: {
-          userKey
-        }
+          userKey,
+        },
       }
     );
-   
+
     if (status === 200) {
       watchLaterDispatch({
         payload: "REMOVE_FROM_WATCH_LATER",
         video: data.video,
       });
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "Removed from Watch Later",
-      });
+      toastDispatch("success", "Removed from Watch Later");
     } else {
       addedVideoSetter(true);
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "error Occured Cann't  remove from  Watch Later",
-      });
+      toastDispatch("error", "error Occured Cann't  remove from  Watch Later");
     }
   } catch (error) {
-   
     addedVideoSetter(true);
     console.error(error);
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "error Occured Cann't  remove from  Watch Later",
-    });
+    toastDispatch("error", "error Occured Cann't  remove from  Watch Later");
   }
 }

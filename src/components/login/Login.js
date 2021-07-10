@@ -12,11 +12,10 @@ const Login = () => {
   const { toastDispatch } = useToast();
 
   function logoutHandler() {
-    toastDispatch({
-      trigger: true,
-      type: "success",
-      message: "Logged Out",
-    });
+    toastDispatch(
+       "success",
+      "Logged Out"
+    );
     loginDispatch({
       payload: { type: "LOGOUT" },
     });

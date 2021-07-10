@@ -18,26 +18,14 @@ export async function addLikedVideo(
         payload: "ADD_LIKED_VIDEO",
         video: data.video,
       });
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "Liked the Video",
-      });
+      toastDispatch("success", "Liked the Video");
     } else {
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "error occured can't like video",
-      });
+      toastDispatch("error", "error occured can't like video");
       likedVideoSetter(false);
     }
   } catch (error) {
     console.error("error ->", error);
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "error occured can't like video",
-    });
+    toastDispatch("error", "error occured can't like video");
     likedVideoSetter(false);
   }
 }
@@ -65,26 +53,14 @@ export async function deleteLikedVideo(
         payload: "REMOVE_LIKED_VIDEO",
         video: data.video,
       });
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "UnLiked the Video",
-      });
+      toastDispatch("success", "UnLiked the Video");
     } else {
       likedVideoSetter(true);
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "error occured can't unlike video",
-      });
+      toastDispatch("error", "error occured can't unlike video");
     }
   } catch (error) {
     console.error("error");
     likedVideoSetter(true);
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "error occured can't like video",
-    });
+    toastDispatch("error", "error occured can't like video");
   }
 }

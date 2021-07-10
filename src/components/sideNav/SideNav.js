@@ -59,32 +59,6 @@ const SideNav = () => {
           </NavLink>
         )}
       </div>
-      {/* {loginStatus ? (
-        <div
-          className="sidenav-bottom"
-          onClick={() => {
-            toastDispatch({
-              trigger: true,
-              type: "success",
-              message: "Logged Out",
-            });
-            loginSetter(false);
-            localStorage.removeItem(
-              "loginStatus"
-            );
-          }}
-        >
-          <img src={setting} className="sidenav-grey-icon" />
-          <p>Log out</p>
-        </div>
-      ) : (
-        <NavLink to="/login">
-          <div className="sidenav-bottom">
-            <img src={setting} className="sidenav-grey-icon" />
-            <p>Log in</p>
-          </div>
-        </NavLink>
-      )} */}
       <Login />
     </div>
   );

@@ -21,22 +21,14 @@ export async function subscribeMentor(
         payload: "SUBSCRIBE",
         mentorId: data.mentorId,
       });
-      toastDispatch({ trigger: true, type: "success", message: "Subscribed" });
+      toastDispatch("success", "Subscribed");
     } else {
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "Error ! Cannot subscribe",
-      });
+      toastDispatch("error", "Error ! Cannot subscribe");
       subscribeSetter(false);
     }
   } catch (error) {
     console.error("error");
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "Error ! Cannot subscribe",
-    });
+    toastDispatch("error", "Error ! Cannot subscribe");
     subscribeSetter(false);
   }
 }
@@ -62,26 +54,14 @@ export async function unSubscribeMentor(
         payload: "UNSUBSCRIBE",
         mentorId: data.mentorId,
       });
-      toastDispatch({
-        trigger: true,
-        type: "success",
-        message: "Unsubscribed",
-      });
+      toastDispatch("success", "Unsubscribed");
     } else {
-      toastDispatch({
-        trigger: true,
-        type: "error",
-        message: "Error ! Cannot unsubscribe",
-      });
+      toastDispatch("error", "Error ! Cannot unsubscribe");
       subscribeSetter(true);
     }
   } catch (error) {
     console.error("error");
-    toastDispatch({
-      trigger: true,
-      type: "error",
-      message: "Error ! Cannot unsubscribe",
-    });
+    toastDispatch("error", "Error ! Cannot unsubscribe");
     subscribeSetter(true);
   }
 }

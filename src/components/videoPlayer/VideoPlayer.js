@@ -9,6 +9,7 @@ import PlaylistButton from "../playlistButton/PlaylistButton.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLikedVideos } from "../../contexts/likedVideoContext/likedVideoContext.js";
 import PlaylistModal from "../playlistModal/PlaylistModal.js";
+import SubscribeButton from "../subscribeButton/SubscribeButton.js";
 
 const VideoPlayer = ({ videoDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);
@@ -47,7 +48,7 @@ const VideoPlayer = ({ videoDetails }) => {
           </div>
         </NavLink>
         <div>
-          <Button text="Subscribe" size="subscribe-btn" />
+        <SubscribeButton mentorId={mentor._id} />
         </div>
       </div>
       <DoubtSolver comments={comments} videoId={_id} />
