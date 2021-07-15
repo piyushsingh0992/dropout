@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./mentorPage.css";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+
 import Navigation from "../../components/navigation/Navigation.js";
 import Mentor from "../../components/mentor/Mentor.js";
 import Loader from "../../components/loader/Loader.js";

@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { apiCall } from "../apiCall/apiCall";
 export async function subscribeMentor(
   mentorId,

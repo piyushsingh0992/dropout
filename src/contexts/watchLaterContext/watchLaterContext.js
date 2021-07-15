@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
-import axios from "axios";
+
 import { apiCall } from "../../apiCall/apiCall";
 import { useAuth } from "../authContext/authContext";
 import { useToast } from "../toastContext/toastContext";

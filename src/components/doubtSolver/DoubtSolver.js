@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./doubtSolver.css";
-import axios from "axios";
+
 import enter from "../../utils/images/icons/enter.svg";
 import Avatar from "../avatar/Avatar.js";
 

@@ -3,7 +3,7 @@ import "./videoNotes.css";
 import enter from "../../utils/images/icons/enter.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
-import axios from "axios";
+
 import { useToast } from "../../contexts/toastContext/toastContext.js";
 import { apiCall } from "../../apiCall/apiCall";
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./historyPage.css";
-import axios from "axios";
+
 import moment from "moment";
 import Navigation from "../../components/navigation/Navigation.js";
 import HistoryVideoCard from "../../components/historyVideoCard/HistoryVideoCard.js";
