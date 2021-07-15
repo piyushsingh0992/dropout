@@ -18,13 +18,13 @@ const ChooseMentorPage = () => {
         );
 
         if (success === true) {
-          debugger;
+          
           mentorArraySetter(data);
         }
 
         loaderSetter(false);
       } catch (error) {
-        debugger;
+        
         console.error("error ->", error);
       }
     })();

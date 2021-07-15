@@ -30,7 +30,7 @@ const VideoNotes = ({ videoNotes, videoId }) => {
           note: currentNote,
         }
       );
-      debugger;
+      
       if (success === true) {
         notesSetter(data.notes);
         currentNoteSetter("");
