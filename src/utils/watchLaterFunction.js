@@ -1,4 +1,5 @@
 import axios from "axios";
+import { apiCall } from "../apiCall/apiCall";
 
 export async function addWatchLater(
   videoId,
@@ -9,14 +10,15 @@ export async function addWatchLater(
 ) {
   addedVideoSetter(true);
   try {
-    let { status, data } = await axios.post(
-      `https://dropout.piyushsingh6.repl.co/watchlater/${videoId}`,
+    let { status, data, success, message } = await apiCall(
+      "POST",
+      `watchlater/${videoId}`,
       {
         userKey,
       }
     );
 
-    if (status === 200) {
+    if (success === true) {
       watchLaterDispatch({
         payload: "ADD_TO_WATCH_LATER",
         video: data.video,
@@ -24,7 +26,7 @@ export async function addWatchLater(
       toastDispatch("success", "Added to Watch Later");
     } else {
       addedVideoSetter(false);
-      toastDispatch("error", "error Occured Cann't add to Watch Later");
+      toastDispatch("error", message);
     }
   } catch (error) {
     addedVideoSetter(false);
@@ -43,16 +45,15 @@ export async function removeWatchLater(
   addedVideoSetter(false);
 
   try {
-    let { status, data } = await axios.delete(
-      `https://dropout.piyushsingh6.repl.co/watchlater/${videoId}`,
+    let { status, data, success, message } = await apiCall(
+      "DELETE",
+      `watchlater/${videoId}`,
       {
-        data: {
-          userKey,
-        },
+        userKey,
       }
     );
 
-    if (status === 200) {
+    if (success === true) {
       watchLaterDispatch({
         payload: "REMOVE_FROM_WATCH_LATER",
         video: data.video,
@@ -60,7 +61,7 @@ export async function removeWatchLater(
       toastDispatch("success", "Removed from Watch Later");
     } else {
       addedVideoSetter(true);
-      toastDispatch("error", "error Occured Cann't  remove from  Watch Later");
+      toastDispatch("error", message);
     }
   } catch (error) {
     addedVideoSetter(true);

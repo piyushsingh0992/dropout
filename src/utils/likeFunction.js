@@ -1,4 +1,5 @@
-import axios from "axios";
+
+import { apiCall } from "../apiCall/apiCall";
 
 export async function addLikedVideo(
   videoId,
@@ -8,19 +9,24 @@ export async function addLikedVideo(
   userKey
 ) {
   likedVideoSetter(true);
+  
   try {
-    let { status, data } = await axios.post(
-      `https://dropout.piyushsingh6.repl.co/likedVideos/${videoId}`,
+    let { success, data, message } = await apiCall(
+      "POST",
+      `likedVideos/${videoId}`,
       { userKey }
     );
-    if (status === 200) {
+    
+    if (success === true) {
+      
       likedVideoStateDispatch({
         payload: "ADD_LIKED_VIDEO",
         video: data.video,
       });
       toastDispatch("success", "Liked the Video");
     } else {
-      toastDispatch("error", "error occured can't like video");
+      
+      toastDispatch("error", message);
       likedVideoSetter(false);
     }
   } catch (error) {
@@ -39,28 +45,27 @@ export async function deleteLikedVideo(
 ) {
   likedVideoSetter(false);
   try {
-    let { status, data } = await axios.delete(
-      `https://dropout.piyushsingh6.repl.co/likedVideos/${videoId}`,
+    let { success, data, message } = await apiCall(
+      "DELETE",
+      `likedVideos/${videoId}`,
       {
-        data: {
-          userKey,
-        },
+        userKey,
       }
     );
 
-    if (status === 200) {
+    if (success === true) {
       likedVideoStateDispatch({
         payload: "REMOVE_LIKED_VIDEO",
         video: data.video,
       });
-      toastDispatch("success", "UnLiked the Video");
+      toastDispatch("success", "Unliked the Video");
     } else {
       likedVideoSetter(true);
-      toastDispatch("error", "error occured can't unlike video");
+      toastDispatch("error", message);
     }
   } catch (error) {
     console.error("error");
     likedVideoSetter(true);
-    toastDispatch("error", "error occured can't like video");
+    toastDispatch("error", "error occured can't Unlike video");
   }
 }
