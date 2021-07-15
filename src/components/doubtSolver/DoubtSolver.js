@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./doubtSolver.css";
+import axios from "axios";
 import enter from "../../utils/images/icons/enter.svg";
 import Avatar from "../avatar/Avatar.js";
 
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
-import axios from "axios";
+
+import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { apiCall } from "../../apiCall/apiCall";
 
 const DoubtSolver = ({ comments, videoId }) => {
   const { theme } = useTheme();
@@ -13,7 +16,7 @@ const DoubtSolver = ({ comments, videoId }) => {
   const [questionArray, questionArraySetter] = useState([]);
 
   const { login } = useAuth();
-
+  const { toastDispatch } = useToast();
   let { userKey } = login;
 
   useEffect(() => {
@@ -21,23 +24,28 @@ const DoubtSolver = ({ comments, videoId }) => {
   }, []);
 
   async function addComment(comment) {
-    
     try {
-      let { status, data } = await axios.post(
-        `https://dropout.piyushsingh6.repl.co/comment/${videoId}`,
+      let { status, data, success, message } = await apiCall(
+        "POST",
+        `comment/${videoId}`,
         {
           userKey,
           comment,
         }
       );
-      
-      if (status === 200) {
+
+      if (success === true) {
         questionArraySetter((value) => [data.comment, ...value]);
         currentQuestionSetter("");
+      } else {
+        toastDispatch("error", message);
       }
     } catch (error) {
-      
       console.error(error);
+      toastDispatch(
+        "error",
+        "Error Occured Cann't publish your Comment right Now"
+      );
     }
   }
 
