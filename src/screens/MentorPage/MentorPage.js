@@ -5,6 +5,7 @@ import axios from "axios";
 import Navigation from "../../components/navigation/Navigation.js";
 import Mentor from "../../components/mentor/Mentor.js";
 import Loader from "../../components/loader/Loader.js";
+import { apiCall } from "../../apiCall/apiCall";
 const MentorPage = () => {
   let { mentorId } = useParams();
   const [mentorData, mentorDataSetter] = useState(null);
@@ -36,10 +37,11 @@ const MentorPage = () => {
   useEffect(() => {
     (async function () {
       try {
-        let { status, data } = await axios.get(
-          `https://dropout.piyushsingh6.repl.co/mentor/${mentorId}`
+        let { data, success, message } = await apiCall(
+          "GET",
+          `mentor/${mentorId}`
         );
-        if (status === 200) {
+        if (success === true) {
           data = structuringMentorData(data);
           mentorDataSetter(data);
           loadingSetter(false);

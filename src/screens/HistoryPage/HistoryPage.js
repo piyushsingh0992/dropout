@@ -8,6 +8,7 @@ import Heading from "../../components/heading/Heading.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 import Loader from "../../components/loader/Loader.js";
+import { apiCall } from "../../apiCall/apiCall";
 const HistoryPage = () => {
   const [history, historyArraySetter] = useState([]);
   const [loading, loadingSetter] = useState(true);
@@ -19,10 +20,11 @@ const HistoryPage = () => {
   useEffect(() => {
     (async function () {
       try {
-        let { status, data } = await axios.get(
-          `https://dropout.piyushsingh6.repl.co/history/${userKey}`
+        let { data, success, message } = await apiCall(
+          "GET",
+          `history/${userKey}`
         );
-        if (status === 200) {
+        if (success === true) {
           historyArraySetter(data.videos);
         }
 
