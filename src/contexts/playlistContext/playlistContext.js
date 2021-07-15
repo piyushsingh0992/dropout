@@ -1,6 +1,10 @@
 import React, { useEffect, useReducer, createContext, useContext } from "react";
 import axios from "axios";
 
+import { apiCall } from "../../apiCall/apiCall";
+import { useAuth } from "../authContext/authContext";
+import { useToast } from "../toastContext/toastContext";
+
 const PlaylistContext = createContext();
 function playlistManager(state, action) {
   const {
@@ -31,27 +35,33 @@ function playlistManager(state, action) {
 }
 export function PlaylistProvider({ children }) {
   const [playlistState, playlistDispatch] = useReducer(playlistManager, []);
+
+  let { login } = useAuth();
+  const { toastDispatch } = useToast();
+
   useEffect(() => {
-    let login = JSON.parse(localStorage.getItem("loginStatus"));
+    let { loginStatus, userKey } = login;
 
-    if (login) {
+    if (loginStatus) {
       (async function () {
-        let { userKey } = login;
-
         try {
-          let { status, data } = await axios.get(
-            `https://dropout.piyushsingh6.repl.co/playlist/${userKey}`
+          let { success, data, message } = await apiCall(
+            "GET",
+            `playlist/${userKey}`
           );
 
-          if (status === 200) {
+          if (success === true) {
             playlistDispatch({ payload: `LOADING_PLAYLIST`, playlists: data });
+          } else {
+            toastDispatch("error", message);
           }
         } catch (error) {
           console.error(error);
+          toastDispatch("error", "Some Error Occured");
         }
       })();
     }
-  }, []);
+  }, [login]);
   return (
     <PlaylistContext.Provider value={{ playlistState, playlistDispatch }}>
       {children}

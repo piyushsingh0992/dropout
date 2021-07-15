@@ -1,11 +1,12 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import axios from "axios";
-
+import { apiCall } from "../../apiCall/apiCall";
+import { useAuth } from "../authContext/authContext";
+import { useToast } from "../toastContext/toastContext";
 const LikedVideoContext = createContext();
 
 function likedVideoManager(state, action) {
   const { payload, video, videos } = action;
-  
+
   switch (payload) {
     case "FIRST_LOAD":
       return videos;
@@ -32,30 +33,34 @@ export function LikedVideoProvider({ children }) {
     []
   );
 
+  let { login } = useAuth();
+  const { toastDispatch } = useToast();
+
   useEffect(() => {
-    let login = JSON.parse(localStorage.getItem("loginStatus"));
-
-    if (login) {
+    let { loginStatus, userKey } = login;
+    if (loginStatus) {
       (async function () {
-        let { userKey } = login;
-
         try {
-          let { status, data } = await axios.get(
-            `https://dropout.piyushsingh6.repl.co/likedVideos/${userKey}`
+          let { success, data, message } = await apiCall(
+            "GET",
+            `likedVideos/${userKey}`
           );
-              
-          if (status === 200) {
+
+          if (success === true) {
             likedVideoStateDispatch({
               payload: "FIRST_LOAD",
               videos: data.videos,
             });
+          } else {
+            toastDispatch("error", message);
           }
         } catch (error) {
           console.error(error);
+          toastDispatch("error", "Some Error Occured");
         }
       })();
     }
-  }, []);
+  }, [login]);
 
   return (
     <LikedVideoContext.Provider

@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { apiCall } from "../apiCall/apiCall";
 export async function subscribeMentor(
   mentorId,
   subscribeDispatch,
@@ -9,21 +9,22 @@ export async function subscribeMentor(
 ) {
   subscribeSetter(true);
   try {
-    let { status, data } = await axios.post(
-      `https://dropout.piyushsingh6.repl.co/subscribe/${mentorId}`,
+    let { data, success, message } = await apiCall(
+      "POST",
+      `subscribe/${mentorId}`,
       {
         userKey,
       }
     );
 
-    if (status === 200) {
+    if (success === true) {
       subscribeDispatch({
         payload: "SUBSCRIBE",
         mentorId: data.mentorId,
       });
       toastDispatch("success", "Subscribed");
     } else {
-      toastDispatch("error", "Error ! Cannot subscribe");
+      toastDispatch("error", message);
       subscribeSetter(false);
     }
   } catch (error) {
@@ -42,21 +43,22 @@ export async function unSubscribeMentor(
 ) {
   subscribeSetter(false);
   try {
-    let { status, data } = await axios.delete(
-      `https://dropout.piyushsingh6.repl.co/subscribe/${mentorId}`,
+    let { data, success, message } = await apiCall(
+      "DELETE",
+      `subscribe/${mentorId}`,
       {
-        data: { userKey },
+        userKey,
       }
     );
 
-    if (status === 200) {
+    if (success === true) {
       subscribeDispatch({
         payload: "UNSUBSCRIBE",
         mentorId: data.mentorId,
       });
       toastDispatch("success", "Unsubscribed");
     } else {
-      toastDispatch("error", "Error ! Cannot unsubscribe");
+      toastDispatch("error", message);
       subscribeSetter(true);
     }
   } catch (error) {

@@ -12,7 +12,7 @@ function apiErrorHandler(error) {
 }
 
 export async function apiCall(type, endPoint, body) {
-  debugger;
+  
   switch (type) {
     case "GET":
       try {

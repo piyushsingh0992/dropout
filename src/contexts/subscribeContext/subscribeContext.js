@@ -1,5 +1,10 @@
 import React, { useEffect, useReducer, createContext, useContext } from "react";
 import axios from "axios";
+
+import { apiCall } from "../../apiCall/apiCall";
+import { useAuth } from "../authContext/authContext";
+import { useToast } from "../toastContext/toastContext";
+
 const SubscribeContext = createContext();
 
 function subscribeManager(state, action) {
@@ -19,28 +24,34 @@ function subscribeManager(state, action) {
 
 export function SubscribeProvider({ children }) {
   const [subscribeState, subscribeDispatch] = useReducer(subscribeManager, []);
+  let { login } = useAuth();
+  const { toastDispatch } = useToast();
+
   useEffect(() => {
-    let login = JSON.parse(localStorage.getItem("loginStatus"));
-    if (login) {
+    let { loginStatus, userKey } = login;
+    if (loginStatus) {
       (async function () {
-        let { userKey } = login;
         try {
-          let { status, data } = await axios.get(
-            `https://dropout.piyushsingh6.repl.co/subscribe/${userKey}`
+          let { success, data, message } = await apiCall(
+            "GET",
+            `subscribe/${userKey}`
           );
 
-          if (status === 200) {
+          if (success === true) {
             subscribeDispatch({
               payload: "FIRST_LOAD",
               subscribedMentors: data.mentor.subscriptions,
             });
+          } else {
+            toastDispatch("error", message);
           }
         } catch (error) {
           console.error(error);
+          toastDispatch("error", "Some Error Occured");
         }
       })();
     }
-  }, []);
+  }, [login]);
 
   return (
     <SubscribeContext.Provider value={{ subscribeState, subscribeDispatch }}>
