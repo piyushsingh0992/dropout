@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { apiCall } from "../apiCall/apiCall";
 export async function createPlaylist(
   newPlaylistName,
   playlistDispatch,
@@ -8,15 +8,12 @@ export async function createPlaylist(
   userKey
 ) {
   try {
-    let { status, data } = await axios.post(
-      `https://dropout.piyushsingh6.repl.co/playlist/create`,
-      {
-        userKey,
-        playlistName: newPlaylistName,
-      }
-    );
+    let { data, success, message } = await apiCall("POST", `playlist/create`, {
+      userKey,
+      playlistName: newPlaylistName,
+    });
 
-    if (status === 200) {
+    if (success === true) {
       playlistDispatch({
         payload: `CREATE_PLAYLIST`,
         newPlaylist: data.newPlaylist,
@@ -24,7 +21,7 @@ export async function createPlaylist(
       newPlaylistNameSetter("");
       toastDispatch("success", "playlist Created");
     } else {
-      toastDispatch("error", "error! Cannot create a new playlist");
+      toastDispatch("error", message);
     }
   } catch (error) {
     console.error(error);
@@ -41,24 +38,21 @@ export async function addVideoToPlaylist(
   userKey
 ) {
   try {
-    let { status, data } = await axios.post(
-      `https://dropout.piyushsingh6.repl.co/playlist`,
-      {
-        playlistArray: playlistIdArray,
-        videoId: videoId,
-        userKey,
-      }
-    );
+    let { data, success, message } = await apiCall("POST", `playlist`, {
+      playlistArray: playlistIdArray,
+      videoId: videoId,
+      userKey,
+    });
 
-    if (status === 200) {
+    if (success === true) {
       playlistDispatch({ payload: `ADD_VIDEO`, playlist: data.playlist });
       modalTriggerSetter(false);
       toastDispatch("success", "Video Added to playlist");
     } else {
-      toastDispatch("error", "error! Cannot add video to playlist");
+      toastDispatch("error", message);
     }
   } catch (error) {
-    console.error({ error });
+    console.error(error);
     toastDispatch("error", "error! Cannot add video to playlist");
   }
 }
@@ -71,22 +65,24 @@ export async function deleteVideoFromPlaylist(
   userKey
 ) {
   try {
-    let { status, data } = await axios.delete(
-      `https://dropout.piyushsingh6.repl.co/playlist/${videoId}`,
+    let { data, success, message } = await apiCall(
+      "DELETE",
+      `playlist/${videoId}`,
       {
-        data: { playlistId, userKey },
+        playlistId,
+        userKey,
       }
     );
 
-    if (status === 200) {
+    if (success === true) {
       playlistDispatch({ payload: "DELETE_VIDEO", playlist: data.playlist });
       toastDispatch("success", "Video deleted");
     } else {
-      delete toastDispatch("error", "error! Cannot delete the video");
+      toastDispatch("error", message);
     }
   } catch (error) {
     console.error({ error });
-    toastDispatch("error", "error! Cannot delete the video");
+    toastDispatch("error", "error! Cannot delete the video from Playlist");
   }
 }
 
@@ -97,24 +93,19 @@ export async function deletePlaylist(
   userKey
 ) {
   try {
-    let { status, data } = await axios.delete(
-      `https://dropout.piyushsingh6.repl.co/playlist`,
-      {
-        data: {
-          playlistId,
-          userKey,
-        },
-      }
-    );
+    let { data, success, message } = await apiCall("DELETE", `playlist`, {
+      playlistId,
+      userKey,
+    });
 
-    if (status === 200) {
+    if (success === true) {
       playlistDispatch({
         payload: "DELETE_PLAYLIST",
         playlist: data.playlist,
       });
       toastDispatch("success", "Playlist deleted");
     } else {
-      toastDispatch("error", "error! Cannot delete the Playlist");
+      toastDispatch("error", message);
     }
   } catch (error) {
     console.error({ error });
@@ -132,14 +123,15 @@ export async function playlistNameChanger(
 ) {
   (async function () {
     try {
-      let { status, data } = await axios.post(
-        `https://dropout.piyushsingh6.repl.co/playlist/${playlistId}/${newName}`,
+      let { data, success, message } = await apiCall(
+        "POST",
+        `playlist/${playlistId}/${newName}`,
         {
           userKey,
         }
       );
 
-      if (status === 200) {
+      if (success === true) {
         newNameSetter("");
         playlistDispatch({
           payload: "RENAME_PLAYLIST",
@@ -147,7 +139,7 @@ export async function playlistNameChanger(
         });
         toastDispatch("success", " Playlist is renamed");
       } else {
-        toastDispatch("error", "error! Cannot rename the Playlist");
+        toastDispatch("error", message);
       }
     } catch (error) {
       console.error({ error });

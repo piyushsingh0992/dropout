@@ -25,11 +25,9 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
     login: { userKey },
   } = useAuth();
   function deletePlaylistTrigger() {
-    
     deletePlaylist(playlistId, playlistDispatch, toastDispatch, userKey);
   }
   function deleteVideo(videoId) {
-    
     deleteVideoFromPlaylist(
       videoId,
       playlistId,
@@ -40,7 +38,6 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
   }
 
   function nameChangeHandler() {
-    
     playlistNameChanger(
       playlistId,
       newName,
@@ -55,7 +52,12 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
       <div className="playlistName">
         {edit ? (
           <>
-            <TextField value={newName} valueSetter={newNameSetter} />
+            <TextField
+              value={newName}
+              onChangeFunction={(newValue) => {
+                newNameSetter(newValue);
+              }}
+            />
             <Button
               clickFunction={() => {
                 editSetter((value) => !value);
