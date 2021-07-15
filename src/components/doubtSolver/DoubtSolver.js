@@ -25,7 +25,7 @@ const DoubtSolver = ({ comments, videoId }) => {
 
   async function addComment(comment) {
     try {
-      let { status, data, success, message } = await apiCall(
+      let { data, success, message } = await apiCall(
         "POST",
         `comment/${videoId}`,
         {

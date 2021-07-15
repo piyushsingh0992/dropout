@@ -4,13 +4,15 @@ import enter from "../../utils/images/icons/enter.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 import axios from "axios";
-const VideoNotes = ({ videoNotes, videoId }) => {
+import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { apiCall } from "../../apiCall/apiCall";
 
+const VideoNotes = ({ videoNotes, videoId }) => {
   const [notes, notesSetter] = useState([]);
   const [currentNote, currentNoteSetter] = useState("");
   const { theme } = useTheme();
   const { login } = useAuth();
-
+  const { toastDispatch } = useToast();
 
   const { userKey } = login;
 
@@ -20,20 +22,24 @@ const VideoNotes = ({ videoNotes, videoId }) => {
 
   async function addingNotes() {
     try {
-      let { status, data } = await axios.post(
-        `https://dropout.piyushsingh6.repl.co/notes/${videoId}`,
+      let { data, success, message } = await apiCall(
+        "POST",
+        `notes/${videoId}`,
         {
           userKey,
           note: currentNote,
         }
       );
-
-      if (status === 200) {
+      debugger;
+      if (success === true) {
         notesSetter(data.notes);
         currentNoteSetter("");
+      } else {
+        toastDispatch("error", message);
       }
     } catch (error) {
       console.error(error);
+      toastDispatch("error", "Error Occured Cann't edit Notes Now");
     }
   }
 
