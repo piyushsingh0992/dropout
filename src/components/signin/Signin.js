@@ -6,17 +6,24 @@ import Button from "../button/Button.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
-
-const Signin = ({ userSetter }) => {
+import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { signInService } from "./common.js";
+const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
-  const { login, loginCheck } = useAuth();
-  const [userId, userIdSetter] = useState("");
-  const [password, passwordSetter] = useState("");
-  const [error, errorHandler] = useState(false);
+  const { toastDispatch } = useToast();
+  const { login, loginDispatch } = useAuth();
 
-  function submitHandler() {
-    loginCheck(userId, password, errorHandler);
+  function userIdHanlder(newValue) {
+    signInDetailsSetter((value) => {
+      return { ...value, userId: newValue };
+    });
+  }
+
+  function passwordHandler(newPassword) {
+    signInDetailsSetter((value) => {
+      return { ...value, password: newPassword };
+    });
   }
 
   return (
@@ -24,30 +31,33 @@ const Signin = ({ userSetter }) => {
       <img src={dropout} />
       <TextField
         label={language.auth.email}
-        value={userId}
-        valueSetter={userIdSetter}
-        errorMessage={"userId/Password is Wrong"}
-        errorHandler={error}
+        value={signInDetails.userId}
+        onChangeFunction={userIdHanlder}
       />
       <TextField
         label={language.auth.password}
-        value={password}
-        valueSetter={passwordSetter}
-        errorMessage={"userId/Password is Wrong"}
-        errorHandler={error}
+        value={signInDetails.password}
+        onChangeFunction={passwordHandler}
+        type="password"
       />
       <div className="signin-btn-container">
-        <Button text={language.auth.signin} clickFunction={submitHandler} />
+        <Button
+          text={language.auth.signin}
+          clickFunction={() => {
+            signInService(signInDetails, loginDispatch, toastDispatch);
+          }}
+        />
         <p style={{ color: theme.boldText }}>
           {language.auth.msg1}
           <span
             style={{
               color: theme.hightLightText,
-              fontWeight: "bold",
-              cursor: "pointer",
             }}
             onClick={() => {
-            
+              signInDetailsSetter({
+                password: "",
+                userId: "",
+              });
               userSetter((value) => !value);
             }}
           >

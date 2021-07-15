@@ -1,23 +1,27 @@
-.signup{
+.signUp {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding:1rem;
+    padding: 1rem;
     border-radius: 5px;
-
-    height:25rem;
-
+    height: 25rem;
 }
 
-.signup>img{
+.signUp>img {
     height: 5rem;
 }
 
-.signup-btn-container{
+.signUp-btn-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height:4rem;
+    height: 4rem;
     text-align: center;
 }
 
+.signUp-btn-container>p{
+    margin-top: 0.5rem;
+}
+.signUp-btn-container>p>span {
+    cursor: pointer;
+}

@@ -8,6 +8,8 @@ const PrivateRoute = ({ path, ...props }) => {
   } = useAuth();
 
   let paramsArray = useParams();
+  console.log("paramsArray ->",paramsArray);
+  
   let pathArray = path.split(":");
   let newArray = pathArray.map((item) => {
     if (paramsArray[item]) {

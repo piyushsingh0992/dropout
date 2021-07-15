@@ -17,9 +17,8 @@ const Login = () => {
       "Logged Out"
     );
     loginDispatch({
-      payload: { type: "LOGOUT" },
+      type: "LOGOUT"
     });
-    localStorage.removeItem("loginStatus");
   }
 
   return loginStatus ? (

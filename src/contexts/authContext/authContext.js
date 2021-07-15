@@ -10,27 +10,21 @@ import axios from "axios";
 const AuthContext = createContext();
 
 function loginHandler(state, action) {
-  const { payload } = action;
-  const {
-    type,
-
-    loginStatus,
-    mentor,
-    userKey,
-    userName,
-  } = payload;
+  const { type, payload } = action;
 
   switch (type) {
     case "LOGIN":
-      return {
-        loginStatus,
-        mentor,
-        userKey,
-        userName,
-      };
+      return payload;
 
     case "LOGOUT":
-      return { loginStatus: false };
+      localStorage.removeItem("loginStatus");
+      return {
+        loginStatus: false,
+        mentor: false,
+        userKey: null,
+        userName: null,
+        token: null,
+      };
     default:
       return state;
   }
@@ -39,56 +33,28 @@ function loginHandler(state, action) {
 export function AuthProvider({ children }) {
   const [login, loginDispatch] = useReducer(loginHandler, {
     loginStatus: false,
+    mentor: false,
+    userKey: null,
+    userName: null,
+    token: null,
   });
 
   useEffect(() => {
-    let login = JSON.parse(localStorage.getItem("loginStatus"));
-    login &&
-      login.loginStatus &&
-      loginDispatch({ payload: { type: "LOGIN", ...login } });
+    let response = JSON.parse(localStorage.getItem("loginStatus")) || {
+      loginStatus: false,
+      mentor: false,
+      userKey: null,
+      userName: null,
+      token: null,
+    };
+
+    if (response.loginStatus) {
+      loginDispatch({ type: "LOGIN", payload: response });
+    }
   }, []);
 
-  async function loginCheck(userId, password, errorHandler) {
-    try {
-      let { data, status } = await axios.post(
-        "https://dropout.piyushsingh6.repl.co/auth",
-        {
-          userId,
-          password,
-        }
-      );
-
-      if (status === 200) {
-        loginDispatch({
-          payload: {
-            type: "LOGIN",
-            loginStatus: data.loginStatus,
-            mentor: data.mentor,
-            userKey: data.userKey,
-            userName: data.userName,
-          },
-        });
-        errorHandler(false);
-        localStorage.setItem(
-          "loginStatus",
-          JSON.stringify({
-            loginStatus: data.loginStatus,
-            mentor: data.mentor,
-            userKey: data.userKey,
-            userName: data.userName,
-          })
-        );
-      } else {
-        errorHandler(true);
-      }
-    } catch (error) {
-      console.error(error);
-      errorHandler(true);
-    }
-  }
-
   return (
-    <AuthContext.Provider value={{ login, loginCheck, loginDispatch }}>
+    <AuthContext.Provider value={{ login, loginDispatch }}>
       {children}
     </AuthContext.Provider>
   );

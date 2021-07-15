@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./loginPage.css";
-import Signin from "../../components/signin/Signin.js";
-import Signup from "../../components/signup/Signup.js";
+import SignIn from "../../components/signin/Signin.js";
+import SignUp from "../../components/signup/Signup.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
@@ -21,15 +21,35 @@ const LoginPage = () => {
     }
   }, [loginStatus]);
 
+  const [signInDetails, signInDetailsSetter] = useState({
+    password: "",
+    userId: "",
+  });
+
+  const [signUpDetails, signUpDetailsSetter] = useState({
+    userName: "",
+    password: "",
+    userId: "",
+  });
+
   return (
     <div
       className="loginPage"
       style={{ backgroundColor: theme.primaryBackground }}
     >
       {user ? (
-        <Signin userSetter={userSetter} />
+        <SignIn
+          userSetter={userSetter}
+          signInDetails={signInDetails}
+          signInDetailsSetter={signInDetailsSetter}
+        />
       ) : (
-        <Signup userSetter={userSetter} />
+        <SignUp
+          userSetter={userSetter}
+          signUpDetails={signUpDetails}
+          signUpDetailsSetter={signUpDetailsSetter}
+          signInDetailsSetter={signInDetailsSetter}
+        />
       )}
     </div>
   );

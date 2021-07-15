@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import "./textField.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-const TextField = ({
-  label,
-  type,
-  value,
-  valueSetter,
-  errorMessage,
-  errorHandler,
-}) => {
+const TextField = ({ label, type, value, onChangeFunction }) => {
   const { theme } = useTheme();
 
   return (
@@ -17,12 +10,16 @@ const TextField = ({
         className="empty"
         type={type ? type : "text"}
         value={value}
-        onChange={(e)=>{valueSetter(e.target.value)}}
+        onChange={(e) => {
+          onChangeFunction(e.target.value);
+        }}
         required
-        style={{ backgroundColor: theme.primaryBackground }}
+        style={{
+          backgroundColor: theme.primaryBackground,
+          color: theme.boldText,
+        }}
       />
       <label>{label}</label>
-      {errorHandler && <p className="textFieldError">{errorMessage}</p>}
     </span>
   );
 };
