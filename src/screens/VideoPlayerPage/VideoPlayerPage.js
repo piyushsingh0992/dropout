@@ -10,7 +10,7 @@ import VideoNotes from "../../components/videoNotes/VideoNotes.js";
 import RecommendVideoCard from "../../components/recommendVideoCard/RecommendVideoCard.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
-
+import Loader from "../../components/loader/Loader.js";
 const VideoPlayerPage = () => {
   const { theme } = useTheme();
   const {
@@ -63,7 +63,7 @@ const VideoPlayerPage = () => {
   }, [videoId]);
 
   return loader ? (
-    <h1>loading</h1>
+    <Loader size={5} />
   ) : (
     <div className="videoPlayerPage">
       <div

@@ -2,14 +2,7 @@ import React from "react";
 import { useParams, Navigate, Route } from "react-router-dom";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 
-const PrivateRoute = ({ path, ...props }) => {
-  const {
-    login: { loginStatus },
-  } = useAuth();
-
-  let paramsArray = useParams();
-  console.log("paramsArray ->",paramsArray);
-  
+function getNewPath(path, paramsArray) {
   let pathArray = path.split(":");
   let newArray = pathArray.map((item) => {
     if (paramsArray[item]) {
@@ -17,7 +10,17 @@ const PrivateRoute = ({ path, ...props }) => {
     }
     return item;
   });
-  let newPath = newArray.join("");
+  return newArray.join("");
+}
+
+const PrivateRoute = ({ path, ...props }) => {
+  const {
+    login: { loginStatus },
+  } = useAuth();
+
+  let paramsArray = useParams();
+
+  let newPath = getNewPath(path, paramsArray);
 
   return loginStatus ? (
     <Route to={path} {...props} />
