@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./videoPlayerPage.css";
 import { useParams, NavLink } from "react-router-dom";
-import axios from "axios";
 import logo from "../../utils/images/brand/dropout.svg";
-import menu from "../../utils/images/icons/menu.svg";
 import SideNav from "../../components/sideNav/SideNav.js";
 import VideoPlayer from "../../components/videoPlayer/VideoPlayer.js";
 import VideoNotes from "../../components/videoNotes/VideoNotes.js";
@@ -11,6 +9,10 @@ import RecommendVideoCard from "../../components/recommendVideoCard/RecommendVid
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 import Loader from "../../components/loader/Loader.js";
+
+import { apiCall } from "../../apiCall/apiCall";
+
+
 const VideoPlayerPage = () => {
   const { theme } = useTheme();
   const {
@@ -27,32 +29,18 @@ const VideoPlayerPage = () => {
     (async function () {
       try {
         loaderSetter(true);
-        let response = await axios.post(
-          `https://dropout.piyushsingh6.repl.co/video/${videoId}`,
+        let { success, data, message } = await apiCall(
+          "POST",
+          `video/${videoId}`,
           {
             userKey,
           }
         );
 
-        if (response.status === 200) {
-          videoDetailsSetter(response.data);
-        }
-
-        response = await axios.get(
-          `https://dropout.piyushsingh6.repl.co/recommendation/${videoId}`
-        );
-
-
-        if (response.status === 200) {
-          recommendationSetter(response.data);
-        }
-
-        response = await axios.get(
-          `https://dropout.piyushsingh6.repl.co/notes/${userKey}/${videoId}`
-        );
-
-        if (response.status === 200) {
-          notesSetter(response.data.notes);
+        if (success === true) {
+          videoDetailsSetter(data.video);
+          recommendationSetter(data.recommendation);
+          notesSetter(data.notes);
         }
       } catch (error) {
         console.error("error ->", error);
@@ -98,7 +86,6 @@ const VideoPlayerPage = () => {
         <div className="videoPlayerNotesContainer">
           <VideoNotes videoNotes={notes} videoId={videoDetails._id} />
           {recommendation.map((item) => {
-          
             return <RecommendVideoCard videoDetails={item} />;
           })}
         </div>
