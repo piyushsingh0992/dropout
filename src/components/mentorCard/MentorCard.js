@@ -3,7 +3,14 @@ import "./mentorCard.css";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { NavLink } from "react-router-dom";
 
-const MentorCard = ({ profile, banner, name, category, route }) => {
+const MentorCard = ({
+  profile,
+  banner,
+  name,
+  category,
+  route,
+  description,
+}) => {
   const { theme } = useTheme();
   const [trigger, triggerSetter] = useState(false);
   const triggerHandler = () => {
@@ -43,7 +50,7 @@ const MentorCard = ({ profile, banner, name, category, route }) => {
               color: theme.primaryText,
             }}
           >
-            Tanay work's at microsoft
+            {description}
           </div>
           <NavLink to={route}>
             <div

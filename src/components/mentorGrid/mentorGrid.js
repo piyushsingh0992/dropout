@@ -1,23 +1,23 @@
 import React from "react";
 import "./mentorGrid.css";
 import MentorCard from "../mentorCard/MentorCard";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useMentorDetails } from "../../utils/common.js";
-const MentorGrid = () => {
-  const { theme } = useTheme();
-  const { mentorDetails } = useMentorDetails();
+
+
+const MentorGrid = ({ mentorArray }) => {
+
 
   return (
     <div className="mentorGrid">
       <div className="grid">
-        {mentorDetails.map((mentor) => {
+        {mentorArray.map((mentor) => {
           return (
             <MentorCard
               banner={mentor.banner}
-              profile={mentor.profile}
-              category={mentor.category}
+              profile={mentor.displayImage}
+              category={mentor.subject}
+              description={mentor.description}
               name={mentor.name}
-              route={mentor.route}
+              route={`/mentor/${mentor._id}`}
             />
           );
         })}

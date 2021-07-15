@@ -9,12 +9,10 @@ import leftArrow from "../../utils/images/icons/leftArrow.svg";
 import rightArrow from "../../utils/images/icons/rightArrow.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import { useMentorDetails } from "../../utils/common.js";
 
-const Hero = () => {
+const Hero = ({mentorArray}) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
-  const { mentorDetails } = useMentorDetails();
   const [position, positionSetter] = useState(0);
   const setTimeOutId = useRef();
   const [side, sideSetter] = useState(false);
@@ -86,17 +84,17 @@ const Hero = () => {
           }}
         />
         <div className="slideShow" style={{ left: `${position}vw` }}>
-          {mentorDetails.map((item, index) => {
+          {mentorArray.map((item, index) => {
             return (
               <div key={index} className="slide">
                 <img src={item.heroImage} className="slideMentorImg" />
 
                 <div className="slideMentorDetails">
                   <h1 className="mentorName">{item.name}</h1>
-                  <p className="mentorType">{item.category}</p>
-                  <p className="mentorDescription">tanay work's at microsoft</p>
+                  <p className="mentorType">{item.subject}</p>
+                  <p className="mentorDescription">{item.description}</p>
 
-                  <NavLink to={item.route}>
+                  <NavLink to={`/mentor/${item._id}`}>
                     <Button
                       text={language.startLearning}
                       size="startLearning"
