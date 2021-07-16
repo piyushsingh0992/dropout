@@ -24,7 +24,6 @@ const SearchPage = () => {
             "GET",
             `search/${searchTerm}`
           );
-          debugger;
           if (success === true) {
             searchResultSetter(data);
           }

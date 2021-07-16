@@ -8,10 +8,8 @@
 
 .searchVideoDetailsContainer {
     display: flex;
-    flex:3;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 60vw;
     word-break: break-all;
     margin:0 1.5rem;
 }

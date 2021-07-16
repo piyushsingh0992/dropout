@@ -1,7 +1,9 @@
 .thumbNailContainer {
     position: relative;
     overflow: hidden;
-
+    max-height: 8rem;
+    object-fit: contain;
+    min-width: 10rem;
 }
 
 .thumbNailContainer>.thumbNailBtnScreen {
@@ -54,10 +56,10 @@
 
 
 .searchThumnail {
-
-
     max-height: 8rem;
-    width: 12rem;
+    object-fit: contain;
+    min-width: 10rem;
+    
 }
 
 .mentorplaylistThumbnail {

@@ -4,6 +4,7 @@
   background-color: white;
 
   margin: 1px;
+  overflow:hidden;
 }
 
 .mentorCard:hover .mentorCard-mentor-pic {
@@ -65,6 +66,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 12px 12px 0 0;
+  overflow:hidden
 }
 
 .mentor-card-modal-banner {

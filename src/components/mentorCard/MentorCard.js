@@ -28,7 +28,10 @@ const MentorCard = ({
         }`}
         onClick={triggerHandler}
       >
-        <div className="mentor-card-modal">
+        <div
+          className="mentor-card-modal"
+          style={{ backgroundColor: theme.primaryBackground }}
+        >
           <div className="mentor-card-modal-banner-container">
             <img src={banner} className="mentor-card-modal-banner" />
           </div>
