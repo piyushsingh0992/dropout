@@ -9,7 +9,7 @@ const HomePage = () => {
   const [mentorArray, mentorArraySetter] = useState(true);
   useEffect(() => {
     (async function () {
-      try {
+     
         let { success, data, message } = await apiCall(
           "GET",
           `mentor/allMentor`
@@ -21,10 +21,7 @@ const HomePage = () => {
         }
 
         loaderSetter(false);
-      } catch (error) {
-        
-        console.error("error ->", error);
-      }
+      
     })();
   }, []);
   return loader ? (

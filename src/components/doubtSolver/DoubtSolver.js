@@ -24,28 +24,20 @@ const DoubtSolver = ({ comments, videoId }) => {
   }, []);
 
   async function addComment(comment) {
-    try {
-      let { data, success, message } = await apiCall(
-        "POST",
-        `comment/${videoId}`,
-        {
-          userKey,
-          comment,
-        }
-      );
-
-      if (success === true) {
-        questionArraySetter((value) => [data.comment, ...value]);
-        currentQuestionSetter("");
-      } else {
-        toastDispatch("error", message);
+    let { data, success, message } = await apiCall(
+      "POST",
+      `comment/${videoId}`,
+      {
+        userKey,
+        comment,
       }
-    } catch (error) {
-      console.error(error);
-      toastDispatch(
-        "error",
-        "Error Occured Cann't publish your Comment right Now"
-      );
+    );
+
+    if (success === true) {
+      questionArraySetter((value) => [data.comment, ...value]);
+      currentQuestionSetter("");
+    } else {
+      toastDispatch("error", message);
     }
   }
 

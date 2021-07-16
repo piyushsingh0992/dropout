@@ -1,4 +1,3 @@
-
 import { apiCall } from "../apiCall/apiCall";
 export async function subscribeMentor(
   mentorId,
@@ -8,28 +7,23 @@ export async function subscribeMentor(
   userKey
 ) {
   subscribeSetter(true);
-  try {
-    let { data, success, message } = await apiCall(
-      "POST",
-      `subscribe/${mentorId}`,
-      {
-        userKey,
-      }
-    );
 
-    if (success === true) {
-      subscribeDispatch({
-        payload: "SUBSCRIBE",
-        mentorId: data.mentorId,
-      });
-      toastDispatch("success", "Subscribed");
-    } else {
-      toastDispatch("error", message);
-      subscribeSetter(false);
+  let { data, success, message } = await apiCall(
+    "POST",
+    `subscribe/${mentorId}`,
+    {
+      userKey,
     }
-  } catch (error) {
-    console.error("error");
-    toastDispatch("error", "Error ! Cannot subscribe");
+  );
+
+  if (success === true) {
+    subscribeDispatch({
+      payload: "SUBSCRIBE",
+      mentorId: data.mentorId,
+    });
+    toastDispatch("success", "Subscribed");
+  } else {
+    toastDispatch("error", message);
     subscribeSetter(false);
   }
 }
@@ -42,28 +36,23 @@ export async function unSubscribeMentor(
   userKey
 ) {
   subscribeSetter(false);
-  try {
-    let { data, success, message } = await apiCall(
-      "DELETE",
-      `subscribe/${mentorId}`,
-      {
-        userKey,
-      }
-    );
 
-    if (success === true) {
-      subscribeDispatch({
-        payload: "UNSUBSCRIBE",
-        mentorId: data.mentorId,
-      });
-      toastDispatch("success", "Unsubscribed");
-    } else {
-      toastDispatch("error", message);
-      subscribeSetter(true);
+  let { data, success, message } = await apiCall(
+    "DELETE",
+    `subscribe/${mentorId}`,
+    {
+      userKey,
     }
-  } catch (error) {
-    console.error("error");
-    toastDispatch("error", "Error ! Cannot unsubscribe");
+  );
+
+  if (success === true) {
+    subscribeDispatch({
+      payload: "UNSUBSCRIBE",
+      mentorId: data.mentorId,
+    });
+    toastDispatch("success", "Unsubscribed");
+  } else {
+    toastDispatch("error", message);
     subscribeSetter(true);
   }
 }

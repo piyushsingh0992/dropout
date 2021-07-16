@@ -7,7 +7,7 @@ export async function signUpService(
   signInDetailsSetter,
   userSetter
 ) {
-  try {
+
     let { data, success, message } = await apiCall(
       "POST",
       `auth/create`,
@@ -29,7 +29,5 @@ export async function signUpService(
     } else {
       toastDispatch("error", message);
     }
-  } catch (error) {
-    toastDispatch("error", "Error ! Cann't create new account");
-  }
+  
 }

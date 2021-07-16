@@ -9,7 +9,7 @@ export async function addWatchLater(
   userKey
 ) {
   addedVideoSetter(true);
-  try {
+  
     let { status, data, success, message } = await apiCall(
       "POST",
       `watchlater/${videoId}`,
@@ -28,11 +28,7 @@ export async function addWatchLater(
       addedVideoSetter(false);
       toastDispatch("error", message);
     }
-  } catch (error) {
-    addedVideoSetter(false);
-    console.error(error);
-    toastDispatch("error", "error Occured Cann't add to Watch Later");
-  }
+  
 }
 
 export async function removeWatchLater(
@@ -44,8 +40,8 @@ export async function removeWatchLater(
 ) {
   addedVideoSetter(false);
 
-  try {
-    let { status, data, success, message } = await apiCall(
+
+    let {  data, success, message } = await apiCall(
       "DELETE",
       `watchlater/${videoId}`,
       {
@@ -63,9 +59,5 @@ export async function removeWatchLater(
       addedVideoSetter(true);
       toastDispatch("error", message);
     }
-  } catch (error) {
-    addedVideoSetter(true);
-    console.error(error);
-    toastDispatch("error", "error Occured Cann't  remove from  Watch Later");
-  }
+  
 }

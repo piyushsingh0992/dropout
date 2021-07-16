@@ -40,7 +40,7 @@ export function LikedVideoProvider({ children }) {
     let { loginStatus, userKey } = login;
     if (loginStatus) {
       (async function () {
-        try {
+        
           let { success, data, message } = await apiCall(
             "GET",
             `likedVideos/${userKey}`
@@ -54,10 +54,7 @@ export function LikedVideoProvider({ children }) {
           } else {
             toastDispatch("error", message);
           }
-        } catch (error) {
-          console.error(error);
-          toastDispatch("error", "Some Error Occured");
-        }
+        
       })();
     }
   }, [login]);

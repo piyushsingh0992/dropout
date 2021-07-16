@@ -19,18 +19,15 @@ const SearchPage = () => {
       (async function () {
         searchActiveSetter(true);
         loaderSetter(true);
-        try {
-          let { success, data, message } = await apiCall(
-            "GET",
-            `search/${searchTerm}`
-          );
-          if (success === true) {
-            searchResultSetter(data);
-          }
-          loaderSetter(false);
-        } catch (error) {
-          console.error("error ->", error);
+
+        let { success, data, message } = await apiCall(
+          "GET",
+          `search/${searchTerm}`
+        );
+        if (success === true) {
+          searchResultSetter(data);
         }
+        loaderSetter(false);
       })();
     }
   }, [searchTerm, keyCode]);

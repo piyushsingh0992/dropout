@@ -39,7 +39,7 @@ export function WatchLaterProvider({ children }) {
     let { loginStatus, userKey } = login;
     if (loginStatus) {
       (async function () {
-        try {
+        
           let { success, data, message } = await apiCall(
             "GET",
             `watchlater/${userKey}`
@@ -49,10 +49,7 @@ export function WatchLaterProvider({ children }) {
           } else {
             toastDispatch("error", message);
           }
-        } catch (error) {
-          console.error(error);
-          toastDispatch("error", "Some Error Occured");
-        }
+        
       })();
     }
   }, [login]);

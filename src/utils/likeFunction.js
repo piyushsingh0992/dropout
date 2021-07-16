@@ -1,4 +1,3 @@
-
 import { apiCall } from "../apiCall/apiCall";
 
 export async function addLikedVideo(
@@ -9,29 +8,21 @@ export async function addLikedVideo(
   userKey
 ) {
   likedVideoSetter(true);
-  
-  try {
-    let { success, data, message } = await apiCall(
-      "POST",
-      `likedVideos/${videoId}`,
-      { userKey }
-    );
-    
-    if (success === true) {
-      
-      likedVideoStateDispatch({
-        payload: "ADD_LIKED_VIDEO",
-        video: data.video,
-      });
-      toastDispatch("success", "Liked the Video");
-    } else {
-      
-      toastDispatch("error", message);
-      likedVideoSetter(false);
-    }
-  } catch (error) {
-    console.error("error ->", error);
-    toastDispatch("error", "error occured can't like video");
+
+  let { success, data, message } = await apiCall(
+    "POST",
+    `likedVideos/${videoId}`,
+    { userKey }
+  );
+
+  if (success === true) {
+    likedVideoStateDispatch({
+      payload: "ADD_LIKED_VIDEO",
+      video: data.video,
+    });
+    toastDispatch("success", "Liked the Video");
+  } else {
+    toastDispatch("error", message);
     likedVideoSetter(false);
   }
 }
@@ -44,28 +35,23 @@ export async function deleteLikedVideo(
   userKey
 ) {
   likedVideoSetter(false);
-  try {
-    let { success, data, message } = await apiCall(
-      "DELETE",
-      `likedVideos/${videoId}`,
-      {
-        userKey,
-      }
-    );
 
-    if (success === true) {
-      likedVideoStateDispatch({
-        payload: "REMOVE_LIKED_VIDEO",
-        video: data.video,
-      });
-      toastDispatch("success", "Unliked the Video");
-    } else {
-      likedVideoSetter(true);
-      toastDispatch("error", message);
+  let { success, data, message } = await apiCall(
+    "DELETE",
+    `likedVideos/${videoId}`,
+    {
+      userKey,
     }
-  } catch (error) {
-    console.error("error");
+  );
+
+  if (success === true) {
+    likedVideoStateDispatch({
+      payload: "REMOVE_LIKED_VIDEO",
+      video: data.video,
+    });
+    toastDispatch("success", "Unliked the Video");
+  } else {
     likedVideoSetter(true);
-    toastDispatch("error", "error occured can't Unlike video");
+    toastDispatch("error", message);
   }
 }

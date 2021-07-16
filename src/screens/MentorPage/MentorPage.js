@@ -36,7 +36,7 @@ const MentorPage = () => {
 
   useEffect(() => {
     (async function () {
-      try {
+     
         let { data, success, message } = await apiCall(
           "GET",
           `mentor/${mentorId}`
@@ -46,9 +46,7 @@ const MentorPage = () => {
           mentorDataSetter(data);
           loadingSetter(false);
         }
-      } catch (error) {
-        console.error("error ->", error);
-      }
+      
     })();
   }, []);
 

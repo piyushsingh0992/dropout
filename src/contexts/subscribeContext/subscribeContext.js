@@ -31,7 +31,7 @@ export function SubscribeProvider({ children }) {
     let { loginStatus, userKey } = login;
     if (loginStatus) {
       (async function () {
-        try {
+        
           let { success, data, message } = await apiCall(
             "GET",
             `subscribe/${userKey}`
@@ -45,10 +45,7 @@ export function SubscribeProvider({ children }) {
           } else {
             toastDispatch("error", message);
           }
-        } catch (error) {
-          console.error(error);
-          toastDispatch("error", "Some Error Occured");
-        }
+        
       })();
     }
   }, [login]);

@@ -27,7 +27,7 @@ const VideoPlayerPage = () => {
   const [notes, notesSetter] = useState([]);
   useEffect(() => {
     (async function () {
-      try {
+     
         loaderSetter(true);
         let { success, data, message } = await apiCall(
           "POST",
@@ -42,11 +42,8 @@ const VideoPlayerPage = () => {
           recommendationSetter(data.recommendation);
           notesSetter(data.notes);
         }
-      } catch (error) {
-        console.error("error ->", error);
-      } finally {
         loaderSetter(false);
-      }
+      
     })();
   }, [videoId]);
 

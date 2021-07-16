@@ -5,7 +5,7 @@ export async function signInService(
   loginDispatch,
   toastDispatch
 ) {
-  try {
+
     let { data, message, success } = await apiCall(
       "POST",
       "auth",
@@ -36,8 +36,5 @@ export async function signInService(
     } else {
       toastDispatch("error", message);
     }
-  } catch (error) {
-    console.error(error);
-    toastDispatch("error", "Error occured");
-  }
+
 }

@@ -44,7 +44,7 @@ export function PlaylistProvider({ children }) {
 
     if (loginStatus) {
       (async function () {
-        try {
+        
           let { success, data, message } = await apiCall(
             "GET",
             `playlist/${userKey}`
@@ -55,10 +55,7 @@ export function PlaylistProvider({ children }) {
           } else {
             toastDispatch("error", message);
           }
-        } catch (error) {
-          console.error(error);
-          toastDispatch("error", "Some Error Occured");
-        }
+        
       })();
     }
   }, [login]);

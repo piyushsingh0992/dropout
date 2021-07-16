@@ -21,7 +21,7 @@ const VideoNotes = ({ videoNotes, videoId }) => {
   }, [videoNotes]);
 
   async function addingNotes() {
-    try {
+   
       let { data, success, message } = await apiCall(
         "POST",
         `notes/${videoId}`,
@@ -37,10 +37,7 @@ const VideoNotes = ({ videoNotes, videoId }) => {
       } else {
         toastDispatch("error", message);
       }
-    } catch (error) {
-      console.error(error);
-      toastDispatch("error", "Error Occured Cann't edit Notes Now");
-    }
+  
   }
 
   function currentNoteHandler(e) {

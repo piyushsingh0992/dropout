@@ -7,7 +7,7 @@ export async function createPlaylist(
   toastDispatch,
   userKey
 ) {
-  try {
+
     let { data, success, message } = await apiCall("POST", `playlist/create`, {
       userKey,
       playlistName: newPlaylistName,
@@ -23,10 +23,7 @@ export async function createPlaylist(
     } else {
       toastDispatch("error", message);
     }
-  } catch (error) {
-    console.error(error);
-    toastDispatch("error", "error! Cannot create a new playlist");
-  }
+  
 }
 
 export async function addVideoToPlaylist(
@@ -37,7 +34,7 @@ export async function addVideoToPlaylist(
   toastDispatch,
   userKey
 ) {
-  try {
+
     let { data, success, message } = await apiCall("POST", `playlist`, {
       playlistArray: playlistIdArray,
       videoId: videoId,
@@ -51,10 +48,7 @@ export async function addVideoToPlaylist(
     } else {
       toastDispatch("error", message);
     }
-  } catch (error) {
-    console.error(error);
-    toastDispatch("error", "error! Cannot add video to playlist");
-  }
+  
 }
 
 export async function deleteVideoFromPlaylist(
@@ -64,7 +58,7 @@ export async function deleteVideoFromPlaylist(
   toastDispatch,
   userKey
 ) {
-  try {
+
     let { data, success, message } = await apiCall(
       "DELETE",
       `playlist/${videoId}`,
@@ -80,10 +74,7 @@ export async function deleteVideoFromPlaylist(
     } else {
       toastDispatch("error", message);
     }
-  } catch (error) {
-    console.error({ error });
-    toastDispatch("error", "error! Cannot delete the video from Playlist");
-  }
+  
 }
 
 export async function deletePlaylist(
@@ -92,7 +83,7 @@ export async function deletePlaylist(
   toastDispatch,
   userKey
 ) {
-  try {
+
     let { data, success, message } = await apiCall("DELETE", `playlist`, {
       playlistId,
       userKey,
@@ -107,10 +98,7 @@ export async function deletePlaylist(
     } else {
       toastDispatch("error", message);
     }
-  } catch (error) {
-    console.error({ error });
-    toastDispatch("error", "error! Cannot delete the Playlist");
-  }
+  
 }
 
 export async function playlistNameChanger(
@@ -122,7 +110,7 @@ export async function playlistNameChanger(
   userKey
 ) {
   (async function () {
-    try {
+    
       let { data, success, message } = await apiCall(
         "POST",
         `playlist/${playlistId}/${newName}`,
@@ -141,9 +129,6 @@ export async function playlistNameChanger(
       } else {
         toastDispatch("error", message);
       }
-    } catch (error) {
-      console.error({ error });
-      toastDispatch("error", "error! Cannot rename the Playlist");
-    }
+    
   })();
 }
