@@ -3,7 +3,7 @@ import "./mentorHeader.css";
 import { Navlink } from "react-router-dom";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import Button from "../button/Button.js";
+import Button from "../button";
 import SubscribeButton from "../subscribeButton/SubscribeButton.js";
 import MentorPlaylistSetter from "../mentorPlaylistSetter/MentorPlaylistSetter";
 const MentorHeader = ({ mentorData, playlistId, playlistIdSetter }) => {

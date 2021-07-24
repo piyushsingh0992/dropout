@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./videoUploader.css";
-import Button from "../button/Button.js";
+import Button from "../button";
 const VideoUploader = () => {
   const [link, linkSetter] = useState();
   const [showModal, showModalSetter] = useState(false);

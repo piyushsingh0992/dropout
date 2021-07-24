@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./hero.css";
 import logo from "../../utils/images/brand/dropout.svg";
 import menu from "../../utils/images/icons/menu.svg";
-import Button from "../button/Button.js";
+import Button from "../button";
 import SideNav from "../sideNav/SideNav.js";
 import leftArrow from "../../utils/images/icons/leftArrow.svg";
 import rightArrow from "../../utils/images/icons/rightArrow.svg";

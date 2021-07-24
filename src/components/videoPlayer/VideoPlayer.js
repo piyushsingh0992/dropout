@@ -3,7 +3,7 @@ import "./videoPlayer.css";
 import { NavLink } from "react-router-dom";
 import LikeButton from "../likeButton/LikeButton.js";
 import DoubtSolver from "../doubtSolver/DoubtSolver.js";
-import Button from "../button/Button.js";
+import Button from "../button";
 import WatchLaterButton from "../watchLaterButton/WatchLaterButton.js";
 import PlaylistButton from "../playlistButton/PlaylistButton.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";

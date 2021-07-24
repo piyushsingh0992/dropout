@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./subscribeButton.css";
-import Button from "../button/Button.js";
+import Button from "../button";
 import { useSubscribe } from "../../contexts/subscribeContext/subscribeContext.js";
 import {
   subscribeMentor,

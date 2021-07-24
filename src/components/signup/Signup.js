@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./signup.css";
 import dropout from "../../utils/images/brand/dropout.svg";
 import TextField from "../textField/TextField.js";
-import Button from "../button/Button.js";
+import Button from "../button";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./playlistModal.css";
 import close from "../../utils/images/icons/close.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import Button from "../button/Button.js";
+import Button from "../button";
 import { usePlaylist } from "../../contexts/playlistContext/playlistContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
 import {

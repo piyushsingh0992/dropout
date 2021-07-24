@@ -3,7 +3,7 @@ import "./playlistCard.css";
 import VideoCard from "../videoCard/VideoCard.js";
 import deleteIcon from "../../utils/images/icons/delete.svg";
 import editIcon from "../../utils/images/icons/edit.svg";
-import Button from "../button/Button";
+import Button from "../button";
 import TextField from "../textField/TextField.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";

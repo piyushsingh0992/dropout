@@ -1,5 +1,5 @@
 import React from "react";
-import "./button.css";
+import "./style.css";
 function Button({ text, type, clickFunction,size }) {
   function clickHandler() {
     clickFunction && clickFunction();

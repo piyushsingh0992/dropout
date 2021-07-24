@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./doubtSolver.css";
 
 import enter from "../../utils/images/icons/enter.svg";
-import Avatar from "../avatar/Avatar.js";
+import Avatar from "../avatar";
 
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
