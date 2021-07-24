@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import Loader from "../miniloader";
 function Button({ text, type, clickFunction,size }) {
   function clickHandler() {
     clickFunction && clickFunction();
@@ -10,6 +11,8 @@ function Button({ text, type, clickFunction,size }) {
       className={`btn btn-${type ? type : "primary"} ${size?size:'default'}`}
     >
       {text}
+      
+      {/* <Loader/> */}
     </button>
   );
 }
