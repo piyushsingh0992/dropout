@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useParams, NavLink } from "react-router-dom";
-import logo from "../../utils/images/brand/dropout.svg";
+import logo from "../../assets/brand/dropout.svg";
 import SideNav from "../../components/sideNav/index.js";
 import VideoPlayer from "../../components/videoPlayer/index.js";
 import VideoNotes from "../../components/videoNotes/index.js";

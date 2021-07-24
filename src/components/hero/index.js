@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import "./style.css";
-import logo from "../../utils/images/brand/dropout.svg";
-import menu from "../../utils/images/icons/menu.svg";
+// import logo from "../../assets/brand/dropout.svg";
+import logo from "../../assets/brand/dropout.svg";
+import menu from "../../assets/icons/menu.svg";
 import Button from "../button";
 import SideNav from "../sideNav/index.js";
-import leftArrow from "../../utils/images/icons/leftArrow.svg";
-import rightArrow from "../../utils/images/icons/rightArrow.svg";
+import leftArrow from "../../assets/icons/leftArrow.svg";
+import rightArrow from "../../assets/icons/rightArrow.svg";
 import { useTheme } from "../../contexts/themeContext/index.js";
 import { useLanguage } from "../../contexts/languageContext/index.js";
 

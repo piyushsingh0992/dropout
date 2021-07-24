@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./style.css";
 import VideoCard from "../videoCard/index.js";
-import deleteIcon from "../../utils/images/icons/delete.svg";
-import editIcon from "../../utils/images/icons/edit.svg";
+import deleteIcon from "../../assets/icons/delete.svg";
+import editIcon from "../../assets/icons/edit.svg";
 import Button from "../button";
 import TextField from "../textField/index.js";
 import { useTheme } from "../../contexts/themeContext/index.js";

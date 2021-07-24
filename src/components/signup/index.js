@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import dropout from "../../utils/images/brand/dropout.svg";
+import dropout from "../../assets/brand/dropout.svg";
 import TextField from "../textField/index.js";
 import Button from "../button";
 import { useTheme } from "../../contexts/themeContext/index.js";

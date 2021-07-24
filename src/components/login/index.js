@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import setting from "../../utils/images/icons/settings.svg";
+import setting from "../../assets/icons/settings.svg";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../contexts/authContext/index.js";
 import { useToast } from "../../contexts/toastContext/index.js";

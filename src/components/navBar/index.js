@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import logo from "../../utils/images/brand/dropout.svg";
+import logo from "../../assets/brand/dropout.svg";
 import { useTheme } from "../../contexts/themeContext/index.js";
 const Navbar = ({ trigger }) => {
   const { theme } = useTheme();

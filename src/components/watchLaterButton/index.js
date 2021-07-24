@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 
-import laterWhite from "../../utils/images/icons/laterWhite.svg";
-import laterGrey from "../../utils/images/icons/later.svg";
-import check from "../../utils/images/icons/check.svg";
+import laterWhite from "../../assets/icons/laterWhite.svg";
+import laterGrey from "../../assets/icons/later.svg";
+import check from "../../assets/icons/check.svg";
 import { useWatchLater } from "../../contexts/watchLaterContext";
 import { useToast } from "../../contexts/toastContext";
 import {

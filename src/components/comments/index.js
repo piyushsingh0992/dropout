@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 
-import enter from "../../utils/images/icons/enter.svg";
+import enter from "../../assets/icons/enter.svg";
 import Avatar from "../avatar";
 
 import { useTheme } from "../../contexts/themeContext/index.js";

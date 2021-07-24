@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import error from "../../utils/images/icons/error.png";
+import error from "../../assets/icons/error.png";
 const ErrorPage = () => {
   return (
     <div className="errorPage">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import like from "../../utils/images/icons/like.svg";
-import likeBlue from "../../utils/images/icons/likeBlue.svg";
+import like from "../../assets/icons/like.svg";
+import likeBlue from "../../assets/icons/likeBlue.svg";
 import { useLikedVideos } from "../../contexts/likedVideoContext/index.js";
 import { addLikedVideo, deleteLikedVideo } from "../../utils/likeFunction.js";
 import { useToast } from "../../contexts/toastContext/index.js";
