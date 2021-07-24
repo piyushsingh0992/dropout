@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import dropout from "../../assets/brand/dropout.svg";
 import TextField from "../textField/index.js";
@@ -13,6 +13,10 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
   const { language } = useLanguage();
   const { toastDispatch } = useToast();
   const { login, loginDispatch } = useAuth();
+  const [loader, setLoader] = useState(false);
+  useEffect(() => {
+    setLoader(false);
+  }, [login]);
 
   function userIdHanlder(newValue) {
     signInDetailsSetter((value) => {
@@ -45,7 +49,9 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
           text={language.auth.signin}
           clickFunction={() => {
             signInService(signInDetails, loginDispatch, toastDispatch);
+            setLoader(true);
           }}
+          loading={loader}
         />
         <p style={{ color: theme.boldText }}>
           {language.auth.msg1}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import dropout from "../../assets/brand/dropout.svg";
 import TextField from "../textField/index.js";
@@ -8,11 +8,20 @@ import { useLanguage } from "../../contexts/languageContext/index.js";
 import { useAuth } from "../../contexts/authContext/index.js";
 import { useToast } from "../../contexts/toastContext/index.js";
 import { signUpService } from "./common.js";
-const SignUp = ({ userSetter, signUpDetails, signUpDetailsSetter ,signInDetailsSetter}) => {
+const SignUp = ({
+  userSetter,
+  signUpDetails,
+  signUpDetailsSetter,
+  signInDetailsSetter,
+}) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { toastDispatch } = useToast();
   const { login, loginDispatch } = useAuth();
+  const [loader, setLoader] = useState(false);
+  useEffect(() => {
+    setLoader(false);
+  }, [login]);
 
   function userIdHanlder(newValue) {
     signUpDetailsSetter((value) => {
@@ -55,6 +64,7 @@ const SignUp = ({ userSetter, signUpDetails, signUpDetailsSetter ,signInDetailsS
       <div className="signUp-btn-container">
         <Button
           text="Sign Up"
+          loading={loader}
           clickFunction={() => {
             signUpService(
               signUpDetails,
@@ -63,6 +73,7 @@ const SignUp = ({ userSetter, signUpDetails, signUpDetailsSetter ,signInDetailsS
               signInDetailsSetter,
               userSetter
             );
+            setLoader(true);
           }}
         />
         <p style={{ color: theme.boldText }}>
