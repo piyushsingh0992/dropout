@@ -7,8 +7,8 @@ import Button from "../button";
 import SideNav from "../sideNav/index.js";
 import leftArrow from "../../utils/images/icons/leftArrow.svg";
 import rightArrow from "../../utils/images/icons/rightArrow.svg";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
+import { useLanguage } from "../../contexts/languageContext/index.js";
 
 const Hero = ({mentorArray}) => {
   const { theme } = useTheme();

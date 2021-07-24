@@ -5,15 +5,15 @@ import deleteIcon from "../../utils/images/icons/delete.svg";
 import editIcon from "../../utils/images/icons/edit.svg";
 import Button from "../button";
 import TextField from "../textField/index.js";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useAuth } from "../../contexts/authContext/authContext.js";
-import { usePlaylist } from "../../contexts/playlistContext/playlistContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
+import { useAuth } from "../../contexts/authContext/index.js";
+import { usePlaylist } from "../../contexts/playlistContext/index.js";
 import {
   deleteVideoFromPlaylist,
   deletePlaylist,
   playlistNameChanger,
 } from "../../utils/playlistFunction.js";
-import { useToast } from "../../contexts/toastContext/toastContext";
+import { useToast } from "../../contexts/toastContext";
 const PlaylistCard = ({ name, videos, playlistId }) => {
   const { theme } = useTheme();
   const { playlistState, playlistDispatch } = usePlaylist();

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import SignIn from "../../components/signin/index.js";
 import SignUp from "../../components/signup/index.js";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useAuth } from "../../contexts/authContext/authContext.js";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
+import { useAuth } from "../../contexts/authContext/index.js";
+import { useToast } from "../../contexts/toastContext/index.js";
 import { useLocation, useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const { theme } = useTheme();

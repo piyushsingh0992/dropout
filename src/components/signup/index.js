@@ -3,10 +3,10 @@ import "./signup.css";
 import dropout from "../../utils/images/brand/dropout.svg";
 import TextField from "../textField/index.js";
 import Button from "../button";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import { useAuth } from "../../contexts/authContext/authContext.js";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
+import { useLanguage } from "../../contexts/languageContext/index.js";
+import { useAuth } from "../../contexts/authContext/index.js";
+import { useToast } from "../../contexts/toastContext/index.js";
 import { signUpService } from "./common.js";
 const SignUp = ({ userSetter, signUpDetails, signUpDetailsSetter ,signInDetailsSetter}) => {
   const { theme } = useTheme();

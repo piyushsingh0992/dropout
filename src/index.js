@@ -2,15 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { LanguageProvider } from "./contexts/languageContext/languageContext.js";
-import { ThemeProvider } from "./contexts/themeContext/themeContext.js";
+import { LanguageProvider } from "./contexts/languageContext/index.js";
+import { ThemeProvider } from "./contexts/themeContext";
 import { BrowserRouter as Router } from "react-router-dom";
-import { LikedVideoProvider } from "./contexts/likedVideoContext/likedVideoContext.js";
-import { WatchLaterProvider } from "./contexts/watchLaterContext/watchLaterContext.js";
-import { SubscribeProvider } from "./contexts/subscribeContext/subscribeContext.js";
-import { PlaylistProvider } from "./contexts/playlistContext/playlistContext.js";
-import { AuthProvider } from "./contexts/authContext/authContext.js";
-import { ToastProvider } from "./contexts/toastContext/toastContext.js";
+import { LikedVideoProvider } from "./contexts/likedVideoContext/index.js";
+import { WatchLaterProvider } from "./contexts/watchLaterContext/index.js";
+import { SubscribeProvider } from "./contexts/subscribeContext/index.js";
+import { PlaylistProvider } from "./contexts/playlistContext/index.js";
+import { AuthProvider } from "./contexts/authContext";
+import { ToastProvider } from "./contexts/toastContext";
 
 
 ReactDOM.render(

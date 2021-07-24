@@ -16,7 +16,7 @@ import DashboardPage from "./screens/dashboardPage";
 import ErrorPage from "./screens/errorPage";
 import ContextManager from "./components/contextManager";
 import PrivateRoute from "./components/privateRoute/index.js";
-import { useTheme } from "./contexts/themeContext/themeContext.js";
+import { useTheme } from "./contexts/themeContext/index.js";
 
 function App() {
   const { theme } = useTheme();

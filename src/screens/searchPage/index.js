@@ -5,7 +5,7 @@ import Navigation from "../../components/navigation/index.js";
 import SearchVideoCard from "../../components/searchVideoCard/index.js";
 import { apiCall } from "../../apiCall/apiCall";
 import Loader from "../../components/loader";
-import { useTheme } from "../../contexts/themeContext/themeContext";
+import { useTheme } from "../../contexts/themeContext";
 const SearchPage = () => {
   const [searchTerm, searchTermSetter] = useState("");
   const [keyCode, keyCodeSetter] = useState(null);

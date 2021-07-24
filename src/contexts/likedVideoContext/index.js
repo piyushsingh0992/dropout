@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { apiCall } from "../../apiCall/apiCall";
-import { useAuth } from "../authContext/authContext";
-import { useToast } from "../toastContext/toastContext";
+import { useAuth } from "../authContext";
+import { useToast } from "../toastContext";
 const LikedVideoContext = createContext();
 
 function likedVideoManager(state, action) {

@@ -5,7 +5,7 @@ import LikeButton from "../likeButton/index.js";
 import DoubtSolver from "../doubtSolver";
 import WatchLaterButton from "../watchLaterButton/index.js";
 import PlaylistButton from "../playlistButton/index.js";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
 import PlaylistModal from "../playlistModal/index.js";
 import SubscribeButton from "../subscribeButton/index.js";
 

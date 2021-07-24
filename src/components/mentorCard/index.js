@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./mentorCard.css";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
 import { NavLink } from "react-router-dom";
 
 const MentorCard = ({

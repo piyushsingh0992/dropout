@@ -4,13 +4,13 @@ import "./watchLaterButton.css";
 import laterWhite from "../../utils/images/icons/laterWhite.svg";
 import laterGrey from "../../utils/images/icons/later.svg";
 import check from "../../utils/images/icons/check.svg";
-import { useWatchLater } from "../../contexts/watchLaterContext/watchLaterContext";
-import { useToast } from "../../contexts/toastContext/toastContext";
+import { useWatchLater } from "../../contexts/watchLaterContext";
+import { useToast } from "../../contexts/toastContext";
 import {
   addWatchLater,
   removeWatchLater,
 } from "../../utils/watchLaterFunction.js";
-import { useAuth } from "../../contexts/authContext/authContext.js";
+import { useAuth } from "../../contexts/authContext/index.js";
 
 
 const WatchLaterButton = ({ videoId, videoPlayer }) => {

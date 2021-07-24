@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./videoCard.css";
 import LikeButton from "../likeButton/index.js";
 import ThumbNail from "../thumbNail/index.js";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
 import PlaylistModal from "../playlistModal/index.js";
 const VideoCard = ({ videosDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);

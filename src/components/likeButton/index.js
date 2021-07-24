@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import like from "../../utils/images/icons/like.svg";
 import likeBlue from "../../utils/images/icons/likeBlue.svg";
-import { useLikedVideos } from "../../contexts/likedVideoContext/likedVideoContext.js";
+import { useLikedVideos } from "../../contexts/likedVideoContext/index.js";
 import { addLikedVideo, deleteLikedVideo } from "../../utils/likeFunction.js";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
-import { useAuth } from "../../contexts/authContext/authContext.js";
+import { useToast } from "../../contexts/toastContext/index.js";
+import { useAuth } from "../../contexts/authContext/index.js";
 
 const LikeButton = ({ size, videoId }) => {
   const [likedVideo, likedVideoSetter] = useState(false);

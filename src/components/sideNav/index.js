@@ -3,11 +3,11 @@ import "./sideNav.css";
 import { NavLink } from "react-router-dom";
 import dropout from "../../utils/images/brand/dropout.svg";
 import setting from "../../utils/images/icons/settings.svg";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
+import { useLanguage } from "../../contexts/languageContext/index.js";
 import { useSideNavRoute } from "../../utils/common.js";
-import { useAuth } from "../../contexts/authContext/authContext.js";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { useAuth } from "../../contexts/authContext/index.js";
+import { useToast } from "../../contexts/toastContext/index.js";
 import dashboard from "../../utils/images/icons/dashboard.png";
 import dashboardWhite from "../../utils/images/icons/dashboardWhite.png";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useLanguage } from "../../contexts/languageContext/index.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
 
 const ContextManager = () => {
   let { languageDispatch } = useLanguage();

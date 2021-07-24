@@ -2,8 +2,8 @@ import React, { useEffect, useReducer, createContext, useContext } from "react";
 
 
 import { apiCall } from "../../apiCall/apiCall";
-import { useAuth } from "../authContext/authContext";
-import { useToast } from "../toastContext/toastContext";
+import { useAuth } from "../authContext";
+import { useToast } from "../toastContext";
 
 const PlaylistContext = createContext();
 function playlistManager(state, action) {

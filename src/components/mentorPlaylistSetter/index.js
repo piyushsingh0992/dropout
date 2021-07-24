@@ -1,8 +1,8 @@
 import React from "react";
 import "./mentorPlaylistSetter.css";
 
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
+import { useLanguage } from "../../contexts/languageContext/index.js";
 
 const MentorPlaylistSetter = ({ playlists, playlistId, playlistIdSetter }) => {
   const { theme } = useTheme();

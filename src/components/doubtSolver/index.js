@@ -4,10 +4,10 @@ import "./style.css";
 import enter from "../../utils/images/icons/enter.svg";
 import Avatar from "../avatar";
 
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useAuth } from "../../contexts/authContext/authContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
+import { useAuth } from "../../contexts/authContext/index.js";
 
-import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { useToast } from "../../contexts/toastContext/index.js";
 import { apiCall } from "../../apiCall/apiCall";
 
 const DoubtSolver = ({ comments, videoId }) => {

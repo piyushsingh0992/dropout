@@ -2,8 +2,8 @@ import React from "react";
 import "./login.css";
 import setting from "../../utils/images/icons/settings.svg";
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../../contexts/authContext/authContext.js";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { useAuth } from "../../contexts/authContext/index.js";
+import { useToast } from "../../contexts/toastContext/index.js";
 const Login = () => {
   const {
     login: { loginStatus },

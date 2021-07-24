@@ -1,8 +1,8 @@
 import React from "react";
 import "./mentorHeader.css";
 import { Navlink } from "react-router-dom";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../../contexts/languageContext/languageContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
+import { useLanguage } from "../../contexts/languageContext/index.js";
 import Button from "../button";
 import SubscribeButton from "../subscribeButton/index.js";
 import MentorPlaylistSetter from "../mentorPlaylistSetter";

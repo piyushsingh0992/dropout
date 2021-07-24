@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./style.css";
 import Navigation from "../../components/navigation/index.js";
 import Heading from "../../components/heading/index.js";
-import { useAuth } from "../../contexts/authContext/authContext";
+import { useAuth } from "../../contexts/authContext";
 import { useLocation, useNavigate  } from "react-router-dom";
 
 const DashboardPage = () => {

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./playlistModal.css";
 import close from "../../utils/images/icons/close.svg";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
 import Button from "../button";
-import { usePlaylist } from "../../contexts/playlistContext/playlistContext.js";
-import { useToast } from "../../contexts/toastContext/toastContext.js";
+import { usePlaylist } from "../../contexts/playlistContext/index.js";
+import { useToast } from "../../contexts/toastContext/index.js";
 import {
   createPlaylist,
   addVideoToPlaylist,
 } from "../../utils/playlistFunction.js";
-import { useAuth } from "../../contexts/authContext/authContext.js";
+import { useAuth } from "../../contexts/authContext/index.js";
 
 const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
   const [playlistArray, playlistArraySetter] = useState([]);

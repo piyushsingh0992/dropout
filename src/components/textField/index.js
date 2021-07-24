@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./textField.css";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
 const TextField = ({ label, type, value, onChangeFunction }) => {
   const { theme } = useTheme();
 

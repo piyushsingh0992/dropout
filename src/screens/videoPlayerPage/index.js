@@ -6,8 +6,8 @@ import SideNav from "../../components/sideNav/index.js";
 import VideoPlayer from "../../components/videoPlayer/index.js";
 import VideoNotes from "../../components/videoNotes/index.js";
 import RecommendVideoCard from "../../components/recommendVideoCard/index.js";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useAuth } from "../../contexts/authContext/authContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
+import { useAuth } from "../../contexts/authContext/index.js";
 import Loader from "../../components/loader/index.js";
 
 import { apiCall } from "../../apiCall/apiCall";

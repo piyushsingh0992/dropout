@@ -5,8 +5,8 @@ import moment from "moment";
 import Navigation from "../../components/navigation/index.js";
 import HistoryVideoCard from "../../components/historyVideoCard/index.js";
 import Heading from "../../components/heading/index.js";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useAuth } from "../../contexts/authContext/authContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
+import { useAuth } from "../../contexts/authContext/index.js";
 import Loader from "../../components/loader/index.js";
 import { apiCall } from "../../apiCall/apiCall";
 const HistoryPage = () => {

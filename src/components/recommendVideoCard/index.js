@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import "./recommendVideoCard.css";
 import { NavLink } from "react-router-dom";
 import ThumbNail from "../thumbNail/index.js";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
 import PlaylistModal from "../playlistModal/index.js";
 
 const RecommendVideoCard = ({ videoDetails }) => {

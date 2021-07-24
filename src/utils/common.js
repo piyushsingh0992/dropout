@@ -33,8 +33,8 @@ import abhinavbanner from "./images/mentors/abhinav/banner1.png";
 import abhinavChikarabanner from "./images/mentors/abhinavChikara/banner1.png";
 import prakharbanner from "./images/mentors/prakhar/banner1.png";
 
-import { useTheme } from "../contexts/themeContext/themeContext.js";
-import { useLanguage } from "../contexts/languageContext/languageContext.js";
+import { useTheme } from "../contexts/themeContext/index.js";
+import { useLanguage } from "../contexts/languageContext/index.js";
 
 export const useMentorDetails = () => {
   const { language } = useLanguage();

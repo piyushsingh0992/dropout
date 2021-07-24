@@ -3,8 +3,8 @@ import "./style.css";
 import Navigation from "../../components/navigation/index.js";
 import VideoCard from "../../components/videoCard/index.js";
 import Heading from "../../components/heading/index.js";
-import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLikedVideos } from "../../contexts/likedVideoContext/likedVideoContext.js";
+import { useTheme } from "../../contexts/themeContext/index.js";
+import { useLikedVideos } from "../../contexts/likedVideoContext/index.js";
 
 const LikedVideoPage = () => {
   const { theme } = useTheme();
