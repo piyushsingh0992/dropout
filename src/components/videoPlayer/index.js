@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 import { NavLink } from "react-router-dom";
 import LikeButton from "../likeButton/index.js";
-import DoubtSolver from "../doubtSolver";
+import Comments from "../comments";
 import WatchLaterButton from "../watchLaterButton/index.js";
 import PlaylistButton from "../playlistButton/index.js";
 import { useTheme } from "../../contexts/themeContext/index.js";
@@ -49,7 +49,7 @@ const VideoPlayer = ({ videoDetails }) => {
         <SubscribeButton mentorId={mentor._id} />
         </div>
       </div>
-      <DoubtSolver comments={comments} videoId={_id} />
+      <Comments comments={comments} videoId={_id} />
       {modalTrigger && (
         <PlaylistModal modalTriggerSetter={modalTriggerSetter} videoId={_id} />
       )}

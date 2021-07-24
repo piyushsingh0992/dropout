@@ -1,39 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
-
 import MentorHeader from "../mentorHeader/index.js";
 import VideoCard from "../videoCard/index.js";
-import { useLikedVideos } from "../../contexts/likedVideoContext/index.js";
-// const Mentor = ({ mentorDetails }) => {
-//   
-//
-//   const { PlaylistDetails, mentorDetails } = mentorDetails;
-//   const { likedVideoState } = useLikedVideos();
-//   const [categoryId, categoryIdSetter] = useState(mentor.playlist[0].id);
-
-//   let currentPlaylist = videos.filter((item) => {
-//     if (item.category.id === categoryId) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   });
-
-//   return (
-//     <div className="mentor">
-//       <MentorHeader
-//         mentor={mentor}
-//         categoryId={categoryId}
-//         categoryIdSetter={categoryIdSetter}
-//       />
-//       <div className="videoCardGrid">
-//         {currentPlaylist.map((item) => {
-//           return <VideoCard mentorImg={mentor.profile}  videosDetails={item} />;
-//         })}
-//       </div>
-//     </div>
-//   );
-// };
 
 const Mentor = ({ mentorData }) => {
   const { playlists } = mentorData;

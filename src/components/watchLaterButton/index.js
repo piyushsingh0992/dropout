@@ -12,12 +12,10 @@ import {
 } from "../../utils/watchLaterFunction.js";
 import { useAuth } from "../../contexts/authContext/index.js";
 
-
 const WatchLaterButton = ({ videoId, videoPlayer }) => {
-  
   const [addedVideo, addedVideoSetter] = useState(false);
   let { watchLaterState, watchLaterDispatch } = useWatchLater();
-  const { toastState, toastDispatch } = useToast();
+  const { toastDispatch } = useToast();
   const {
     login: { userKey },
   } = useAuth();
@@ -39,14 +37,16 @@ const WatchLaterButton = ({ videoId, videoPlayer }) => {
         videoId,
         watchLaterDispatch,
         toastDispatch,
-        addedVideoSetter,userKey
+        addedVideoSetter,
+        userKey
       );
     } else {
       addWatchLater(
         videoId,
         watchLaterDispatch,
         toastDispatch,
-        addedVideoSetter,userKey
+        addedVideoSetter,
+        userKey
       );
     }
   }

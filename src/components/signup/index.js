@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
 import dropout from "../../utils/images/brand/dropout.svg";
 import TextField from "../textField/index.js";

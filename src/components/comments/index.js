@@ -10,7 +10,7 @@ import { useAuth } from "../../contexts/authContext/index.js";
 import { useToast } from "../../contexts/toastContext/index.js";
 import { apiCall } from "../../apiCall/apiCall";
 
-const DoubtSolver = ({ comments, videoId }) => {
+const Comments = ({ comments, videoId }) => {
   const { theme } = useTheme();
   const [currentQuestion, currentQuestionSetter] = useState("");
   const [questionArray, questionArraySetter] = useState([]);
@@ -61,7 +61,7 @@ const DoubtSolver = ({ comments, videoId }) => {
   }
 
   return (
-    <div className="doubtSolver">
+    <div className="comments">
       <div className="questionBox">
         <Avatar size="large" name="p" />
         <input
@@ -101,4 +101,4 @@ const DoubtSolver = ({ comments, videoId }) => {
   );
 };
 
-export default DoubtSolver;
+export default Comments;
