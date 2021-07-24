@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "./videoCard.css";
+import "./style.css";
 import LikeButton from "../likeButton/index.js";
 import ThumbNail from "../thumbNail/index.js";
 import { useTheme } from "../../contexts/themeContext/index.js";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./videoPlayer.css";
+import "./style.css";
 import { NavLink } from "react-router-dom";
 import LikeButton from "../likeButton/index.js";
 import DoubtSolver from "../doubtSolver";

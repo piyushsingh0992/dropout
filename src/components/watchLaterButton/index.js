@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./watchLaterButton.css";
+import "./style.css";
 
 import laterWhite from "../../utils/images/icons/laterWhite.svg";
 import laterGrey from "../../utils/images/icons/later.svg";

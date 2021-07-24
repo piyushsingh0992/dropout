@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./playlistCard.css";
+import "./style.css";
 import VideoCard from "../videoCard/index.js";
 import deleteIcon from "../../utils/images/icons/delete.svg";
 import editIcon from "../../utils/images/icons/edit.svg";

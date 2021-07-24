@@ -1,5 +1,5 @@
 import React from "react";
-import "./mentorHeader.css";
+import "./style.css";
 import { Navlink } from "react-router-dom";
 import { useTheme } from "../../contexts/themeContext/index.js";
 import { useLanguage } from "../../contexts/languageContext/index.js";

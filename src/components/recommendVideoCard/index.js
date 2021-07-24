@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import "./recommendVideoCard.css";
+import "./style.css";
 import { NavLink } from "react-router-dom";
 import ThumbNail from "../thumbNail/index.js";
 import { useTheme } from "../../contexts/themeContext/index.js";

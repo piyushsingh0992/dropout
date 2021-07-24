@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./playlistButton.css";
+import "./style.css";
 import playlistWhite from "../../utils/images/icons/playlistWhite.svg";
 import playlistGrey from "../../utils/images/icons/playlist.svg";
 const PlaylistButton = ({ videoId, playlist, modalTriggerSetter }) => {

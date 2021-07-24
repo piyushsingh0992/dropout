@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./mentor.css";
+import "./style.css";
+
 import MentorHeader from "../mentorHeader/index.js";
 import VideoCard from "../videoCard/index.js";
 import { useLikedVideos } from "../../contexts/likedVideoContext/index.js";

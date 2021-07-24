@@ -1,5 +1,5 @@
 import React from "react";
-import "./thumbNail.css";
+import "./style.css";
 import { useNavigate } from "react-router-dom";
 
 import WatchLaterButton from "../watchLaterButton/index.js";

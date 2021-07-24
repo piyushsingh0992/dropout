@@ -1,5 +1,5 @@
 import React from "react";
-import "./mentorGrid.css";
+import "./style.css";
 import MentorCard from "../mentorCard";
 
 

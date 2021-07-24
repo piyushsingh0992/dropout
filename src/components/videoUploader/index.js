@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import "./videoUploader.css";
+import React from "react";
+import "./style.css";
 import Button from "../button";
 const VideoUploader = () => {
   const [link, linkSetter] = useState();

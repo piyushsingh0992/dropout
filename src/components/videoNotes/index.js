@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./videoNotes.css";
+import "./style.css";
 import enter from "../../utils/images/icons/enter.svg";
 import { useTheme } from "../../contexts/themeContext/index.js";
 import { useAuth } from "../../contexts/authContext/index.js";

@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import "./navigation.css";
+import "./style.css";
 import SideNav from "../sideNav/index.js";
 import NavBar from "../navBar/index.js";
 const Navigation = () => {

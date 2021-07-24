@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./mentorCard.css";
+import "./style.css";
+
 import { useTheme } from "../../contexts/themeContext/index.js";
 import { NavLink } from "react-router-dom";
 

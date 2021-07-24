@@ -1,5 +1,5 @@
 import React from "react";
-import "./mentorPlaylistSetter.css";
+import "./style.css";
 
 import { useTheme } from "../../contexts/themeContext/index.js";
 import { useLanguage } from "../../contexts/languageContext/index.js";

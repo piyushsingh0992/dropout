@@ -1,5 +1,5 @@
 import React from "react";
-import "./loader.css";
+import "./style.css";
 const Loader = ({ size }) => {
   let dimension = size
     ? {

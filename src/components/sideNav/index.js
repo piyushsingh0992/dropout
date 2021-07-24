@@ -1,8 +1,7 @@
 import React from "react";
-import "./sideNav.css";
+import "./style.css";
 import { NavLink } from "react-router-dom";
 import dropout from "../../utils/images/brand/dropout.svg";
-import setting from "../../utils/images/icons/settings.svg";
 import { useTheme } from "../../contexts/themeContext/index.js";
 import { useLanguage } from "../../contexts/languageContext/index.js";
 import { useSideNavRoute } from "../../utils/common.js";

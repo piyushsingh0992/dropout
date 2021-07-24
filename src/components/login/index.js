@@ -1,5 +1,5 @@
 import React from "react";
-import "./login.css";
+import "./style.css";
 import setting from "../../utils/images/icons/settings.svg";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../contexts/authContext/index.js";

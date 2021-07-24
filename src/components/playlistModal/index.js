@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./playlistModal.css";
+import "./style.css";
 import close from "../../utils/images/icons/close.svg";
 import { useTheme } from "../../contexts/themeContext/index.js";
 import Button from "../button";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./subscribeButton.css";
+import "./style.css";
 import Button from "../button";
 import { useSubscribe } from "../../contexts/subscribeContext/index.js";
 import {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
-import "./hero.css";
+import "./style.css";
 import logo from "../../utils/images/brand/dropout.svg";
 import menu from "../../utils/images/icons/menu.svg";
 import Button from "../button";
