@@ -1,37 +1,37 @@
-import home from "./images/icons/home.svg";
-import homeWhite from "./images/icons/homeWhite.svg";
+import home from "../assets/icons/home.svg";
+import homeWhite from "../assets/icons/homeWhite.svg";
 
-import mentor from "./images/icons/mentor.svg";
-import mentorWhite from "./images/icons/mentorWhite.svg";
+import mentor from "../assets/icons/mentor.svg";
+import mentorWhite from "../assets/icons/mentorWhite.svg";
 
-import search from "./images/icons/search.svg";
-import searchWhite from "./images/icons/searchWhite.svg";
+import search from "../assets/icons/search.svg";
+import searchWhite from "../assets/icons/searchWhite.svg";
 
-import like from "./images/icons/like.svg";
-import likeWhite from "./images/icons/likeWhite.svg";
+import like from "../assets/icons/like.svg";
+import likeWhite from "../assets/icons/likeWhite.svg";
 
-import playlist from "./images/icons/playlist.svg";
-import playlistWhite from "./images/icons/playlistWhite.svg";
+import playlist from "../assets/icons/playlist.svg";
+import playlistWhite from "../assets/icons/playlistWhite.svg";
 
-import later from "./images/icons/later.svg";
-import laterWhite from "./images/icons/laterWhite.svg";
+import later from "../assets/icons/later.svg";
+import laterWhite from "../assets/icons/laterWhite.svg";
 
-import history from "./images/icons/history.svg";
-import historyWhite from "./images/icons/historyWhite.svg";
+import history from "../assets/icons/history.svg";
+import historyWhite from "../assets/icons/historyWhite.svg";
 
-import tanay from "./images/mentors/tanay/profile.png";
-import varun from "./images/mentors/varun/profile.png";
-import shashank from "./images/mentors/shashank/profile.png";
-import abhinav from "./images/mentors/abhinav/profile.png";
-import abhinavChikara from "./images/mentors/abhinavChikara/profile.png";
-import prakhar from "./images/mentors/prakhar/profile.png";
+import tanay from "../assets/mentors/tanay/profile.png";
+import varun from "../assets/mentors/varun/profile.png";
+import shashank from "../assets/mentors/shashank/profile.png";
+import abhinav from "../assets/mentors/abhinav/profile.png";
+import abhinavChikara from "../assets/mentors/abhinavChikara/profile.png";
+import prakhar from "../assets/mentors/prakhar/profile.png";
 
-import tanaybanner from "./images/mentors/tanay/banner1.png";
-import varunbanner from "./images/mentors/varun/banner1.png";
-import shashankbanner from "./images/mentors/shashank/banner1.png";
-import abhinavbanner from "./images/mentors/abhinav/banner1.png";
-import abhinavChikarabanner from "./images/mentors/abhinavChikara/banner1.png";
-import prakharbanner from "./images/mentors/prakhar/banner1.png";
+import tanaybanner from "../assets/mentors/tanay/banner1.png";
+import varunbanner from "../assets/mentors/varun/banner1.png";
+import shashankbanner from "../assets/mentors/shashank/banner1.png";
+import abhinavbanner from "../assets/mentors/abhinav/banner1.png";
+import abhinavChikarabanner from "../assets/mentors/abhinavChikara/banner1.png";
+import prakharbanner from "../assets/mentors/prakhar/banner1.png";
 
 import { useTheme } from "../contexts/themeContext/index.js";
 import { useLanguage } from "../contexts/languageContext/index.js";
