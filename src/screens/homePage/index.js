@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./homePage.css";
+import "./style.css";
 import Hero from "../../components/hero/Hero.js";
 import { apiCall } from "../../apiCall/apiCall";
 import Loader from "../../components/loader/Loader.js";

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./mentorPage.css";
+import "./style.css";
 import { useParams } from "react-router-dom";
 
 import Navigation from "../../components/navigation/Navigation.js";

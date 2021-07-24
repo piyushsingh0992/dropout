@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./ChooseMentorPage.css";
+import "./style.css";
 import Navigation from "../../components/navigation/Navigation.js";
 import MentorGrid from "../../components/mentorGrid/mentorGrid.js";
 import Heading from "../../components/heading/Heading.js";

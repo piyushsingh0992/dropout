@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./loginPage.css";
+import "./style.css";
 import SignIn from "../../components/signin/Signin.js";
 import SignUp from "../../components/signup/Signup.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";

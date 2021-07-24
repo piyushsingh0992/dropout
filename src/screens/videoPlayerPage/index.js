@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./videoPlayerPage.css";
+import "./style.css";
 import { useParams, NavLink } from "react-router-dom";
 import logo from "../../utils/images/brand/dropout.svg";
 import SideNav from "../../components/sideNav/SideNav.js";

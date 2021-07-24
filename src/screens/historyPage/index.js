@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./historyPage.css";
+import "./style.css";
 
 import moment from "moment";
 import Navigation from "../../components/navigation/Navigation.js";

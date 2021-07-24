@@ -1,5 +1,5 @@
 import React from "react";
-import "./likedVideoPage.css";
+import "./style.css";
 import Navigation from "../../components/navigation/Navigation.js";
 import VideoCard from "../../components/videoCard/VideoCard.js";
 import Heading from "../../components/heading/Heading.js";

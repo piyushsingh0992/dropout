@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./dashboardPage.css";
+import "./style.css";
 import Navigation from "../../components/navigation/Navigation.js";
 import Heading from "../../components/heading/Heading.js";
 import { useAuth } from "../../contexts/authContext/authContext";

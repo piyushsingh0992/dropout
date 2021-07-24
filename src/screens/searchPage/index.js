@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./searchPage.css";
+import "./style.css";
 import Search from "../../components/search/Search.js";
 import Navigation from "../../components/navigation/Navigation.js";
 import SearchVideoCard from "../../components/searchVideoCard/SearchVideoCard.js";

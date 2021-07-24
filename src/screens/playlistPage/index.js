@@ -1,5 +1,5 @@
 import React from "react";
-import "./playlistPage.css";
+import "./style.css";
 import Navigation from "../../components/navigation/Navigation.js";
 import Heading from "../../components/heading/Heading.js";
 import PlaylistCard from "../../components/playlistCard/PlaylistCard.js";
