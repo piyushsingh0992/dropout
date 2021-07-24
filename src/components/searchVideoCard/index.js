@@ -4,9 +4,9 @@ import "./searchVideoCard.css";
 import { NavLink } from "react-router-dom";
 import book from "./images/try.jpg";
 import pic from "../../utils/images/mentors/tanay/profile.png";
-import ThumbNail from "../thumbNail/ThumbNail.js";
+import ThumbNail from "../thumbNail/index.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import PlaylistModal from "../playlistModal/PlaylistModal.js";
+import PlaylistModal from "../playlistModal/index.js";
 
 const SearchVideoCard = ({ videosDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);

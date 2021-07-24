@@ -1,9 +1,9 @@
 import React,{useState} from "react";
 import "./recommendVideoCard.css";
 import { NavLink } from "react-router-dom";
-import ThumbNail from "../thumbNail/ThumbNail.js";
+import ThumbNail from "../thumbNail/index.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import PlaylistModal from "../playlistModal/PlaylistModal.js";
+import PlaylistModal from "../playlistModal/index.js";
 
 const RecommendVideoCard = ({ videoDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);

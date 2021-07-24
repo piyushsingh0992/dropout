@@ -4,7 +4,7 @@ import "./hero.css";
 import logo from "../../utils/images/brand/dropout.svg";
 import menu from "../../utils/images/icons/menu.svg";
 import Button from "../button";
-import SideNav from "../sideNav/SideNav.js";
+import SideNav from "../sideNav/index.js";
 import leftArrow from "../../utils/images/icons/leftArrow.svg";
 import rightArrow from "../../utils/images/icons/rightArrow.svg";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";

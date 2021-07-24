@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./playlistCard.css";
-import VideoCard from "../videoCard/VideoCard.js";
+import VideoCard from "../videoCard/index.js";
 import deleteIcon from "../../utils/images/icons/delete.svg";
 import editIcon from "../../utils/images/icons/edit.svg";
 import Button from "../button";
-import TextField from "../textField/TextField.js";
+import TextField from "../textField/index.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 import { usePlaylist } from "../../contexts/playlistContext/playlistContext.js";

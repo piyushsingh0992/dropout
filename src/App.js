@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Toast from "./components/toast/Toast.js";
+import Toast from "./components/toast/index.js";
 import HomePage from "./screens/homePage";
 import ChooseMentorPage from "./screens/chooseMentorPage";
 import MentorPage from "./screens/mentorPage";
@@ -14,8 +14,8 @@ import WatchLaterPage from "./screens/watchLaterPage";
 import PlaylistPage from "./screens/playlistPage";
 import DashboardPage from "./screens/dashboardPage";
 import ErrorPage from "./screens/errorPage";
-import ContextManager from "./components/contextManager/ContextManager.js";
-import PrivateRoute from "./components/privateRoute/PrivateRoute.js";
+import ContextManager from "./components/contextManager";
+import PrivateRoute from "./components/privateRoute/index.js";
 import { useTheme } from "./contexts/themeContext/themeContext.js";
 
 function App() {

@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import "./navigation.css";
-import SideNav from "../sideNav/SideNav.js";
-import NavBar from "../navBar/NavBar.js";
+import SideNav from "../sideNav/index.js";
+import NavBar from "../navBar/index.js";
 const Navigation = () => {
   const [side, sideSetter] = useState(false);
   return (

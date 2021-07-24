@@ -2,8 +2,8 @@ import React from "react";
 import "./thumbNail.css";
 import { useNavigate } from "react-router-dom";
 
-import WatchLaterButton from "../watchLaterButton/WatchLaterButton.js";
-import PlaylistButton from "../playlistButton/PlaylistButton.js";
+import WatchLaterButton from "../watchLaterButton/index.js";
+import PlaylistButton from "../playlistButton/index.js";
 const ThumbNail = ({ type, thumbnail, videoId, modalTriggerSetter }) => {
   let navigate = useNavigate();
   function thumbnailClickHandler(e) {

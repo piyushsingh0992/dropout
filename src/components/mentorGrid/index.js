@@ -1,6 +1,6 @@
 import React from "react";
 import "./mentorGrid.css";
-import MentorCard from "../mentorCard/MentorCard";
+import MentorCard from "../mentorCard";
 
 
 const MentorGrid = ({ mentorArray }) => {

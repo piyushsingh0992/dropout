@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import Hero from "../../components/hero/Hero.js";
+import Hero from "../../components/hero/index.js";
 import { apiCall } from "../../apiCall/apiCall";
-import Loader from "../../components/loader/Loader.js";
+import Loader from "../../components/loader/index.js";
 
 const HomePage = () => {
   const [loader, loaderSetter] = useState(true);

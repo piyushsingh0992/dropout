@@ -1,68 +1,50 @@
 import React, { useState } from "react";
-import "./signup.css";
+import "./signin.css";
 import dropout from "../../utils/images/brand/dropout.svg";
-import TextField from "../textField/TextField.js";
+import TextField from "../textField/index.js";
 import Button from "../button";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";
-import { signUpService } from "./common.js";
-const SignUp = ({ userSetter, signUpDetails, signUpDetailsSetter ,signInDetailsSetter}) => {
+import { signInService } from "./common.js";
+const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { toastDispatch } = useToast();
   const { login, loginDispatch } = useAuth();
 
   function userIdHanlder(newValue) {
-    signUpDetailsSetter((value) => {
+    signInDetailsSetter((value) => {
       return { ...value, userId: newValue };
     });
   }
 
   function passwordHandler(newPassword) {
-    signUpDetailsSetter((value) => {
+    signInDetailsSetter((value) => {
       return { ...value, password: newPassword };
     });
   }
 
-  function userNameHandler(newUserName) {
-    signUpDetailsSetter((value) => {
-      return { ...value, userName: newUserName };
-    });
-  }
   return (
-    <div className="signUp" style={{ backgroundColor: theme.cardBackground }}>
+    <div className="signin" style={{ backgroundColor: theme.cardBackground }}>
       <img src={dropout} />
       <TextField
-        label="UserName"
-        value={signUpDetails.userName}
-        onChangeFunction={userNameHandler}
-      />
-
-      <TextField
         label={language.auth.email}
-        value={signUpDetails.userId}
+        value={signInDetails.userId}
         onChangeFunction={userIdHanlder}
       />
       <TextField
         label={language.auth.password}
-        value={signUpDetails.password}
+        value={signInDetails.password}
         onChangeFunction={passwordHandler}
         type="password"
       />
-
-      <div className="signUp-btn-container">
+      <div className="signin-btn-container">
         <Button
-          text="Sign Up"
+          text={language.auth.signin}
           clickFunction={() => {
-            signUpService(
-              signUpDetails,
-              toastDispatch,
-              signUpDetailsSetter,
-              signInDetailsSetter,
-              userSetter
-            );
+            signInService(signInDetails, loginDispatch, toastDispatch);
           }}
         />
         <p style={{ color: theme.boldText }}>
@@ -72,15 +54,14 @@ const SignUp = ({ userSetter, signUpDetails, signUpDetailsSetter ,signInDetailsS
               color: theme.hightLightText,
             }}
             onClick={() => {
-              signUpDetailsSetter({
-                userName: "",
+              signInDetailsSetter({
                 password: "",
                 userId: "",
               });
               userSetter((value) => !value);
             }}
           >
-            {language.auth.signin}
+            {language.auth.signup}
           </span>
         </p>
       </div>
@@ -88,4 +69,4 @@ const SignUp = ({ userSetter, signUpDetails, signUpDetailsSetter ,signInDetailsS
   );
 };
 
-export default SignUp;
+export default Signin;

@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import "./videoPlayer.css";
 import { NavLink } from "react-router-dom";
-import LikeButton from "../likeButton/LikeButton.js";
-import DoubtSolver from "../doubtSolver/DoubtSolver.js";
-import Button from "../button";
-import WatchLaterButton from "../watchLaterButton/WatchLaterButton.js";
-import PlaylistButton from "../playlistButton/PlaylistButton.js";
+import LikeButton from "../likeButton/index.js";
+import DoubtSolver from "../doubtSolver";
+import WatchLaterButton from "../watchLaterButton/index.js";
+import PlaylistButton from "../playlistButton/index.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
-import { useLikedVideos } from "../../contexts/likedVideoContext/likedVideoContext.js";
-import PlaylistModal from "../playlistModal/PlaylistModal.js";
-import SubscribeButton from "../subscribeButton/SubscribeButton.js";
+import PlaylistModal from "../playlistModal/index.js";
+import SubscribeButton from "../subscribeButton/index.js";
 
 const VideoPlayer = ({ videoDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);

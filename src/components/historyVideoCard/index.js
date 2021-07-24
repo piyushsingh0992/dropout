@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./historyVideoCard.css";
 import { NavLink } from "react-router-dom";
 import pic from "../../utils/images/mentors/tanay/profile.png";
-import ThumbNail from "../thumbNail/ThumbNail.js";
+import ThumbNail from "../thumbNail/index.js";
 import book from "./images/try.jpg";
-import PlaylistModal from "../playlistModal/PlaylistModal.js";
+import PlaylistModal from "../playlistModal/index.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 const HistoryVideoCard = ({
   title,

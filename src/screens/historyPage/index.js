@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 
 import moment from "moment";
-import Navigation from "../../components/navigation/Navigation.js";
-import HistoryVideoCard from "../../components/historyVideoCard/HistoryVideoCard.js";
-import Heading from "../../components/heading/Heading.js";
+import Navigation from "../../components/navigation/index.js";
+import HistoryVideoCard from "../../components/historyVideoCard/index.js";
+import Heading from "../../components/heading/index.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
-import Loader from "../../components/loader/Loader.js";
+import Loader from "../../components/loader/index.js";
 import { apiCall } from "../../apiCall/apiCall";
 const HistoryPage = () => {
   const [history, historyArraySetter] = useState([]);

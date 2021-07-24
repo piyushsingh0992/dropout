@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import Navigation from "../../components/navigation/Navigation.js";
-import MentorGrid from "../../components/mentorGrid/mentorGrid.js";
-import Heading from "../../components/heading/Heading.js";
-import Loader from "../../components/loader/Loader.js";
+import Navigation from "../../components/navigation/index.js";
+import MentorGrid from "../../components/mentorGrid/index.js";
+import Heading from "../../components/heading/index.js";
+import Loader from "../../components/loader/index.js";
 import { apiCall } from "../../apiCall/apiCall";
 
 const ChooseMentorPage = () => {

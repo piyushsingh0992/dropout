@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./mentor.css";
-import MentorHeader from "../mentorHeader/MentorHeader.js";
-import VideoCard from "../videoCard/VideoCard.js";
+import MentorHeader from "../mentorHeader/index.js";
+import VideoCard from "../videoCard/index.js";
 import { useLikedVideos } from "../../contexts/likedVideoContext/likedVideoContext.js";
 // const Mentor = ({ mentorDetails }) => {
 //   

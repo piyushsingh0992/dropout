@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
-import Navigation from "../../components/navigation/Navigation.js";
-import VideoCard from "../../components/videoCard/VideoCard.js";
-import Heading from "../../components/heading/Heading.js";
+import Navigation from "../../components/navigation/index.js";
+import VideoCard from "../../components/videoCard/index.js";
+import Heading from "../../components/heading/index.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLikedVideos } from "../../contexts/likedVideoContext/likedVideoContext.js";
 

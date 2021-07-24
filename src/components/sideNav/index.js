@@ -11,7 +11,7 @@ import { useToast } from "../../contexts/toastContext/toastContext.js";
 import dashboard from "../../utils/images/icons/dashboard.png";
 import dashboardWhite from "../../utils/images/icons/dashboardWhite.png";
 
-import Login from "../login/Login.js";
+import Login from "../login/index.js";
 const SideNav = () => {
   const { theme } = useTheme();
   const { language } = useLanguage();

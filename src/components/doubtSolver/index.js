@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./doubtSolver.css";
+import "./style.css";
 
 import enter from "../../utils/images/icons/enter.svg";
 import Avatar from "../avatar";

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import SignIn from "../../components/signin/Signin.js";
-import SignUp from "../../components/signup/Signup.js";
+import SignIn from "../../components/signin/index.js";
+import SignUp from "../../components/signup/index.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
 import { useToast } from "../../contexts/toastContext/toastContext.js";

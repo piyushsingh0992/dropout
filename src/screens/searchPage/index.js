@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
-import Search from "../../components/search/Search.js";
-import Navigation from "../../components/navigation/Navigation.js";
-import SearchVideoCard from "../../components/searchVideoCard/SearchVideoCard.js";
+import Search from "../../components/search/index.js";
+import Navigation from "../../components/navigation/index.js";
+import SearchVideoCard from "../../components/searchVideoCard/index.js";
 import { apiCall } from "../../apiCall/apiCall";
-import Loader from "../../components/loader/Loader";
+import Loader from "../../components/loader";
 import { useTheme } from "../../contexts/themeContext/themeContext";
 const SearchPage = () => {
   const [searchTerm, searchTermSetter] = useState("");

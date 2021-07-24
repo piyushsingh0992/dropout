@@ -1,8 +1,8 @@
 import React from "react";
-import Navigation from "../../components/navigation/Navigation.js";
-import Heading from "../../components/heading/Heading.js";
+import Navigation from "../../components/navigation/index.js";
+import Heading from "../../components/heading/index.js";
 import { useWatchLater } from "../../contexts/watchLaterContext/watchLaterContext";
-import SearchVideoCard from "../../components/searchVideoCard/SearchVideoCard.js";
+import SearchVideoCard from "../../components/searchVideoCard/index.js";
 const WatchLaterPage = () => {
   let { watchLaterState } = useWatchLater();
   return (

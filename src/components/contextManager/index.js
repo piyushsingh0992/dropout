@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./contextManager.css";
+import React from "react";
+import "./style.css";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 

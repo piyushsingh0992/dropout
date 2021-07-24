@@ -4,8 +4,8 @@ import { Navlink } from "react-router-dom";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useLanguage } from "../../contexts/languageContext/languageContext.js";
 import Button from "../button";
-import SubscribeButton from "../subscribeButton/SubscribeButton.js";
-import MentorPlaylistSetter from "../mentorPlaylistSetter/MentorPlaylistSetter";
+import SubscribeButton from "../subscribeButton/index.js";
+import MentorPlaylistSetter from "../mentorPlaylistSetter";
 const MentorHeader = ({ mentorData, playlistId, playlistIdSetter }) => {
   let { name, banner, _id: mentorId, profile, subject, playlists } = mentorData;
   

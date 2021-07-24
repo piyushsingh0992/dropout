@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useParams, NavLink } from "react-router-dom";
 import logo from "../../utils/images/brand/dropout.svg";
-import SideNav from "../../components/sideNav/SideNav.js";
-import VideoPlayer from "../../components/videoPlayer/VideoPlayer.js";
-import VideoNotes from "../../components/videoNotes/VideoNotes.js";
-import RecommendVideoCard from "../../components/recommendVideoCard/RecommendVideoCard.js";
+import SideNav from "../../components/sideNav/index.js";
+import VideoPlayer from "../../components/videoPlayer/index.js";
+import VideoNotes from "../../components/videoNotes/index.js";
+import RecommendVideoCard from "../../components/recommendVideoCard/index.js";
 import { useTheme } from "../../contexts/themeContext/themeContext.js";
 import { useAuth } from "../../contexts/authContext/authContext.js";
-import Loader from "../../components/loader/Loader.js";
+import Loader from "../../components/loader/index.js";
 
 import { apiCall } from "../../apiCall/apiCall";
 
