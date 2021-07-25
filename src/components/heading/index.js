@@ -1,5 +1,5 @@
 import React from "react";
-import { useTheme } from "../../contexts/themeContext/index.js";
+import { useTheme } from "../../contexts/themeContext";
 const Heading = ({ text }) => {
   const { theme } = useTheme();
   return (

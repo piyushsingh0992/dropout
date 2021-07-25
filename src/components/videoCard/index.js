@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./style.css";
-import LikeButton from "../likeButton/index.js";
-import ThumbNail from "../thumbNail/index.js";
-import { useTheme } from "../../contexts/themeContext/index.js";
-import PlaylistModal from "../playlistModal/index.js";
+import LikeButton from "../likeButton";
+import ThumbNail from "../thumbNail";
+import { useTheme } from "../../contexts/themeContext";
+import PlaylistModal from "../playlistModal";
 const VideoCard = ({ videosDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);
   const { title, name, mentor, thumbnail, views, _id } = videosDetails;

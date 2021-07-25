@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-import { useTheme } from "../../contexts/themeContext/index.js";
+import { useTheme } from "../../contexts/themeContext";
 import { useNavigate } from "react-router";
 
 const VideoStats = ({ stats }) => {

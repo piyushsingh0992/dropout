@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import enter from "../../assets/icons/enter.svg";
-import { useTheme } from "../../contexts/themeContext/index.js";
-import { useAuth } from "../../contexts/authContext/index.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useAuth } from "../../contexts/authContext";
 
-import { useToast } from "../../contexts/toastContext/index.js";
+import { useToast } from "../../contexts/toastContext";
 import { apiCall } from "../../apiCall/apiCall";
 
 const VideoNotes = ({ videoNotes, videoId }) => {

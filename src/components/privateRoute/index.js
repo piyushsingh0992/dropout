@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Navigate, Route } from "react-router-dom";
-import { useAuth } from "../../contexts/authContext/index.js";
+import { useAuth } from "../../contexts/authContext";
 
 function getNewPath(path, paramsArray) {
   let pathArray = path.split(":");

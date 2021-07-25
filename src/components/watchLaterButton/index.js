@@ -10,7 +10,7 @@ import {
   addWatchLater,
   removeWatchLater,
 } from "../../utils/watchLaterFunction.js";
-import { useAuth } from "../../contexts/authContext/index.js";
+import { useAuth } from "../../contexts/authContext";
 
 const WatchLaterButton = ({ videoId, videoPlayer }) => {
   const [addedVideo, addedVideoSetter] = useState(false);

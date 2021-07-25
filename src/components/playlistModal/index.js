@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import close from "../../assets/icons/close.svg";
-import { useTheme } from "../../contexts/themeContext/index.js";
+import { useTheme } from "../../contexts/themeContext";
 import Button from "../button";
-import { usePlaylist } from "../../contexts/playlistContext/index.js";
-import { useToast } from "../../contexts/toastContext/index.js";
+import { usePlaylist } from "../../contexts/playlistContext";
+import { useToast } from "../../contexts/toastContext";
 import {
   createPlaylist,
   addVideoToPlaylist,
 } from "../../utils/playlistFunction.js";
-import { useAuth } from "../../contexts/authContext/index.js";
+import { useAuth } from "../../contexts/authContext";
 
 const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
   const [playlistArray, playlistArraySetter] = useState([]);

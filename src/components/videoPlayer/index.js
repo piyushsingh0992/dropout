@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./style.css";
 import { NavLink } from "react-router-dom";
-import LikeButton from "../likeButton/index.js";
+import LikeButton from "../likeButton";
 import Comments from "../comments";
-import WatchLaterButton from "../watchLaterButton/index.js";
-import PlaylistButton from "../playlistButton/index.js";
-import { useTheme } from "../../contexts/themeContext/index.js";
-import PlaylistModal from "../playlistModal/index.js";
-import SubscribeButton from "../subscribeButton/index.js";
+import WatchLaterButton from "../watchLaterButton";
+import PlaylistButton from "../playlistButton";
+import { useTheme } from "../../contexts/themeContext";
+import PlaylistModal from "../playlistModal";
+import SubscribeButton from "../subscribeButton";
 
 const VideoPlayer = ({ videoDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);

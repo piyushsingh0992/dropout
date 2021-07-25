@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import dropout from "../../assets/brand/dropout.svg";
-import TextField from "../textField/index.js";
+import TextField from "../textField";
 import Button from "../button";
-import { useTheme } from "../../contexts/themeContext/index.js";
-import { useLanguage } from "../../contexts/languageContext/index.js";
-import { useAuth } from "../../contexts/authContext/index.js";
-import { useToast } from "../../contexts/toastContext/index.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
+import { useAuth } from "../../contexts/authContext";
+import { useToast } from "../../contexts/toastContext";
 import { signUpService } from "./common.js";
 const SignUp = ({
   userSetter,

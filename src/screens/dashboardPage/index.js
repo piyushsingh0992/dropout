@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import Navigation from "../../components/navigation/index.js";
-import Heading from "../../components/heading/index.js";
+import Navigation from "../../components/navigation";
+import Heading from "../../components/heading";
 import { useAuth } from "../../contexts/authContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import VideoStats from "../../components/videoStats";

@@ -2,15 +2,15 @@ import React from "react";
 import "./style.css";
 import { NavLink } from "react-router-dom";
 import dropout from "../../assets/brand/dropout.svg";
-import { useTheme } from "../../contexts/themeContext/index.js";
-import { useLanguage } from "../../contexts/languageContext/index.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
 import { useSideNavRoute } from "../../utils/common.js";
-import { useAuth } from "../../contexts/authContext/index.js";
-import { useToast } from "../../contexts/toastContext/index.js";
+import { useAuth } from "../../contexts/authContext";
+import { useToast } from "../../contexts/toastContext";
 import dashboard from "../../assets/icons/dashboard.png";
 import dashboardWhite from "../../assets/icons/dashboardWhite.png";
 
-import Login from "../login/index.js";
+import Login from "../login";
 const SideNav = () => {
   const { theme } = useTheme();
   const { language } = useLanguage();

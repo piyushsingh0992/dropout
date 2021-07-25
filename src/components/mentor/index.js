@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
-import MentorHeader from "../mentorHeader/index.js";
-import VideoCard from "../videoCard/index.js";
+import MentorHeader from "../mentorHeader";
+import VideoCard from "../videoCard";
 
 const Mentor = ({ mentorData }) => {
   const { playlists } = mentorData;

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useParams } from "react-router-dom";
 
-import Navigation from "../../components/navigation/index.js";
-import Mentor from "../../components/mentor/index.js";
-import Loader from "../../components/loader/index.js";
+import Navigation from "../../components/navigation";
+import Mentor from "../../components/mentor";
+import Loader from "../../components/loader";
 import { apiCall } from "../../apiCall/apiCall";
 const MentorPage = () => {
   let { mentorId } = useParams();

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import SignIn from "../../components/signin/index.js";
-import SignUp from "../../components/signup/index.js";
-import { useTheme } from "../../contexts/themeContext/index.js";
-import { useAuth } from "../../contexts/authContext/index.js";
-import { useToast } from "../../contexts/toastContext/index.js";
+import SignIn from "../../components/signin";
+import SignUp from "../../components/signup";
+import { useTheme } from "../../contexts/themeContext";
+import { useAuth } from "../../contexts/authContext";
+import { useToast } from "../../contexts/toastContext";
 import { useLocation, useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const { theme } = useTheme();

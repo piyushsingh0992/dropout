@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 
-import { useTheme } from "../../contexts/themeContext/index.js";
+import { useTheme } from "../../contexts/themeContext";
 import { NavLink } from "react-router-dom";
 
 const MentorCard = ({

@@ -5,11 +5,11 @@ import "./style.css";
 import logo from "../../assets/brand/dropout.svg";
 import menu from "../../assets/icons/menu.svg";
 import Button from "../button";
-import SideNav from "../sideNav/index.js";
+import SideNav from "../sideNav";
 import leftArrow from "../../assets/icons/leftArrow.svg";
 import rightArrow from "../../assets/icons/rightArrow.svg";
-import { useTheme } from "../../contexts/themeContext/index.js";
-import { useLanguage } from "../../contexts/languageContext/index.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
 
 const Hero = ({mentorArray}) => {
   const { theme } = useTheme();

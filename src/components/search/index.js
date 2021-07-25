@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import searchIcon from "../../assets/icons/search.svg";
-import { useTheme } from "../../contexts/themeContext/index.js";
+import { useTheme } from "../../contexts/themeContext";
 const Search = ({ searchTerm, searchTermSetter, keyCodeSetter }) => {
   const { theme } = useTheme();
 

@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css";
-import Navigation from "../../components/navigation/index.js";
-import Heading from "../../components/heading/index.js";
-import PlaylistCard from "../../components/playlistCard/index.js";
-import { usePlaylist } from "../../contexts/playlistContext/index.js";
+import Navigation from "../../components/navigation";
+import Heading from "../../components/heading";
+import PlaylistCard from "../../components/playlistCard";
+import { usePlaylist } from "../../contexts/playlistContext";
 const PlaylistPage = () => {
   const { playlistState, playlistDispatch } = usePlaylist();
 

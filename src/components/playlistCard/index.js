@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./style.css";
-import VideoCard from "../videoCard/index.js";
+import VideoCard from "../videoCard";
 import deleteIcon from "../../assets/icons/delete.svg";
 import editIcon from "../../assets/icons/edit.svg";
 import Button from "../button";
-import TextField from "../textField/index.js";
-import { useTheme } from "../../contexts/themeContext/index.js";
-import { useAuth } from "../../contexts/authContext/index.js";
-import { usePlaylist } from "../../contexts/playlistContext/index.js";
+import TextField from "../textField";
+import { useTheme } from "../../contexts/themeContext";
+import { useAuth } from "../../contexts/authContext";
+import { usePlaylist } from "../../contexts/playlistContext";
 import {
   deleteVideoFromPlaylist,
   deletePlaylist,

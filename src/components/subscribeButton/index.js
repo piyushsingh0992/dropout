@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import Button from "../button";
-import { useSubscribe } from "../../contexts/subscribeContext/index.js";
+import { useSubscribe } from "../../contexts/subscribeContext";
 import {
   subscribeMentor,
   unSubscribeMentor,
 } from "../../utils/subscribeFunction.js";
-import { useToast } from "../../contexts/toastContext/index.js";
-import { useAuth } from "../../contexts/authContext/index.js";
+import { useToast } from "../../contexts/toastContext";
+import { useAuth } from "../../contexts/authContext";
 const SubscribeButton = ({ mentorId }) => {
   const [subscribe, subscribeSetter] = useState(false);
   const { subscribeState, subscribeDispatch } = useSubscribe();

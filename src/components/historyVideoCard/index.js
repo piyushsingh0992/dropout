@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./style.css";
 import { NavLink } from "react-router-dom";
-import ThumbNail from "../thumbNail/index.js";
-import PlaylistModal from "../playlistModal/index.js";
-import { useTheme } from "../../contexts/themeContext/index.js";
+import ThumbNail from "../thumbNail";
+import PlaylistModal from "../playlistModal";
+import { useTheme } from "../../contexts/themeContext";
 const HistoryVideoCard = ({
   title,
   thumbnail,

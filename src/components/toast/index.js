@@ -4,7 +4,7 @@ import Error from "./images/error.svg";
 import Success from "./images/success.svg";
 import Warning from "./images/warning.svg";
 import Info from "./images/info.svg";
-import { useToast } from "../../contexts/toastContext/index.js";
+import { useToast } from "../../contexts/toastContext";
 function Toast() {
   const { toastState, toastDispatch } = useToast();
   const { trigger, type, message } = toastState;

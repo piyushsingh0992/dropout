@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
-import { useTheme } from "../../contexts/themeContext/index.js";
-import { useLanguage } from "../../contexts/languageContext/index.js";
+import { useTheme } from "../../contexts/themeContext";
+import { useLanguage } from "../../contexts/languageContext";
 const MentorPlaylistSetter = ({ playlists, playlistId, playlistIdSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
