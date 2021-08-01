@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import { useTheme } from "../../contexts/themeContext";
-const TextField = ({ label, type, value, onChangeFunction }) => {
+const TextField = ({ label, type, value, onChangeFunction ,name}) => {
   const { theme } = useTheme();
 
   return (
@@ -18,6 +18,7 @@ const TextField = ({ label, type, value, onChangeFunction }) => {
           backgroundColor: theme.primaryBackground,
           color: theme.boldText,
         }}
+        name={name}
       />
       <label>{label}</label>
     </span>

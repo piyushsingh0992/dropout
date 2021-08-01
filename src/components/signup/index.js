@@ -6,8 +6,8 @@ import Button from "../button";
 import { useTheme } from "../../contexts/themeContext";
 import { useLanguage } from "../../contexts/languageContext";
 import { useAuth } from "../../contexts/authContext";
-import { useToast } from "../../contexts/toastContext";
-import { signUpService } from "./common.js";
+
+import { useSignUp } from "../../customHooks/signUp";
 const SignUp = ({
   userSetter,
   signUpDetails,
@@ -16,11 +16,19 @@ const SignUp = ({
 }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
-  const { toastDispatch } = useToast();
-  const { login, loginDispatch } = useAuth();
+
+  const { login } = useAuth();
   const [loader, setLoader] = useState(false);
+
+  const signUpService = useSignUp(signInDetailsSetter, userSetter, setLoader);
   useEffect(() => {
-    setLoader(false);
+    return () => {
+      signUpDetailsSetter({
+        userName: "",
+        password: "",
+        userId: "",
+      });
+    };
   }, [login]);
 
   function userIdHanlder(newValue) {
@@ -66,14 +74,7 @@ const SignUp = ({
           text="Sign Up"
           loading={loader}
           clickFunction={() => {
-            signUpService(
-              signUpDetails,
-              toastDispatch,
-              signUpDetailsSetter,
-              signInDetailsSetter,
-              userSetter
-            );
-            setLoader(true);
+            signUpService(signUpDetails);
           }}
         />
         <p style={{ color: theme.boldText }}>
@@ -83,11 +84,6 @@ const SignUp = ({
               color: theme.hightLightText,
             }}
             onClick={() => {
-              signUpDetailsSetter({
-                userName: "",
-                password: "",
-                userId: "",
-              });
               userSetter((value) => !value);
             }}
           >

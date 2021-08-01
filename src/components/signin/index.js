@@ -12,9 +12,14 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
   const { language } = useLanguage();
   const { login } = useAuth();
   const [loader, setLoader] = useState(false);
-  const signInService = useSignIn();
+  const signInService = useSignIn(setLoader);
   useEffect(() => {
-    setLoader(false);
+    return () => {
+      signInDetailsSetter({
+        password: "",
+        userId: "",
+      });
+    };
   }, [login]);
 
   function userIdHanlder(newValue) {
@@ -59,10 +64,6 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
               color: theme.hightLightText,
             }}
             onClick={() => {
-              signInDetailsSetter({
-                password: "",
-                userId: "",
-              });
               userSetter((value) => !value);
             }}
           >
