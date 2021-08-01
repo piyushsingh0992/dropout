@@ -14,7 +14,7 @@ export function ThemeProvider({ children }) {
     }
   });
 
-  const [theme, themeDispatch] = useReducer(themeHandler, light);
+  const [theme, themeDispatch] = useReducer(themeHandler, dark);
 
   return (
     <ThemeContext.Provider value={{ theme, themeDispatch }}>
