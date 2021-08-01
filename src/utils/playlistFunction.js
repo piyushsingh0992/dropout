@@ -1,4 +1,3 @@
-
 import { apiCall } from "../apiCall/apiCall";
 export async function createPlaylist(
   newPlaylistName,
@@ -7,23 +6,23 @@ export async function createPlaylist(
   toastDispatch,
   userKey
 ) {
+  let { data, success, message } = await apiCall("POST", `playlist/create`, {
+    userKey,
+    playlistName: newPlaylistName,
+  });
 
-    let { data, success, message } = await apiCall("POST", `playlist/create`, {
-      userKey,
-      playlistName: newPlaylistName,
-    });
-
-    if (success === true) {
-      playlistDispatch({
-        payload: `CREATE_PLAYLIST`,
+  if (success === true) {
+    playlistDispatch({
+      type: `CREATE_PLAYLIST`,
+      payload: {
         newPlaylist: data.newPlaylist,
-      });
-      newPlaylistNameSetter("");
-      toastDispatch("success", "playlist Created");
-    } else {
-      toastDispatch("error", message);
-    }
-  
+      },
+    });
+    newPlaylistNameSetter("");
+    toastDispatch("success", "playlist Created");
+  } else {
+    toastDispatch("error", message);
+  }
 }
 
 export async function addVideoToPlaylist(
@@ -34,21 +33,22 @@ export async function addVideoToPlaylist(
   toastDispatch,
   userKey
 ) {
+  let { data, success, message } = await apiCall("POST", `playlist`, {
+    playlistArray: playlistIdArray,
+    videoId: videoId,
+    userKey,
+  });
 
-    let { data, success, message } = await apiCall("POST", `playlist`, {
-      playlistArray: playlistIdArray,
-      videoId: videoId,
-      userKey,
+  if (success === true) {
+    playlistDispatch({
+      type: `ADD_VIDEO`,
+      payload: { playlist: data.playlist },
     });
-
-    if (success === true) {
-      playlistDispatch({ payload: `ADD_VIDEO`, playlist: data.playlist });
-      modalTriggerSetter(false);
-      toastDispatch("success", "Video Added to playlist");
-    } else {
-      toastDispatch("error", message);
-    }
-  
+    modalTriggerSetter(false);
+    toastDispatch("success", "Video Added to playlist");
+  } else {
+    toastDispatch("error", message);
+  }
 }
 
 export async function deleteVideoFromPlaylist(
@@ -58,23 +58,24 @@ export async function deleteVideoFromPlaylist(
   toastDispatch,
   userKey
 ) {
-
-    let { data, success, message } = await apiCall(
-      "DELETE",
-      `playlist/${videoId}`,
-      {
-        playlistId,
-        userKey,
-      }
-    );
-
-    if (success === true) {
-      playlistDispatch({ payload: "DELETE_VIDEO", playlist: data.playlist });
-      toastDispatch("success", "Video deleted");
-    } else {
-      toastDispatch("error", message);
+  let { data, success, message } = await apiCall(
+    "DELETE",
+    `playlist/${videoId}`,
+    {
+      playlistId,
+      userKey,
     }
-  
+  );
+
+  if (success === true) {
+    playlistDispatch({
+      type: "DELETE_VIDEO",
+      payload: { playlist: data.playlist },
+    });
+    toastDispatch("success", "Video deleted");
+  } else {
+    toastDispatch("error", message);
+  }
 }
 
 export async function deletePlaylist(
@@ -83,22 +84,22 @@ export async function deletePlaylist(
   toastDispatch,
   userKey
 ) {
+  let { data, success, message } = await apiCall("DELETE", `playlist`, {
+    playlistId,
+    userKey,
+  });
 
-    let { data, success, message } = await apiCall("DELETE", `playlist`, {
-      playlistId,
-      userKey,
-    });
-
-    if (success === true) {
-      playlistDispatch({
-        payload: "DELETE_PLAYLIST",
+  if (success === true) {
+    playlistDispatch({
+      type: "DELETE_PLAYLIST",
+      payload: {
         playlist: data.playlist,
-      });
-      toastDispatch("success", "Playlist deleted");
-    } else {
-      toastDispatch("error", message);
-    }
-  
+      },
+    });
+    toastDispatch("success", "Playlist deleted");
+  } else {
+    toastDispatch("error", message);
+  }
 }
 
 export async function playlistNameChanger(
@@ -110,25 +111,25 @@ export async function playlistNameChanger(
   userKey
 ) {
   (async function () {
-    
-      let { data, success, message } = await apiCall(
-        "POST",
-        `playlist/${playlistId}/${newName}`,
-        {
-          userKey,
-        }
-      );
-
-      if (success === true) {
-        newNameSetter("");
-        playlistDispatch({
-          payload: "RENAME_PLAYLIST",
-          playlist: data.playlist,
-        });
-        toastDispatch("success", " Playlist is renamed");
-      } else {
-        toastDispatch("error", message);
+    let { data, success, message } = await apiCall(
+      "POST",
+      `playlist/${playlistId}/${newName}`,
+      {
+        userKey,
       }
-    
+    );
+
+    if (success === true) {
+      newNameSetter("");
+      playlistDispatch({
+        type: "RENAME_PLAYLIST",
+        payload: {
+          playlist: data.playlist,
+        },
+      });
+      toastDispatch("success", " Playlist is renamed");
+    } else {
+      toastDispatch("error", message);
+    }
   })();
 }

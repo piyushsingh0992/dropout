@@ -1,22 +1,21 @@
 import React, { useEffect, useReducer, createContext, useContext } from "react";
 
-
 import { apiCall } from "../../apiCall/apiCall";
 import { useAuth } from "../authContext";
 import { useToast } from "../toastContext";
 
 const PlaylistContext = createContext();
 function playlistManager(state, action) {
+  const { type, payload } = action;
   const {
-    payload,
     playlistId,
     playlistIdArray,
     video,
     playlist,
     newPlaylist,
     playlists,
-  } = action;
-  switch (payload) {
+  } = payload||{};
+  switch (type) {
     case "LOADING_PLAYLIST":
       return playlists;
     case "CREATE_PLAYLIST":
@@ -29,6 +28,8 @@ function playlistManager(state, action) {
       return playlist;
     case "RENAME_PLAYLIST":
       return playlist;
+    case "LOGOUT":
+      return []
     default:
       return state;
   }
@@ -44,18 +45,19 @@ export function PlaylistProvider({ children }) {
 
     if (loginStatus) {
       (async function () {
-        
-          let { success, data, message } = await apiCall(
-            "GET",
-            `playlist/${userKey}`
-          );
+        let { success, data, message } = await apiCall(
+          "GET",
+          `playlist/${userKey}`
+        );
 
-          if (success === true) {
-            playlistDispatch({ payload: `LOADING_PLAYLIST`, playlists: data });
-          } else {
-            toastDispatch("error", message);
-          }
-        
+        if (success === true) {
+          playlistDispatch({
+            type: `LOADING_PLAYLIST`,
+            payload: { playlists: data },
+          });
+        } else {
+          toastDispatch("error", message);
+        }
       })();
     }
   }, [login]);
