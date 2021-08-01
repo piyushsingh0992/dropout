@@ -6,7 +6,7 @@ import { useAuth } from "../../contexts/authContext";
 import { useToast } from "../../contexts/toastContext";
 import { useLanguage } from "../../contexts/languageContext";
 
-const Login = () => {
+export default function LoginButton() {
   const { language } = useLanguage();
   const {
     login: { loginStatus },
@@ -34,6 +34,4 @@ const Login = () => {
       </div>
     </NavLink>
   );
-};
-
-export default Login;
+}

@@ -6,7 +6,7 @@ import SearchVideoCard from "../../components/searchVideoCard";
 import { apiCall } from "../../apiCall/apiCall";
 import Loader from "../../components/loader";
 import { useTheme } from "../../contexts/themeContext";
-import useDebounce from "../../utils/debounce";
+import useDebounce from "../../customHooks/debounce";
 const SearchPage = () => {
   const [searchTerm, searchTermSetter] = useState("");
   const [loader, loaderSetter] = useState(false);

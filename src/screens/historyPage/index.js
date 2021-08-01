@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-
 import moment from "moment";
 import Navigation from "../../components/navigation";
 import HistoryVideoCard from "../../components/historyVideoCard";
 import Heading from "../../components/heading";
-import { useTheme } from "../../contexts/themeContext";
 import { useAuth } from "../../contexts/authContext";
 import Loader from "../../components/loader";
 import { apiCall } from "../../apiCall/apiCall";
 const HistoryPage = () => {
   const [history, historyArraySetter] = useState([]);
   const [loading, loadingSetter] = useState(true);
-  const { theme } = useTheme();
 
   const {
     login: { userKey },

@@ -10,7 +10,7 @@ import { useToast } from "../../contexts/toastContext";
 import dashboard from "../../assets/icons/dashboard.png";
 import dashboardWhite from "../../assets/icons/dashboardWhite.png";
 
-import Login from "../login";
+import LoginButton from "../loginButton";
 const SideNav = () => {
   const { theme } = useTheme();
   const { language } = useLanguage();
@@ -58,7 +58,7 @@ const SideNav = () => {
           </NavLink>
         )}
       </div>
-      <Login />
+      <LoginButton />
     </div>
   );
 };
