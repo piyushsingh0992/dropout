@@ -154,13 +154,17 @@ export function setupAuthHeaderForServiceCalls(token) {
 
 export function setupAuthExceptionHandler(loginDispatch, navigate) {
   const UNAUTHORIZED = 401;
+  const UNKNOWN_ROUTE = 404;
   axios.interceptors.response.use(
     (response) => response,
     (error) => {
       if (error?.response?.status === UNAUTHORIZED) {
-        console.log("here");
         loginDispatch({ type: "LOGOUT" });
         navigate("login");
+      }
+
+      if (error?.response?.status === UNKNOWN_ROUTE) {
+        navigate("404");
       }
       return Promise.reject(error);
     }

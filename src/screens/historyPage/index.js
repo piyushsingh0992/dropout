@@ -19,10 +19,7 @@ const HistoryPage = () => {
   } = useAuth();
   useEffect(() => {
     (async function () {
-      let { data, success, message } = await apiCall(
-        "GET",
-        `history/${userKey}`
-      );
+      let { data, success } = await apiCall("GET", `history/${userKey}`);
       if (success === true) {
         historyArraySetter(data.videos);
       }
