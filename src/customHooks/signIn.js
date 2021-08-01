@@ -23,16 +23,7 @@ export async function signInService(
           token: data.token,
         },
       });
-      localStorage.setItem(
-        "loginStatus",
-        JSON.stringify({
-          loginStatus: data.loginStatus,
-          mentor: data.mentor,
-          userKey: data.userKey,
-          userName: data.userName,
-          token: data.token,
-        })
-      );
+
     } else {
       toastDispatch("error", message);
     }

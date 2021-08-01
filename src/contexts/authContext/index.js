@@ -27,6 +27,7 @@ export function AuthProvider({ children }) {
 
     setupAuthExceptionHandler(loginDispatch, navigate);
     if (response.loginStatus) {
+      debugger;
       loginDispatch({ type: "LOGIN", payload: response });
     }
   }, []);
