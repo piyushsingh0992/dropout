@@ -6,7 +6,6 @@ import Button from "../button";
 import { useTheme } from "../../contexts/themeContext";
 import { useLanguage } from "../../contexts/languageContext";
 import { useAuth } from "../../contexts/authContext";
-
 import { useSignUp } from "../../customHooks/signUp";
 const SignUp = ({
   userSetter,

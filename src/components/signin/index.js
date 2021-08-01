@@ -22,18 +22,6 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
     };
   }, [login]);
 
-  function userIdHanlder(newValue) {
-    signInDetailsSetter((value) => {
-      return { ...value, userId: newValue };
-    });
-  }
-
-  function passwordHandler(newPassword) {
-    signInDetailsSetter((value) => {
-      return { ...value, password: newPassword };
-    });
-  }
-
   const handleChange = (event) => {
     const name = event.target.name;
     signInDetailsSetter((state) => {
@@ -65,7 +53,6 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
           text={language.auth.signin}
           clickFunction={() => {
             signInService(signInDetails);
-            setLoader(true);
           }}
           loading={loader}
         />
