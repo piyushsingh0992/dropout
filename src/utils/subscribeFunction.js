@@ -18,8 +18,10 @@ export async function subscribeMentor(
 
   if (success === true) {
     subscribeDispatch({
-      payload: "SUBSCRIBE",
-      mentorId: data.mentorId,
+      type: "SUBSCRIBE",
+      payload: {
+        mentorId: data.mentorId,
+      },
     });
     toastDispatch("success", "Subscribed");
   } else {
@@ -47,8 +49,10 @@ export async function unSubscribeMentor(
 
   if (success === true) {
     subscribeDispatch({
-      payload: "UNSUBSCRIBE",
-      mentorId: data.mentorId,
+      type: "UNSUBSCRIBE",
+      payload: {
+        mentorId: data.mentorId,
+      },
     });
     toastDispatch("success", "Unsubscribed");
   } else {

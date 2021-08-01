@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer, createContext, useContext } from "react";
 
-
 import { apiCall } from "../../apiCall/apiCall";
 import { useAuth } from "../authContext";
 import { useToast } from "../toastContext";
@@ -8,9 +7,10 @@ import { useToast } from "../toastContext";
 const SubscribeContext = createContext();
 
 function subscribeManager(state, action) {
-  const { payload, mentorId, subscribedMentors } = action;
+  const { payload, type } = action;
 
-  switch (payload) {
+  const { mentorId, subscribedMentors } = payload ||{};
+  switch (type) {
     case "FIRST_LOAD":
       return subscribedMentors;
     case "SUBSCRIBE":
@@ -18,7 +18,7 @@ function subscribeManager(state, action) {
     case "UNSUBSCRIBE":
       return state.filter((item) => item != mentorId);
     case "LOGOUT":
-      return []
+      return [];
     default:
       return state;
   }
@@ -33,21 +33,21 @@ export function SubscribeProvider({ children }) {
     let { loginStatus, userKey } = login;
     if (loginStatus) {
       (async function () {
-        
-          let { success, data, message } = await apiCall(
-            "GET",
-            `subscribe/${userKey}`
-          );
+        let { success, data, message } = await apiCall(
+          "GET",
+          `subscribe/${userKey}`
+        );
 
-          if (success === true) {
-            subscribeDispatch({
-              payload: "FIRST_LOAD",
+        if (success === true) {
+          subscribeDispatch({
+            type: "FIRST_LOAD",
+            payload: {
               subscribedMentors: data.mentor.subscriptions,
-            });
-          } else {
-            toastDispatch("error", message);
-          }
-        
+            },
+          });
+        } else {
+          toastDispatch("error", message);
+        }
       })();
     }
   }, [login]);
