@@ -6,9 +6,10 @@ import { useToast } from "../toastContext";
 const WatchLaterContext = createContext();
 
 function watchLaterManger(state, action) {
-  const { payload, video, videos } = action;
+  const { payload, type } = action;
+  const {  video, videos }=payload;
 
-  switch (payload) {
+  switch (type) {
     case "FIRST_LOAD":
       return videos;
     case "ADD_TO_WATCH_LATER":
@@ -46,7 +47,7 @@ export function WatchLaterProvider({ children }) {
           `watchlater/${userKey}`
         );
         if (success === true) {
-          watchLaterDispatch({ payload: "FIRST_LOAD", videos: data.videos });
+          watchLaterDispatch({ type: "FIRST_LOAD", payload:{videos: data.videos} });
         } else {
           toastDispatch("error", message);
         }
