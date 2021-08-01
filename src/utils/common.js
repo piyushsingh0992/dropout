@@ -1,3 +1,4 @@
+import axios from "axios";
 import home from "../assets/icons/home.svg";
 import homeWhite from "../assets/icons/homeWhite.svg";
 
@@ -143,3 +144,25 @@ export const useSideNavRoute = () => {
   ];
   return { sideNavRouteArray };
 };
+
+export function setupAuthHeaderForServiceCalls(token) {
+  if (token) {
+    return (axios.defaults.headers.common["auth"] = token);
+  }
+  delete axios.defaults.headers.common["auth"];
+}
+
+export function setupAuthExceptionHandler(loginDispatch, navigate) {
+  const UNAUTHORIZED = 401;
+  axios.interceptors.response.use(
+    (response) => response,
+    (error) => {
+      if (error?.response?.status === UNAUTHORIZED) {
+        console.log("here");
+        loginDispatch({ type: "LOGOUT" });
+        navigate("login");
+      }
+      return Promise.reject(error);
+    }
+  );
+}

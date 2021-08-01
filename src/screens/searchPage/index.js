@@ -16,7 +16,6 @@ const SearchPage = () => {
 
   let searchCall = useDebounce(async function () {
     if (!searchTerm) return;
-
     loaderSetter(true);
     let { success, data } = await apiCall("GET", `search/${searchTerm}`);
     if (success === true) {
