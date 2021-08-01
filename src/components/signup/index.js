@@ -31,41 +31,36 @@ const SignUp = ({
     };
   }, [login]);
 
-  function userIdHanlder(newValue) {
-    signUpDetailsSetter((value) => {
-      return { ...value, userId: newValue };
+  const handleChange = (event) => {
+    const name = event.target.name;
+    signUpDetailsSetter((state) => {
+      return {
+        ...state,
+        [name]: event.target.value,
+      };
     });
-  }
-
-  function passwordHandler(newPassword) {
-    signUpDetailsSetter((value) => {
-      return { ...value, password: newPassword };
-    });
-  }
-
-  function userNameHandler(newUserName) {
-    signUpDetailsSetter((value) => {
-      return { ...value, userName: newUserName };
-    });
-  }
+  };
   return (
     <div className="signUp" style={{ backgroundColor: theme.cardBackground }}>
       <img src={dropout} />
       <TextField
         label="UserName"
         value={signUpDetails.userName}
-        onChangeFunction={userNameHandler}
+        onChangeFunction={handleChange}
+        name="userName"
       />
 
       <TextField
         label={language.auth.email}
         value={signUpDetails.userId}
-        onChangeFunction={userIdHanlder}
+        onChangeFunction={handleChange}
+        name="userId"
       />
       <TextField
         label={language.auth.password}
         value={signUpDetails.password}
-        onChangeFunction={passwordHandler}
+        onChangeFunction={handleChange}
+        name="password"
         type="password"
       />
 

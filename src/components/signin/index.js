@@ -34,19 +34,31 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
     });
   }
 
+  const handleChange = (event) => {
+    const name = event.target.name;
+    signInDetailsSetter((state) => {
+      return {
+        ...state,
+        [name]: event.target.value,
+      };
+    });
+  };
+
   return (
     <div className="signin" style={{ backgroundColor: theme.cardBackground }}>
       <img src={dropout} />
       <TextField
         label={language.auth.email}
         value={signInDetails.userId}
-        onChangeFunction={userIdHanlder}
+        onChangeFunction={handleChange}
+        name="userId"
       />
       <TextField
         label={language.auth.password}
         value={signInDetails.password}
-        onChangeFunction={passwordHandler}
+        onChangeFunction={handleChange}
         type="password"
+        name="password"
       />
       <div className="signin-btn-container">
         <Button
