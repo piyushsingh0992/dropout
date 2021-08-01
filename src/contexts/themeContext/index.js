@@ -6,13 +6,10 @@ const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
   useEffect(() => {
-    let previousTheme = localStorage.getItem("theme");
-    if (previousTheme === "dark") {
-      themeDispatch({ payload: true });
-    } else if (previousTheme === "light") {
-      themeDispatch({ payload: false });
-    }
-  });
+    let previousTheme = JSON.parse(localStorage.getItem("theme"));
+
+    previousTheme && themeDispatch({ payload: previousTheme });
+  }, []);
 
   const [theme, themeDispatch] = useReducer(themeHandler, dark);
 

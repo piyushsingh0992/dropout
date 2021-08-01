@@ -8,7 +8,10 @@ test("Change to dark theme", () => {
 
   const expectedState = dark;
 
-  expect(localStorage.setItem).toHaveBeenLastCalledWith("theme", "dark");
+  expect(localStorage.setItem).toHaveBeenLastCalledWith(
+    "theme",
+    `${action.payload}`
+  );
   expect(result).toEqual(expectedState);
 });
 
@@ -19,6 +22,9 @@ test("Change to light theme", () => {
 
   const expectedState = light;
 
-  expect(localStorage.setItem).toHaveBeenLastCalledWith("theme", "light");
+  expect(localStorage.setItem).toHaveBeenLastCalledWith(
+    "theme",
+    `${action.payload}`
+  );
   expect(result).toEqual(expectedState);
 });
