@@ -3,7 +3,7 @@ import "./style.css";
 import Search from "../../components/search";
 import Navigation from "../../components/navigation";
 import SearchVideoCard from "../../components/searchVideoCard";
-import { apiCall } from "../../apiCall/apiCall";
+import { apiCall } from "../../apiCall";
 import Loader from "../../components/loader";
 import { useTheme } from "../../contexts/themeContext";
 import useDebounce from "../../customHooks/debounce";

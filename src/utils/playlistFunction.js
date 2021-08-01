@@ -1,4 +1,4 @@
-import { apiCall } from "../apiCall/apiCall";
+import { apiCall } from "../apiCall";
 export async function createPlaylist(
   newPlaylistName,
   playlistDispatch,

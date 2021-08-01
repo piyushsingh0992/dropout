@@ -1,4 +1,4 @@
-import { apiCall } from "../../apiCall";
+import { apiCall } from "../apiCall";
 
 export async function signInService(
   signInDetails,

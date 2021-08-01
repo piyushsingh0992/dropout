@@ -10,7 +10,7 @@ import { useTheme } from "../../contexts/themeContext";
 import { useAuth } from "../../contexts/authContext";
 import Loader from "../../components/loader";
 
-import { apiCall } from "../../apiCall/apiCall";
+import { apiCall } from "../../apiCall";
 
 
 const VideoPlayerPage = () => {

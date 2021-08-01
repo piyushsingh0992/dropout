@@ -6,7 +6,7 @@ import { useAuth } from "../../contexts/authContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import VideoStats from "../../components/videoStats";
 import Loader from "../../components/loader";
-import { apiCall } from "../../apiCall/apiCall";
+import { apiCall } from "../../apiCall";
 const DashboardPage = () => {
   const {
     login: { mentor, userName, userKey },

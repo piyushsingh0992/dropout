@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer, createContext, useContext } from "react";
 
-import { apiCall } from "../../apiCall/apiCall";
+import { apiCall } from "../../apiCall";
 import { useAuth } from "../authContext";
 import { useToast } from "../toastContext";
 import { playlistManager } from "./reducer";

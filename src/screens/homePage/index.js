@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import Hero from "../../components/hero";
-import { apiCall } from "../../apiCall/apiCall";
+import { apiCall } from "../../apiCall";
 import Loader from "../../components/loader";
 
 const HomePage = () => {

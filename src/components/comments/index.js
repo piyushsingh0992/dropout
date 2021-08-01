@@ -8,7 +8,7 @@ import { useTheme } from "../../contexts/themeContext";
 import { useAuth } from "../../contexts/authContext";
 
 import { useToast } from "../../contexts/toastContext";
-import { apiCall } from "../../apiCall/apiCall";
+import { apiCall } from "../../apiCall";
 
 const Comments = ({ comments, videoId }) => {
   const { theme } = useTheme();

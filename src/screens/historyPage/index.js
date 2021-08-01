@@ -6,7 +6,7 @@ import HistoryVideoCard from "../../components/historyVideoCard";
 import Heading from "../../components/heading";
 import { useAuth } from "../../contexts/authContext";
 import Loader from "../../components/loader";
-import { apiCall } from "../../apiCall/apiCall";
+import { apiCall } from "../../apiCall";
 const HistoryPage = () => {
   const [history, historyArraySetter] = useState([]);
   const [loading, loadingSetter] = useState(true);

@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { apiCall } from "../../apiCall/apiCall";
+import { apiCall } from "../../apiCall";
 import { useAuth } from "../authContext";
 import { useToast } from "../toastContext";
 import { likedVideoManager } from "./reducer";

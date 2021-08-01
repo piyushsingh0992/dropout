@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Navigation from "../../components/navigation";
 import Mentor from "../../components/mentor";
 import Loader from "../../components/loader";
-import { apiCall } from "../../apiCall/apiCall";
+import { apiCall } from "../../apiCall";
 const MentorPage = () => {
   let { mentorId } = useParams();
   const [mentorData, mentorDataSetter] = useState(null);

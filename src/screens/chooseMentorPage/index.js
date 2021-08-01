@@ -4,7 +4,7 @@ import Navigation from "../../components/navigation";
 import MentorGrid from "../../components/mentorGrid";
 import Heading from "../../components/heading";
 import Loader from "../../components/loader";
-import { apiCall } from "../../apiCall/apiCall";
+import { apiCall } from "../../apiCall";
 
 const ChooseMentorPage = () => {
   const [loader, loaderSetter] = useState(true);
