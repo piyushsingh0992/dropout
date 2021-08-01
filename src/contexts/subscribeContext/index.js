@@ -1,28 +1,10 @@
 import React, { useEffect, useReducer, createContext, useContext } from "react";
-
+import { subscribeManager } from "./reducer";
 import { apiCall } from "../../apiCall/apiCall";
 import { useAuth } from "../authContext";
 import { useToast } from "../toastContext";
 
 const SubscribeContext = createContext();
-
-function subscribeManager(state, action) {
-  const { payload, type } = action;
-
-  const { mentorId, subscribedMentors } = payload ||{};
-  switch (type) {
-    case "FIRST_LOAD":
-      return subscribedMentors;
-    case "SUBSCRIBE":
-      return [...state, mentorId];
-    case "UNSUBSCRIBE":
-      return state.filter((item) => item != mentorId);
-    case "LOGOUT":
-      return [];
-    default:
-      return state;
-  }
-}
 
 export function SubscribeProvider({ children }) {
   const [subscribeState, subscribeDispatch] = useReducer(subscribeManager, []);
