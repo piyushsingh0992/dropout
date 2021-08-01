@@ -3,23 +3,15 @@ import "./style.css";
 import setting from "../../assets/icons/settings.svg";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../contexts/authContext";
-import { useToast } from "../../contexts/toastContext";
 import { useLanguage } from "../../contexts/languageContext";
+import useLogout from "../../customHooks/logout";
 
 export default function LoginButton() {
   const { language } = useLanguage();
   const {
     login: { loginStatus },
-    loginDispatch,
   } = useAuth();
-  const { toastDispatch } = useToast();
-
-  function logoutHandler() {
-    toastDispatch("success", "Logged Out");
-    loginDispatch({
-      type: "LOGOUT",
-    });
-  }
+  const logoutHandler = useLogout();
 
   return loginStatus ? (
     <div className="sidenav-bottom" onClick={logoutHandler}>

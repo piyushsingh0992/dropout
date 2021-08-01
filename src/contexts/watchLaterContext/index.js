@@ -22,6 +22,8 @@ function watchLaterManger(state, action) {
           return true;
         }
       });
+    case "LOGOUT":
+      return [];
 
     default:
       return state;
@@ -39,17 +41,15 @@ export function WatchLaterProvider({ children }) {
     let { loginStatus, userKey } = login;
     if (loginStatus) {
       (async function () {
-        
-          let { success, data, message } = await apiCall(
-            "GET",
-            `watchlater/${userKey}`
-          );
-          if (success === true) {
-            watchLaterDispatch({ payload: "FIRST_LOAD", videos: data.videos });
-          } else {
-            toastDispatch("error", message);
-          }
-        
+        let { success, data, message } = await apiCall(
+          "GET",
+          `watchlater/${userKey}`
+        );
+        if (success === true) {
+          watchLaterDispatch({ payload: "FIRST_LOAD", videos: data.videos });
+        } else {
+          toastDispatch("error", message);
+        }
       })();
     }
   }, [login]);

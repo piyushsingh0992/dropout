@@ -17,8 +17,8 @@ export async function addLikedVideo(
 
   if (success === true) {
     likedVideoStateDispatch({
-      payload: "ADD_LIKED_VIDEO",
-      video: data.video,
+      type: "ADD_LIKED_VIDEO",
+      payload: { video: data.video },
     });
     toastDispatch("success", "Liked the Video");
   } else {
@@ -46,8 +46,8 @@ export async function deleteLikedVideo(
 
   if (success === true) {
     likedVideoStateDispatch({
-      payload: "REMOVE_LIKED_VIDEO",
-      video: data.video,
+      type: "REMOVE_LIKED_VIDEO",
+      payload: { video: data.video },
     });
     toastDispatch("success", "Unliked the Video");
   } else {

@@ -5,9 +5,10 @@ import { useToast } from "../toastContext";
 const LikedVideoContext = createContext();
 
 function likedVideoManager(state, action) {
-  const { payload, video, videos } = action;
+  const { type, payload } = action;
+  const { video, videos } = payload || {};
 
-  switch (payload) {
+  switch (type) {
     case "FIRST_LOAD":
       return videos;
 
@@ -22,6 +23,8 @@ function likedVideoManager(state, action) {
           return true;
         }
       });
+    case "LOGOUT":
+      return [];
     default:
       return state;
   }
@@ -40,21 +43,19 @@ export function LikedVideoProvider({ children }) {
     let { loginStatus, userKey } = login;
     if (loginStatus) {
       (async function () {
-        
-          let { success, data, message } = await apiCall(
-            "GET",
-            `likedVideos/${userKey}`
-          );
+        let { success, data, message } = await apiCall(
+          "GET",
+          `likedVideos/${userKey}`
+        );
 
-          if (success === true) {
-            likedVideoStateDispatch({
-              payload: "FIRST_LOAD",
-              videos: data.videos,
-            });
-          } else {
-            toastDispatch("error", message);
-          }
-        
+        if (success === true) {
+          likedVideoStateDispatch({
+            type: "FIRST_LOAD",
+            payload: { videos: data.videos },
+          });
+        } else {
+          toastDispatch("error", message);
+        }
       })();
     }
   }, [login]);

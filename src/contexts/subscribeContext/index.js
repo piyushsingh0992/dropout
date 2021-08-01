@@ -17,6 +17,8 @@ function subscribeManager(state, action) {
       return [...state, mentorId];
     case "UNSUBSCRIBE":
       return state.filter((item) => item != mentorId);
+    case "LOGOUT":
+      return []
     default:
       return state;
   }
