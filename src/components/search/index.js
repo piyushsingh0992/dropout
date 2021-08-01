@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import searchIcon from "../../assets/icons/search.svg";
 import { useTheme } from "../../contexts/themeContext";
-const Search = ({ searchTerm, searchTermSetter, keyCodeSetter }) => {
+const Search = ({ searchTerm, searchTermSetter }) => {
   const { theme } = useTheme();
 
   return (
@@ -12,9 +12,8 @@ const Search = ({ searchTerm, searchTermSetter, keyCodeSetter }) => {
         style={{ backgroundColor: theme.cardBackground, color: theme.boldText }}
         placeholder="search"
         value={searchTerm}
-        onChange={(e) => searchTermSetter(e.target.value)}
-        onKeyDown={(e) => {
-          keyCodeSetter(e.keyCode);
+        onChange={(e) => {
+          searchTermSetter(e.target.value);
         }}
       />
     </div>

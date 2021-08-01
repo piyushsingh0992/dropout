@@ -6,52 +6,42 @@ import SearchVideoCard from "../../components/searchVideoCard";
 import { apiCall } from "../../apiCall/apiCall";
 import Loader from "../../components/loader";
 import { useTheme } from "../../contexts/themeContext";
+import useDebounce from "../../utils/debounce";
 const SearchPage = () => {
   const [searchTerm, searchTermSetter] = useState("");
-  const [keyCode, keyCodeSetter] = useState(null);
   const [loader, loaderSetter] = useState(false);
   const [searchResult, searchResultSetter] = useState([]);
-  const [searchActive, searchActiveSetter] = useState(false);
+  const [searchMessage, searchMessageSetter] = useState(null);
   const { theme } = useTheme();
-  useEffect(() => {
-    if (keyCode === 13 && searchTerm.length > 0) {
-      console.log("searchActive ->", searchActive);
-      (async function () {
-        searchActiveSetter(true);
-        loaderSetter(true);
 
-        let { success, data, message } = await apiCall(
-          "GET",
-          `search/${searchTerm}`
-        );
-        if (success === true) {
-          searchResultSetter(data);
-        }
-        loaderSetter(false);
-      })();
+  let searchCall = useDebounce(async function () {
+    if (!searchTerm) return;
+
+    loaderSetter(true);
+    let { success, data } = await apiCall("GET", `search/${searchTerm}`);
+    if (success === true) {
+      searchResultSetter(data.searchResult);
+      searchMessageSetter(data.message);
     }
-  }, [searchTerm, keyCode]);
+    loaderSetter(false);
+  }, 300);
+
+  useEffect(() => {
+    searchCall(searchTerm);
+  }, [searchTerm]);
   return (
     <div className="pageContainer">
       <Navigation />
       <div className="screenContainer">
-        <Search
-          searchTerm={searchTerm}
-          searchTermSetter={searchTermSetter}
-          keyCodeSetter={keyCodeSetter}
-        />
+        <Search searchTerm={searchTerm} searchTermSetter={searchTermSetter} />
 
         {loader ? (
           <Loader size={5} />
         ) : (
           <div>
-            {searchActive ? (
-              searchResult.length > 1 ? (
-                <h2 style={{ color: theme.boldText }}>Search Results</h2>
-              ) : (
-                <h2 style={{ color: theme.boldText }}>No Results found</h2>
-              )
-            ) : null}
+            {searchMessage && (
+              <h2 style={{ color: theme.boldText }}>{searchMessage}</h2>
+            )}
             {searchResult.map((item) => {
               return <SearchVideoCard videosDetails={item} />;
             })}
