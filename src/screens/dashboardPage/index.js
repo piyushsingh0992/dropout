@@ -22,7 +22,7 @@ const DashboardPage = () => {
     }
     (async function () {
       let { data, success, message } = await apiCall("GET", `stats/${userKey}`);
-      debugger;
+      
       if (success === true) {
         videosSetter(data.videos);
       } else {

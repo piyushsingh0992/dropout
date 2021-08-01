@@ -6,14 +6,13 @@ import Button from "../button";
 import { useTheme } from "../../contexts/themeContext";
 import { useLanguage } from "../../contexts/languageContext";
 import { useAuth } from "../../contexts/authContext";
-import { useToast } from "../../contexts/toastContext";
-import { signInService } from "./common.js";
+import { useSignIn } from "../../customHooks/signIn";
 const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
-  const { toastDispatch } = useToast();
-  const { login, loginDispatch } = useAuth();
+  const { login } = useAuth();
   const [loader, setLoader] = useState(false);
+  const signInService = useSignIn();
   useEffect(() => {
     setLoader(false);
   }, [login]);
@@ -48,7 +47,7 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
         <Button
           text={language.auth.signin}
           clickFunction={() => {
-            signInService(signInDetails, loginDispatch, toastDispatch);
+            signInService(signInDetails);
             setLoader(true);
           }}
           loading={loader}

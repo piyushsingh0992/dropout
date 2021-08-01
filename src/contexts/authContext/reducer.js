@@ -16,7 +16,7 @@ export function loginHandler(state, action) {
           token: payload.token,
         })
       );
-      debugger;
+      
       return payload;
 
     case "LOGOUT":
@@ -29,6 +29,7 @@ export function loginHandler(state, action) {
         userName: null,
         token: null,
       };
+
     default:
       return state;
   }

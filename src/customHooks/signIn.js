@@ -1,17 +1,15 @@
 import { apiCall } from "../apiCall";
+import { useAuth } from "../contexts/authContext";
+import { useToast } from "../contexts/toastContext";
 
-export async function signInService(
-  signInDetails,
-  loginDispatch,
-  toastDispatch
-) {
+export function useSignIn() {
+  const { toastDispatch } = useToast();
+  const { loginDispatch } = useAuth();
 
-    let { data, message, success } = await apiCall(
-      "POST",
-      "auth",
-      signInDetails
-    );
-
+  return async function () {
+    let self = this;
+    let args = arguments;
+    let { data, message, success } = await apiCall("POST", "auth", args[0]);
     if (success === true) {
       loginDispatch({
         type: "LOGIN",
@@ -23,9 +21,8 @@ export async function signInService(
           token: data.token,
         },
       });
-
     } else {
       toastDispatch("error", message);
     }
-
+  };
 }
