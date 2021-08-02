@@ -4,7 +4,6 @@ import { light, dark } from "./data.js";
 
 const ThemeContext = createContext();
 
-
 export function ThemeProvider({ children }) {
   useEffect(() => {
     let previousTheme = localStorage.getItem("theme");
