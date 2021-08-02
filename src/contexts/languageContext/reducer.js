@@ -10,8 +10,8 @@ import {
 } from "./data.js";
 
 export function languageHandler(state, action) {
-  const { payload } = action;
-  switch (payload) {
+  const { type } = action;
+  switch (type) {
     case "English":
       return English;
     case "Hindi":

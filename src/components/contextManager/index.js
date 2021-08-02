@@ -13,7 +13,7 @@ const ContextManager = () => {
         <select
           className="languageContextManager"
           onChange={(e) => {
-            languageDispatch({ payload: e.target.value });
+            languageDispatch({ type: e.target.value });
           }}
         >
           <option value="English">English</option>

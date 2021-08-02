@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { themeHandler } from "./reducer.js";
-import { light, dark } from "./data.js";
+import { dark } from "./data.js";
 
 const ThemeContext = createContext();
 
