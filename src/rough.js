@@ -1,11 +1,9 @@
-//index.js
+test("title", () => {
+  const initialState = {};
+  const action = {};
+  const expectedState = {};
 
+  let result = dispatch(initialState, action);
 
-
-//reducer.js
-
-
-
-
-// test.js
-
+  expect(result).toEqual(expectedState);
+});
