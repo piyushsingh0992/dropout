@@ -6,6 +6,7 @@ test("Change to dark theme", () => {
   const action = { payload: true };
   let result = themeHandler(initialState, action);
 
+  
   const expectedState = dark;
 
   expect(localStorage.setItem).toHaveBeenLastCalledWith("theme", "dark");
