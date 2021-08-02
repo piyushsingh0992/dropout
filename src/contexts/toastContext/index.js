@@ -6,14 +6,9 @@ export function ToastProvider({ children }) {
   const [toastState, toastSetter] = useState({ trigger: false });
 
   function toastDispatch(type, message) {
-    switch (type) {
-      case "RESET":
-        toastSetter({ trigger: false });
-        break;
-      default:
-        toastSetter({ trigger: true, type, message });
-        break;
-    }
+    type === "RESET"
+      ? toastSetter({ trigger: false })
+      : toastSetter({ trigger: true, type, message });
   }
 
   return (
