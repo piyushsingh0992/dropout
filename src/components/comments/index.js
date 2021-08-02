@@ -37,7 +37,7 @@ const Comments = ({ comments, videoId }) => {
       questionArraySetter((value) => [data.comment, ...value]);
       currentQuestionSetter("");
     } else {
-      toastDispatch("error", message);
+      toastDispatch({type:"error", message});
     }
   }
 

@@ -19,9 +19,9 @@ export async function createPlaylist(
       },
     });
     newPlaylistNameSetter("");
-    toastDispatch("success", "playlist Created");
+    toastDispatch({type:"success",message: "playlist Created"});
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
 }
 
@@ -45,9 +45,9 @@ export async function addVideoToPlaylist(
       payload: { playlist: data.playlist },
     });
     modalTriggerSetter(false);
-    toastDispatch("success", "Video Added to playlist");
+    toastDispatch({type:"success",message: "Video Added to playlist"});
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
 }
 
@@ -72,9 +72,9 @@ export async function deleteVideoFromPlaylist(
       type: "DELETE_VIDEO",
       payload: { playlist: data.playlist },
     });
-    toastDispatch("success", "Video deleted");
+    toastDispatch({type:"success",message: "Video deleted"});
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
 }
 
@@ -96,9 +96,9 @@ export async function deletePlaylist(
         playlist: data.playlist,
       },
     });
-    toastDispatch("success", "Playlist deleted");
+    toastDispatch({type:"success",message: "Playlist deleted"});
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
 }
 
@@ -127,9 +127,9 @@ export async function playlistNameChanger(
           playlist: data.playlist,
         },
       });
-      toastDispatch("success", " Playlist is renamed");
+      toastDispatch({type:"success",message: " Playlist is renamed"});
     } else {
-      toastDispatch("error", message);
+      toastDispatch({type:"error", message});
     }
   })();
 }

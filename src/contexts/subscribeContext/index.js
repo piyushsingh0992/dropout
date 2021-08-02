@@ -28,7 +28,7 @@ export function SubscribeProvider({ children }) {
             },
           });
         } else {
-          toastDispatch("error", message);
+          toastDispatch({type:"error", message});
         }
       })();
     }

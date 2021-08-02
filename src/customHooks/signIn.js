@@ -23,7 +23,7 @@ export function useSignIn(setLoader) {
         },
       });
     } else {
-      toastDispatch("error", message);
+      toastDispatch({type:"error", message});
     }
     setLoader(false);
   };

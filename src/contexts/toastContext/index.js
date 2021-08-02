@@ -1,15 +1,10 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
+import { toastManager } from "./reducer";
 
 const ToastContext = createContext();
 
 export function ToastProvider({ children }) {
-  const [toastState, toastSetter] = useState({ trigger: false });
-
-  function toastDispatch(type, message) {
-    type === "RESET"
-      ? toastSetter({ trigger: false })
-      : toastSetter({ trigger: true, type, message });
-  }
+  const [toastState, toastDispatch] = useReducer(toastManager,{ trigger: false });
 
   return (
     <ToastContext.Provider value={{ toastState, toastDispatch }}>

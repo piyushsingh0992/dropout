@@ -24,10 +24,10 @@ export async function addWatchLater(
         video: data.video,
       },
     });
-    toastDispatch("success", "Added to Watch Later");
+    toastDispatch({type:"success",message: "Added to Watch Later"});
   } else {
     addedVideoSetter(false);
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
 }
 
@@ -55,9 +55,9 @@ export async function removeWatchLater(
         video: data.video,
       },
     });
-    toastDispatch("success", "Removed from Watch Later");
+    toastDispatch({type:"success",message: "Removed from Watch Later"});
   } else {
     addedVideoSetter(true);
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
 }

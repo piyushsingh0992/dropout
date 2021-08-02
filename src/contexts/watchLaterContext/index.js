@@ -27,7 +27,7 @@ export function WatchLaterProvider({ children }) {
             payload: { videos: data.videos },
           });
         } else {
-          toastDispatch("error", message);
+          toastDispatch({type:"error", message});
         }
       })();
     }

@@ -20,9 +20,9 @@ export async function addLikedVideo(
       type: "ADD_LIKED_VIDEO",
       payload: { video: data.video },
     });
-    toastDispatch("success", "Liked the Video");
+    toastDispatch({type:"success",message: "Liked the Video"});
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
     likedVideoSetter(false);
   }
 }
@@ -49,9 +49,9 @@ export async function deleteLikedVideo(
       type: "REMOVE_LIKED_VIDEO",
       payload: { video: data.video },
     });
-    toastDispatch("success", "Unliked the Video");
+    toastDispatch({type:"success",message: "Unliked the Video"});
   } else {
     likedVideoSetter(true);
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
   }
 }

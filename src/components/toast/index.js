@@ -15,7 +15,7 @@ function Toast() {
       showSetter(trigger);
       setTimeout(() => {
         showSetter(false);
-        toastDispatch("RESET");
+        toastDispatch({type:"RESET"});
       }, 2000);
     }
   }, [trigger]);

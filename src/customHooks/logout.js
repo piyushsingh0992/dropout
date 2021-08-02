@@ -14,7 +14,7 @@ const useLogout = () => {
   const { watchLaterDispatch } = useWatchLater();
 
   const logoutFunction = () => {
-    toastDispatch("success", "Logged Out");
+    toastDispatch({ type: "success", message: "Logged Out" });
     loginDispatch({
       type: "LOGOUT",
     });

@@ -15,14 +15,14 @@ export function useSignUp(signInDetailsSetter, userSetter, setLoader) {
       args[0]
     );
     if (success === true) {
-      toastDispatch("success", data.message);
+      toastDispatch({ type: "success", message: data.message });
       signInDetailsSetter({
         password: args[0].password,
         userId: args[0].userId,
       });
       userSetter((value) => !value);
     } else {
-      toastDispatch("error", message);
+      toastDispatch({ type: "error", message });
     }
     setLoader(false);
   };

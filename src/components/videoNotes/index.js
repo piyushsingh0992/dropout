@@ -35,7 +35,7 @@ const VideoNotes = ({ videoNotes, videoId }) => {
         notesSetter(data.notes);
         currentNoteSetter("");
       } else {
-        toastDispatch("error", message);
+        toastDispatch({type:"error", message});
       }
   
   }

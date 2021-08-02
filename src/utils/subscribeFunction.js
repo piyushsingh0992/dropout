@@ -23,9 +23,9 @@ export async function subscribeMentor(
         mentorId: data.mentorId,
       },
     });
-    toastDispatch("success", "Subscribed");
+    toastDispatch({type:"success",message: "Subscribed"});
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
     subscribeSetter(false);
   }
 }
@@ -54,9 +54,9 @@ export async function unSubscribeMentor(
         mentorId: data.mentorId,
       },
     });
-    toastDispatch("success", "Unsubscribed");
+    toastDispatch({type:"success",message: "Unsubscribed"});
   } else {
-    toastDispatch("error", message);
+    toastDispatch({type:"error", message});
     subscribeSetter(true);
   }
 }

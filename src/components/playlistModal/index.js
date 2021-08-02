@@ -43,10 +43,10 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
         (item) => item.name === newPlaylistName
       );
       if (present) {
-        toastDispatch(
-         "error",
-          "playlist already exist",
-        );
+        toastDispatch({
+          type: "error",
+          message: "playlist already exist",
+        });
       } else {
         createPlaylist(
           newPlaylistName,
@@ -70,12 +70,8 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
     }
   }
   function submitHandler() {
-
     if (playlistIdArray.length < 1) {
-      toastDispatch(
-      "error",
-      "Please select a playlist"
-      );
+      toastDispatch({ type: "error", message: "Please select a playlist" });
       return;
     }
     addVideoToPlaylist(

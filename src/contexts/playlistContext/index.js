@@ -29,7 +29,7 @@ export function PlaylistProvider({ children }) {
             payload: { playlists: data },
           });
         } else {
-          toastDispatch("error", message);
+          toastDispatch({type:"error", message});
         }
       })();
     }
