@@ -63,7 +63,7 @@ let videoArray = [
     _id: "60f05b55404b6e05e24d3ak2",
   },
 ];
-test("first load for user watch later videos", () => {
+test("populating the watch later array on first load", () => {
   const initialState = [];
   const action = {
     type: "FIRST_LOAD",

@@ -64,7 +64,7 @@ let videoArray = [
   },
 ];
 
-test("first load for user liked videos", () => {
+test("populating the liked video array on first load", () => {
   const initialState = [];
   const action = {
     type: "FIRST_LOAD",
