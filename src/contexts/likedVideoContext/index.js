@@ -29,7 +29,7 @@ export function LikedVideoProvider({ children }) {
             payload: { videos: data.videos },
           });
         } else {
-          toastDispatch({type:"error", message});
+          toastDispatch({ type: "error", message });
         }
       })();
     }
