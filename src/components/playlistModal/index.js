@@ -21,6 +21,7 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
     new Array(playlistState.length).fill(false)
   );
   const [playlistIdArray, playlistIdArraySetter] = useState([]);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     setIsChecked(new Array(playlistState.length).fill(false));
@@ -74,13 +75,15 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
       toastDispatch({ type: "error", message: "Please select a playlist" });
       return;
     }
+    setLoader(true);
     addVideoToPlaylist(
       videoId,
       playlistIdArray,
       playlistDispatch,
       modalTriggerSetter,
       toastDispatch,
-      userKey
+      userKey,
+      setLoader
     );
     playlistIdArraySetter([]);
     setIsChecked(new Array(playlistState.length).fill(false));
@@ -137,7 +140,11 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
           </div>
         </div>
         <div>
-          <Button text="Add to Playlist" clickFunction={submitHandler} />
+          <Button
+            text="Add to Playlist"
+            clickFunction={submitHandler}
+            loading={loader}
+          />
         </div>
       </div>
     </div>

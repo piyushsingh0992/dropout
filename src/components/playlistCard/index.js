@@ -36,6 +36,7 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
       userKey
     );
   }
+  const [loader, setLoader] = useState(false);
 
   function nameChangeHandler() {
     playlistNameChanger(
@@ -44,9 +45,12 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
       playlistDispatch,
       newNameSetter,
       toastDispatch,
-      userKey
+      userKey,
+      editSetter,
+      setLoader
     );
   }
+  console.log("new name ->", newName);
   return (
     <div className="playlistCard">
       <div className="playlistName">
@@ -54,17 +58,18 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
           <>
             <TextField
               value={newName}
-              onChangeFunction={(newValue) => {
-                newNameSetter(newValue);
+              onChangeFunction={(e) => {
+                newNameSetter(e.target.value);
               }}
             />
             <Button
               clickFunction={() => {
-                editSetter((value) => !value);
                 nameChangeHandler();
+                setLoader(true);
               }}
               text="Update"
               size="playlistNameUpdate"
+              loading={loader}
             />
           </>
         ) : (

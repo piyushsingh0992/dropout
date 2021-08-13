@@ -31,7 +31,7 @@ export async function addVideoToPlaylist(
   playlistDispatch,
   modalTriggerSetter,
   toastDispatch,
-  userKey
+  userKey,setLoader
 ) {
   let { data, success, message } = await apiCall("POST", `playlist`, {
     playlistArray: playlistIdArray,
@@ -46,8 +46,10 @@ export async function addVideoToPlaylist(
     });
     modalTriggerSetter(false);
     toastDispatch({type:"success",message: "Video Added to playlist"});
+    setLoader(false);
   } else {
     toastDispatch({type:"error", message});
+    setLoader(false);
   }
 }
 
@@ -108,7 +110,7 @@ export async function playlistNameChanger(
   playlistDispatch,
   newNameSetter,
   toastDispatch,
-  userKey
+  userKey,editSetter,setLoader
 ) {
   (async function () {
     let { data, success, message } = await apiCall(
@@ -128,8 +130,12 @@ export async function playlistNameChanger(
         },
       });
       toastDispatch({type:"success",message: " Playlist is renamed"});
+      editSetter(value => !value);
+      setLoader(false);
     } else {
       toastDispatch({type:"error", message});
+      editSetter(value => !value);
+      setLoader(false);
     }
   })();
 }

@@ -15,7 +15,11 @@ const SearchPage = () => {
   const { theme } = useTheme();
 
   let searchCall = useDebounce(async function () {
-    if (!searchTerm) return;
+    if (searchTerm <= 0) {
+      searchResultSetter([]);
+      searchMessageSetter(null);
+      return;
+    }
     loaderSetter(true);
     let { success, data } = await apiCall("GET", `search/${searchTerm}`);
     if (success === true) {
