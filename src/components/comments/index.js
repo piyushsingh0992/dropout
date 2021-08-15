@@ -37,7 +37,7 @@ const Comments = ({ comments, videoId }) => {
       questionArraySetter((value) => [data.comment, ...value]);
       currentQuestionSetter("");
     } else {
-      toastDispatch({type:"error", message});
+      toastDispatch({ type: "error", message });
     }
   }
 
@@ -90,7 +90,7 @@ const Comments = ({ comments, videoId }) => {
       <div className="questionContainer">
         {questionArray.map(({ user, comment }) => {
           return (
-            <div className="question">
+            <div className="question" style={{ color: theme.boldText }}>
               <Avatar size="small" name={user.userName} />
               <p>{comment}</p>
             </div>
