@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import "./style.css";
 import Navigation from "../../components/navigation";
 import Heading from "../../components/heading";
@@ -16,11 +16,38 @@ const DashboardPage = () => {
   } = useAuth();
   const navigate = useNavigate();
   const { state } = useLocation();
-  const [videos, videosSetter] = useState(null);
+  const [videos, videosSetter] = useState([]);
   const [playlists, playlistsSetter] = useState([]);
   const { theme } = useTheme();
   const [uploadModal, uploadModalSetter] = useState(false);
   const [mentorDetails, mentorDetailsSetter] = useState(null);
+  const [loader, loaderSetter] = useState(false);
+
+  function filteringVideos(data, payload) {
+    const { currentFilter } = payload;
+    switch (currentFilter) {
+      case "Views":
+        return data.sort((a, b) => {
+          return b.views - a.views;
+        });
+      case "Comments":
+        return data.sort((a, b) => {
+          return b.comments.length - a.comments.length;
+        });
+
+      case "Likes":
+        return data.sort((a, b) => {
+          return b.likes - a.likes;
+        });
+
+      default:
+        return data;
+    }
+  }
+
+  const [filter, filterSetter] = useState({
+    currentFilter: null,
+  });
 
   useEffect(() => {
     if (!mentor) {
@@ -35,15 +62,20 @@ const DashboardPage = () => {
           channelId: data.channelId,
           channelName: data.channelName,
         });
+        
         videosSetter(data.videos);
         playlistsSetter(data.playlists);
+        loaderSetter(true);
       } else {
         navigate(state && state.from ? state.from : "/");
       }
     })();
   }, []);
 
-  return videos ? (
+  let filteredVideos = [...videos];
+  filteringVideos(filteredVideos, filter);
+
+  return loader ? (
     <div className="pageContainer">
       <UploadVideo
         trigger={uploadModal}
@@ -58,8 +90,64 @@ const DashboardPage = () => {
         <Heading text={`Hey ${userName}`} />
         <div className="dashBoardControls" style={{ color: theme.boldText }}>
           <p>Sort By</p>
+          <p>
+            <input
+              type="radio"
+              name="dashBoard-filter"
+              value="nofilter"
+              onChange={(e) => {
+                filterSetter((value) => {
+                  return { ...value, currentFilter: e.target.value };
+                });
+              }}
+              checked={filter && filter.currentFilter === "nofilter"}
+            />
+            &nbsp;&nbsp;No filter
+          </p>
+          <p>
+            <input
+              type="radio"
+              name="dashBoard-filter"
+              value="Likes"
+              onChange={(e) => {
+                filterSetter((value) => {
+                  return { ...value, currentFilter: e.target.value };
+                });
+              }}
+              checked={filter && filter.currentFilter === "Likes"}
+            />
+            &nbsp;&nbsp;Likes
+          </p>
+          <p>
+            <input
+              type="radio"
+              name="dashBoard-filter"
+              value="Views"
+              onChange={(e) => {
+                filterSetter((value) => {
+                  return { ...value, currentFilter: e.target.value };
+                });
+              }}
+              checked={filter && filter.currentFilter === "Views"}
+            />
+            &nbsp;&nbsp;Views
+          </p>
+          <p>
+            <input
+              type="radio"
+              name="dashBoard-filter"
+              value="Comments"
+              onChange={(e) => {
+                filterSetter((value) => {
+                  return { ...value, currentFilter: e.target.value };
+                });
+              }}
+              checked={filter && filter.currentFilter === "Comments"}
+            />
+            &nbsp;&nbsp;Comments
+          </p>
           <Button
-            text="upload"
+            text="Upload"
             clickFunction={() => {
               uploadModalSetter(true);
             }}
@@ -67,7 +155,7 @@ const DashboardPage = () => {
         </div>
 
         <div className="userVideosContainer">
-          {videos.map((stats) => {
+          {filteredVideos.map((stats) => {
             return <VideoStats stats={stats} />;
           })}
         </div>
