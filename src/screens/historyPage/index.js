@@ -7,22 +7,29 @@ import Heading from "../../components/heading";
 import { useAuth } from "../../contexts/authContext";
 import Loader from "../../components/loader";
 import { apiCall } from "../../apiCall";
+import { useHistory } from "../../contexts/historyContext";
 const HistoryPage = () => {
-  const [history, historyArraySetter] = useState([]);
-  const [loading, loadingSetter] = useState(true);
+  const { history, historyDispatch } = useHistory();
+  const [loading, loadingSetter] = useState(history.status === "idle");
 
   const {
     login: { userKey },
   } = useAuth();
+
   useEffect(() => {
-    (async function () {
-      let { data, success } = await apiCall("GET", `history/${userKey}`);
-      if (success === true) {
-        historyArraySetter(data.videos);
-      }
-      loadingSetter(false);
-    })();
-  }, []);
+    if (history.status === "idle") {
+      (async function () {
+        let { data, success } = await apiCall("GET", `history/${userKey}`);
+        if (success === true) {
+          historyDispatch({
+            type: "FIRST_LOAD",
+            payload: { videos: data.videos },
+          });
+        }
+        loadingSetter(false);
+      })();
+    }
+  }, [userKey]);
 
   return loading ? (
     <Loader size={5} />
@@ -32,22 +39,21 @@ const HistoryPage = () => {
 
       <div className="screenContainer">
         <Heading text={"History"} />
-        {history.map(({ video }) => {
-          let { title, thumbnail, _id, mentor, views, created_at } = video;
-
-          let time = moment(created_at).startOf("hour").fromNow();
-
-          return (
-            <HistoryVideoCard
-              title={title}
-              views={views}
-              mentor={mentor}
-              thumbnail={thumbnail}
-              videoId={_id}
-              time={time}
-            />
-          );
-        })}
+        {history &&
+          history.videos.map(({ video, created_at }) => {
+            let { title, thumbnail, _id, mentor, views } = video;
+            let time = moment(created_at).startOf("hour").fromNow();
+            return (
+              <HistoryVideoCard
+                title={title}
+                views={views}
+                mentor={mentor}
+                thumbnail={thumbnail}
+                videoId={_id}
+                time={time}
+              />
+            );
+          })}
       </div>
     </div>
   );

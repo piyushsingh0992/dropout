@@ -11,7 +11,7 @@ import { SubscribeProvider } from "./contexts/subscribeContext";
 import { PlaylistProvider } from "./contexts/playlistContext";
 import { AuthProvider } from "./contexts/authContext";
 import { ToastProvider } from "./contexts/toastContext";
-
+import { HistoryProvider } from "./contexts/historyContext";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,15 +20,17 @@ ReactDOM.render(
         <ThemeProvider>
           <LanguageProvider>
             <ToastProvider>
-              <PlaylistProvider>
-                <SubscribeProvider>
-                  <WatchLaterProvider>
-                    <LikedVideoProvider>
-                      <App />
-                    </LikedVideoProvider>
-                  </WatchLaterProvider>
-                </SubscribeProvider>
-              </PlaylistProvider>
+              <HistoryProvider>
+                <PlaylistProvider>
+                  <SubscribeProvider>
+                    <WatchLaterProvider>
+                      <LikedVideoProvider>
+                        <App />
+                      </LikedVideoProvider>
+                    </WatchLaterProvider>
+                  </SubscribeProvider>
+                </PlaylistProvider>
+              </HistoryProvider>
             </ToastProvider>
           </LanguageProvider>
         </ThemeProvider>

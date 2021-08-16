@@ -9,15 +9,16 @@ import RecommendVideoCard from "../../components/recommendVideoCard";
 import { useTheme } from "../../contexts/themeContext";
 import { useAuth } from "../../contexts/authContext";
 import Loader from "../../components/loader";
-
+import moment from "moment";
 import { apiCall } from "../../apiCall";
 
-
+import { useHistory } from "../../contexts/historyContext";
 const VideoPlayerPage = () => {
   const { theme } = useTheme();
   const {
     login: { userKey },
   } = useAuth();
+  const { history, historyDispatch } = useHistory();
 
   const [side, sideSetter] = useState(false);
   const [loader, loaderSetter] = useState(true);
@@ -27,23 +28,30 @@ const VideoPlayerPage = () => {
   const [notes, notesSetter] = useState([]);
   useEffect(() => {
     (async function () {
-     
-        loaderSetter(true);
-        let { success, data, message } = await apiCall(
-          "POST",
-          `video/${videoId}`,
-          {
-            userKey,
-          }
-        );
-
-        if (success === true) {
-          videoDetailsSetter(data.video);
-          recommendationSetter(data.recommendation);
-          notesSetter(data.notes);
+      loaderSetter(true);
+      let { success, data, message } = await apiCall(
+        "POST",
+        `video/${videoId}`,
+        {
+          userKey,
         }
-        loaderSetter(false);
-      
+      );
+
+      if (success === true) {
+        historyDispatch({
+          type: "ADD_VIDEO",
+          payload: {
+            video: {
+              video: data.video,
+              created_at: moment().toDate().getTime(),
+            },
+          },
+        });
+        videoDetailsSetter(data.video);
+        recommendationSetter(data.recommendation);
+        notesSetter(data.notes);
+      }
+      loaderSetter(false);
     })();
   }, [videoId]);
 
