@@ -50,7 +50,6 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
       setLoader
     );
   }
-  console.log("new name ->", newName);
   return (
     <div className="playlistCard">
       <div className="playlistName">

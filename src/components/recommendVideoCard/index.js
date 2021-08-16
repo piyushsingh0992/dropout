@@ -9,7 +9,9 @@ const RecommendVideoCard = ({ videoDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);
   
   let { title, thumbnail, mentor, _id, views } = videoDetails;
+  
   const { theme } = useTheme();
+  
   return (
     <div className="recommendVideoCard">
       <ThumbNail

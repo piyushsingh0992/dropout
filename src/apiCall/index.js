@@ -12,7 +12,6 @@ function apiErrorHandler(error) {
 }
 
 export async function apiCall(type, endPoint, body) {
-  
   switch (type) {
     case "GET":
       try {
@@ -33,7 +32,7 @@ export async function apiCall(type, endPoint, body) {
           `https://dropout.piyushsingh6.repl.co/${endPoint}`,
           body
         );
-
+        
         if (status === 200) {
           return { success: true, data: data };
         } else {

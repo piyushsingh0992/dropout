@@ -5,6 +5,7 @@
     padding: 1rem;
     border-radius: 5px;
     height: 25rem;
+    max-width: 15rem;
 }
 
 .signUp>img {
