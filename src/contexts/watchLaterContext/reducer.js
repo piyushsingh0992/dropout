@@ -17,7 +17,7 @@ export function watchLaterManger(state, action) {
         }
       });
     case "LOGOUT":
-      return [];
+      return null;
 
     default:
       return state;

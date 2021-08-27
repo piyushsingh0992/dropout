@@ -1,7 +1,8 @@
 import React from "react";
 import "./style.css";
 import { NavLink } from "react-router-dom";
-import dropout from "../../assets/brand/dropout.svg";
+
+import brandLogo from "../../assets/brand/brandLogo.png";
 import { useTheme } from "../../contexts/themeContext";
 import { useLanguage } from "../../contexts/languageContext";
 import { useSideNavRoute } from "../../utils/common.js";
@@ -26,8 +27,8 @@ const SideNav = () => {
       style={{ backgroundColor: theme.highLightBackground }}
     >
       <div className="sidenav-top">
-        <NavLink to="/">
-          <img src={dropout} className="sidenav-brand-logo" />
+        <NavLink to="/" className="sidenav-brand-container">
+          <img src={brandLogo} className="sidenav-brand-logo" />
         </NavLink>
 
         {sideNavRouteArray.map((item) => {

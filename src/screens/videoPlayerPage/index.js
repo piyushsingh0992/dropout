@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useParams, NavLink } from "react-router-dom";
-import logo from "../../assets/brand/dropout.svg";
+
+import brandLogo from "../../assets/brand/brandLogo.png";
 import SideNav from "../../components/sideNav";
 import VideoPlayer from "../../components/videoPlayer";
 import VideoNotes from "../../components/videoNotes";
@@ -64,7 +65,7 @@ const VideoPlayerPage = () => {
         style={{ background: theme.highLightBackground }}
       >
         <NavLink to="/">
-          <img src={logo} className="videoPlayerBrand" />
+          <img src={brandLogo} className="videoPlayerBrand" />
         </NavLink>
         <img
           src={theme.menu}

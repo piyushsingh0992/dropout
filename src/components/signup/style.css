@@ -9,7 +9,9 @@
 }
 
 .signUp>img {
-    height: 5rem;
+    height: 4rem;
+    object-fit: contain;
+    padding: 0.5rem 0;
 }
 
 .signUp-btn-container {

@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import "./style.css";
-// import logo from "../../assets/brand/dropout.svg";
-import logo from "../../assets/brand/dropout.svg";
+import brandLogo from "../../assets/brand/brandLogo.png";
 import menu from "../../assets/icons/menu.svg";
 import Button from "../button";
 import SideNav from "../sideNav";
@@ -48,7 +47,7 @@ const Hero = ({ mentorArray }) => {
       <img src={theme.heroBackground} className="heroBackground" />
       <div className="heroContainer">
         <div className="heroNavbar">
-          <img src={logo} className="heroBrand" />
+          <img src={brandLogo} className="heroBrand" />
           <img
             src={menu}
             className="menuBrand"
@@ -83,10 +82,6 @@ const Hero = ({ mentorArray }) => {
             slideRight();
           }}
         />
-        <div className="tagline" style={{color:theme.hightLightText}}>
-        <h1>Even if you Dropout, you can still learn from best </h1>
-        <h3>Choose a mentor and start learning </h3>
-        </div>
         <div className="slideShow" style={{ left: `${position}vw` }}>
           {mentorArray.map((item, index) => {
             return (

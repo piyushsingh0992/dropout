@@ -38,7 +38,7 @@
 }
 
 .heroBrand {
-    height: 4rem;
+    height: 3rem;
 }
 
 .menuBrand {
@@ -69,7 +69,7 @@
 .left-arrow {
     height: 2.5rem;
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 2rem;
     cursor: pointer;
     z-index: var(--layer-1);
@@ -78,7 +78,7 @@
 .right-arrow {
     height: 2.5rem;
     position: absolute;
-    top: 60%;
+    top: 50%;
     right: 2rem;
     cursor: pointer;
     z-index: var(--layer-1);
@@ -96,7 +96,7 @@
 .slideMentorImg {
     position: relative;
     left: 2rem;
-    height: 25rem;
+    height: 30rem;
 }
 
 .slideMentorDetails {
@@ -104,7 +104,7 @@
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
-    top: 4rem;
+    top: 8rem;
     right: 15rem;
     max-width: 40vw;
 }
@@ -129,7 +129,7 @@
     font-size: 1.2rem;
     color: var(--white);
     overflow-wrap: break-word;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
 
 }
 
@@ -165,38 +165,20 @@
     margin-top: 0; 
 }
 
-.tagline h3{
-    font-family: logo;
-    font-size: 1.5rem;
-    padding: 0;
-    margin: 0; 
-    
-    padding-top: 2rem;
-    
-}
 
 @media only screen and (max-width: 600px) {
 
-    .tagline{padding: 0 5rem;
+    .tagline{padding: 0 2rem;
         text-align: center;
     }
  
     .tagline h1{
         font-family: logo;
-        font-size: 1.4rem;
-        padding-top: 0.3rem;
+        font-size: 1.6rem;
+        padding-top: 0.5rem;
         margin-top: 0; 
     }
     
-    .tagline h3{
-        font-family: logo;
-        font-size: 1.2rem;
-        padding: 0;
-        margin: 0; 
-        
-        padding-top: 1rem;
-        
-    }
     .slideShow {
         display: flex;
         flex: 2;

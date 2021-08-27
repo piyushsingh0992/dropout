@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import dropout from "../../assets/brand/dropout.svg";
+
+import brandLogo from "../../assets/brand/brandLogo.png";
 import TextField from "../textField";
 import Button from "../button";
 import { useTheme } from "../../contexts/themeContext";
@@ -41,7 +42,7 @@ const SignUp = ({
   };
   return (
     <div className="signUp" style={{ backgroundColor: theme.cardBackground }}>
-      <img src={dropout} />
+      <img src={brandLogo} />
       <TextField
         label="UserName"
         value={signUpDetails.userName}
