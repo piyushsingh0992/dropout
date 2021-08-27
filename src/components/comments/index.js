@@ -45,7 +45,7 @@ const Comments = ({ comments, videoId }) => {
     loaderSetter(false);
   }
 
-  function addingQuestiononEnter(e) {
+  function addCommentonEnter(e) {
     if (currentQuestion.length <= 0 || currentQuestion === "\n") {
       return;
     }
@@ -77,7 +77,7 @@ const Comments = ({ comments, videoId }) => {
           }}
           value={currentQuestion}
           onKeyDown={(e) => {
-            addingQuestiononEnter(e);
+            addCommentonEnter(e);
           }}
           onChange={(e) => {
             currentQuestionSetter(e.target.value);

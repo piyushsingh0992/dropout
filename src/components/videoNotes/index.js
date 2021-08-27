@@ -6,10 +6,11 @@ import { useAuth } from "../../contexts/authContext";
 
 import { useToast } from "../../contexts/toastContext";
 import { apiCall } from "../../apiCall";
-
+import MiniLoader from "../miniloader";
 const VideoNotes = ({ videoNotes, videoId }) => {
   const [notes, notesSetter] = useState([]);
   const [currentNote, currentNoteSetter] = useState("");
+  const [loader, loaderSetter] = useState(false);
   const { theme } = useTheme();
   const { login } = useAuth();
   const { toastDispatch } = useToast();
@@ -21,23 +22,19 @@ const VideoNotes = ({ videoNotes, videoId }) => {
   }, [videoNotes]);
 
   async function addingNotes() {
-   
-      let { data, success, message } = await apiCall(
-        "POST",
-        `notes/${videoId}`,
-        {
-          userKey,
-          note: currentNote,
-        }
-      );
-      
-      if (success === true) {
-        notesSetter(data.notes);
-        currentNoteSetter("");
-      } else {
-        toastDispatch({type:"error", message});
-      }
-  
+    loaderSetter(true);
+    let { data, success, message } = await apiCall("POST", `notes/${videoId}`, {
+      userKey,
+      note: currentNote,
+    });
+
+    if (success === true) {
+      notesSetter(data.notes);
+      currentNoteSetter("");
+    } else {
+      toastDispatch({ type: "error", message });
+    }
+    loaderSetter(false);
   }
 
   function currentNoteHandler(e) {
@@ -59,8 +56,7 @@ const VideoNotes = ({ videoNotes, videoId }) => {
       return;
     }
 
-    notesSetter((value) => [...value, currentNote]);
-    currentNoteSetter("");
+    addingNotes();
   }
   return (
     <div className="videoNotes" style={{ background: theme.cardBackground }}>
@@ -91,14 +87,17 @@ const VideoNotes = ({ videoNotes, videoId }) => {
           className="notesTextArea"
           placeholder="Take notes"
         />
-
-        <img
-          src={enter}
-          className="notesSubmit"
-          onClick={() => {
-            addingNotesonClick();
-          }}
-        />
+        {loader ? (
+          <MiniLoader />
+        ) : (
+          <img
+            src={enter}
+            className="notesSubmit"
+            onClick={() => {
+              addingNotesonClick();
+            }}
+          />
+        )}
       </div>
     </div>
   );
