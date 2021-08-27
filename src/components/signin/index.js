@@ -11,7 +11,8 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const { login } = useAuth();
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState("");
+
   const signInService = useSignIn(setLoader);
   useEffect(() => {
     return () => {
@@ -52,9 +53,10 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
         <Button
           text={language.auth.signin}
           clickFunction={() => {
+            setLoader("USER");
             signInService(signInDetails);
           }}
-          loading={loader}
+          loading={loader === "USER"}
         />
         <p style={{ color: theme.boldText }}>
           {language.auth.msg1}
@@ -69,6 +71,32 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
             {language.auth.signup}
           </span>
         </p>
+        <br />
+
+        <Button
+          text="Sign in as guest MENTOR"
+          clickFunction={() => {
+            setLoader("MENTOR");
+            signInService({
+              password: "tanay@2020",
+              userId: "tanay@neog.com",
+            });
+          }}
+          loading={loader === "MENTOR"}
+        />
+        <br />
+
+        <Button
+          text="Sign in as guest STUDENT"
+          clickFunction={() => {
+            setLoader("STUDENT");
+            signInService({
+              password: "test123@test123.com",
+              userId: "test123@test123.com",
+            });
+          }}
+          loading={loader === "STUDENT"}
+        />
       </div>
     </div>
   );
