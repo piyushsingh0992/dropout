@@ -1,10 +1,8 @@
 import React from "react";
 import "./style.css";
-import { useLanguage } from "../../contexts/languageContext";
 import { useTheme } from "../../contexts/themeContext";
 
 const ContextManager = () => {
-  let { languageDispatch } = useLanguage();
   let { theme, themeDispatch } = useTheme();
 
   return (

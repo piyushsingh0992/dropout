@@ -5,7 +5,7 @@ import brandLogo from "../../assets/brand/brandLogo.png";
 import TextField from "../textField";
 import Button from "../button";
 import { useTheme } from "../../contexts/themeContext";
-import { useLanguage } from "../../contexts/languageContext";
+
 import { useAuth } from "../../contexts/authContext";
 import { useSignUp } from "../../customHooks/signUp";
 const SignUp = ({
@@ -15,7 +15,7 @@ const SignUp = ({
   signInDetailsSetter,
 }) => {
   const { theme } = useTheme();
-  const { language } = useLanguage();
+
 
   const { login } = useAuth();
   const [loader, setLoader] = useState(false);
@@ -51,13 +51,13 @@ const SignUp = ({
       />
 
       <TextField
-        label={language.auth.email}
+        label="Email"
         value={signUpDetails.userId}
         onChangeFunction={handleChange}
         name="userId"
       />
       <TextField
-        label={language.auth.password}
+        label="Password"
         value={signUpDetails.password}
         onChangeFunction={handleChange}
         name="password"
@@ -73,7 +73,7 @@ const SignUp = ({
           }}
         />
         <p style={{ color: theme.boldText }}>
-          {language.auth.msg1}
+          Already a Member ?
           <span
             style={{
               color: theme.hightLightText,
@@ -82,7 +82,7 @@ const SignUp = ({
               userSetter((value) => !value);
             }}
           >
-            {language.auth.signin}
+Sign In
           </span>
         </p>
       </div>

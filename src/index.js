@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { LanguageProvider } from "./contexts/languageContext";
+
 import { ThemeProvider } from "./contexts/themeContext";
 import { BrowserRouter as Router } from "react-router-dom";
 import { LikedVideoProvider } from "./contexts/likedVideoContext";
@@ -18,7 +18,6 @@ ReactDOM.render(
     <Router>
       <AuthProvider>
         <ThemeProvider>
-          <LanguageProvider>
             <ToastProvider>
               <HistoryProvider>
                 <PlaylistProvider>
@@ -32,7 +31,7 @@ ReactDOM.render(
                 </PlaylistProvider>
               </HistoryProvider>
             </ToastProvider>
-          </LanguageProvider>
+
         </ThemeProvider>
       </AuthProvider>
     </Router>

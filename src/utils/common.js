@@ -20,52 +20,52 @@ import laterWhite from "../assets/icons/laterWhite.svg";
 import history from "../assets/icons/history.svg";
 import historyWhite from "../assets/icons/historyWhite.svg";
 
-import { useLanguage } from "../contexts/languageContext";
+
 
 export const useSideNavRoute = () => {
-  const { language } = useLanguage();
+ 
 
   const sideNavRouteArray = [
     {
       icon: home,
       iconWhite: homeWhite,
-      routeName: language.home,
+      routeName: "Home",
       link: "/",
     },
     {
       icon: mentor,
       iconWhite: mentorWhite,
-      routeName: language.mentors,
+      routeName: "Mentors",
       link: "/choosementor",
     },
     {
       icon: search,
       iconWhite: searchWhite,
-      routeName: language.search,
+      routeName: "Search",
       link: "/search",
     },
     {
       icon: like,
       iconWhite: likeWhite,
-      routeName: language.liked,
+      routeName: "Liked videoes",
       link: "/likedvideos",
     },
     {
       icon: playlist,
       iconWhite: playlistWhite,
-      routeName: language.playlist,
+      routeName: "Playlist",
       link: "/playlist",
     },
     {
       icon: later,
       iconWhite: laterWhite,
-      routeName: language.later,
+      routeName: "Watch Later",
       link: "/watchlater",
     },
     {
       icon: history,
       iconWhite: historyWhite,
-      routeName: language.history,
+      routeName: "History",
       link: "/history",
     },
   ];

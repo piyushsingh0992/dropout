@@ -1,14 +1,13 @@
 import React from "react";
 import "./style.css";
 import { useTheme } from "../../contexts/themeContext";
-import { useLanguage } from "../../contexts/languageContext";
 import SubscribeButton from "../subscribeButton";
 import MentorPlaylistSetter from "../mentorPlaylistSetter";
 const MentorHeader = ({ mentorData, playlistId, playlistIdSetter }) => {
   let { name, banner, _id: mentorId, profile, subject, playlists } = mentorData;
   
   const { theme } = useTheme();
-  const { language } = useLanguage();
+
 
   return (
     <div className="mentorHeader">

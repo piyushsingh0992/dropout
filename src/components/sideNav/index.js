@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 import brandLogo from "../../assets/brand/brandLogo.png";
 import { useTheme } from "../../contexts/themeContext";
-import { useLanguage } from "../../contexts/languageContext";
+
 import { useSideNavRoute } from "../../utils/common.js";
 import { useAuth } from "../../contexts/authContext";
 import { useToast } from "../../contexts/toastContext";
@@ -14,7 +14,7 @@ import dashboardWhite from "../../assets/icons/dashboardWhite.png";
 import LoginButton from "../loginButton";
 const SideNav = () => {
   const { theme } = useTheme();
-  const { language } = useLanguage();
+
   const { sideNavRouteArray } = useSideNavRoute();
   const {
     login: { loginStatus, mentor },

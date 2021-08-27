@@ -5,12 +5,11 @@ import brandLogo from "../../assets/brand/brandLogo.png";
 import TextField from "../textField";
 import Button from "../button";
 import { useTheme } from "../../contexts/themeContext";
-import { useLanguage } from "../../contexts/languageContext";
 import { useAuth } from "../../contexts/authContext";
 import { useSignIn } from "../../customHooks/signIn";
 const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
   const { theme } = useTheme();
-  const { language } = useLanguage();
+
   const { login } = useAuth();
   const [loader, setLoader] = useState("");
 
@@ -38,13 +37,13 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
     <div className="signin" style={{ backgroundColor: theme.cardBackground }}>
       <img src={brandLogo} />
       <TextField
-        label={language.auth.email}
+        label="Email"
         value={signInDetails.userId}
         onChangeFunction={handleChange}
         name="userId"
       />
       <TextField
-        label={language.auth.password}
+        label="Password"
         value={signInDetails.password}
         onChangeFunction={handleChange}
         type="password"
@@ -52,7 +51,7 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
       />
       <div className="signin-btn-container">
         <Button
-          text={language.auth.signin}
+          text="Sign In"
           clickFunction={() => {
             setLoader("USER");
             signInService(signInDetails);
@@ -60,7 +59,7 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
           loading={loader === "USER"}
         />
         <p style={{ color: theme.boldText }}>
-          {language.auth.msg1}
+          not a member yet ?
           <span
             style={{
               color: theme.hightLightText,
@@ -69,7 +68,7 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
               userSetter((value) => !value);
             }}
           >
-            {language.auth.signup}
+            signup
           </span>
         </p>
         <br />

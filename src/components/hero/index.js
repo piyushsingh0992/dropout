@@ -8,11 +8,11 @@ import SideNav from "../sideNav";
 import leftArrow from "../../assets/icons/leftArrow.svg";
 import rightArrow from "../../assets/icons/rightArrow.svg";
 import { useTheme } from "../../contexts/themeContext";
-import { useLanguage } from "../../contexts/languageContext";
+
 
 const Hero = ({ mentorArray }) => {
   const { theme } = useTheme();
-  const { language } = useLanguage();
+
   const [position, positionSetter] = useState(0);
   const setTimeOutId = useRef();
   const [side, sideSetter] = useState(false);
@@ -95,7 +95,7 @@ const Hero = ({ mentorArray }) => {
 
                   <NavLink to={`/mentor/${item._id}`}>
                     <Button
-                      text={language.startLearning}
+                      text="Start Learning"
                       size="startLearning"
                     />
                   </NavLink>
