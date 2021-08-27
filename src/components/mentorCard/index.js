@@ -3,6 +3,7 @@ import "./style.css";
 
 import { useTheme } from "../../contexts/themeContext";
 import { NavLink } from "react-router-dom";
+import Button from "../button";
 
 const MentorCard = ({
   profile,
@@ -19,9 +20,10 @@ const MentorCard = ({
   };
   return (
     <div className="mentorCard" style={{ background: theme.cardBackground }}>
-      <div className="mentorCard-mentor-pic-container" onClick={triggerHandler}>
+      <div className="mentorCard-mentor-pic-container" >
         <img src={profile} className="mentorCard-mentor-pic" />
         <p style={{ color: theme.boldText }}>{category}</p>
+        <Button text="Know More" clickFunction={triggerHandler}/>
       </div>
       <div
         className={`mentor-card-modal-container ${
@@ -61,7 +63,7 @@ const MentorCard = ({
               className="mentor-card-modal-btn-container"
               style={{ backgroundColor: theme.primaryBackground }}
             >
-              <button>Start Learning</button>
+              <Button text="Start Learning"/>
             </div>
           </NavLink>
         </div>

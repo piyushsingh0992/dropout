@@ -8,7 +8,7 @@
 }
 
 .mentorCard:hover .mentorCard-mentor-pic {
-  transform: scale(0.95);
+  transform: scale(1.25);
 
 }
 
@@ -24,8 +24,8 @@
 }
 
 .mentorCard-mentor-pic {
-  height: 15rem;
-  width: 15rem;
+  height: 10rem;
+  width: 10rem;
   cursor: pointer;
   object-fit: contain;
 
@@ -33,8 +33,7 @@
 }
 
 .mentorCard-mentor-pic-container>p {
-  font-size: 1.5rem;
-
+  font-size: 1.3rem;
 }
 
 
@@ -120,24 +119,6 @@
   align-items: center;
   height: 15%;
   border-radius: 0px 0px 13px 13px;
-}
-
-.mentor-card-modal-btn-container>button {
-  font-size: 1rem;
-  font-family: logo;
-  padding: 0.5rem 1rem;
-  color: var(--white);
-  background-color: var(--primary);
-  border: 2px solid var(--primary);
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.mentor-card-modal-btn-container>button:hover {
-  font-size: 1.1rem;
-
-  color: var(--highlight-text);
-  background-color: var(--white);
 }
 
 .mentor-card-modal-hide {
