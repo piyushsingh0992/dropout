@@ -59,11 +59,11 @@ export async function addVideoToPlaylist({
 }
 
 export async function deleteVideoFromPlaylist(
-  videoId,
+  {videoId,
   playlistId,
   playlistDispatch,
   toastDispatch,
-  userKey
+  userKey,currentDeletingVideoSetter}
 ) {
   let { data, success, message } = await apiCall(
     "DELETE",
@@ -83,13 +83,14 @@ export async function deleteVideoFromPlaylist(
   } else {
     toastDispatch({ type: "error", message });
   }
+  currentDeletingVideoSetter("")
 }
 
 export async function deletePlaylist(
-  playlistId,
+  {playlistId,
   playlistDispatch,
   toastDispatch,
-  userKey
+  userKey,playlistLoaderSetter}
 ) {
   let { data, success, message } = await apiCall("DELETE", `playlist`, {
     playlistId,
@@ -107,6 +108,7 @@ export async function deletePlaylist(
   } else {
     toastDispatch({ type: "error", message });
   }
+  playlistLoaderSetter(false);
 }
 
 export async function playlistNameChanger(

@@ -14,31 +14,52 @@ import {
   playlistNameChanger,
 } from "../../utils/playlistFunction.js";
 import { useToast } from "../../contexts/toastContext";
+import MiniLoader from "../miniloader";
 const PlaylistCard = ({ name, videos, playlistId }) => {
   const { theme } = useTheme();
   const { playlistState, playlistDispatch } = usePlaylist();
   const [edit, editSetter] = useState(false);
   const [newName, newNameSetter] = useState("");
   const { toastDispatch } = useToast();
+  const [currentDeletingVideo, currentDeletingVideoSetter] = useState("");
 
+  const [playlistLoader, playlistLoaderSetter] = useState(false);
   const {
     login: { userKey },
   } = useAuth();
   function deletePlaylistTrigger() {
-    deletePlaylist(playlistId, playlistDispatch, toastDispatch, userKey);
+    playlistLoaderSetter(true);
+    deletePlaylist({
+      playlistId,
+      playlistDispatch,
+      toastDispatch,
+      userKey,
+      playlistLoaderSetter,
+    });
   }
   function deleteVideo(videoId) {
-    deleteVideoFromPlaylist(
+    deleteVideoFromPlaylist({
       videoId,
       playlistId,
       playlistDispatch,
       toastDispatch,
-      userKey
-    );
+      userKey,
+      currentDeletingVideoSetter,
+    });
   }
   const [loader, setLoader] = useState(false);
 
   function nameChangeHandler() {
+    setLoader(true);
+    let present = playlistState.find((item) => item.name === newName);
+    if (present) {
+      toastDispatch({ type: "error", message: "name alreadry present" });
+      setLoader(false);
+      editSetter(value =>!value);
+      return;
+    }
+    
+
     playlistNameChanger(
       playlistId,
       newName,
@@ -64,7 +85,6 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
             <Button
               clickFunction={() => {
                 nameChangeHandler();
-                setLoader(true);
               }}
               text="Update"
               size="playlistNameUpdate"
@@ -78,29 +98,44 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
               src={editIcon}
               className="playlistNameEdit"
               onClick={() => {
+                newNameSetter(name);
                 editSetter((value) => !value);
               }}
             />
           </>
         )}
 
-        <img
-          src={deleteIcon}
-          className="playlistDelete"
-          onClick={deletePlaylistTrigger}
-        />
+        {playlistLoader ? (
+          <div className="playlistDelete">
+            <MiniLoader />
+          </div>
+        ) : (
+          <img
+            src={deleteIcon}
+            className="playlistDelete"
+            onClick={deletePlaylistTrigger}
+          />
+        )}
       </div>
       <div className="playlistVideoContainer">
         {videos.map((item) => {
           return (
             <div className="playlistVideo">
-              <img
-                src={deleteIcon}
-                className="playlistVideoDelete"
-                onClick={() => {
-                  deleteVideo(item._id);
-                }}
-              />
+              {currentDeletingVideo == item._id ? (
+                <div className="playlistVideoDelete">
+                  <MiniLoader />
+                </div>
+              ) : (
+                <img
+                  src={deleteIcon}
+                  className="playlistVideoDelete"
+                  onClick={() => {
+                    deleteVideo(item._id);
+                    currentDeletingVideoSetter(item._id);
+                  }}
+                />
+              )}
+
               <VideoCard videosDetails={item} />
             </div>
           );
