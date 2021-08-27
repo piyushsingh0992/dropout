@@ -26,10 +26,7 @@
 .mentorCard-mentor-pic {
   height: 10rem;
   width: 10rem;
-  cursor: pointer;
   object-fit: contain;
-
-
 }
 
 .mentorCard-mentor-pic-container>p {

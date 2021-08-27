@@ -35,7 +35,7 @@ export const useSideNavRoute = () => {
     {
       icon: mentor,
       iconWhite: mentorWhite,
-      routeName: "Mentors",
+      routeName: "All Mentors",
       link: "/choosementor",
     },
     {

@@ -55,10 +55,9 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
     if (present) {
       toastDispatch({ type: "error", message: "name alreadry present" });
       setLoader(false);
-      editSetter(value =>!value);
+      editSetter((value) => !value);
       return;
     }
-    
 
     playlistNameChanger(
       playlistId,
@@ -118,28 +117,37 @@ const PlaylistCard = ({ name, videos, playlistId }) => {
         )}
       </div>
       <div className="playlistVideoContainer">
-        {videos.map((item) => {
-          return (
-            <div className="playlistVideo">
-              {currentDeletingVideo == item._id ? (
-                <div className="playlistVideoDelete">
-                  <MiniLoader />
-                </div>
-              ) : (
-                <img
-                  src={deleteIcon}
-                  className="playlistVideoDelete"
-                  onClick={() => {
-                    deleteVideo(item._id);
-                    currentDeletingVideoSetter(item._id);
-                  }}
-                />
-              )}
+        {videos.length > 0 ? (
+          videos.map((item) => {
+            return (
+              <div className="playlistVideo">
+                {currentDeletingVideo == item._id ? (
+                  <div className="playlistVideoDelete">
+                    <MiniLoader />
+                  </div>
+                ) : (
+                  <img
+                    src={deleteIcon}
+                    className="playlistVideoDelete"
+                    onClick={() => {
+                      deleteVideo(item._id);
+                      currentDeletingVideoSetter(item._id);
+                    }}
+                  />
+                )}
 
-              <VideoCard videosDetails={item} />
-            </div>
-          );
-        })}
+                <VideoCard videosDetails={item} />
+              </div>
+            );
+          })
+        ) : (
+          <h3
+            style={{ color: theme.boldText }}
+            className="empty-playlist-message"
+          >
+            Currenty you have no Video in "{name}"
+          </h3>
+        )}
       </div>
     </div>
   );

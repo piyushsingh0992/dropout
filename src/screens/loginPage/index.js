@@ -4,12 +4,11 @@ import SignIn from "../../components/signin";
 import SignUp from "../../components/signup";
 import { useTheme } from "../../contexts/themeContext";
 import { useAuth } from "../../contexts/authContext";
-import { useToast } from "../../contexts/toastContext";
 import { useLocation, useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const { theme } = useTheme();
   const {
-    login: { loginStatus },
+    login: { loginStatus, mentor },
   } = useAuth();
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -17,7 +16,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (loginStatus) {
-      navigate(state && state.from ? state.from : "/");
+      navigate(state && state.from ? state.from : mentor ? "/dashboard" : "/");
     }
   }, [loginStatus]);
 

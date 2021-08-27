@@ -38,7 +38,6 @@ function App() {
         <PrivateRoute path="/watchlater" element={<WatchLaterPage />} />
         <PrivateRoute path="/playlist" element={<PlaylistPage />} />
         <PrivateRoute path="/dashboard" element={<DashboardPage />} />
-
         <Route path="*" element={<ErrorPage />} />
       </Routes>
 
