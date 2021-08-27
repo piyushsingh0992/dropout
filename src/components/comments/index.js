@@ -9,6 +9,7 @@ import { useAuth } from "../../contexts/authContext";
 
 import { useToast } from "../../contexts/toastContext";
 import { apiCall } from "../../apiCall";
+import MiniLoader from "../miniloader";
 
 const Comments = ({ comments, videoId }) => {
   const { theme } = useTheme();
@@ -17,6 +18,7 @@ const Comments = ({ comments, videoId }) => {
 
   const { login } = useAuth();
   const { toastDispatch } = useToast();
+  const [loader, loaderSetter] = useState(false);
   let { userKey } = login;
 
   useEffect(() => {
@@ -24,6 +26,7 @@ const Comments = ({ comments, videoId }) => {
   }, []);
 
   async function addComment(comment) {
+    loaderSetter(true);
     let { data, success, message } = await apiCall(
       "POST",
       `comment/${videoId}`,
@@ -39,6 +42,7 @@ const Comments = ({ comments, videoId }) => {
     } else {
       toastDispatch({ type: "error", message });
     }
+    loaderSetter(false);
   }
 
   function addingQuestiononEnter(e) {
@@ -55,9 +59,7 @@ const Comments = ({ comments, videoId }) => {
     if (currentQuestion.length <= 0 || currentQuestion === "\n") {
       return;
     }
-
-    questionArraySetter((value) => [currentQuestion, ...value]);
-    currentQuestionSetter("");
+    addComment(currentQuestion);
   }
 
   return (
@@ -81,11 +83,16 @@ const Comments = ({ comments, videoId }) => {
             currentQuestionSetter(e.target.value);
           }}
         />
-        <img
-          src={enter}
-          className="enterComment"
-          onClick={addingQuestiononClick}
-        />
+
+        {loader ? (
+          <MiniLoader />
+        ) : (
+          <img
+            src={enter}
+            className="enterComment"
+            onClick={addingQuestiononClick}
+          />
+        )}
       </div>
       <div className="questionContainer">
         {questionArray.map(({ user, comment }) => {
