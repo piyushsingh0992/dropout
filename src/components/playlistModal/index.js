@@ -9,8 +9,9 @@ import {
   createPlaylist,
   addVideoToPlaylist,
 } from "../../utils/playlistFunction.js";
+import addPlaylist from "../../assets/icons/addPlaylist.png";
 import { useAuth } from "../../contexts/authContext";
-
+import MiniLoader from "../miniloader";
 const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
   const [playlistArray, playlistArraySetter] = useState([]);
   const [newPlaylistName, newPlaylistNameSetter] = useState("");
@@ -22,14 +23,15 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
   );
   const [playlistIdArray, playlistIdArraySetter] = useState([]);
   const [loader, setLoader] = useState(false);
+  const [playlistAddloader, playlistAddloaderSetter] = useState(false);
+  const {
+    login: { userKey },
+  } = useAuth();
 
   useEffect(() => {
     setIsChecked(new Array(playlistState.length).fill(false));
   }, [playlistState]);
 
-  const {
-    login: { userKey },
-  } = useAuth();
   function closingModal() {
     modalTriggerSetter(false);
   }
@@ -38,25 +40,23 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
     playlistArraySetter(playlistState);
   }, [playlistState]);
 
-  function enterKeyHandler(e) {
-    if (e.keyCode === 13 && newPlaylistName.length > 0) {
-      const present = playlistState.find(
-        (item) => item.name === newPlaylistName
-      );
-      if (present) {
-        toastDispatch({
-          type: "error",
-          message: "playlist already exist",
-        });
-      } else {
-        createPlaylist(
-          newPlaylistName,
-          playlistDispatch,
-          newPlaylistNameSetter,
-          toastDispatch,
-          userKey
-        );
-      }
+  function createNewPlaylist() {
+    playlistAddloaderSetter(true);
+    const present = playlistState.find((item) => item.name === newPlaylistName);
+    if (present) {
+      toastDispatch({
+        type: "error",
+        message: "playlist already exist",
+      });
+    } else {
+      createPlaylist({
+        newPlaylistName,
+        playlistDispatch,
+        newPlaylistNameSetter,
+        toastDispatch,
+        userKey,
+        playlistAddloaderSetter,
+      });
     }
   }
 
@@ -76,17 +76,18 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
       return;
     }
     setLoader(true);
-    addVideoToPlaylist(
+    addVideoToPlaylist({
       videoId,
       playlistIdArray,
       playlistDispatch,
       modalTriggerSetter,
       toastDispatch,
       userKey,
-      setLoader
-    );
-    playlistIdArraySetter([]);
-    setIsChecked(new Array(playlistState.length).fill(false));
+      setLoader,
+      playlistIdArraySetter,
+      setIsChecked,
+      playlistState,
+    });
   }
 
   return (
@@ -97,33 +98,48 @@ const PlaylistModal = ({ modalTriggerSetter, videoId }) => {
       >
         <img className="playlistClose" src={close} onClick={closingModal} />
         <div>
-          <input
-            placeholder="Create new"
-            className="createPlaylist"
-            style={{
-              backgroundColor: theme.cardBackground,
-              color: theme.boldText,
-              borderBottom: `2px solid ${theme.boldText}`,
-            }}
-            value={newPlaylistName}
-            onKeyDown={(e) => {
-              enterKeyHandler(e);
-            }}
-            onChange={(e) => {
-              newPlaylistNameSetter(e.target.value);
-            }}
-          />
+          <div className="createPlaylist-container">
+            <input
+              placeholder="Create new"
+              className="createPlaylist"
+              style={{
+                backgroundColor: theme.cardBackground,
+                color: theme.boldText,
+                borderBottom: `2px solid ${theme.boldText}`,
+              }}
+              value={newPlaylistName}
+              onChange={(e) => {
+                newPlaylistNameSetter(e.target.value);
+              }}
+            />
+            {playlistAddloader ? (
+              <MiniLoader />
+            ) : (
+              <img
+                onClick={createNewPlaylist}
+                src={addPlaylist}
+                className="add-playlist-icon"
+              />
+            )}
+          </div>
           <div className="allPlaylistsContainer">
             {playlistArray.map((item, index) => {
+              let present = item.videos.find((item) => item._id === videoId);
               return (
                 <div className="existingPlaylist">
                   <input
                     type="checkbox"
                     value={item._id}
                     onChange={(e) => {
+                      if (present) {
+                        toastDispatch({
+                          type: "error",
+                          message: "Video already added to this playlist",
+                        });
+                      }
                       selectedPlaylistsHandler(index, e.target.value);
                     }}
-                    checked={isChecked[index]}
+                    checked={present ? present : isChecked[index]}
                   />
                   <p
                     style={{

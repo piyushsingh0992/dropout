@@ -1,10 +1,10 @@
 import { apiCall } from "../apiCall";
-export async function createPlaylist(
+export async function createPlaylist({
   newPlaylistName,
   playlistDispatch,
   newPlaylistNameSetter,
   toastDispatch,
-  userKey
+  userKey,playlistAddloaderSetter}
 ) {
   let { data, success, message } = await apiCall("POST", `playlist/create`, {
     userKey,
@@ -19,19 +19,21 @@ export async function createPlaylist(
       },
     });
     newPlaylistNameSetter("");
-    toastDispatch({type:"success",message: "playlist Created"});
+    toastDispatch({ type: "success", message: "playlist Created" });
   } else {
-    toastDispatch({type:"error", message});
+    toastDispatch({ type: "error", message });
   }
+  playlistAddloaderSetter(false)
 }
 
-export async function addVideoToPlaylist(
+export async function addVideoToPlaylist({
   videoId,
   playlistIdArray,
   playlistDispatch,
   modalTriggerSetter,
   toastDispatch,
-  userKey,setLoader
+  userKey,
+  setLoader,setIsChecked,playlistIdArraySetter,playlistState}
 ) {
   let { data, success, message } = await apiCall("POST", `playlist`, {
     playlistArray: playlistIdArray,
@@ -45,12 +47,15 @@ export async function addVideoToPlaylist(
       payload: { playlist: data.playlist },
     });
     modalTriggerSetter(false);
-    toastDispatch({type:"success",message: "Video Added to playlist"});
+    toastDispatch({ type: "success", message: "Video Added to playlist" });
     setLoader(false);
   } else {
-    toastDispatch({type:"error", message});
+    toastDispatch({ type: "error", message });
     setLoader(false);
   }
+
+  playlistIdArraySetter([]);
+  setIsChecked(new Array(playlistState.length).fill(false));
 }
 
 export async function deleteVideoFromPlaylist(
@@ -74,9 +79,9 @@ export async function deleteVideoFromPlaylist(
       type: "DELETE_VIDEO",
       payload: { playlist: data.playlist },
     });
-    toastDispatch({type:"success",message: "Video deleted"});
+    toastDispatch({ type: "success", message: "Video deleted" });
   } else {
-    toastDispatch({type:"error", message});
+    toastDispatch({ type: "error", message });
   }
 }
 
@@ -98,9 +103,9 @@ export async function deletePlaylist(
         playlist: data.playlist,
       },
     });
-    toastDispatch({type:"success",message: "Playlist deleted"});
+    toastDispatch({ type: "success", message: "Playlist deleted" });
   } else {
-    toastDispatch({type:"error", message});
+    toastDispatch({ type: "error", message });
   }
 }
 
@@ -110,7 +115,9 @@ export async function playlistNameChanger(
   playlistDispatch,
   newNameSetter,
   toastDispatch,
-  userKey,editSetter,setLoader
+  userKey,
+  editSetter,
+  setLoader
 ) {
   (async function () {
     let { data, success, message } = await apiCall(
@@ -129,12 +136,12 @@ export async function playlistNameChanger(
           playlist: data.playlist,
         },
       });
-      toastDispatch({type:"success",message: " Playlist is renamed"});
-      editSetter(value => !value);
+      toastDispatch({ type: "success", message: " Playlist is renamed" });
+      editSetter((value) => !value);
       setLoader(false);
     } else {
-      toastDispatch({type:"error", message});
-      editSetter(value => !value);
+      toastDispatch({ type: "error", message });
+      editSetter((value) => !value);
       setLoader(false);
     }
   })();
