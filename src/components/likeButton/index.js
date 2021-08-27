@@ -14,17 +14,17 @@ const LikeButton = ({ size, videoId }) => {
     login: { userKey },
   } = useAuth();
 
-
-
-  
   useEffect(() => {
-    let present = likedVideoState.find((item) => item._id === videoId);
+    if (likedVideoState) {
+      let present = likedVideoState.find((item) => item._id === videoId);
 
-    if (present) {
-      likedVideoSetter(true);
-    } else {
-      likedVideoSetter(false);
+      if (present) {
+        likedVideoSetter(true);
+      } else {
+        likedVideoSetter(false);
+      }
     }
+
     return () => {
       likedVideoSetter(false);
     };

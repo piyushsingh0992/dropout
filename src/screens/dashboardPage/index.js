@@ -162,7 +162,7 @@ const DashboardPage = () => {
       </div>
     </div>
   ) : (
-    <Loader />
+    <Loader size={5} />
   );
 };
 

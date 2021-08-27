@@ -8,7 +8,7 @@ const PlaylistContext = createContext();
 
 
 export function PlaylistProvider({ children }) {
-  const [playlistState, playlistDispatch] = useReducer(playlistManager, []);
+  const [playlistState, playlistDispatch] = useReducer(playlistManager, null);
 
   let { login } = useAuth();
   const { toastDispatch } = useToast();

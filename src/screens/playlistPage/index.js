@@ -4,10 +4,12 @@ import Navigation from "../../components/navigation";
 import Heading from "../../components/heading";
 import PlaylistCard from "../../components/playlistCard";
 import { usePlaylist } from "../../contexts/playlistContext";
+import  Loader  from "../../components/loader";
 const PlaylistPage = () => {
   const { playlistState, playlistDispatch } = usePlaylist();
 
   return (
+    playlistState?
     <div className="pageContainer">
       <Navigation />
       <div className="screenContainer">
@@ -18,7 +20,7 @@ const PlaylistPage = () => {
           })}
         </div>
       </div>
-    </div>
+    </div>:<Loader size={5}/>
   );
 };
 

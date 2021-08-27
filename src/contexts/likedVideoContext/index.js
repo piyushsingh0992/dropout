@@ -8,7 +8,7 @@ const LikedVideoContext = createContext();
 export function LikedVideoProvider({ children }) {
   const [likedVideoState, likedVideoStateDispatch] = useReducer(
     likedVideoManager,
-    []
+    null
   );
 
   let { login } = useAuth();

@@ -20,12 +20,15 @@ const WatchLaterButton = ({ videoId, videoPlayer }) => {
     login: { userKey },
   } = useAuth();
   useEffect(() => {
-    let present = watchLaterState.find((item) => item._id === videoId);
-    if (present) {
-      addedVideoSetter(true);
-    } else {
-      addedVideoSetter(false);
+    if (watchLaterState) {
+      let present = watchLaterState.find((item) => item._id === videoId);
+      if (present) {
+        addedVideoSetter(true);
+      } else {
+        addedVideoSetter(false);
+      }
     }
+
     return () => {
       addedVideoSetter(false);
     };

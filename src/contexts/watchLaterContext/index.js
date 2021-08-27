@@ -8,7 +8,7 @@ const WatchLaterContext = createContext();
 export function WatchLaterProvider({ children }) {
   const [watchLaterState, watchLaterDispatch] = useReducer(
     watchLaterManger,
-    []
+    null
   );
   let { login } = useAuth();
   const { toastDispatch } = useToast();

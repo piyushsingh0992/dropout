@@ -3,10 +3,11 @@ import Navigation from "../../components/navigation";
 import Heading from "../../components/heading";
 import { useWatchLater } from "../../contexts/watchLaterContext";
 import SearchVideoCard from "../../components/searchVideoCard";
+import Loader from "../../components/loader";
 const WatchLaterPage = () => {
   let { watchLaterState } = useWatchLater();
   return (
-    <div className="pageContainer">
+    watchLaterState?<div className="pageContainer">
       <Navigation />
       <div className="screenContainer">
         <Heading text={"Watch Later"} />
@@ -14,7 +15,7 @@ const WatchLaterPage = () => {
           return <SearchVideoCard videosDetails={item} />;
         })}
       </div>
-    </div>
+    </div>:<Loader size={5}/>
   );
 };
 

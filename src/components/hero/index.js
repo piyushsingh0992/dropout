@@ -21,7 +21,7 @@ const Hero = ({ mentorArray }) => {
   useEffect(() => {
     let id = setTimeout(() => {
       slideRight();
-    }, 7000);
+    }, 2500);
     setTimeOutId.current = id;
   }, [position]);
 
