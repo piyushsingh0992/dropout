@@ -89,7 +89,7 @@ const DashboardPage = () => {
       <div className="screenContainer">
         <Heading text={`Hey ${userName}`} />
         <div className="dashBoardControls" style={{ color: theme.boldText }}>
-          <p>Sort By</p>
+          <p>Filter By</p>
           <p>
             <input
               type="radio"
