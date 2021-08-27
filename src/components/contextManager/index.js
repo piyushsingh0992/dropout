@@ -10,22 +10,6 @@ const ContextManager = () => {
   return (
     <div className="contextManagerContainter">
       <div className="contextManager">
-        <select
-          className="languageContextManager"
-          onChange={(e) => {
-            languageDispatch({ type: e.target.value });
-          }}
-        >
-          <option value="English">English</option>
-          <option value="Hindi">हिंदी</option>
-          <option value="Gujarati">ગુજરાતી</option>
-          <option value="Bangla">বাংলা</option>
-          <option value="Marathi">मराठी</option>
-          <option value="Spanish">Spanish</option>
-          <option value="French">french</option>
-          <option value="Italian">Italiano</option>
-        </select>
-
         <button
           onClick={() => {
             themeDispatch({ payload: theme.toggleTo });

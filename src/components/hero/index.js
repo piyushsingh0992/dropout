@@ -11,7 +11,7 @@ import rightArrow from "../../assets/icons/rightArrow.svg";
 import { useTheme } from "../../contexts/themeContext";
 import { useLanguage } from "../../contexts/languageContext";
 
-const Hero = ({mentorArray}) => {
+const Hero = ({ mentorArray }) => {
   const { theme } = useTheme();
   const { language } = useLanguage();
   const [position, positionSetter] = useState(0);
@@ -21,7 +21,7 @@ const Hero = ({mentorArray}) => {
   useEffect(() => {
     let id = setTimeout(() => {
       slideRight();
-    }, 2000);
+    }, 7000);
     setTimeOutId.current = id;
   }, [position]);
 
@@ -46,7 +46,6 @@ const Hero = ({mentorArray}) => {
   return (
     <div className="hero">
       <img src={theme.heroBackground} className="heroBackground" />
-
       <div className="heroContainer">
         <div className="heroNavbar">
           <img src={logo} className="heroBrand" />
@@ -84,6 +83,10 @@ const Hero = ({mentorArray}) => {
             slideRight();
           }}
         />
+        <div className="tagline" style={{color:theme.hightLightText}}>
+        <h1>Even if you Dropout, you can still learn from best </h1>
+        <h3>Choose a mentor and start learning </h3>
+        </div>
         <div className="slideShow" style={{ left: `${position}vw` }}>
           {mentorArray.map((item, index) => {
             return (
