@@ -85,6 +85,10 @@ const Signin = ({ userSetter, signInDetails, signInDetailsSetter }) => {
           }}
           loading={loader === "MENTOR"}
         />
+
+        <span className="extra-info" style={{ color: theme.boldText }}>
+          You get stats/upload Video feature only on mentor login
+        </span>
         <br />
 
         <Button

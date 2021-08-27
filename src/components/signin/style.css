@@ -14,11 +14,14 @@
     padding: 0.5rem 0;
 }
 
+.extra-info{
+    font-size: 0.8rem;
+}
 .signin-btn-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 14rem;
+    height: 18rem;
     text-align: center;
 }
 
