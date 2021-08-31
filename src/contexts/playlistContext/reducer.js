@@ -12,7 +12,7 @@ export function playlistManager(state, action) {
     case "LOADING_PLAYLIST":
       return playlists;
     case "CREATE_PLAYLIST":
-      return [...state, newPlaylist];
+      return [newPlaylist, ...state];
     case "DELETE_PLAYLIST":
       return playlist;
     case "ADD_VIDEO":

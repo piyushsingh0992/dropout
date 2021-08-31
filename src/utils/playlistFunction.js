@@ -4,8 +4,9 @@ export async function createPlaylist({
   playlistDispatch,
   newPlaylistNameSetter,
   toastDispatch,
-  userKey,playlistAddloaderSetter}
-) {
+  userKey,
+  playlistAddloaderSetter,
+}) {
   let { data, success, message } = await apiCall("POST", `playlist/create`, {
     userKey,
     playlistName: newPlaylistName,
@@ -20,10 +21,14 @@ export async function createPlaylist({
     });
     newPlaylistNameSetter("");
     toastDispatch({ type: "success", message: "playlist Created" });
+    return {
+      status: true,
+      newPlaylistId: data.newPlaylist._id,
+    };
   } else {
     toastDispatch({ type: "error", message });
+    return { status: false };
   }
-  playlistAddloaderSetter(false)
 }
 
 export async function addVideoToPlaylist({
@@ -33,8 +38,12 @@ export async function addVideoToPlaylist({
   modalTriggerSetter,
   toastDispatch,
   userKey,
-  setLoader,setIsChecked,playlistIdArraySetter,playlistState}
-) {
+  setLoader,
+  setIsChecked,
+  playlistIdArraySetter,
+  playlistState,currentPlaylistSetter
+}) {
+  currentPlaylistSetter && currentPlaylistSetter(playlistIdArray[0]);
   let { data, success, message } = await apiCall("POST", `playlist`, {
     playlistArray: playlistIdArray,
     videoId: videoId,
@@ -46,7 +55,7 @@ export async function addVideoToPlaylist({
       type: `ADD_VIDEO`,
       payload: { playlist: data.playlist },
     });
-    modalTriggerSetter(false);
+    modalTriggerSetter && modalTriggerSetter(false);
     toastDispatch({ type: "success", message: "Video Added to playlist" });
     setLoader(false);
   } else {
@@ -56,15 +65,19 @@ export async function addVideoToPlaylist({
 
   playlistIdArraySetter([]);
   setIsChecked(new Array(playlistState.length).fill(false));
+  currentPlaylistSetter && currentPlaylistSetter("");
 }
 
-export async function deleteVideoFromPlaylist(
-  {videoId,
+export async function deleteVideoFromPlaylist({
+  videoId,
   playlistId,
   playlistDispatch,
   toastDispatch,
-  userKey,currentDeletingVideoSetter}
-) {
+  userKey,
+  currentDeletingVideoSetter,
+  currentPlaylistSetter,
+}) {
+  currentPlaylistSetter && currentPlaylistSetter(playlistId);
   let { data, success, message } = await apiCall(
     "DELETE",
     `playlist/${videoId}`,
@@ -83,15 +96,17 @@ export async function deleteVideoFromPlaylist(
   } else {
     toastDispatch({ type: "error", message });
   }
-  currentDeletingVideoSetter("")
+  currentDeletingVideoSetter && currentDeletingVideoSetter("");
+  currentPlaylistSetter && currentPlaylistSetter("");
 }
 
-export async function deletePlaylist(
-  {playlistId,
+export async function deletePlaylist({
+  playlistId,
   playlistDispatch,
   toastDispatch,
-  userKey,playlistLoaderSetter}
-) {
+  userKey,
+  playlistLoaderSetter,
+}) {
   let { data, success, message } = await apiCall("DELETE", `playlist`, {
     playlistId,
     userKey,
