@@ -8,6 +8,7 @@ import { useToast } from "../../contexts/toastContext";
 import { apiCall } from "../../apiCall";
 import MiniLoader from "../miniloader";
 const VideoNotes = ({ videoNotes, videoId }) => {
+  
   const [notes, notesSetter] = useState([]);
   const [currentNote, currentNoteSetter] = useState("");
   const [loader, loaderSetter] = useState(false);

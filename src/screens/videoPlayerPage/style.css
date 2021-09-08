@@ -50,6 +50,14 @@
 }
 
 
+.notes-skeleton{
+    min-height: 80vh;
+    min-width: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media only screen and (max-width: 600px) {
     .videoPlayerPageContainer{
         padding:1rem 0.5rem;
