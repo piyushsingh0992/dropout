@@ -49,6 +49,7 @@ const VideoPlayerPage = () => {
           },
         });
         videoDetailsSetter(data.video);
+       
         recommendationSetter(data.recommendation);
         notesSetter(data.notes);
       }

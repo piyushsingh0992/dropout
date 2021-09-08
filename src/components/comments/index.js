@@ -10,23 +10,26 @@ import { useAuth } from "../../contexts/authContext";
 import { useToast } from "../../contexts/toastContext";
 import { apiCall } from "../../apiCall";
 import MiniLoader from "../miniloader";
+import deleteIcon from "../../assets/icons/delete.svg";
 
 const Comments = ({ comments, videoId }) => {
   const { theme } = useTheme();
   const [currentQuestion, currentQuestionSetter] = useState("");
   const [questionArray, questionArraySetter] = useState([]);
 
-  const { login } = useAuth();
+  const { login, userName } = useAuth();
+
   const { toastDispatch } = useToast();
-  const [loader, loaderSetter] = useState(false);
+  const [loader, loaderSetter] = useState("");
   let { userKey } = login;
 
+  const [deleteLoader, deleteLoaderSetter] = useState("");
   useEffect(() => {
     questionArraySetter(comments);
   }, []);
 
   async function addComment(comment) {
-    loaderSetter(true);
+    loaderSetter("add");
     let { data, success, message } = await apiCall(
       "POST",
       `comment/${videoId}`,
@@ -42,7 +45,30 @@ const Comments = ({ comments, videoId }) => {
     } else {
       toastDispatch({ type: "error", message });
     }
-    loaderSetter(false);
+    loaderSetter("");
+  }
+
+  async function deleteComment(commentId) {
+    deleteLoaderSetter(commentId);
+    let { data, success, message } = await apiCall(
+      "POST",
+      `comment/delete/${videoId}`,
+      {
+        userKey,
+        commentId,
+      }
+    );
+
+    if (success === true) {
+      questionArraySetter((value) =>
+        value.filter(({ user, comment, _id }) => {
+          return _id !== commentId;
+        })
+      );
+    } else {
+      toastDispatch({ type: "error", message });
+    }
+    deleteLoaderSetter("");
   }
 
   function addCommentonEnter(e) {
@@ -65,7 +91,7 @@ const Comments = ({ comments, videoId }) => {
   return (
     <div className="comments">
       <div className="questionBox">
-        <Avatar size="large" name="p" />
+        <Avatar size="large" name={login.userName[0]} />
         <input
           placeholder="Type question's for mentor's here"
           style={{
@@ -84,7 +110,7 @@ const Comments = ({ comments, videoId }) => {
           }}
         />
 
-        {loader ? (
+        {loader === "add" ? (
           <MiniLoader />
         ) : (
           <img
@@ -95,11 +121,27 @@ const Comments = ({ comments, videoId }) => {
         )}
       </div>
       <div className="questionContainer">
-        {questionArray.map(({ user, comment }) => {
+        {questionArray.map(({ user, comment, _id }) => {
           return (
-            <div className="question" style={{ color: theme.boldText }}>
-              <Avatar size="small" name={user.userName} />
-              <p>{comment}</p>
+            <div className="individual-question-container">
+              <div className="question" style={{ color: theme.boldText }}>
+                <Avatar size="small" name={user.userName} />
+                <p>{comment}</p>
+              </div>
+              {userKey === user._id &&
+                (deleteLoader === _id ? (
+                  <span className="comment-delete-icon">
+                    <MiniLoader />
+                  </span>
+                ) : (
+                  <img
+                    src={deleteIcon}
+                    className="comment-delete-icon"
+                    onClick={() => {
+                      deleteComment(_id);
+                    }}
+                  />
+                ))}
             </div>
           );
         })}

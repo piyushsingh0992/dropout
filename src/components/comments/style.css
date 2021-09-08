@@ -23,6 +23,34 @@
     transform: scale(0.9);
 }
 
+.individual-question-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment-edit-icon{
+   height: 1.2rem;
+   cursor: pointer;
+    }
+
+.comment-delete-icon{
+margin:0 2rem;height: 1.2rem;
+cursor: pointer !important;
+}
+
+
+.comment-edit-icon:hover{
+    transform: scale(1.1);}
+ 
+ .comment-delete-icon:hover{
+transform: scale(1.1);}
+
+ .comment-edit-icon:active{
+    transform: scale(0.9);}
+ 
+ .comment-delete-icon:active{
+transform: scale(0.9);}
 .question{
     display: flex;
     width:95%;
