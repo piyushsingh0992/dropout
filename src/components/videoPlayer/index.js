@@ -8,14 +8,22 @@ import PlaylistButton from "../playlistButton";
 import { useTheme } from "../../contexts/themeContext";
 import PlaylistModal from "../playlistModal";
 import SubscribeButton from "../subscribeButton";
+import share from "../../assets/icons/share.png";
+import { useToast } from "../../contexts/toastContext";
 
 const VideoPlayer = ({ videoDetails }) => {
   const [modalTrigger, modalTriggerSetter] = useState(false);
   let { embededLink, like, mentor, _id, title, comments } = videoDetails;
-  
+
   const { theme } = useTheme();
+const {toastDispatch}=useToast()
 
-
+  function copyToClipBoard() {
+    navigator.clipboard.writeText(
+      `https://mentor-1997.netlify.app/videoplayer/${_id}`
+    );
+    toastDispatch({ type: "success", message: "copied to clipboard" });
+  }
 
   return (
     <div className="videoPlayer">
@@ -32,6 +40,10 @@ const VideoPlayer = ({ videoDetails }) => {
             modalTriggerSetter={modalTriggerSetter}
           />
           <WatchLaterButton videoId={_id} videoPlayer />
+          <div className="share-container" onClick={copyToClipBoard}>
+            <img src={share} />
+            <p>Share </p>
+          </div>
         </div>
       </div>
 
@@ -46,7 +58,7 @@ const VideoPlayer = ({ videoDetails }) => {
           </div>
         </NavLink>
         <div>
-        <SubscribeButton mentorId={mentor._id} />
+          <SubscribeButton mentorId={mentor._id} />
         </div>
       </div>
       <Comments comments={comments} videoId={_id} />
