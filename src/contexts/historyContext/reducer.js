@@ -7,7 +7,7 @@ export const historyManager = (state, value) => {
 
     case "ADD_VIDEO":
       
-      return { status: "fullfilled", videos: [payload.video, ...state.videos] };
+      return {  ...state,videos: [payload.video, ...state.videos] };
 
     case "LOGOUT":
       return {

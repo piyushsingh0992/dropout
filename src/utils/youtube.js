@@ -13,6 +13,8 @@ export async function youtube({ videoDetails, mentorDetails }) {
       .split("&")
       .find((item) => item.includes("v="))
       .split("=")[1];
+
+
   if (videoId) {
     const { token } = JSON.parse(localStorage.getItem("loginStatus"));
     try {
